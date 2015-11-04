@@ -11,7 +11,17 @@ package epg.model;
  */
 public abstract class Component {
     
+    int width;
+    int length;
     
-    
+    public Component(int width, int length)
+    {
+        this.width = width;
+        this.length = length;
+    }
+           
+    public abstract void editPrompt();
+    public abstract void display();
+    public abstract void htmlify();    
     
 }

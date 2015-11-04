@@ -18,6 +18,8 @@ public class Portfolio {
     String fileName;
     
     
+    
+    //CONSTRUCTORS
     public Portfolio()
     {
         studentName = "";
@@ -32,7 +34,47 @@ public class Portfolio {
         this.numPages = numPages;
         this.fileName = fileName;
     }
+
     
+    
+    //GETTERS AND SETTERS
+    public void setStudentName(String studentName) {
+        this.studentName = studentName;
+    }
+
+    public void setPages(ArrayList<Page> pages) {
+        this.pages = pages;
+    }
+
+    public void setNumPages(int numPages) {
+        this.numPages = numPages;
+    }
+
+    public void setFileName(String fileName) {
+        this.fileName = fileName;
+    }
+
+    public String getStudentName() {
+        return studentName;
+    }
+
+    public ArrayList<Page> getPages() {
+        return pages;
+    }
+
+    public int getNumPages() {
+        return numPages;
+    }
+
+    public String getFileName() {
+        return fileName;
+    }
+    
+    
+    
+    
+    
+    //METHODS
     
     //@TODO implement Portfolio methods
     public void deletePage(Page pageToDelete)
