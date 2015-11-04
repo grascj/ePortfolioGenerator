@@ -22,6 +22,6 @@ public abstract class Component {
            
     public abstract void editPrompt();
     public abstract void display();
-    public abstract void htmlify();    
+    public abstract String htmlify();    
     
 }
