@@ -9,6 +9,21 @@ package epg.model;
  *
  * @author cgmp
  */
-public class TextComponent {
+public class TextComponent extends Component{
+
+    @Override
+    public void editPrompt() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void display() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public String htmlify() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }

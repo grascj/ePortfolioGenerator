@@ -9,6 +9,32 @@ package epg.model;
  *
  * @author cgmp
  */
-public class ImageComponent {
+public class ImageComponent extends Component {
+    
+    String imageURL;
+    String file;
+
+    
+    
+    //@TODO implement
+    @Override
+    public void editPrompt() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void display() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public String htmlify() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
+    
+    
+    
+    
     
 }

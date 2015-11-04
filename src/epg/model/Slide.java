@@ -10,5 +10,7 @@ package epg.model;
  * @author cgmp
  */
 public class Slide {
+    //@TODO
+    
     
 }
