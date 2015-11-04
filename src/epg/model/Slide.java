@@ -10,7 +10,23 @@ package epg.model;
  * @author cgmp
  */
 public class Slide {
+    
+    String caption;
+    String image;
+    String imageURL;
+    
+    
+   
     //@TODO
+
+    public Slide(String caption, String image, String imageURL) {
+        this.caption = caption;
+        this.image = image;
+        this.imageURL = imageURL;
+    }
+
+    
+    
     
     
 }

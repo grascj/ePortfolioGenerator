@@ -10,6 +10,15 @@ package epg.model;
  * @author cgmp
  */
 public class VideoComponent extends Component{
+    
+    String videoURL;
+    String video;
+    
+    public VideoComponent(int width, int length, String videoURL, String video) {
+        super(width, length);
+        this.videoURL = videoURL;
+        this.video = video;
+    }
 
     @Override
     public void editPrompt() {

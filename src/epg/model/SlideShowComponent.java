@@ -11,6 +11,13 @@ package epg.model;
  */
 public class SlideShowComponent extends Component{
 
+    SlideShow slideshow;
+    
+    public SlideShowComponent(int width, int length, SlideShow slideshow) {
+        super(width, length);
+        this.slideshow = slideshow;
+    }
+
     @Override
     public void editPrompt() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
