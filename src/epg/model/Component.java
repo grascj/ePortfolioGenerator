@@ -36,7 +36,7 @@ public abstract class Component {
         this.length = length;
     }
            
-    
+    public abstract String getFile();
     
     public abstract void editPrompt();
     public abstract void display();

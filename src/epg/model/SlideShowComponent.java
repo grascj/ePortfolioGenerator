@@ -17,6 +17,12 @@ public class SlideShowComponent extends Component{
         super(width, length);
         this.slideshow = slideshow;
     }
+    
+     @Override
+    public String getFile() {return null;}
+    
+    
+    
 
     @Override
     public void editPrompt() {
@@ -32,5 +38,7 @@ public class SlideShowComponent extends Component{
     public String htmlify() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+   
     
 }

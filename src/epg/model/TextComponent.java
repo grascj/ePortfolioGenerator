@@ -24,6 +24,13 @@ public class TextComponent extends Component{
         this.text = text;
     }
 
+    @Override
+    public String getFile(){return null;}
+    @Override
+    public int getWidth(){return -1;}
+    @Override
+    public int getLength(){return -1;}
+    
     
     
     

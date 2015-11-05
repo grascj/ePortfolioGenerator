@@ -12,12 +12,12 @@ package epg.model;
 public class VideoComponent extends Component{
     
     String videoURL;
-    String video;
+    String file;
     
     public VideoComponent(int width, int length, String videoURL, String video) {
         super(width, length);
         this.videoURL = videoURL;
-        this.video = video;
+        this.file = video;
     }
 
     public String getVideoURL() {
@@ -28,12 +28,12 @@ public class VideoComponent extends Component{
         this.videoURL = videoURL;
     }
 
-    public String getVideo() {
-        return video;
+    public String getFile() {
+        return file;
     }
 
-    public void setVideo(String video) {
-        this.video = video;
+    public void setFile(String video) {
+        this.file = video;
     }
 
     

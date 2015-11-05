@@ -28,14 +28,13 @@ public class EPortfolioGenerator extends Application {
      */
     public static void main(String[] args) {
         
-        ImageComponent a = new ImageComponent(200, 200, "url", "pic");
+        ImageComponent a = new ImageComponent(200, 200, "url", "pic.jpg");
         System.out.println(HTMLWorker.generateImageComponentHTML(a));
-        System.out.println(a+"\n\n\n");
+       
         
         
         VideoComponent b = new VideoComponent(200,200,"url","reee.mp4");
         System.out.println(HTMLWorker.generateVideoComponentHTML(b));
-        System.out.println(b);
         
         Page c = new Page();
         c.setTitle("lotsoftext");

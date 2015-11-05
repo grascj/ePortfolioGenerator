@@ -30,6 +30,7 @@ public class ImageComponent extends Component {
         this.imageURL = imageURL;
     }
 
+    @Override
     public String getFile() {
         return file;
     }
