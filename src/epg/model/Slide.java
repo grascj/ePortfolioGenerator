@@ -24,7 +24,7 @@ public class Slide {
         this.image = image;
         this.imageURL = imageURL;
     }
-
+ 
     
     
     

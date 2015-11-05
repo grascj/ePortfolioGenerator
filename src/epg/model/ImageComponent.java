@@ -14,13 +14,30 @@ public class ImageComponent extends Component {
     String imageURL;
     String file;
 
-    ImageComponent(String imageURL, String file, int width, int length)
+    public ImageComponent(int width, int length, String imageURL, String file)
     {
         super(width, length);
         this.imageURL = imageURL;
         this.file = file;
         
     }
+
+    public String getImageURL() {
+        return imageURL;
+    }
+
+    public void setImageURL(String imageURL) {
+        this.imageURL = imageURL;
+    }
+
+    public String getFile() {
+        return file;
+    }
+
+    public void setFile(String file) {
+        this.file = file;
+    }
+    
     
     //@TODO implement
     @Override
