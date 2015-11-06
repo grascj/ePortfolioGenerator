@@ -53,8 +53,8 @@ public class HTMLWorker {
     //SIZE STUFF
     public static final String O_WIDTH = " width=\\\"";
     public static final String C_WIDTH = "\\\"";
-    public static final String O_LENGTH = " length=\\\"";
-    public static final String C_LENGTH = "\\\"";
+    public static final String O_HEIGHT = " height=\\\"";
+    public static final String C_HEIGHT = "\\\"";
     
     
     private HTMLWorker() {};
@@ -72,7 +72,7 @@ public class HTMLWorker {
     
     private static String makeSize(Component comp)
     {
-        return O_WIDTH + comp.getWidth() + C_WIDTH + O_LENGTH + comp.getLength() + C_LENGTH;
+        return O_WIDTH + comp.getWidth() + C_WIDTH + O_HEIGHT + comp.getLength() + C_HEIGHT;
     }
     
     private static String makeSrc(Component comp)
@@ -102,12 +102,24 @@ public class HTMLWorker {
         return html;
     }
 
-    public static String generateSlideShowComponentHTML(SlideShowComponent comp) {
-        String html
-                = O_DIV + "\n"
-                + ""
-                + E_DIV + "\n";
-
+    
+    //need to make a json to correspond to it
+    public static String generateSlideShowComponentHTML(SlideShowComponent comp, int numSlideShow) {
+            //60% of total height for the image 
+        
+       String html = O_DIV 
+               + "<div class=\\\"slideshowcontainer\\\" style=\\\"width:"+ comp.getWidth() +"px;height:"+ comp.getLength() +"px;\\\">"
+               + "<h1 class=\\\"slideshowtitle\\\">"+comp.getslideshow().getTitle()+"</h1>"
+               + "<img class=\\\"slideshowimage\\\" id=\\\""+comp.getslideshow().getTitle()+"img\\\"></img>"
+               + "<p class=\\\"slideshowcaption\\\" id=\\\""+comp.getslideshow().getTitle()+"caption\\\"></p>"
+               + "<div class=\\\"slideshowbuttoncontainer\\\">"
+               + "<img class=\\\"prevButton slideshowbutton\\\" src=\\\"media/button_images/previous.png\\\" onclick=\\\"previousButton(pagedata.slideshows["+numSlideShow+"])\\\"></img>"
+               + "<img class=\\\"playButton slideshowbutton\\\" id=\\\""+comp.getslideshow().getTitle()+"button\\\" src=\\\"media/button_images/play.png\\\" onclick=\\\"playSlideShow(pagedata.slideshows["+numSlideShow+"])\\\"></img>"
+               + "<img class=\\\"nextButton slideshowbutton\\\" src=\\\"media/button_images/next.png\\\" onclick=\\\"nextButton(pagedata.slideshows["+numSlideShow+"])\\\"></img>"
+               + E_DIV
+               + E_DIV;
+               
+               
         return html;
     }
 
