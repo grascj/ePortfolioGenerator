@@ -12,13 +12,22 @@ import java.util.ArrayList;
  * @author cgmp
  */
 public class SlideShow {
-    ArrayList<Slide> slides;
+ArrayList<Slide> slides;
     int numSlides;
     Slide selectedSlide;
+    String title;
     
-    public SlideShow(ArrayList<Slide> slides, int numSlides) {
+    public SlideShow(ArrayList<Slide> slides, int numSlides, String title) {
         this.slides = slides;
         this.numSlides = numSlides;
+        this.title = title;
+    }
+    
+    
+    
+    public String getTitle()
+    {
+        return title;
     }
     
     public ArrayList<Slide> getSlides() {

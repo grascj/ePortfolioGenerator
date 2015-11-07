@@ -6,6 +6,7 @@
 package epg.model;
 
 import epg.ProgramConstants.FONT;
+import java.util.ArrayList;
 
 /**
  *
@@ -14,11 +15,12 @@ import epg.ProgramConstants.FONT;
 public class TextComponent extends Component{
 
     FONT font;
-    String text;
+    
+    ArrayList<TextHolder> text;
     
     
     //@TODO need clarifications
-    public TextComponent(int width, int length, FONT font, String Text) {
+    public TextComponent(int width, int length, FONT font, ArrayList<TextHolder> text) {
         super(width, length);
         this.font = font;
         this.text = text;

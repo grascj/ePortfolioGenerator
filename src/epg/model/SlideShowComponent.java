@@ -18,6 +18,13 @@ public class SlideShowComponent extends Component{
         this.slideshow = slideshow;
     }
     
+    
+    public SlideShow getslideshow()
+    {
+        return slideshow;
+    }
+    
+    
      @Override
     public String getFile() {return null;}
     

@@ -11,9 +11,9 @@ package epg.model;
  */
 public class Slide {
     
-    String caption;
-    String image;
-    String imageURL;
+    public String caption;
+    public String image;
+    public String imageURL;
     
     
    
@@ -24,7 +24,8 @@ public class Slide {
         this.image = image;
         this.imageURL = imageURL;
     }
- 
+    
+    
     
     
     

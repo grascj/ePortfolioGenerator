@@ -1,0 +1,138 @@
+/*this css file is for the layout of the document*/
+/*topnav*/
+
+
+html,body {
+margin: 0;
+}
+
+
+
+
+#textcomp {
+
+}
+
+#banner{
+margin: 0;
+padding: 0;
+margin-right:100px;
+margin-left:100px;
+margin-bottom: 10px;
+overflow:hidden;
+}
+
+#bannerImage{
+display: block;
+margin: 0;
+max-width:100%;
+}
+
+#namediv {
+margin-bottom: 10px;
+margin-left:100px;
+margin-right:100px;
+padding-top:10px;
+padding-bottom:10px;
+}
+
+#nametxt {
+margin:auto;
+display:block;
+text-align: center;
+}
+
+#navbar{
+margin-bottom:10px;
+display:block;
+text-align: center;
+margin-left:100px;
+margin-right:100px;
+}
+
+.pagelink{
+display: inline-block;
+margin-left: 10px;
+padding: 10px 0;
+}
+
+#components{
+margin-bottom:10px;
+padding-left: 100px;
+padding-right: 100px;
+}
+
+#footer{
+margin: 0;
+padding: 0;
+margin-right:100px;
+margin-left:100px;
+overflow:hidden;
+
+}
+
+#footerImage{
+display: block;
+margin: 0;
+max-width:100%
+}
+
+.compdiv{
+padding: 10px;
+}
+
+.comp{
+display:block;
+margin:auto;
+}
+
+
+
+
+
+
+
+
+
+
+
+/*slideshow stuff*/
+.slideshowcontainer{
+margin:auto;
+display:block
+}
+
+.slideshowtitle{
+text-align: center;
+}
+
+.slideshowimage{
+display:block;
+height: 60%;
+margin: auto;
+}
+
+.slideshowcaption{
+text-align: center;
+}
+
+.slideshowbuttoncontainer{
+display: table;
+margin: auto;
+width: auto;
+height: auto;
+}
+
+.slideshowbutton{
+display: inline;
+width: 20px;
+height: 20px;
+margin-left: 20px;
+margin-right: 20px;
+}
+
+
+
+
+
+
