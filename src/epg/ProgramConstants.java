@@ -13,11 +13,14 @@ public class ProgramConstants {
     
     //@TODO add enums
     public enum FONT        {NORMAL};
-    public enum LAYOUT      {NORMAL};
+    public enum LAYOUT      {NORMAL,a,b};
     public enum COLOR       {NINTIESKIDS, EIGHTIES, EDGY, NORMAL, PRETTY};
     public enum TEXT_TYPE   {HEADER, PARAGRAPH, LIST};
 
+    //Defaults
     
-    
+    //Paths
+    public static String PATH_SAVES = "./saves";
+    public static String PATH_SITES = "./sites";
     
 }

@@ -38,6 +38,7 @@ public class Portfolio {
     
     
     //GETTERS AND SETTERS
+    
     public void setStudentName(String studentName) {
         this.studentName = studentName;
     }

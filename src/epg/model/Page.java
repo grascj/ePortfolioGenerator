@@ -23,9 +23,12 @@ public class Page {
     LAYOUT layout;
     COLOR colors;
     String bannerURL;
+    String banner;
     String footerURL;
+    String footer;
     String title;
     ArrayList<Component> components;
+    ArrayList<SlideShow> slideshows;
     
     //CONSTRUCTORS
     public Page()
@@ -38,7 +41,31 @@ public class Page {
     }
     //@TODO add another constructor
     
+    public ArrayList<SlideShow> getSlideshows() {
+        return slideshows;
+    }
+
     //GETTERS AND SETTERS
+    public void setSlideshows(ArrayList<SlideShow> slideshows) {
+        this.slideshows = slideshows;
+    }
+
+    public String getBanner() {
+        return banner;
+    }
+
+    public void setBanner(String banner) {
+        this.banner = banner;
+    }
+
+    public String getFooter() {
+        return footer;
+    }
+
+    public void setFooter(String footer) {
+        this.footer = footer;
+    }
+    
     public LAYOUT getLayout() {
         return layout;
     }

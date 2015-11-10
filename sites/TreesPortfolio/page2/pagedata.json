@@ -1,0 +1,17 @@
+
+{
+    "name":"chris grasing",
+    "title":"page2",
+    "layout":1,
+    "bannerImage":"tree2.jpg",
+    "footerImage":"treef2.jpg",
+    "navbar":[
+        "<a href=\"../page1/index.html\" class=\"pagelink\">page1</a>",
+        "<a href=\"../page2/index.html\" class=\"pagelink\">page2</a>",
+        "<a href=\"../page3/index.html\" class=\"pagelink\">page3</a>"
+    ],
+    "components":[
+    ],
+    "slideshows":[
+    ]
+}

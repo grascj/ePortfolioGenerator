@@ -5,6 +5,8 @@
  */
 package epg.model;
 
+import epg.file.HTMLWorker;
+
 /**
  *
  * @author cgmp
@@ -53,7 +55,7 @@ public class ImageComponent extends Component {
 
     @Override
     public String htmlify() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return HTMLWorker.generateImageComponentHTML(this);
     }
     
     

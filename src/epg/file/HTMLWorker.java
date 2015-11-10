@@ -26,7 +26,7 @@ public class HTMLWorker {
     public static final String PATH_MEDIA = "/media/";
     
     //DIVS
-    public static final String O_DIV = "<div class=\\\"compdiv\\\">";
+    public static final String O_DIV = "<div class=\"compdiv\">";
     public static final String E_DIV = "</div>";
     //IMAGES
     public static final String O_IMAGE = "<img";
@@ -34,27 +34,27 @@ public class HTMLWorker {
     //VIDEOS
     public static final String O_VIDEO = "<video";
     public static final String E_VIDEO = " controls></video>";
-    public static final String VIDEOTYPE = " type=\\\"video/mp4\\\"";
+    public static final String VIDEOTYPE = " type=\"video/mp4\"";
     //LINK
-    public static final String O_LINK = "<a href=\\\"";
+    public static final String O_LINK = "<a href=\"";
     public static final String C_LINK = ">";
     public static final String E_LINK = "</a>";
     
     //useful stuff
-    public static final String O_ID = " id=\\\"";
-    public static final String C_ID = "\\\"";
+    public static final String O_ID = " id=\"";
+    public static final String C_ID = "\"";
 
-    public static final String O_SRC = " src=\\\".";
-    public static final String C_SRC = "\\\"";
+    public static final String O_SRC = " src=\".";
+    public static final String C_SRC = "\"";
     
-    public static final String CLASS_COMP = " class=\\\"comp\\\"";
+    public static final String CLASS_COMP = " class=\"comp\"";
    
     
     //SIZE STUFF
-    public static final String O_WIDTH = " width=\\\"";
-    public static final String C_WIDTH = "\\\"";
-    public static final String O_HEIGHT = " height=\\\"";
-    public static final String C_HEIGHT = "\\\"";
+    public static final String O_WIDTH = " width=\"";
+    public static final String C_WIDTH = "\"";
+    public static final String O_HEIGHT = " height=\"";
+    public static final String C_HEIGHT = "\"";
     
     
     private HTMLWorker() {};
@@ -64,8 +64,8 @@ public class HTMLWorker {
     /* NAVBAR BUILDER */
     public static String navBarBuilderHTML(Page page) {
         String html
-                = O_LINK + "../" +  page.getTitle() + "/" + page.getTitle() + ".html\\\"" +
-                " class=\\\"pagelink\\\"" + C_LINK + page.getTitle() + E_LINK;  
+                = O_LINK + "../" +  page.getTitle() + "/index.html\"" +
+                " class=\"pagelink\"" + C_LINK + page.getTitle() + E_LINK ;  
         return html;
     }
     
@@ -85,9 +85,9 @@ public class HTMLWorker {
     /* METHODS FOR COMPONENTS */
     public static String generateImageComponentHTML(ImageComponent comp) {
         String html
-                = O_DIV
+                =  O_DIV
                 + O_IMAGE + CLASS_COMP + makeSize(comp)+ makeSrc(comp) + E_IMAGE
-                + E_DIV;
+                + E_DIV ;
 
         return html;
     }
@@ -107,17 +107,17 @@ public class HTMLWorker {
     public static String generateSlideShowComponentHTML(SlideShowComponent comp, int numSlideShow) {
             //60% of total height for the image 
         
-       String html = O_DIV 
-               + "<div class=\\\"slideshowcontainer\\\" style=\\\"width:"+ comp.getWidth() +"px;height:"+ comp.getLength() +"px;\\\">"
-               + "<h1 class=\\\"slideshowtitle\\\">"+comp.getslideshow().getTitle()+"</h1>"
-               + "<img class=\\\"slideshowimage\\\" id=\\\""+comp.getslideshow().getTitle()+"img\\\"></img>"
-               + "<p class=\\\"slideshowcaption\\\" id=\\\""+comp.getslideshow().getTitle()+"caption\\\"></p>"
-               + "<div class=\\\"slideshowbuttoncontainer\\\">"
-               + "<img class=\\\"prevButton slideshowbutton\\\" src=\\\"media/button_images/previous.png\\\" onclick=\\\"previousButton(pagedata.slideshows["+numSlideShow+"])\\\"></img>"
-               + "<img class=\\\"playButton slideshowbutton\\\" id=\\\""+comp.getslideshow().getTitle()+"button\\\" src=\\\"media/button_images/play.png\\\" onclick=\\\"playSlideShow(pagedata.slideshows["+numSlideShow+"])\\\"></img>"
-               + "<img class=\\\"nextButton slideshowbutton\\\" src=\\\"media/button_images/next.png\\\" onclick=\\\"nextButton(pagedata.slideshows["+numSlideShow+"])\\\"></img>"
+       String html =  O_DIV 
+               + "<div class=\"slideshowcontainer\" style=\"width:"+ comp.getWidth() +"px;height:"+ comp.getLength() +"px;\">"
+               + "<h1 class=\"slideshowtitle\">"+comp.getslideshow().getTitle()+"</h1>"
+               + "<img class=\"slideshowimage\" id=\""+comp.getslideshow().getTitle()+"img\"></img>"
+               + "<p class=\"slideshowcaption\" id=\""+comp.getslideshow().getTitle()+"caption\"></p>"
+               + "<div class=\"slideshowbuttoncontainer\">"
+               + "<img class=\"prevButton slideshowbutton\" src=\"../data/button_images/previous.png\" onclick=\"previousButton(pagedata.slideshows["+numSlideShow+"])\"></img>"
+               + "<img class=\"playButton slideshowbutton\" id=\""+comp.getslideshow().getTitle()+"button\" src=\"../data/button_images/play.png\" onclick=\"playSlideShow(pagedata.slideshows["+numSlideShow+"])\"></img>"
+               + "<img class=\"nextButton slideshowbutton\" src=\"../data/button_images/next.png\" onclick=\"nextButton(pagedata.slideshows["+numSlideShow+"])\"></img>"
                + E_DIV
-               + E_DIV;
+               + E_DIV ;
                
                
         return html;
@@ -125,9 +125,9 @@ public class HTMLWorker {
 
     public static String generateVideoComponentHTML(VideoComponent comp) {
         String html
-                = O_DIV
+                =  O_DIV
                 + O_VIDEO + CLASS_COMP + VIDEOTYPE + makeSize(comp) + makeSrc(comp) + E_VIDEO
-                + E_DIV;
+                + E_DIV ;
 
         return html;
     }

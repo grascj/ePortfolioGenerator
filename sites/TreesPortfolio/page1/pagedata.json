@@ -1,0 +1,19 @@
+
+{
+    "name":"chris grasing",
+    "title":"page1",
+    "layout":0,
+    "bannerImage":"tree1.jpg",
+    "footerImage":"treef1.jpg",
+    "navbar":[
+        "<a href=\"../page1/index.html\" class=\"pagelink\">page1</a>",
+        "<a href=\"../page2/index.html\" class=\"pagelink\">page2</a>",
+        "<a href=\"../page3/index.html\" class=\"pagelink\">page3</a>"
+    ],
+    "components":[
+        "<div class=\"compdiv\"><img class=\"comp\" width=\"200\" height=\"200\" src=\"./media/herb.png\"></img></div>",
+        "<div class=\"compdiv\"><video class=\"comp\" type=\"video/mp4\" width=\"200\" height=\"200\" src=\"./media/treevid.mp4\" controls></video></div>"
+    ],
+    "slideshows":[
+    ]
+}
