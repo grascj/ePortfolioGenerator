@@ -97,6 +97,13 @@ public class JsonCreator {
         writeToFile(jsonFilePath, data);
     }
  
+    
+    
+    
+    
+    
+    
+    //
     private JsonArray makeNavbarHTML(ArrayList<Page> pages)
     {
         JsonArrayBuilder navbar = Json.createArrayBuilder();
@@ -139,17 +146,6 @@ public class JsonCreator {
 	pw.close();     
     }
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     private JsonArray makeSlideShowData(ArrayList<SlideShow> slideshows)
     {     
         JsonArrayBuilder ssList = Json.createArrayBuilder();
@@ -184,8 +180,4 @@ public class JsonCreator {
 
     }
     
-    public JsonArray makeComponentList(ArrayList<Component> comps)
-    {
-        return null;
-    }
 }
