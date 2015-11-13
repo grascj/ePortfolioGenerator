@@ -42,7 +42,7 @@ public class VideoComponent extends Component{
     
     @Override
     public void editPrompt() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            //prompt to edit
     }
 
     @Override
@@ -54,5 +54,10 @@ public class VideoComponent extends Component{
     public String htmlify() {
         return HTMLWorker.generateVideoComponentHTML(this);
     }
+    
+    @Override
+    public String getDisplayText() {
+        return "A Video which is: " + width + "px wide and " + length + "px tall. The file name is: " + file;
+    }    
     
 }

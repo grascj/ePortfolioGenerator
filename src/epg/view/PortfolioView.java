@@ -7,8 +7,8 @@ package epg.view;
 
 import epg.controller.FileController;
 import epg.controller.ModeController;
-import epg.controller.PageViewController;
 import epg.error.ErrorHandler;
+import epg.model.Page;
 import epg.model.Portfolio;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.Scene;
@@ -30,7 +30,7 @@ public class PortfolioView {
    //ui components
    FileToolbar fileTB;
    ModeToolbar modeTB;
-   //SiteView siteView;
+   SiteView siteView;
    PageEditor pageEditor;
 
    //positioning
@@ -60,7 +60,8 @@ public class PortfolioView {
        fileTB = new FileToolbar(new FileController(this));
        modeTB = new ModeToolbar(new ModeController(this));
        pageEditor = new PageEditor(workingPortfolio);
-       
+       siteView = new SiteView();
+       pageEditor.updatePage();
    }
    public void initWindow(Stage primaryStage)
    {
@@ -96,7 +97,7 @@ public class PortfolioView {
    }
    public void editMode()
    {
-       //uiPositioner.setCenter(pageViewer);
+       uiPositioner.setCenter(siteView);
    }
    
    

@@ -3,25 +3,27 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package epg.file;
+package epg.prompts;
 
-import epg.model.Portfolio;
+import javafx.stage.Stage;
 
 /**
  *
  * @author cgmp
  */
-public class SiteBuilder {
+public class VideoPrompt extends Stage{
     
     
-    private SiteBuilder()
-    {}
     
-    public static String buildSite(Portfolio portfolio)
+    
+    public VideoPrompt()
     {
-        //@todo
-        return "url";
+        
     }
+    
+    
+    
+    
     
     
 }

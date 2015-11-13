@@ -31,6 +31,7 @@ public class PageEditor extends HBox {
         this.portfolio = portfolio;
         initUI();
         placeChildren();
+        selectedPage = portfolio.getPages().get(0);
     }
     
     public void initUI()
@@ -38,6 +39,7 @@ public class PageEditor extends HBox {
         siteToolbar = new SiteToolbar(new SiteToolbarController(this));
         pageView = new PageView(new PageViewController(this));
     }
+    
     public void placeChildren()
     {
         this.getChildren().addAll(siteToolbar, pageView);
@@ -47,16 +49,30 @@ public class PageEditor extends HBox {
     public void removeSelectedPage()
     {
         portfolio.getPages().remove(selectedPage);
+        updatePage();
+        selectedPage = portfolio.getPages().get(0);
     }
     
     public void updatePage()
     {
-        
+        pageView.update(selectedPage);
+        siteToolbar.update(portfolio.getPages(), selectedPage);
     }
     
-    public void changePage(Page page)
+    public void changePage(int index)
     {
-        
+        selectedPage = portfolio.getPages().get(index);
+        updatePage();
+    }
+    
+    public Portfolio getPortfolio()
+    {
+        return portfolio;
+    }
+    
+    public Page getPage()
+    {
+        return selectedPage;
     }
     
     

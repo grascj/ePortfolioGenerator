@@ -12,9 +12,9 @@ package epg;
 public class ProgramConstants {
     
     //@TODO add enums
-    public enum FONT        {NORMAL};
-    public enum LAYOUT      {NORMAL,a,b};
-    public enum COLOR       {NINTIESKIDS, EIGHTIES, EDGY, NORMAL, PRETTY};
+    public enum FONT        {Fjalla_One, Bree_Serif, Muli, Vollkorn, Iconsolata};
+    public enum LAYOUT      {lownav, sidenav, gaps, topnav, fixedname};
+    public enum COLOR       {beach, campfire, personal, SBUred, vintage};
     public enum TEXT_TYPE   {HEADER, PARAGRAPH, LIST};
 
     //Defaults

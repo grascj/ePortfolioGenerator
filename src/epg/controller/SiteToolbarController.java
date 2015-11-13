@@ -5,6 +5,7 @@
  */
 package epg.controller;
 
+import epg.model.Page;
 import epg.view.PageEditor;
 
 /**
@@ -16,32 +17,26 @@ public class SiteToolbarController {
     PageEditor pe;
     
     
-    public SiteToolbarController(PageEditor pv)
+    public SiteToolbarController(PageEditor pe)
     {
         this.pe = pe;
     }
 
+    
+    
     public void handleNameChange(String text) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        pe.getPortfolio().setStudentName(text);
     }
 
-    public void handlePageChange(Object selectedItem) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    public void removePageButton(Object selectedItem) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void handlePageChange(int index) {
+        pe.changePage(index);
     }
 
     public void handleAddPage() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        pe.getPortfolio().addPage(new Page());
     }
 
-    public void handleRemovePage(Object selectedItem) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void handleRemovePage() {
+        pe.getPortfolio().getPages().remove(pe.getPage());
     }
-    
-    
-    
-    
 }

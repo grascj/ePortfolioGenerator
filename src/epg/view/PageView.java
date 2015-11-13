@@ -8,6 +8,7 @@ package epg.view;
 import epg.ProgramConstants;
 import epg.controller.PageViewController;
 import epg.model.Component;
+import epg.model.Page;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
@@ -53,9 +54,18 @@ public class PageView extends BorderPane {
         topBox = new HBox();
         sideBox = new VBox();
         
+        cv = new ComponentViewer();
+        /*
+            public enum LAYOUT      {lownav, sidenav, gaps, topnav, fixedname};
+            public enum COLOR       {beach, campfire, personal, SBUred, vintage};
+        */
         //buttons n stuff
         layouts = new ComboBox();
+        layouts.getItems().addAll("Low Nav","Side Nav","Gaps","Top Nav","Fixed Name");
+        
         colors = new ComboBox();
+        colors.getItems().addAll("Beach","Campfire","Personal","SBU Red","Vintage");
+        
         footerButton = new Button();
         bannerButton = new Button();
         pageTitleField = new TextField();
@@ -67,7 +77,7 @@ public class PageView extends BorderPane {
         removeCompButton = new Button();
     }
     
-    public void initHandlers()
+    private void initHandlers()
     {
         //@todo might work????
         layouts.setOnAction(e->{pvc.handleLayoutChange((ProgramConstants.LAYOUT) layouts.getSelectionModel().getSelectedItem());});
@@ -80,10 +90,10 @@ public class PageView extends BorderPane {
         textCompButton.setOnAction(e->{pvc.handleTextComp();});
         slideCompButton.setOnAction(e->{pvc.handleSlideComp();});
         videoCompButton.setOnAction(e->{pvc.handleVideoComp();});
-        removeCompButton.setOnAction(e->{pvc.handleRemoveComp();});
+        removeCompButton.setOnAction(e->{pvc.handleRemoveComp(selectedComponent);});
     }
     
-    public void placeChildren()
+    private void placeChildren()
     {
         topBox.getChildren().addAll(layouts, colors, footerButton, bannerButton, pageTitleField);
         sideBox.getChildren().addAll(imageCompButton, textCompButton, slideCompButton, videoCompButton, removeCompButton);
@@ -96,8 +106,18 @@ public class PageView extends BorderPane {
         
     }
     
+    public void update(Page page)
+    {
+        pageTitleField.setText(page.getTitle());
+        layouts.getSelectionModel().select(page.getLayout().ordinal());
+        colors.getSelectionModel().select(page.getLayout().ordinal());
+        cv.update(page.getComponents());
+    }
     
-    
+    public Component getComponent()
+    {
+        return selectedComponent;
+    }
     
     
     

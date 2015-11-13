@@ -24,6 +24,7 @@ public class Portfolio {
     {
         studentName = "";
         pages = new ArrayList<Page>();
+        pages.add(new Page());
         numPages = 1;
         fileName = "default title";
     }

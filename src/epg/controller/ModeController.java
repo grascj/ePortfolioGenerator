@@ -20,11 +20,11 @@ public class ModeController {
     }
 
     public void handleSiteMode() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        pv.viewMode();
     }
 
     public void handleEditMode() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        pv.editMode();
     }
     
     

@@ -38,14 +38,22 @@ public class SlideShowComponent extends Component{
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
+    
+
+
+    @Override
+    public String htmlify() {
+        return HTMLWorker.generateSlideShowComponentHTML(this, slideshow.getNumSlides());
+    }
+
     @Override
     public void display() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public String htmlify() {
-        return HTMLWorker.generateSlideShowComponentHTML(this, slideshow.getNumSlides());
+    public String getDisplayText() {
+        return "A Slide Show which is: " + width + "px wide and " + length + "px tall. The title is: " + slideshow.getTitle();
     }
 
    

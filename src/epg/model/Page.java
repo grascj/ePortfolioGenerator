@@ -33,8 +33,9 @@ public class Page {
     //CONSTRUCTORS
     public Page()
     {
-      layout = LAYOUT.NORMAL;
-      colors = COLOR.NORMAL;
+      layout = LAYOUT.lownav;
+      colors = COLOR.SBUred;
+      title = "Untitled Page";
       bannerURL = null;
       footerURL = null;
       components = new ArrayList<Component>();

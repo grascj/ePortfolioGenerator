@@ -7,6 +7,7 @@ package epg.controller;
 
 import epg.ProgramConstants.COLOR;
 import epg.ProgramConstants.LAYOUT;
+import epg.model.Component;
 import epg.view.PageEditor;
 
 /**
@@ -54,11 +55,13 @@ public class PageViewController {
     }
 
     public void handleVideoComp() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        //VideoPrompt vp = new VideoPrompt();
+        //pe.getPage().getComponents().add();
     }
 
-    public void handleRemoveComp() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void handleRemoveComp(Component comp) {
+        pe.getPage().getComponents().remove(comp);
+        pe.updatePage();
     }
     
     

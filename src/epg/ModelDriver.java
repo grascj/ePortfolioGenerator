@@ -37,7 +37,7 @@ public class ModelDriver {
     public static void main(String[] args) {
         //@TODO LAYUOUTS MUST BE PUT INTO THE ENUM IN ORDER SPECIFIED BY THE JSON. JSON HAS TO HAVE THE INT VALUE
         
-        
+        /*
         
         Portfolio trees = new Portfolio("chris grasing", null, 3, "TreesPortfolio");
         
@@ -96,6 +96,8 @@ public class ModelDriver {
                 Logger.getLogger(EPortfolioGenerator.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
+                */
     }
+                
     
 }

@@ -50,5 +50,9 @@ public class TextComponent extends Component{
     public String htmlify() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
+    //@todo need one for each
+    @Override
+    public String getDisplayText() {
+        return "A Text which is: " + width + "px wide and " + length + "px tall. The title is: ";
+    }    
 }

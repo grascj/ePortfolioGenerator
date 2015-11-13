@@ -6,6 +6,8 @@
 package epg.view;
 
 import epg.controller.SiteToolbarController;
+import epg.model.Page;
+import java.util.ArrayList;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
@@ -29,6 +31,7 @@ public class SiteToolbar extends FlowPane{
         this.stc = stc;
         initChildren();
         initHandlers();
+        placeChildren();
     }
     
     
@@ -38,16 +41,35 @@ public class SiteToolbar extends FlowPane{
         pageBox = new ComboBox();
         addPageButton = new Button();
         removePageButton = new Button();
+        
     }
     
     public void initHandlers()
     {
         nameField.setOnKeyReleased(e->{stc.handleNameChange(nameField.getText());});
-        pageBox.setOnAction(e->{stc.handlePageChange(pageBox.getSelectionModel().getSelectedItem());});//@todo maybe use ints for enums
+        pageBox.setOnAction(e->{stc.handlePageChange(pageBox.getSelectionModel().getSelectedIndex());});//@todo maybe use ints for enums
         addPageButton.setOnAction(e->{stc.handleAddPage();});
-        removePageButton.setOnAction(e->{stc.handleRemovePage(pageBox.getSelectionModel().getSelectedItem());});
+        removePageButton.setOnAction(e->{stc.handleRemovePage();});
+    }
+    
+    public void placeChildren()
+    {
+        this.getChildren().addAll(nameField, addPageButton, removePageButton, pageBox);
+    }
+    
+    public void update(ArrayList<Page> pages, Page selectedPage)
+    {
+        pageBox.getItems().clear();
+        for(Page page : pages)
+        {
+            pageBox.getItems().add(page.getTitle());
+        }    
+        
+        pageBox.getSelectionModel().select(selectedPage.getTitle());
         
     }
+    
+    
     
 
    

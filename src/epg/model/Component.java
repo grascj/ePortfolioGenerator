@@ -41,5 +41,5 @@ public abstract class Component {
     public abstract void editPrompt();
     public abstract void display();
     public abstract String htmlify();    
-    
+    public abstract String getDisplayText();
 }
