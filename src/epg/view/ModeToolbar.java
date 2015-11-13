@@ -27,6 +27,8 @@ class ModeToolbar extends VBox{
         this.mc = mc;
         initButtons();
         initHandlers();
+        placeChildren();
+
     }
 
     private void initButtons() {
@@ -37,8 +39,13 @@ class ModeToolbar extends VBox{
     private void initHandlers() {
         siteButton.setOnAction(e->{mc.handleSiteMode();});
         editorButton.setOnAction(e->{mc.handleEditMode();});
-        
     }
+    
+    private void placeChildren()
+    {
+        this.getChildren().addAll(siteButton, editorButton);
+    }
+    
     
     public void updateControls(Portfolio portfolio)
     {

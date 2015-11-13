@@ -5,9 +5,15 @@
  */
 package epg.view;
 
+import epg.controller.FileController;
+import epg.controller.ModeController;
+import epg.controller.PageViewController;
+import epg.error.ErrorHandler;
 import epg.model.Portfolio;
+import javafx.geometry.Rectangle2D;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
+import javafx.stage.Screen;
 import javafx.stage.Stage;
 
 /**
@@ -24,8 +30,8 @@ public class PortfolioView {
    //ui components
    FileToolbar fileTB;
    ModeToolbar modeTB;
-   SiteView siteView;
-   siteEditor siteEditor;
+   //SiteView siteView;
+   PageEditor pageEditor;
 
    //positioning
    BorderPane uiPositioner;
@@ -44,13 +50,56 @@ public class PortfolioView {
    
    public PortfolioView(Stage primaryStage)
    {
-       
+       workingPortfolio = new Portfolio();
+       initUI();
+       initWindow(primaryStage);
    }
    
    public void initUI()
    {
+       fileTB = new FileToolbar(new FileController(this));
+       modeTB = new ModeToolbar(new ModeController(this));
+       pageEditor = new PageEditor(workingPortfolio);
        
    }
+   public void initWindow(Stage primaryStage)
+   {
+       uiPositioner = new BorderPane();
+       uiPositioner.setTop(fileTB);
+       uiPositioner.setLeft(modeTB);
+       uiPositioner.setCenter(pageEditor);
+
+
+        // GET THE SIZE OF THE SCREEN
+        Screen screen = Screen.getPrimary();
+        Rectangle2D bounds = screen.getVisualBounds();
+
+        // AND USE IT TO SIZE THE WINDOW
+        primaryStage.setX(bounds.getMinX());
+        primaryStage.setY(bounds.getMinY());
+        primaryStage.setWidth(bounds.getWidth());
+        primaryStage.setHeight(bounds.getHeight());
+       
+       
+       
+       primaryScene = new Scene(uiPositioner);
+       
+       primaryStage.setScene(primaryScene);
+       //@todo css
+       primaryStage.show();
+   }
+
+   //@todo idiot proof buttons
+   public void viewMode()
+   {
+       uiPositioner.setCenter(pageEditor);
+   }
+   public void editMode()
+   {
+       //uiPositioner.setCenter(pageViewer);
+   }
+   
+   
    
    public void updateUI()
    {

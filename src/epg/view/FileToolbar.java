@@ -30,15 +30,16 @@ public class FileToolbar extends FlowPane{
         this.fc = fc;
         initButtons();
         initHandlers();
+        placeChildren();
     }
     
     private void initButtons()
     {
-        newButton = new Button();
-        loadButton = new Button();
-        saveButton = new Button();
-        exportButton = new Button();
-        exitButton = new Button();
+        newButton = new Button("new");
+        loadButton = new Button("load");
+        saveButton = new Button("save");
+        exportButton = new Button("export");
+        exitButton = new Button("exit");
     }
     
     private void initHandlers()
@@ -49,6 +50,12 @@ public class FileToolbar extends FlowPane{
         exportButton.setOnAction(e->{fc.handleExport();});
         exitButton.setOnAction(e->{fc.handleExit();});
     }
+    
+    private void placeChildren()
+    {
+        this.getChildren().addAll(newButton, loadButton, saveButton, exportButton, exitButton);
+    }
+    
     
     public void updateControls(Portfolio portfolio)
     {
