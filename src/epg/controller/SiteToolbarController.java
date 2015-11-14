@@ -14,15 +14,12 @@ import epg.view.PageEditor;
  */
 public class SiteToolbarController {
     
-    PageEditor pe;
-    
+    PageEditor pe; 
     
     public SiteToolbarController(PageEditor pe)
     {
         this.pe = pe;
     }
-
-    
     
     public void handleNameChange(String text) {
         pe.getPortfolio().setStudentName(text);
@@ -33,10 +30,13 @@ public class SiteToolbarController {
     }
 
     public void handleAddPage() {
-        pe.getPortfolio().addPage(new Page());
+        pe.getPortfolio().getPages().add(new Page());
+        pe.setSelectedPage(pe.getPortfolio().getPages().size()-1);
+        pe.update();
     }
 
     public void handleRemovePage() {
         pe.getPortfolio().getPages().remove(pe.getPage());
+        pe.update();
     }
 }

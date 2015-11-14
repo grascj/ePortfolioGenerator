@@ -49,15 +49,22 @@ public class PageEditor extends HBox {
     public void removeSelectedPage()
     {
         portfolio.getPages().remove(selectedPage);
-        updatePage();
         selectedPage = portfolio.getPages().get(0);
+        updatePage();
+
     }
     
     public void updatePage()
     {
         pageView.update(selectedPage);
-        siteToolbar.update(portfolio.getPages(), selectedPage);
     }
+    
+    public void update()
+    {
+        pageView.update(selectedPage);
+        siteToolbar.update(portfolio.getPages(), portfolio.getPages().indexOf(selectedPage));
+    }
+    
     
     public void changePage(int index)
     {
@@ -73,6 +80,11 @@ public class PageEditor extends HBox {
     public Page getPage()
     {
         return selectedPage;
+    }
+    
+    public void setSelectedPage(int index)
+    {
+       selectedPage = portfolio.getPages().get(index);
     }
     
     

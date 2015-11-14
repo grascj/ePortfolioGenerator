@@ -5,7 +5,6 @@
  */
 package epg.view;
 
-import epg.ProgramConstants;
 import epg.controller.PageViewController;
 import epg.model.Component;
 import epg.model.Page;
@@ -80,8 +79,8 @@ public class PageView extends BorderPane {
     private void initHandlers()
     {
         //@todo might work????
-        layouts.setOnAction(e->{pvc.handleLayoutChange((ProgramConstants.LAYOUT) layouts.getSelectionModel().getSelectedItem());});
-        colors.setOnAction(e->{pvc.handleColorChange((ProgramConstants.COLOR) colors.getSelectionModel().getSelectedItem());});
+        layouts.setOnAction(e->{pvc.handleLayoutChange(layouts.getSelectionModel().getSelectedIndex());});
+        colors.setOnAction(e->{pvc.handleColorChange(colors.getSelectionModel().getSelectedIndex());});
         
         footerButton.setOnAction(e->{pvc.handleFooterChange();});
         bannerButton.setOnAction(e->{pvc.handleBannerChange();});

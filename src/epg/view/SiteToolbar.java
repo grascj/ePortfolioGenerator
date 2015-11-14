@@ -35,43 +35,43 @@ public class SiteToolbar extends FlowPane{
     }
     
     
-    public void initChildren() 
+    private void initChildren() 
     {
         nameField = new TextField();
         pageBox = new ComboBox();
-        addPageButton = new Button();
-        removePageButton = new Button();
-        
+        addPageButton = new Button("add page");
+        removePageButton = new Button("remove page");
     }
     
-    public void initHandlers()
+    private void initHandlers()
     {
         nameField.setOnKeyReleased(e->{stc.handleNameChange(nameField.getText());});
-        pageBox.setOnAction(e->{stc.handlePageChange(pageBox.getSelectionModel().getSelectedIndex());});//@todo maybe use ints for enums
+        pageBox.setOnAction(e->{
+            if(pageBox.getItems().size() > 0 && pageBox.getItems() != null){stc.handlePageChange(pageBox.getSelectionModel().getSelectedIndex());}
+                    });
         addPageButton.setOnAction(e->{stc.handleAddPage();});
         removePageButton.setOnAction(e->{stc.handleRemovePage();});
     }
     
-    public void placeChildren()
+    private void placeChildren()
     {
         this.getChildren().addAll(nameField, addPageButton, removePageButton, pageBox);
     }
     
-    public void update(ArrayList<Page> pages, Page selectedPage)
+    public void update(ArrayList<Page> pages, int index)
     {
+        System.out.println("updated");
         pageBox.getItems().clear();
-        for(Page page : pages)
-        {
-            pageBox.getItems().add(page.getTitle());
-        }    
-        
-        pageBox.getSelectionModel().select(selectedPage.getTitle());
-        
+        pageBox.getItems().setAll(pages);
+        pageBox.getSelectionModel().select(index);
     }
     
+   //make a listener that we can disable when updating
     
     
-
+    
+    
+    
    
     
 }

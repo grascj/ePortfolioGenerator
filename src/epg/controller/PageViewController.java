@@ -24,10 +24,12 @@ public class PageViewController {
         this.pe = pe;
     }
 
-    public void handleColorChange(COLOR selectedcolor) {
+    public void handleColorChange(int index) {
+        pe.getPage().setColors(COLOR.values()[index]);
     }
 
-    public void handleLayoutChange(LAYOUT selectedLayout) {
+    public void handleLayoutChange(int index) {
+        pe.getPage().setLayout(LAYOUT.values()[index]);
     }
 
     public void handleFooterChange() {
@@ -39,7 +41,7 @@ public class PageViewController {
     }
 
     public void handleTitleChange(String text) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        pe.getPage().setTitle(text);
     }
 
     public void handleImageComp() {
@@ -55,8 +57,7 @@ public class PageViewController {
     }
 
     public void handleVideoComp() {
-        //VideoPrompt vp = new VideoPrompt();
-        //pe.getPage().getComponents().add();
+
     }
 
     public void handleRemoveComp(Component comp) {

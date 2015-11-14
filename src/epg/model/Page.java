@@ -145,5 +145,11 @@ public class Page {
     
     
     
+    public String toString()
+    {
+        return title;
+    }
+    
+    
     
 }

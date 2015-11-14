@@ -8,7 +8,6 @@ package epg.view;
 import epg.controller.FileController;
 import epg.controller.ModeController;
 import epg.error.ErrorHandler;
-import epg.model.Page;
 import epg.model.Portfolio;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.Scene;
@@ -55,15 +54,16 @@ public class PortfolioView {
        initWindow(primaryStage);
    }
    
-   public void initUI()
+   private void initUI()
    {
        fileTB = new FileToolbar(new FileController(this));
        modeTB = new ModeToolbar(new ModeController(this));
        pageEditor = new PageEditor(workingPortfolio);
        siteView = new SiteView();
-       pageEditor.updatePage();
+       pageEditor.update();
    }
-   public void initWindow(Stage primaryStage)
+   
+   private void initWindow(Stage primaryStage)
    {
        uiPositioner = new BorderPane();
        uiPositioner.setTop(fileTB);
