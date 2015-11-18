@@ -52,13 +52,14 @@ public class PortfolioView {
        workingPortfolio = new Portfolio();
        initUI();
        initWindow(primaryStage);
+       this.primaryStage = primaryStage;
    }
    
    private void initUI()
    {
        fileTB = new FileToolbar(new FileController(this));
        modeTB = new ModeToolbar(new ModeController(this));
-       pageEditor = new PageEditor(workingPortfolio);
+       pageEditor = new PageEditor(workingPortfolio, primaryStage);
        siteView = new SiteView();
        pageEditor.update();
    }

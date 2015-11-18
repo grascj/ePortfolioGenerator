@@ -8,6 +8,7 @@ package epg.prompts;
 import static epg.ProgramConstants.NEWIMAGE;
 import static epg.ProgramConstants.NEWVIDEO;
 import static epg.ProgramConstants.OKAY;
+import epg.model.ImageComponent;
 import epg.model.VideoComponent;
 import java.io.File;
 import javafx.scene.Scene;
@@ -24,10 +25,10 @@ import javafx.stage.Stage;
  *
  * @author cgmp
  */
-public class VideoPrompt extends Stage {
+public class ImagePrompt extends Stage {
     //data
 
-    VideoComponent comp;
+    ImageComponent comp;
             
     //UI 
     Stage ui;
@@ -37,7 +38,7 @@ public class VideoPrompt extends Stage {
     FileChooser fileChooser;
     
     
-    public VideoPrompt(Stage primaryStage, VideoComponent comp)
+    public ImagePrompt(Stage primaryStage, ImageComponent comp)
     {
         this.comp = comp;
         initModality(Modality.APPLICATION_MODAL);
@@ -48,7 +49,7 @@ public class VideoPrompt extends Stage {
         new ExtensionFilter("Image Files", "*.png", "*.jpg", "*.png"));
         this.currentFileName = new Label(comp.getFile());
         okBtn = new Button(OKAY);
-        pickFile = new Button(NEWVIDEO);
+        pickFile = new Button(NEWIMAGE);
         
         
         okBtn.setOnAction(e->{
@@ -71,7 +72,7 @@ public class VideoPrompt extends Stage {
                 File selectedFile = fileChooser.showOpenDialog(this);
                 if(selectedFile != null)
                 {
-                    comp.setVideoURL(selectedFile.getAbsoluteFile().toString());
+                    comp.setImageURL(selectedFile.getAbsoluteFile().toString());
                     comp.setFile(selectedFile.getName());
                     currentFileName.setText(comp.getFile());
                 }

@@ -34,9 +34,10 @@ public class SiteToolbarController {
         pe.setSelectedPage(pe.getPortfolio().getPages().size()-1);
         pe.update();
     }
+    
 
     public void handleRemovePage() {
-        pe.getPortfolio().getPages().remove(pe.getPage());
+        pe.removeSelectedPage();
         pe.update();
     }
 }

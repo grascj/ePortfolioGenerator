@@ -8,6 +8,7 @@ package epg.view;
 import epg.controller.SiteToolbarController;
 import epg.model.Page;
 import java.util.ArrayList;
+import java.util.Collection;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
@@ -60,15 +61,18 @@ public class SiteToolbar extends FlowPane{
     
     public void update(ArrayList<Page> pages, int index)
     {
-        System.out.println("updated");
         pageBox.getItems().clear();
         pageBox.getItems().setAll(pages);
         pageBox.getSelectionModel().select(index);
     }
     
-   //make a listener that we can disable when updating
-    
-    
+
+    public void updateCurrentTitle()
+    {
+        Collection a = new ArrayList(pageBox.getItems());
+        pageBox.getItems().setAll(a);
+
+    }
     
     
     

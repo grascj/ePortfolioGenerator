@@ -27,6 +27,11 @@ public class Page {
     String footerURL;
     String footer;
     String title;
+    
+    String bannerText;
+    String footerText;
+            
+            
     ArrayList<Component> components;
     ArrayList<SlideShow> slideshows;
     
@@ -114,34 +119,24 @@ public class Page {
     public void setComponents(ArrayList<Component> components) {
         this.components = components;
     }
-    
-    
-    //METHODS
-    //@TODO implement Page methods
-    public void deleteComponent(Component comp)
-    {
-        
+
+    public String getBannerText() {
+        return bannerText;
+    }
+
+    public void setBannerText(String bannerText) {
+        this.bannerText = bannerText;
+    }
+
+    public String getFooterText() {
+        return footerText;
+    }
+
+    public void setFooterText(String footerText) {
+        this.footerText = footerText;
     }
     
-    public void addSlideShowComponent()
-    {
-        
-    }
     
-    public void addVideoComponent()
-    {
-        
-    }
-    
-    public void addImageComponent()
-    {
-        
-    }
-    
-    public void addTextComponent()
-    {
-        
-    }
     
     
     

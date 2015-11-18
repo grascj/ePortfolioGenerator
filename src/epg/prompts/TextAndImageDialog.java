@@ -6,9 +6,7 @@
 package epg.prompts;
 
 import static epg.ProgramConstants.NEWIMAGE;
-import static epg.ProgramConstants.NEWVIDEO;
 import static epg.ProgramConstants.OKAY;
-import epg.model.VideoComponent;
 import java.io.File;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -24,45 +22,58 @@ import javafx.stage.Stage;
  *
  * @author cgmp
  */
-public class VideoPrompt extends Stage {
+public class TextAndImageDialog extends Stage {
     //data
-
-    VideoComponent comp;
+    String fileName;
+    String fileUrl;
+    String text;
+    boolean okay;
             
     //UI 
     Stage ui;
     Button okBtn;
     Button pickFile;
+    TextField uitext;
     Label currentFileName;
     FileChooser fileChooser;
     
     
-    public VideoPrompt(Stage primaryStage, VideoComponent comp)
+    public TextAndImageDialog(Stage primaryStage, String currentFileURL, String currentFile, String currentText)
     {
-        this.comp = comp;
+        okay = false;
         initModality(Modality.APPLICATION_MODAL);
         initOwner(primaryStage);
 
         fileChooser = new FileChooser();
         fileChooser.getExtensionFilters().addAll(
         new ExtensionFilter("Image Files", "*.png", "*.jpg", "*.png"));
-        this.currentFileName = new Label(comp.getFile());
+        uitext = new TextField(currentText);
+        this.currentFileName = new Label(currentFile);
         okBtn = new Button(OKAY);
-        pickFile = new Button(NEWVIDEO);
+        pickFile = new Button(NEWIMAGE);
         
         
         okBtn.setOnAction(e->{
+            okay = true;
+            text = uitext.getText();
             this.hide();
         });
         pickFile.setOnAction(e->{this.fileInput();});
         
         
+        this.fileUrl=currentFileURL;
+        this.fileName=currentFile;
+        this.text=currentText;
+        
+        
         VBox uicontainer = new VBox();
-        uicontainer.getChildren().addAll(this.currentFileName, pickFile, okBtn);
+        uicontainer.getChildren().addAll(uitext, this.currentFileName, pickFile, okBtn);
         Scene promptScene = new Scene(uicontainer);
         this.setScene(promptScene);
         this.show("hello");
-        //@todo pick size
+        
+        
+
         
     }
     
@@ -71,11 +82,19 @@ public class VideoPrompt extends Stage {
                 File selectedFile = fileChooser.showOpenDialog(this);
                 if(selectedFile != null)
                 {
-                    comp.setVideoURL(selectedFile.getAbsoluteFile().toString());
-                    comp.setFile(selectedFile.getName());
-                    currentFileName.setText(comp.getFile());
+                    fileUrl = selectedFile.getAbsoluteFile().toString();
+                    fileName = selectedFile.getName();
+                    currentFileName.setText(fileName);
                 }
     }
+    
+    
+    public boolean isOk()
+    {
+        return okay;
+    }
+    
+    
   
     public void show(String message)
     {
@@ -83,5 +102,14 @@ public class VideoPrompt extends Stage {
         this.showAndWait();
     }
     
+    /**
+     * Returns the data collected by the prompt
+     * @return a String array such that [file url, file name, text]
+     */
+    public String[] getSelection()
+    {
+        String[] data = {fileUrl, fileName, uitext.getText()};
+        return data;
+    }
     
 }

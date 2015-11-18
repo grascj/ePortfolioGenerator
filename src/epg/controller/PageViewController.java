@@ -8,6 +8,10 @@ package epg.controller;
 import epg.ProgramConstants.COLOR;
 import epg.ProgramConstants.LAYOUT;
 import epg.model.Component;
+import epg.model.Page;
+import epg.model.VideoComponent;
+import epg.prompts.TextAndImageDialog;
+import epg.prompts.VideoPrompt;
 import epg.view.PageEditor;
 
 /**
@@ -33,15 +37,32 @@ public class PageViewController {
     }
 
     public void handleFooterChange() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        TextAndImageDialog prompt = new TextAndImageDialog(pe.getPrimaryStage(), pe.getPage().getFooterURL(), pe.getPage().getFooter(), pe.getPage().getFooterText());
+        if(prompt.isOk())
+        {
+        String[] data = prompt.getSelection();
+        Page current = pe.getPage();
+        current.setFooterURL(data[0]);
+        current.setFooter(data[1]);
+        current.setFooterText(data[2]);
+        }
     }
 
     public void handleBannerChange() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        TextAndImageDialog prompt = new TextAndImageDialog(pe.getPrimaryStage(), pe.getPage().getBannerURL(), pe.getPage().getBanner(), pe.getPage().getBannerText());
+        if(prompt.isOk())
+        {
+        String[] data = prompt.getSelection();
+        Page current = pe.getPage();
+        current.setBannerURL(data[0]);
+        current.setBanner(data[1]);
+        current.setBannerText(data[2]);
+        }
     }
 
     public void handleTitleChange(String text) {
         pe.getPage().setTitle(text);
+        pe.updateTitle();
     }
 
     public void handleImageComp() {
@@ -57,7 +78,10 @@ public class PageViewController {
     }
 
     public void handleVideoComp() {
-
+        VideoComponent a = new VideoComponent();
+        VideoPrompt b = new VideoPrompt(pe.getPrimaryStage(), a);
+        pe.getPage().getComponents().add(a);
+        pe.updatePage();
     }
 
     public void handleRemoveComp(Component comp) {

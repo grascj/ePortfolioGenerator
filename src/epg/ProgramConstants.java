@@ -19,6 +19,12 @@ public class ProgramConstants {
 
     //Defaults
     
+    
+    //UI text and such
+    public static String OKAY = "OK";
+    public static String NEWIMAGE = "Pick an image.";
+    public static String NEWVIDEO = "Pick a video.";
+   
     //Paths
     public static String PATH_SAVES = "./saves";
     public static String PATH_SITES = "./sites";

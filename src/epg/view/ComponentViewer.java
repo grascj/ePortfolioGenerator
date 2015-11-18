@@ -8,13 +8,13 @@ package epg.view;
 import epg.model.Component;
 import java.util.ArrayList;
 import javafx.scene.control.ScrollPane;
-import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 
 /**
  *
  * @author cgmp
  */
-class ComponentViewer extends HBox{
+class ComponentViewer extends VBox{
     //@todo
     //has a list of components that it turns into component views
     
@@ -25,7 +25,6 @@ class ComponentViewer extends HBox{
     public ComponentViewer()
     {
         componentPane = new ScrollPane(this);
-        
     }
     
     public void update(ArrayList<Component> componentList)
@@ -33,8 +32,10 @@ class ComponentViewer extends HBox{
         this.componentList = componentList;
         
         if(!componentList.isEmpty())
+        {
+            this.getChildren().clear();
             populateComponents();
-        
+        }
     }
     
 

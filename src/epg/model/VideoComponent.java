@@ -22,6 +22,10 @@ public class VideoComponent extends Component{
         this.file = video;
     }
 
+    public VideoComponent() {
+        super(200,200);
+    }
+
     public String getVideoURL() {
         return videoURL;
     }
@@ -30,6 +34,7 @@ public class VideoComponent extends Component{
         this.videoURL = videoURL;
     }
 
+    @Override
     public String getFile() {
         return file;
     }

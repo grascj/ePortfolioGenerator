@@ -10,6 +10,7 @@ import epg.controller.SiteToolbarController;
 import epg.model.Page;
 import epg.model.Portfolio;
 import javafx.scene.layout.HBox;
+import javafx.stage.Stage;
 
 /**
  *
@@ -18,7 +19,7 @@ import javafx.scene.layout.HBox;
 public class PageEditor extends HBox {
     
     
-    
+    Stage primaryStage;
     SiteToolbar siteToolbar;
     PageView pageView;
     Page selectedPage;
@@ -26,8 +27,9 @@ public class PageEditor extends HBox {
     
     
     
-    public PageEditor(Portfolio portfolio)
+    public PageEditor(Portfolio portfolio, Stage primaryStage)
     {
+        this.primaryStage = primaryStage;
         this.portfolio = portfolio;
         initUI();
         placeChildren();
@@ -48,6 +50,7 @@ public class PageEditor extends HBox {
     
     public void removeSelectedPage()
     {
+        //@todo error handling for out of bounds
         portfolio.getPages().remove(selectedPage);
         selectedPage = portfolio.getPages().get(0);
         updatePage();
@@ -82,11 +85,20 @@ public class PageEditor extends HBox {
         return selectedPage;
     }
     
+    public Stage getPrimaryStage()
+    {
+        return primaryStage;
+    }
+    
+    
     public void setSelectedPage(int index)
     {
        selectedPage = portfolio.getPages().get(index);
     }
     
-    
+    public void updateTitle()
+    {
+        siteToolbar.updateCurrentTitle();
+    }
     
 }
