@@ -14,17 +14,18 @@ import javafx.scene.layout.VBox;
  *
  * @author cgmp
  */
-class ComponentViewer extends VBox{
+class ComponentViewer extends ScrollPane{
     //@todo
     //has a list of components that it turns into component views
     
-    ScrollPane componentPane;
+    VBox componentPane;
     ArrayList<Component> componentList;
     Component Selection;            
     
     public ComponentViewer()
     {
-        componentPane = new ScrollPane(this);
+        componentPane = new VBox();
+        this.setContent(componentPane);
     }
     
     public void update(ArrayList<Component> componentList)
@@ -33,7 +34,7 @@ class ComponentViewer extends VBox{
         
         if(!componentList.isEmpty())
         {
-            this.getChildren().clear();
+            componentPane.getChildren().clear();
             populateComponents();
         }
     }
@@ -44,7 +45,7 @@ class ComponentViewer extends VBox{
     {
         for(Component comp : componentList)
         {
-            this.getChildren().add(new ComponentView(comp));
+            componentPane.getChildren().add(new ComponentView(comp));
         }
     }
     

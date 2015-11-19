@@ -5,8 +5,10 @@
  */
 package epg.view;
 
+import static epg.ProgramConstants.CSS_FILETOOLBAR_BUTTONS;
 import epg.controller.FileController;
 import epg.model.Portfolio;
+import java.util.ArrayList;
 import javafx.scene.control.Button;
 import javafx.scene.layout.FlowPane;
 
@@ -36,10 +38,18 @@ public class FileToolbar extends FlowPane{
     private void initButtons()
     {
         newButton = new Button("new");
+        newButton.getStyleClass().add(CSS_FILETOOLBAR_BUTTONS);
         loadButton = new Button("load");
+        loadButton.getStyleClass().add(CSS_FILETOOLBAR_BUTTONS);
         saveButton = new Button("save");
+        saveButton.getStyleClass().add(CSS_FILETOOLBAR_BUTTONS);
         exportButton = new Button("export");
+        exportButton.getStyleClass().add(CSS_FILETOOLBAR_BUTTONS);
         exitButton = new Button("exit");
+        exitButton.getStyleClass().add(CSS_FILETOOLBAR_BUTTONS);
+
+        //@todo do gridpane BS
+        
     }
     
     private void initHandlers()

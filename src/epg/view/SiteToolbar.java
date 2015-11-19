@@ -13,12 +13,13 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.FlowPane;
+import javafx.scene.layout.HBox;
 
 /**
  *
  * @author cgmp
  */
-public class SiteToolbar extends FlowPane{
+public class SiteToolbar extends HBox{
     
     TextField nameField;
     ComboBox pageBox;

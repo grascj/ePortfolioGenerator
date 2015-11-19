@@ -1,0 +1,67 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Nov 18, 2015, 1:44:30 PM
+    Author     : cgmp
+*/
+
+
+//FILETOOLBAR STYLES
+.filetoolbar
+{    
+    -fx-background-color: red;
+    -fx-fit-to-width: true;
+}
+
+.filetoolbar_buttons
+{
+    -fx-padding: 10px 50px 10px 50px;
+}
+
+//MODETOOLBAR STYLES
+.modetoolbar
+{
+    -fx-background-color:red;
+    -fx-fill-width: true;
+}
+
+.modetoolbar_buttons
+{
+    -fx-min-width: 30px;
+    -fx-max-height: Infinity;
+}
+
+//SiteView
+.siteview
+{
+    -fx-fit-to-width:true;
+    -fx-fit-to-height:true;
+    -fx-background-color: green;
+}
+
+.siteview_webview
+{
+    -fx-fit-to-width:true;
+    -fx-fit-to-height:true;
+}
+
+
+//PageEditor Styles
+.pageeditor
+{
+    -fx-fit-to-width:true;
+    -fx-fit-to-height:true;
+    -fx-background-color: green;
+}
+
+
+
+
+
+
+
+
+

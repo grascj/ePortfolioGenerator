@@ -10,13 +10,14 @@ import epg.controller.SiteToolbarController;
 import epg.model.Page;
 import epg.model.Portfolio;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 /**
  *
  * @author cgmp
  */
-public class PageEditor extends HBox {
+public class PageEditor extends VBox {
     
     
     Stage primaryStage;

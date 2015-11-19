@@ -11,7 +11,6 @@ package epg;
  */
 public class ProgramConstants {
     
-    //@TODO add enums
     public enum FONT        {Fjalla_One, Bree_Serif, Muli, Vollkorn, Iconsolata};
     public enum LAYOUT      {lownav, sidenav, gaps, topnav, fixedname};
     public enum COLOR       {beach, campfire, personal, SBUred, vintage};
@@ -28,5 +27,17 @@ public class ProgramConstants {
     //Paths
     public static String PATH_SAVES = "./saves";
     public static String PATH_SITES = "./sites";
+    public static String PATH_STYLESHEET = "epg/style/AppStyle.css";
+
+    
+    
+    //CSS STYLES
+    public static String CSS_FILETOOLBAR = "filetoolbar";
+    public static String CSS_FILETOOLBAR_BUTTONS = "filetoolbar_buttons";
+    public static String CSS_MODETOOLBAR = "modetoolbar";
+    public static String CSS_MODETOOLBAR_BUTTONS = "modetoolbar_buttons";
+    public static String CSS_SITEVIEW = "siteview";
+    public static String CSS_SITEVIEW_WEBVIEW = "siteview_webview";
+    public static String CSS_PAGEEDITOR = "pageeditor";
     
 }

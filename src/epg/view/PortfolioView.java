@@ -5,6 +5,11 @@
  */
 package epg.view;
 
+import static epg.ProgramConstants.CSS_FILETOOLBAR;
+import static epg.ProgramConstants.CSS_MODETOOLBAR;
+import static epg.ProgramConstants.CSS_PAGEEDITOR;
+import static epg.ProgramConstants.CSS_SITEVIEW;
+import static epg.ProgramConstants.PATH_STYLESHEET;
 import epg.controller.FileController;
 import epg.controller.ModeController;
 import epg.error.ErrorHandler;
@@ -49,22 +54,26 @@ public class PortfolioView {
    
    public PortfolioView(Stage primaryStage)
    {
+       this.primaryStage = primaryStage;
        workingPortfolio = new Portfolio();
        initUI();
-       initWindow(primaryStage);
-       this.primaryStage = primaryStage;
+       initWindow();
    }
    
    private void initUI()
    {
        fileTB = new FileToolbar(new FileController(this));
+       fileTB.getStyleClass().add(CSS_FILETOOLBAR);
        modeTB = new ModeToolbar(new ModeController(this));
+       modeTB.getStyleClass().add(CSS_MODETOOLBAR);
        pageEditor = new PageEditor(workingPortfolio, primaryStage);
+       pageEditor.getStyleClass().add(CSS_PAGEEDITOR);
        siteView = new SiteView();
+       siteView.getStyleClass().add(CSS_SITEVIEW);
        pageEditor.update();
    }
    
-   private void initWindow(Stage primaryStage)
+   private void initWindow()
    {
        uiPositioner = new BorderPane();
        uiPositioner.setTop(fileTB);
@@ -77,18 +86,18 @@ public class PortfolioView {
         Rectangle2D bounds = screen.getVisualBounds();
 
         // AND USE IT TO SIZE THE WINDOW
-        primaryStage.setX(bounds.getMinX());
-        primaryStage.setY(bounds.getMinY());
-        primaryStage.setWidth(bounds.getWidth());
-        primaryStage.setHeight(bounds.getHeight());
+        this.primaryStage.setX(bounds.getMinX());
+        this.primaryStage.setY(bounds.getMinY());
+        this.primaryStage.setWidth(bounds.getWidth());
+        this.primaryStage.setHeight(bounds.getHeight());
        
        
        
        primaryScene = new Scene(uiPositioner);
-       
-       primaryStage.setScene(primaryScene);
-       //@todo css
-       primaryStage.show();
+       primaryScene.getStylesheets().add(PATH_STYLESHEET);
+       System.out.println(primaryScene.getStylesheets());
+       this.primaryStage.setScene(primaryScene);
+       this.primaryStage.show();
    }
 
    //@todo idiot proof buttons
