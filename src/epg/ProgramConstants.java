@@ -40,4 +40,21 @@ public class ProgramConstants {
     public static String CSS_SITEVIEW_WEBVIEW = "siteview_webview";
     public static String CSS_PAGEEDITOR = "pageeditor";
     
+    public static String CSS_SITETOOLBAR = "sitetoolbar";
+    
+    public static String CSS_COMPONENTPANE = "componentpane";
+    
+    public static String CSS_COMPONENTVIEW = "componentview";
+    public static String CSS_COMPONENTVIEW_SELECTED = "componentview_selected";
+    public static String CSS_COMPONENTVIEW_BUTTON = "componentview_button";
+    public static String CSS_COMPONENTVIEW_LABEL = "componentview_label";
+    
+    public static String CSS_PAGEVIEW = "pageview";
+    public static String CSS_PAGEVIEW_TOPBAR = "pageview_topbar";
+    public static String CSS_PAGEVIEW_SIDEBAR_BUTTONS = "pageview_sidebar_buttons";
+    
+    
+    
+    
+    //@todo tooltips
 }

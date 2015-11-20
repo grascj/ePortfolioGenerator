@@ -14,6 +14,7 @@ and open the template in the editor.
 {    
     -fx-background-color: red;
     -fx-fit-to-width: true;
+    -fx-hgap: 5px;
 }
 
 .filetoolbar_buttons
@@ -52,16 +53,76 @@ and open the template in the editor.
 //PageEditor Styles
 .pageeditor
 {
+    -fx-border-width: 10px;
+    -fx-border-color: transparent;
     -fx-fit-to-width:true;
     -fx-fit-to-height:true;
     -fx-background-color: green;
 }
 
 
+//SITETOOLBAR
+.sitetoolbar 
+{
+    -fx-border-width: 10px 10px 20px 10px;
+    -fx-border-color: transparent;
+    -fx-alignment: center;
+    -fx-spacing: 30px;
+}
+
+.sitetoolbar_child
+{
+    
+}
+
+
+//COMPONENTVIEW STYLES
+
+.componentpane
+{
+    -fx-max-height: Infinity;
+    //-fx-fit-to-width: true;
+    -fx-background-color: beige;
+}
+
+
+.componentview
+{
+
+    -fx-fit-to-width:true;
+    -fx-background-color: orange;
+}
+.componentview_selected
+{
+    -fx-fit-to-width:true;
+    -fx-background-color: orangered;    
+}
+.componentview_button
+{
+    -fx-padding: 30px;
+}
+.componentview_label
+{
+    -fx-padding: 30px;
+}
 
 
 
+//PAGEVIEW
+.pageview
+{
+   -fx-background-color: bisque;
+}
 
+.pageview_topbar
+{
+    -fx-alignment: center;
+}
+
+.pageview_sidebar_buttons
+{
+    -fx-max-height: Infinity;
+}
 
 
 

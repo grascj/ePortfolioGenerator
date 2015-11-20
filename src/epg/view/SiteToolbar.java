@@ -5,14 +5,15 @@
  */
 package epg.view;
 
+import static epg.ProgramConstants.CSS_SITETOOLBAR;
 import epg.controller.SiteToolbarController;
 import epg.model.Page;
 import java.util.ArrayList;
 import java.util.Collection;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.HBox;
 
 /**
@@ -21,7 +22,9 @@ import javafx.scene.layout.HBox;
  */
 public class SiteToolbar extends HBox{
     
+    HBox nameContainer;
     TextField nameField;
+    Label nameFieldDesc;
     ComboBox pageBox;
     Button addPageButton;
     Button removePageButton;
@@ -39,7 +42,16 @@ public class SiteToolbar extends HBox{
     
     private void initChildren() 
     {
+        this.getStyleClass().add(CSS_SITETOOLBAR);        
+       
+        
+        nameFieldDesc = new Label("Name:");
         nameField = new TextField();
+        
+        nameContainer = new HBox();
+        nameContainer.getChildren().addAll( nameFieldDesc, nameField);
+
+        
         pageBox = new ComboBox();
         addPageButton = new Button("add page");
         removePageButton = new Button("remove page");
@@ -57,7 +69,7 @@ public class SiteToolbar extends HBox{
     
     private void placeChildren()
     {
-        this.getChildren().addAll(nameField, addPageButton, removePageButton, pageBox);
+        this.getChildren().addAll(nameContainer, pageBox, addPageButton, removePageButton);
     }
     
     public void update(ArrayList<Page> pages, int index)

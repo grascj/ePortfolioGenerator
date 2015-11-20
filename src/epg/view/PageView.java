@@ -5,6 +5,9 @@
  */
 package epg.view;
 
+import static epg.ProgramConstants.CSS_PAGEVIEW;
+import static epg.ProgramConstants.CSS_PAGEVIEW_SIDEBAR_BUTTONS;
+import static epg.ProgramConstants.CSS_PAGEVIEW_TOPBAR;
 import epg.controller.PageViewController;
 import epg.model.Component;
 import epg.model.Page;
@@ -12,7 +15,10 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Priority;
+import javafx.scene.layout.RowConstraints;
 import javafx.scene.layout.VBox;
 
 /**
@@ -23,7 +29,7 @@ public class PageView extends BorderPane {
     
     //children
     HBox topBox;
-    VBox sideBox;
+    GridPane sideBox;
     ComboBox layouts;
     ComboBox colors;
     Button footerButton;
@@ -46,12 +52,15 @@ public class PageView extends BorderPane {
         initChildren();
         initHandlers();
         placeChildren();
+        this.getStyleClass().add(CSS_PAGEVIEW);
+        
     }
 
     private void initChildren() {
         //containers
         topBox = new HBox();
-        sideBox = new VBox();
+        topBox.getStyleClass().add(CSS_PAGEVIEW_TOPBAR);
+        sideBox = new GridPane();
         
         cv = new ComponentViewer();
         /*
@@ -65,15 +74,20 @@ public class PageView extends BorderPane {
         colors = new ComboBox();
         colors.getItems().addAll("Beach","Campfire","Personal","SBU Red","Vintage");
         
-        footerButton = new Button();
-        bannerButton = new Button();
+        footerButton = new Button("footer");
+        bannerButton = new Button("banner");
         pageTitleField = new TextField();
         //sidebar
         imageCompButton = new Button();
+        imageCompButton.getStyleClass().add(CSS_PAGEVIEW_SIDEBAR_BUTTONS);
         textCompButton = new Button();
+        textCompButton.getStyleClass().add(CSS_PAGEVIEW_SIDEBAR_BUTTONS);
         slideCompButton = new Button();
+        slideCompButton.getStyleClass().add(CSS_PAGEVIEW_SIDEBAR_BUTTONS);
         videoCompButton = new Button();
+        videoCompButton.getStyleClass().add(CSS_PAGEVIEW_SIDEBAR_BUTTONS);
         removeCompButton = new Button();
+        removeCompButton.getStyleClass().add(CSS_PAGEVIEW_SIDEBAR_BUTTONS);
     }
     
     private void initHandlers()
@@ -95,7 +109,21 @@ public class PageView extends BorderPane {
     private void placeChildren()
     {
         topBox.getChildren().addAll(layouts, colors, footerButton, bannerButton, pageTitleField);
-        sideBox.getChildren().addAll(imageCompButton, textCompButton, slideCompButton, videoCompButton, removeCompButton);
+        
+        
+        RowConstraints a = new RowConstraints();
+        a.vgrowProperty().set(Priority.ALWAYS);
+        for(int i = 0; i < 5; i++)
+        {
+            sideBox.getRowConstraints().add(a);
+        }
+        sideBox.addColumn(0, imageCompButton, textCompButton, slideCompButton, videoCompButton, removeCompButton);
+                
+        
+        //sideBox.getChildren().addAll(imageCompButton, textCompButton, slideCompButton, videoCompButton, removeCompButton);
+        
+        
+        
         
         this.setTop(topBox);
         this.setLeft(sideBox);

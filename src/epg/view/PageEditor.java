@@ -9,7 +9,7 @@ import epg.controller.PageViewController;
 import epg.controller.SiteToolbarController;
 import epg.model.Page;
 import epg.model.Portfolio;
-import javafx.scene.layout.HBox;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
@@ -17,7 +17,7 @@ import javafx.stage.Stage;
  *
  * @author cgmp
  */
-public class PageEditor extends VBox {
+public class PageEditor extends BorderPane {
     
     
     Stage primaryStage;
@@ -35,6 +35,7 @@ public class PageEditor extends VBox {
         initUI();
         placeChildren();
         selectedPage = portfolio.getPages().get(0);
+        
     }
     
     public void initUI()
@@ -45,7 +46,9 @@ public class PageEditor extends VBox {
     
     public void placeChildren()
     {
-        this.getChildren().addAll(siteToolbar, pageView);
+       this.setTop(siteToolbar);
+       this.setCenter(pageView);
+        //this.getChildren().addAll(siteToolbar, pageView);
     }
     
     

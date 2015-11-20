@@ -5,6 +5,9 @@
  */
 package epg.view;
 
+import static epg.ProgramConstants.CSS_COMPONENTVIEW;
+import static epg.ProgramConstants.CSS_COMPONENTVIEW_BUTTON;
+import static epg.ProgramConstants.CSS_COMPONENTVIEW_LABEL;
 import epg.model.Component;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -23,8 +26,9 @@ public class ComponentView extends HBox{
     
     
     
-    public ComponentView(Component comp)
+    public ComponentView(Component comp, String cssclass)
     {
+        this.getStyleClass().add(cssclass);
         this.comp = comp;
         init();
     }
@@ -32,9 +36,11 @@ public class ComponentView extends HBox{
     public void init()
     {
         editButton = new Button("edit");
+        editButton.getStyleClass().add(CSS_COMPONENTVIEW_BUTTON);
         editButton.setOnAction(e->{comp.editPrompt();});
         displayLabel = new Label(comp.getDisplayText());
-
+        displayLabel.getStyleClass().add(CSS_COMPONENTVIEW_LABEL);
+        
         this.getChildren().addAll(editButton, displayLabel);
     }
     
