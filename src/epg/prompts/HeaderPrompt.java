@@ -5,25 +5,12 @@
  */
 package epg.prompts;
 
-import javafx.stage.Stage;
-
 /**
  *
  * @author cgmp
  */
-public class TextPrompt extends Stage{
+public class HeaderPrompt {
     
+    //@todo just a header
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    //@todo prompts for a paragraph list or header
 }

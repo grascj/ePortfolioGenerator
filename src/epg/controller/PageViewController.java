@@ -10,8 +10,10 @@ import epg.ProgramConstants.LAYOUT;
 import epg.model.Component;
 import epg.model.ImageComponent;
 import epg.model.Page;
+import epg.model.SlideShowComponent;
 import epg.model.VideoComponent;
 import epg.prompts.ImagePrompt;
+import epg.prompts.SlideShowPrompt;
 import epg.prompts.TextAndImageDialog;
 import epg.prompts.VideoPrompt;
 import epg.view.PageEditor;
@@ -82,7 +84,14 @@ public class PageViewController {
     }
 
     public void handleSlideComp() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        SlideShowComponent comp = new SlideShowComponent();
+        SlideShowPrompt popup = new SlideShowPrompt(comp);
+        if(popup.isOk())
+        {
+            pe.getPage().getComponents().add(comp);
+            pe.updatePage();
+        }
+        
     }
 
     public void handleVideoComp() {

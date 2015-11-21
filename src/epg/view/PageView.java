@@ -102,7 +102,7 @@ public class PageView extends BorderPane {
         textCompButton.setOnAction(e->{pvc.handleTextComp();});
         slideCompButton.setOnAction(e->{pvc.handleSlideComp();});
         videoCompButton.setOnAction(e->{pvc.handleVideoComp();});
-        removeCompButton.setOnAction(e->{pvc.handleRemoveComp(selectedComponent);});
+        removeCompButton.setOnAction(e->{pvc.handleRemoveComp(cv.selection);});
     }
     
     private void placeChildren()

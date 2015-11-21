@@ -43,7 +43,7 @@ public class SlideContainer extends HBox {
         this.slide = slide;
         initUI();
         initHandlers();
-
+        
     }
 
     public void initUI() {
@@ -57,7 +57,7 @@ public class SlideContainer extends HBox {
         if (slide.imageURL != null) {
             slideImage = new ImageView(slide.imageURL);
         } else {
-            slideImage = new ImageView(DEFAULT_SLIDEIMG);
+            slideImage = new ImageView("file:" + DEFAULT_SLIDEIMG);
         }
 
         captionBox = new VBox();

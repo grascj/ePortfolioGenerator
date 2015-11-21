@@ -26,9 +26,8 @@ public class ComponentView extends HBox{
     
     
     
-    public ComponentView(Component comp, String cssclass)
+    public ComponentView(Component comp)
     {
-        this.getStyleClass().add(cssclass);
         this.comp = comp;
         init();
     }
@@ -44,7 +43,10 @@ public class ComponentView extends HBox{
         this.getChildren().addAll(editButton, displayLabel);
     }
     
-    
+    public Component getComponent()
+    {
+        return comp;
+    }
     
     
     

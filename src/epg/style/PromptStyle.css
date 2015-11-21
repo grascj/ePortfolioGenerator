@@ -10,3 +10,16 @@ and open the template in the editor.
 
 /*  THIS FILE CONTAINTS STYLES PERTAINING TO THE RELATED PROMPT FOR THIS APPLICATION    */
 
+
+
+
+//SLIDESHOW
+.slide
+{
+    -fx-background-color: blue;
+}
+
+.slide_selected
+{
+    -fx-background-color: red;
+}

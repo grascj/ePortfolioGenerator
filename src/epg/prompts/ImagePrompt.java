@@ -7,6 +7,7 @@ package epg.prompts;
 
 import static epg.ProgramConstants.NEWIMAGE;
 import static epg.ProgramConstants.OKAY;
+import static epg.ProgramConstants.PATH_PROMPTSTYLESHEET;
 import epg.model.ImageComponent;
 import java.io.File;
 import java.net.MalformedURLException;
@@ -112,6 +113,7 @@ public class ImagePrompt extends Stage {
         
         
         Scene promptScene = new Scene(uicontainer, 400, 400);
+        promptScene.getStylesheets().add(PATH_PROMPTSTYLESHEET);
         this.setScene(promptScene);
         this.show("hello");
         //@todo pick size

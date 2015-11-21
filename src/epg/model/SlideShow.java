@@ -14,8 +14,8 @@ import java.util.ArrayList;
 public class SlideShow {
 ArrayList<Slide> slides;
     int numSlides;
-    Slide selectedSlide;
-    String title;
+    public Slide selectedSlide;
+    public String title;
     
     public SlideShow(ArrayList<Slide> slides, int numSlides, String title) {
         this.slides = slides;
@@ -44,6 +44,7 @@ ArrayList<Slide> slides;
 
     public void setSlides(ArrayList<Slide> slides) {
         this.slides = slides;
+        numSlides = slides.size() + 1;
     }
 
     public int getNumSlides() {
@@ -56,12 +57,14 @@ ArrayList<Slide> slides;
     
     public void addSlide()
     {
-        
+        slides.add(new Slide());
+        numSlides++;
     }
     
     public void removeSlide()
     {
-        
+        slides.remove(selectedSlide);
+        numSlides--;
     }
     
     

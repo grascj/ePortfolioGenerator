@@ -8,6 +8,7 @@ package epg.prompts;
 import static epg.ProgramConstants.NEWIMAGE;
 import static epg.ProgramConstants.NEWVIDEO;
 import static epg.ProgramConstants.OKAY;
+import static epg.ProgramConstants.PATH_PROMPTSTYLESHEET;
 import epg.model.ImageComponent;
 import epg.model.VideoComponent;
 import java.io.File;
@@ -62,6 +63,7 @@ public class VideoPrompt extends Stage {
     
     public VideoPrompt(Stage primaryStage, VideoComponent comp)
     {
+        
         //SET THE FLAG TO FALSE, NEEDS TO BE TRUE TO COMMIT CHANGES
         ok = false;
         this.comp = comp;
@@ -110,6 +112,7 @@ public class VideoPrompt extends Stage {
         
         
         Scene promptScene = new Scene(uicontainer, 400, 400);
+        promptScene.getStylesheets().add(PATH_PROMPTSTYLESHEET);        
         this.setScene(promptScene);
         this.show("hello");
         //@todo pick size

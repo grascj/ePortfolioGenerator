@@ -28,10 +28,11 @@ public class ProgramConstants {
     public static String PATH_SAVES = "./saves";
     public static String PATH_SITES = "./sites";
     public static String PATH_STYLESHEET = "epg/style/AppStyle.css";
+    public static String PATH_PROMPTSTYLESHEET = "epg/style/PromptStyle.css";
 
     
     
-    //CSS STYLES
+    //CSS STYLES FOR APPLICATION
     public static String CSS_FILETOOLBAR = "filetoolbar";
     public static String CSS_FILETOOLBAR_BUTTONS = "filetoolbar_buttons";
     public static String CSS_MODETOOLBAR = "modetoolbar";
@@ -54,7 +55,9 @@ public class ProgramConstants {
     public static String CSS_PAGEVIEW_SIDEBAR_BUTTONS = "pageview_sidebar_buttons";
     
    
-    
+    //CSS STYLES FOR PROMPTS
+    public static String CSS_SLIDE = "slide";
+    public static String CSS_SLIDE_SELECTED = "slide_selected";
     
     
     //@todo tooltips

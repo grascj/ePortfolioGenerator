@@ -17,55 +17,47 @@ import javafx.scene.layout.VBox;
  *
  * @author cgmp
  */
-class ComponentViewer extends ScrollPane{
+class ComponentViewer extends ScrollPane {
     //@todo
     //has a list of components that it turns into component views
-    
+
     VBox componentPane;
     ArrayList<Component> componentList;
-    Component selection;            
-    
-    public ComponentViewer()
-    {
+    Component selection;
+
+    public ComponentViewer() {
         componentPane = new VBox();
         componentPane.getStyleClass().add(CSS_COMPONENTPANE);
-        
+
         this.getStyleClass().add(CSS_COMPONENTPANE);
         this.setContent(componentPane);
     }
-    
-    public void update(ArrayList<Component> componentList)
-    {
+
+    public void update(ArrayList<Component> componentList) {
+
+        componentPane.getChildren().clear();
         this.componentList = componentList;
-        
-        if(!componentList.isEmpty())
-        {
-            componentPane.getChildren().clear();
-            populateComponents();
+        populateComponents();
+
+    }
+
+    public void populateComponents() {
+        for (Component comp : componentList) {
+            ComponentView cv = new ComponentView(comp);
+
+            cv.setOnMouseClicked(e -> {
+                selection = cv.getComponent();
+                update(this.componentList);
+            });
+
+            if (comp == selection) {
+                cv.getStyleClass().add(CSS_COMPONENTVIEW_SELECTED);
+            } else {
+                cv.getStyleClass().add(CSS_COMPONENTVIEW);
+            }
+
+            componentPane.getChildren().add(cv);
         }
     }
-    
 
-    
-    public void populateComponents()
-    {
-        for(Component comp : componentList)
-        {
-            if(comp == selection)
-                componentPane.getChildren().add(new ComponentView(comp, CSS_COMPONENTVIEW_SELECTED));
-            else
-                componentPane.getChildren().add(new ComponentView(comp, CSS_COMPONENTVIEW));
-
-            
-        }
-    }
-    
-    
-    
-    
-    
-    
-    
-    
-    
 }

@@ -19,11 +19,23 @@ public class SlideShowComponent extends Component{
         super(width, length);
         this.slideshow = slideshow;
     }
+
+    public SlideShowComponent() {
+        super(200, 200);
+        slideshow = new SlideShow();
+        slideshow.title = "";
+    }
     
     
     public SlideShow getslideshow()
     {
         return slideshow;
+    }
+    
+    
+    public void setslideshow(SlideShow ss)
+    {
+        this.slideshow = ss;
     }
     
     
