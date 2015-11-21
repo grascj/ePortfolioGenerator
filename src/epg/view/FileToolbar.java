@@ -47,8 +47,6 @@ public class FileToolbar extends FlowPane{
         exportButton.getStyleClass().add(CSS_FILETOOLBAR_BUTTONS);
         exitButton = new Button("exit");
         exitButton.getStyleClass().add(CSS_FILETOOLBAR_BUTTONS);
-
-        //@todo do gridpane BS
         
     }
     

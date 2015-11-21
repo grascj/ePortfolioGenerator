@@ -92,7 +92,6 @@ public class PageView extends BorderPane {
     
     private void initHandlers()
     {
-        //@todo might work????
         layouts.setOnAction(e->{pvc.handleLayoutChange(layouts.getSelectionModel().getSelectedIndex());});
         colors.setOnAction(e->{pvc.handleColorChange(colors.getSelectionModel().getSelectedIndex());});
         

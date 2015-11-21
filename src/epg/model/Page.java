@@ -12,6 +12,7 @@ package epg.model;
  */
 
 import epg.ProgramConstants.COLOR;
+import epg.ProgramConstants.FONT;
 import epg.ProgramConstants.LAYOUT;
 import java.util.ArrayList;
 
@@ -20,6 +21,7 @@ public class Page {
     
     
     //@TODO fonts?
+    FONT pagefont;
     LAYOUT layout;
     COLOR colors;
     String bannerURL;
@@ -45,7 +47,6 @@ public class Page {
       footerURL = null;
       components = new ArrayList<Component>();
     }
-    //@TODO add another constructor
     
     public ArrayList<SlideShow> getSlideshows() {
         return slideshows;

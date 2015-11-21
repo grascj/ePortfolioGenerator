@@ -22,6 +22,14 @@ ArrayList<Slide> slides;
         this.numSlides = numSlides;
         this.title = title;
     }
+
+    public SlideShow() {
+        slides = new ArrayList<Slide>();
+        numSlides = 0;
+        selectedSlide = null;
+        title = "";
+        
+    }
     
     
     

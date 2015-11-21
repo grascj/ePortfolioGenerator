@@ -8,8 +8,10 @@ package epg.controller;
 import epg.ProgramConstants.COLOR;
 import epg.ProgramConstants.LAYOUT;
 import epg.model.Component;
+import epg.model.ImageComponent;
 import epg.model.Page;
 import epg.model.VideoComponent;
+import epg.prompts.ImagePrompt;
 import epg.prompts.TextAndImageDialog;
 import epg.prompts.VideoPrompt;
 import epg.view.PageEditor;
@@ -66,7 +68,13 @@ public class PageViewController {
     }
 
     public void handleImageComp() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        ImageComponent comp = new ImageComponent();
+        ImagePrompt popup = new ImagePrompt(pe.getPrimaryStage(), comp);
+        if(popup.isOk())
+        {
+            pe.getPage().getComponents().add(comp);
+            pe.updatePage();    
+        }
     }
 
     public void handleTextComp() {
@@ -78,10 +86,13 @@ public class PageViewController {
     }
 
     public void handleVideoComp() {
-        VideoComponent a = new VideoComponent();
-        VideoPrompt b = new VideoPrompt(pe.getPrimaryStage(), a);
-        pe.getPage().getComponents().add(a);
-        pe.updatePage();
+        VideoComponent comp = new VideoComponent();
+        VideoPrompt popup = new VideoPrompt(pe.getPrimaryStage(), comp);
+        if(popup.isOk())
+        {
+            pe.getPage().getComponents().add(comp);
+            pe.updatePage();
+        }
     }
 
     public void handleRemoveComp(Component comp) {

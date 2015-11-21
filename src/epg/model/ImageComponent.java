@@ -24,6 +24,10 @@ public class ImageComponent extends Component {
         
     }
 
+    public ImageComponent() {
+        super(200,200);
+    }
+
     public String getImageURL() {
         return imageURL;
     }

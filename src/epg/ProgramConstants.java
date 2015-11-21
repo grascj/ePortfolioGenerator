@@ -17,7 +17,7 @@ public class ProgramConstants {
     public enum TEXT_TYPE   {HEADER, PARAGRAPH, LIST};
 
     //Defaults
-    
+    public static String DEFAULT_SLIDEIMG = "./appdata/default_images/DefaultStartSlide.png";
     
     //UI text and such
     public static String OKAY = "OK";
@@ -53,8 +53,10 @@ public class ProgramConstants {
     public static String CSS_PAGEVIEW_TOPBAR = "pageview_topbar";
     public static String CSS_PAGEVIEW_SIDEBAR_BUTTONS = "pageview_sidebar_buttons";
     
+   
     
     
     
     //@todo tooltips
+    
 }

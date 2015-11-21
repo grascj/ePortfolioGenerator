@@ -19,7 +19,7 @@ public class SiteBuilder {
     
     public static String buildSite(Portfolio portfolio)
     {
-        //@todo
+        //@todo write the sitebuilder class
         return "url";
     }
     
