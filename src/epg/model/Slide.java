@@ -17,7 +17,6 @@ public class Slide {
     
     
    
-    //@TODO
 
     public Slide(String caption, String image, String imageURL) {
         this.caption = caption;

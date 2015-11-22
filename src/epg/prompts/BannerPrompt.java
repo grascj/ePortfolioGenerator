@@ -11,7 +11,8 @@ import java.io.File;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
 import javafx.stage.FileChooser.ExtensionFilter;
@@ -22,32 +23,35 @@ import javafx.stage.Stage;
  *
  * @author cgmp
  */
-public class TextAndImageDialog extends Stage {
+public class BannerPrompt extends Stage {
     //data
     String fileName;
     String fileUrl;
-    String text;
     boolean okay;
             
     //UI 
     Stage ui;
     Button okBtn;
     Button pickFile;
-    TextField uitext;
+    ImageView currentIMG;
     Label currentFileName;
     FileChooser fileChooser;
     
     
-    public TextAndImageDialog(Stage primaryStage, String currentFileURL, String currentFile, String currentText)
+    public BannerPrompt(Stage primaryStage, String currentFileURL, String currentFile)
     {
         okay = false;
         initModality(Modality.APPLICATION_MODAL);
         initOwner(primaryStage);
 
+        if(currentFileURL != null)
+            this.currentIMG = new ImageView("file:"+currentFileURL);
+        else
+            this.currentIMG = new ImageView();
+        
         fileChooser = new FileChooser();
         fileChooser.getExtensionFilters().addAll(
         new ExtensionFilter("Image Files", "*.png", "*.jpg", "*.png"));
-        uitext = new TextField(currentText);
         this.currentFileName = new Label(currentFile);
         okBtn = new Button(OKAY);
         pickFile = new Button(NEWIMAGE);
@@ -55,7 +59,6 @@ public class TextAndImageDialog extends Stage {
         
         okBtn.setOnAction(e->{
             okay = true;
-            text = uitext.getText();
             this.hide();
         });
         pickFile.setOnAction(e->{this.fileInput();});
@@ -63,11 +66,10 @@ public class TextAndImageDialog extends Stage {
         
         this.fileUrl=currentFileURL;
         this.fileName=currentFile;
-        this.text=currentText;
         
         
         VBox uicontainer = new VBox();
-        uicontainer.getChildren().addAll(uitext, this.currentFileName, pickFile, okBtn);
+        uicontainer.getChildren().addAll(currentIMG, currentFileName, pickFile, okBtn);
         Scene promptScene = new Scene(uicontainer);
         this.setScene(promptScene);
         this.show("hello");
@@ -85,6 +87,7 @@ public class TextAndImageDialog extends Stage {
                     fileUrl = selectedFile.getAbsoluteFile().toString();
                     fileName = selectedFile.getName();
                     currentFileName.setText(fileName);
+                    currentIMG.setImage(new Image("file:"+fileUrl));
                 }
     }
     
@@ -108,7 +111,7 @@ public class TextAndImageDialog extends Stage {
      */
     public String[] getSelection()
     {
-        String[] data = {fileUrl, fileName, uitext.getText()};
+        String[] data = {fileUrl, fileName};
         return data;
     }
     

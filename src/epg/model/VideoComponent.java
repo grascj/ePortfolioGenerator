@@ -15,15 +15,28 @@ public class VideoComponent extends Component{
     
     String videoURL;
     String file;
+    String caption;
     
-    public VideoComponent(int width, int length, String videoURL, String video) {
+    
+    public VideoComponent(int width, int length, String videoURL, String video, String caption) {
         super(width, length);
         this.videoURL = videoURL;
         this.file = video;
+        this.caption = caption;
+        
     }
 
     public VideoComponent() {
         super(200,200);
+        caption = "";
+    }
+
+    public String getCaption() {
+        return caption;
+    }
+
+    public void setCaption(String caption) {
+        this.caption = caption;
     }
 
     public String getVideoURL() {

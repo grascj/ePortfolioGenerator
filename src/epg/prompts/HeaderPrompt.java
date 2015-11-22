@@ -5,12 +5,67 @@
  */
 package epg.prompts;
 
+import static epg.ProgramConstants.OKAY;
+import epg.model.HeaderComponent;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
+
 /**
  *
  * @author cgmp
  */
-public class HeaderPrompt {
+public class HeaderPrompt extends Stage {
+
+    BorderPane uicontainer;
+
+    FontBox fb;
+    VBox headercontainer;
+    Label headerLabel;
+    TextField headerText;
+    HeaderComponent comp;
+    Button okayBtn;
+
+    boolean ok;
+
+    public HeaderPrompt(HeaderComponent comp) {
+        ok = false;
+        this.comp = comp;
+
+        
+        
+        fb = new FontBox(comp.getFont(),comp.getFontSize());
+        
+        uicontainer = new BorderPane();
+        headercontainer = new VBox();
+        headerLabel = new Label("Enter your header:");
+        headerText = new TextField(this.comp.getText());
+        okayBtn = new Button(OKAY);
+        okayBtn.setOnAction(e->{
+            ok = true; 
+            this.comp.setText(headerText.getText()); 
+            this.comp.setFont(fb.getFontType());
+            this.comp.setFontSize(fb.getFontSize());
+            this.hide();
+        });
+        headercontainer.getChildren().addAll(headerLabel, headerText, okayBtn);
+        
+        uicontainer.setTop(fb);
+        uicontainer.setCenter(headercontainer);
+
+        Scene promptbody = new Scene(uicontainer);
+        this.setScene(promptbody);
+        this.showAndWait();
+
+    }
     
-    //@todo just a header
-    
+    public boolean isOk()
+    {
+        return ok;
+    }
+
 }

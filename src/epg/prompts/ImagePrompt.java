@@ -38,6 +38,7 @@ public class ImagePrompt extends Stage {
     //data
     int width;
     int length;
+    String caption;
     String fileName;
     String filePath;
     
@@ -53,6 +54,7 @@ public class ImagePrompt extends Stage {
     
     TextField widthField;
     TextField lengthField;
+    TextField captionField;
     
     
     //FLAG
@@ -64,6 +66,7 @@ public class ImagePrompt extends Stage {
         //SET THE FLAG TO FALSE, NEEDS TO BE TRUE TO COMMIT CHANGES
         ok = false;
         this.comp = comp;
+        caption = comp.getCaption();
         initModality(Modality.APPLICATION_MODAL);
         initOwner(primaryStage);
 
@@ -85,7 +88,7 @@ public class ImagePrompt extends Stage {
         
         widthField = new TextField(Integer.toString(comp.getWidth()));
         lengthField = new TextField(Integer.toString(comp.getLength()));
-        
+        captionField = new TextField(caption);
 
         initHandlers();
         
@@ -94,7 +97,7 @@ public class ImagePrompt extends Stage {
         uicontainer.setTop(currentImage);
         BorderPane center = new BorderPane();
         VBox topBox = new VBox();
-        topBox.getChildren().addAll(currentFileName, pickFile);
+        topBox.getChildren().addAll(currentFileName, pickFile, captionField);
         center.setTop(topBox);
         
         VBox leftBox = new VBox();
@@ -130,6 +133,8 @@ public class ImagePrompt extends Stage {
             comp.setImageURL(filePath);
             comp.setLength(Integer.parseInt(widthField.getText()));
             comp.setWidth(Integer.parseInt(widthField.getText()));
+            caption = captionField.getText();
+            comp.setCaption(caption);
             this.hide();
         });
         pickFile.setOnAction(e->{try {

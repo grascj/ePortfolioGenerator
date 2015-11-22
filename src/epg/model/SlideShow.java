@@ -52,8 +52,7 @@ ArrayList<Slide> slides;
     }
 
         
-    //@TODO
-    //METHODS
+    
     
     public void addSlide()
     {

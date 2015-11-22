@@ -5,11 +5,9 @@
  */
 package epg.prompts;
 
-import static epg.ProgramConstants.NEWIMAGE;
 import static epg.ProgramConstants.NEWVIDEO;
 import static epg.ProgramConstants.OKAY;
 import static epg.ProgramConstants.PATH_PROMPTSTYLESHEET;
-import epg.model.ImageComponent;
 import epg.model.VideoComponent;
 import java.io.File;
 import java.net.MalformedURLException;
@@ -19,8 +17,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
@@ -42,6 +38,7 @@ public class VideoPrompt extends Stage {
     int length;
     String fileName;
     String filePath;
+    String caption;
     
     
     
@@ -55,6 +52,7 @@ public class VideoPrompt extends Stage {
     
     TextField widthField;
     TextField lengthField;
+    TextField captionField;
     
     
     //FLAG
@@ -67,9 +65,12 @@ public class VideoPrompt extends Stage {
         //SET THE FLAG TO FALSE, NEEDS TO BE TRUE TO COMMIT CHANGES
         ok = false;
         this.comp = comp;
+        caption = comp.getCaption();
+        
         initModality(Modality.APPLICATION_MODAL);
         initOwner(primaryStage);
-
+        
+        
         
         fileChooser = new FileChooser();
         fileChooser.getExtensionFilters().addAll(
@@ -85,7 +86,7 @@ public class VideoPrompt extends Stage {
         
         widthField = new TextField(Integer.toString(comp.getWidth()));
         lengthField = new TextField(Integer.toString(comp.getLength()));
-        
+        captionField = new TextField(caption);
 
         initHandlers();
         
@@ -93,7 +94,7 @@ public class VideoPrompt extends Stage {
         BorderPane uicontainer = new BorderPane();
         BorderPane center = new BorderPane();
         VBox topBox = new VBox();
-        topBox.getChildren().addAll(currentFileName, pickFile);
+        topBox.getChildren().addAll(currentFileName, pickFile, captionField);
         center.setTop(topBox);
         
         VBox leftBox = new VBox();
@@ -129,6 +130,8 @@ public class VideoPrompt extends Stage {
             comp.setVideoURL(filePath);
             comp.setLength(Integer.parseInt(widthField.getText()));
             comp.setWidth(Integer.parseInt(widthField.getText()));
+            caption = captionField.getText();
+            comp.setCaption(caption);
             this.hide();
         });
         pickFile.setOnAction(e->{try {

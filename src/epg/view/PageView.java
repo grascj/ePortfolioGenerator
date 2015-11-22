@@ -19,7 +19,6 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.RowConstraints;
-import javafx.scene.layout.VBox;
 
 /**
  *
@@ -32,6 +31,9 @@ public class PageView extends BorderPane {
     GridPane sideBox;
     ComboBox layouts;
     ComboBox colors;
+    
+    ComboBox fonts;
+    
     Button footerButton;
     Button bannerButton;
     TextField pageTitleField;
@@ -66,8 +68,13 @@ public class PageView extends BorderPane {
         /*
             public enum LAYOUT      {lownav, sidenav, gaps, topnav, fixedname};
             public enum COLOR       {beach, campfire, personal, SBUred, vintage};
+            public enum FONT        {Fjalla_One, Bree_Serif, Muli, Vollkorn, Iconsolata};
+
         */
         //buttons n stuff
+        fonts = new ComboBox();
+        fonts.getItems().addAll("Fjalla One", "Bree Serif", "Muli", "Vollkorn", "Iconsolata");
+        
         layouts = new ComboBox();
         layouts.getItems().addAll("Low Nav","Side Nav","Gaps","Top Nav","Fixed Name");
         
@@ -94,6 +101,7 @@ public class PageView extends BorderPane {
     {
         layouts.setOnAction(e->{pvc.handleLayoutChange(layouts.getSelectionModel().getSelectedIndex());});
         colors.setOnAction(e->{pvc.handleColorChange(colors.getSelectionModel().getSelectedIndex());});
+        fonts.setOnAction(e->{pvc.handleFontChange(fonts.getSelectionModel().getSelectedIndex());});
         
         footerButton.setOnAction(e->{pvc.handleFooterChange();});
         bannerButton.setOnAction(e->{pvc.handleBannerChange();});
@@ -107,7 +115,7 @@ public class PageView extends BorderPane {
     
     private void placeChildren()
     {
-        topBox.getChildren().addAll(layouts, colors, footerButton, bannerButton, pageTitleField);
+        topBox.getChildren().addAll(fonts,layouts, colors, footerButton, bannerButton, pageTitleField);
         
         
         RowConstraints a = new RowConstraints();
@@ -136,7 +144,8 @@ public class PageView extends BorderPane {
     {
         pageTitleField.setText(page.getTitle());
         layouts.getSelectionModel().select(page.getLayout().ordinal());
-        colors.getSelectionModel().select(page.getLayout().ordinal());
+        colors.getSelectionModel().select(page.getColors().ordinal());
+        fonts.getSelectionModel().select(page.getFont().ordinal());
         cv.update(page.getComponents());
     }
     

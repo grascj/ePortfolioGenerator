@@ -5,19 +5,10 @@
  */
 package epg.prompts;
 
-import epg.model.ParagraphComponent;
-import javafx.stage.Stage;
-
 /**
  *
  * @author cgmp
  */
-public class ParagraphPrompt extends Stage{
-
-    public ParagraphPrompt(ParagraphComponent paragraphComponent) {
-    }
+public class HeaderComponenet {
     
-    //@todo can have links   
-        
-        
 }

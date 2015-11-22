@@ -26,12 +26,9 @@ public class Page {
     COLOR colors;
     String bannerURL;
     String banner;
-    String footerURL;
     String footer;
     String title;
     
-    String bannerText;
-    String footerText;
             
             
     ArrayList<Component> components;
@@ -40,11 +37,12 @@ public class Page {
     //CONSTRUCTORS
     public Page()
     {
+      pagefont = FONT.Bree_Serif;
       layout = LAYOUT.lownav;
       colors = COLOR.SBUred;
       title = "Untitled Page";
       bannerURL = null;
-      footerURL = null;
+      footer = "";
       components = new ArrayList<Component>();
     }
     
@@ -97,14 +95,6 @@ public class Page {
         this.bannerURL = bannerURL;
     }
 
-    public String getFooterURL() {
-        return footerURL;
-    }
-
-    public void setFooterURL(String footerURL) {
-        this.footerURL = footerURL;
-    }
-
     public String getTitle() {
         return title;
     }
@@ -121,22 +111,7 @@ public class Page {
         this.components = components;
     }
 
-    public String getBannerText() {
-        return bannerText;
-    }
 
-    public void setBannerText(String bannerText) {
-        this.bannerText = bannerText;
-    }
-
-    public String getFooterText() {
-        return footerText;
-    }
-
-    public void setFooterText(String footerText) {
-        this.footerText = footerText;
-    }
-    
     
     
     
@@ -144,6 +119,14 @@ public class Page {
     public String toString()
     {
         return title;
+    }
+
+    public void setFont(FONT value) {
+        pagefont = value;
+    }
+
+    public FONT getFont() {
+        return pagefont;
     }
     
     

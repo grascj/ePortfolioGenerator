@@ -6,24 +6,37 @@
 package epg.model;
 
 import epg.ProgramConstants.FONT;
-import java.util.ArrayList;
 
 /**
  *
  * @author cgmp
  */
-public class TextComponent extends Component{
+public abstract class TextComponent extends Component{
 
-    FONT font;
-    
-    ArrayList<TextHolder> text;
-    
+    FONT font;    
+    int fontSize;
     
     //@TODO need clarifications
-    public TextComponent(int width, int length, FONT font, ArrayList<TextHolder> text) {
-        super(width, length);
+    public TextComponent(FONT font, int fontSize) {
+        super(300, 300);
         this.font = font;
-        this.text = text;
+        this.fontSize = fontSize;
+    }
+
+    public FONT getFont() {
+        return font;
+    }
+
+    public void setFont(FONT font) {
+        this.font = font;
+    }
+
+    public int getFontSize() {
+        return fontSize;
+    }
+
+    public void setFontSize(int fontSize) {
+        this.fontSize = fontSize;
     }
 
     @Override
@@ -34,26 +47,9 @@ public class TextComponent extends Component{
     public int getLength(){return -1;}
     
     
-    
-    
-    @Override
-    public void editPrompt() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void display() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public String htmlify() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    
     //@todo
     @Override
     public String getDisplayText() {
-        return "A Text which is: " + width + "px wide and " + length + "px tall. The title is: ";
+        return "A Text Component which is: " + width + "px wide and " + length + "px tall. Font is " + font;
     }    
 }

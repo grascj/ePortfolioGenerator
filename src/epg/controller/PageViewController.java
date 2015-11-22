@@ -6,15 +6,25 @@
 package epg.controller;
 
 import epg.ProgramConstants.COLOR;
+import epg.ProgramConstants.FONT;
 import epg.ProgramConstants.LAYOUT;
+import epg.ProgramConstants.TEXT_TYPE;
 import epg.model.Component;
+import epg.model.HeaderComponent;
 import epg.model.ImageComponent;
+import epg.model.ListComponent;
 import epg.model.Page;
+import epg.model.ParagraphComponent;
 import epg.model.SlideShowComponent;
 import epg.model.VideoComponent;
+import epg.prompts.BannerPrompt;
+import epg.prompts.FooterPrompt;
+import epg.prompts.HeaderPrompt;
 import epg.prompts.ImagePrompt;
+import epg.prompts.ListPrompt;
+import epg.prompts.ParagraphPrompt;
 import epg.prompts.SlideShowPrompt;
-import epg.prompts.TextAndImageDialog;
+import epg.prompts.TextPrompt;
 import epg.prompts.VideoPrompt;
 import epg.view.PageEditor;
 
@@ -23,12 +33,10 @@ import epg.view.PageEditor;
  * @author cgmp
  */
 public class PageViewController {
-    
+
     PageEditor pe;
-    
-    
-    public PageViewController(PageEditor pe)
-    {
+
+    public PageViewController(PageEditor pe) {
         this.pe = pe;
     }
 
@@ -40,27 +48,24 @@ public class PageViewController {
         pe.getPage().setLayout(LAYOUT.values()[index]);
     }
 
+    public void handleFontChange(int index) {
+        pe.getPage().setFont(FONT.values()[index]);
+    }
+
     public void handleFooterChange() {
-        TextAndImageDialog prompt = new TextAndImageDialog(pe.getPrimaryStage(), pe.getPage().getFooterURL(), pe.getPage().getFooter(), pe.getPage().getFooterText());
-        if(prompt.isOk())
-        {
-        String[] data = prompt.getSelection();
-        Page current = pe.getPage();
-        current.setFooterURL(data[0]);
-        current.setFooter(data[1]);
-        current.setFooterText(data[2]);
+        FooterPrompt prompt = new FooterPrompt(pe.getPage().getFooter());
+        if (prompt.isOk()) {
+            pe.getPage().setFooter(prompt.getData());
         }
     }
 
     public void handleBannerChange() {
-        TextAndImageDialog prompt = new TextAndImageDialog(pe.getPrimaryStage(), pe.getPage().getBannerURL(), pe.getPage().getBanner(), pe.getPage().getBannerText());
-        if(prompt.isOk())
-        {
-        String[] data = prompt.getSelection();
-        Page current = pe.getPage();
-        current.setBannerURL(data[0]);
-        current.setBanner(data[1]);
-        current.setBannerText(data[2]);
+        BannerPrompt prompt = new BannerPrompt(pe.getPrimaryStage(), pe.getPage().getBannerURL(), pe.getPage().getBanner());
+        if (prompt.isOk()) {
+            String[] data = prompt.getSelection();
+            Page current = pe.getPage();
+            current.setBannerURL(data[0]);
+            current.setBanner(data[1]);
         }
     }
 
@@ -72,33 +77,47 @@ public class PageViewController {
     public void handleImageComp() {
         ImageComponent comp = new ImageComponent();
         ImagePrompt popup = new ImagePrompt(pe.getPrimaryStage(), comp);
-        if(popup.isOk())
-        {
+        if (popup.isOk()) {
             pe.getPage().getComponents().add(comp);
-            pe.updatePage();    
+            pe.updatePage();
         }
     }
 
     public void handleTextComp() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        TextPrompt popup = new TextPrompt();
+        if (popup.isOk()) {
+            boolean flag = false;
+            if (popup.getTextType() == TEXT_TYPE.HEADER) {
+                HeaderPrompt prompt = new HeaderPrompt((HeaderComponent) popup.getComp());
+                flag = prompt.isOk();
+            } else if (popup.getTextType() == TEXT_TYPE.PARAGRAPH) {
+                ParagraphPrompt prompt = new ParagraphPrompt((ParagraphComponent) popup.getComp());
+                //flag = prompt.isOk();
+            } else if (popup.getTextType() == TEXT_TYPE.LIST) {
+                ListPrompt prompt = new ListPrompt((ListComponent) popup.getComp());
+                flag = prompt.isOk();
+            }
+            if (flag) {
+                pe.getPage().getComponents().add(popup.getComp());
+                pe.updatePage();
+            }
+        }
     }
 
     public void handleSlideComp() {
         SlideShowComponent comp = new SlideShowComponent();
         SlideShowPrompt popup = new SlideShowPrompt(comp);
-        if(popup.isOk())
-        {
+        if (popup.isOk()) {
             pe.getPage().getComponents().add(comp);
             pe.updatePage();
         }
-        
+
     }
 
     public void handleVideoComp() {
         VideoComponent comp = new VideoComponent();
         VideoPrompt popup = new VideoPrompt(pe.getPrimaryStage(), comp);
-        if(popup.isOk())
-        {
+        if (popup.isOk()) {
             pe.getPage().getComponents().add(comp);
             pe.updatePage();
         }
@@ -108,8 +127,5 @@ public class PageViewController {
         pe.getPage().getComponents().remove(comp);
         pe.updatePage();
     }
-    
-    
-    
-    
+
 }
