@@ -92,7 +92,7 @@ public class PageViewController {
                 flag = prompt.isOk();
             } else if (popup.getTextType() == TEXT_TYPE.PARAGRAPH) {
                 ParagraphPrompt prompt = new ParagraphPrompt((ParagraphComponent) popup.getComp());
-                //flag = prompt.isOk();
+                flag = prompt.isOk();
             } else if (popup.getTextType() == TEXT_TYPE.LIST) {
                 ListPrompt prompt = new ListPrompt((ListComponent) popup.getComp());
                 flag = prompt.isOk();

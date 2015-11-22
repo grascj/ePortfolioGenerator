@@ -14,20 +14,6 @@ import java.util.ArrayList;
  * @author cgmp
  */
 public class ParagraphComponent extends TextComponent{
-
-    public class Hyperlink
-    {
-        public int start;
-        public int end;
-        public String link;
-        public Hyperlink(int start, int end, String link)
-        {
-            this.start = start;
-            this.end = end;
-            this.link = link;
-        }
-    }
-    
     
     
     ArrayList<Hyperlink> links;

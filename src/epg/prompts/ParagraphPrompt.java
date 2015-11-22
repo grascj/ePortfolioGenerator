@@ -9,8 +9,10 @@ import static epg.ProgramConstants.OKAY;
 import epg.model.ParagraphComponent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.TextField;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 /**
@@ -22,7 +24,12 @@ public class ParagraphPrompt extends Stage{
     BorderPane uipositioner;
     FontBox fb;
     
-    TextField paraText;
+    VBox paragraphcontainer;
+    
+    Label paraLabel;
+    TextArea paraText;
+    
+    
     
     Button okayBtn;
     
@@ -46,28 +53,43 @@ public class ParagraphPrompt extends Stage{
         
     }
     
-    public void initUI()
+    private void initUI()
     {
         uipositioner = new BorderPane();
         fb = new FontBox(comp.getFont(), comp.getFontSize());
-        paraText = new TextField();
+        
+        paragraphcontainer = new VBox();
+        paraLabel = new Label("Enter the text for the Paragraph:");
+        paraText = new TextArea();
         paraText.setText(comp.getText());
-        
-        
         okayBtn = new Button(OKAY);
     }
     
-    public void initHandlers()
+    private void initHandlers()
     {
-        okayBtn.setOnAction(e->{ok = true; comp.setText(paraText.getText());});
+        okayBtn.setOnAction(e->{ok = true; comp.setText(paraText.getText()); this.hide();});
     }
     
-    public void placeChildren()
+    private void placeChildren()
     {
+        
+        paragraphcontainer.getChildren().addAll(paraLabel, paraText);
+        
         uipositioner.setTop(fb);
+        uipositioner.setCenter(paragraphcontainer);
         uipositioner.setBottom(okayBtn);
     }
     
+    public boolean isOk()
+    {
+        return ok;
+    }
+    
+    //check the string, if a hyperlink is no longer present it gets deleted
+    public String checkChanges()
+    {
         
+        return null;
+    }   
         
 }

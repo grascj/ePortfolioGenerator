@@ -55,7 +55,7 @@ public class SlideContainer extends HBox {
         captionField = new TextField(slide.caption);
 
         if (slide.imageURL != null) {
-            slideImage = new ImageView(slide.imageURL);
+            slideImage = new ImageView("file:"+slide.imageURL);
         } else {
             slideImage = new ImageView("file:" + DEFAULT_SLIDEIMG);
         }

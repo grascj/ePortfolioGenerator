@@ -28,7 +28,7 @@ public class FontBox extends HBox{
         this.font = font;
         typeBox = new ComboBox();
         typeBox.getItems().addAll("Fjalla One", "Bree Serif", "Muli", "Vollkorn", "Iconsolata");
-        typeBox.getSelectionModel().select(font);
+        typeBox.getSelectionModel().select(font.ordinal());
         this.fontSize = fontSize;
         sizeField = new TextField(""+this.fontSize);
         

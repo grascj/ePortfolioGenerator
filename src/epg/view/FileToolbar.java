@@ -21,6 +21,7 @@ public class FileToolbar extends FlowPane{
     Button newButton;
     Button loadButton;
     Button saveButton;
+    Button saveAsButton;
     Button exportButton;
     Button exitButton;
     FileController fc;
@@ -43,6 +44,8 @@ public class FileToolbar extends FlowPane{
         loadButton.getStyleClass().add(CSS_FILETOOLBAR_BUTTONS);
         saveButton = new Button("save");
         saveButton.getStyleClass().add(CSS_FILETOOLBAR_BUTTONS);
+        saveAsButton = new Button("save as");
+        saveAsButton.getStyleClass().add(CSS_FILETOOLBAR_BUTTONS);
         exportButton = new Button("export");
         exportButton.getStyleClass().add(CSS_FILETOOLBAR_BUTTONS);
         exitButton = new Button("exit");
@@ -55,13 +58,14 @@ public class FileToolbar extends FlowPane{
         newButton.setOnAction(e->{fc.handleNew();});
         loadButton.setOnAction(e->{fc.handleLoad();});
         saveButton.setOnAction(e->{fc.handleSave();});
+        saveAsButton.setOnAction(e->{fc.handleSaveAs();});
         exportButton.setOnAction(e->{fc.handleExport();});
         exitButton.setOnAction(e->{fc.handleExit();});
     }
     
     private void placeChildren()
     {
-        this.getChildren().addAll(newButton, loadButton, saveButton, exportButton, exitButton);
+        this.getChildren().addAll(newButton, loadButton, saveButton, saveAsButton, exportButton, exitButton);
     }
     
     
