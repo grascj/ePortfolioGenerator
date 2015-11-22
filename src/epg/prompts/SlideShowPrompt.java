@@ -6,11 +6,21 @@
 package epg.prompts;
 
 import static epg.ProgramConstants.CSS_SLIDE;
+import static epg.ProgramConstants.CSS_SLIDESHOW_BUTTON;
 import static epg.ProgramConstants.CSS_SLIDE_SELECTED;
+import static epg.ProgramConstants.ICON_ARROW_DOWN;
+import static epg.ProgramConstants.ICON_ARROW_UP;
+import static epg.ProgramConstants.ICON_MINUS;
+import static epg.ProgramConstants.ICON_PLUS;
 import static epg.ProgramConstants.PATH_PROMPTSTYLESHEET;
+import static epg.ProgramConstants.TT_SS_ADD;
+import static epg.ProgramConstants.TT_SS_DOWN;
+import static epg.ProgramConstants.TT_SS_RM;
+import static epg.ProgramConstants.TT_SS_UP;
 import epg.model.Slide;
 import epg.model.SlideShow;
 import epg.model.SlideShowComponent;
+import epg.view.ViewHelper;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -79,10 +89,11 @@ public class SlideShowPrompt extends Stage {
         slideScroll = new ScrollPane(slidePane);
 
         sideToolbar = new VBox();
-        upBtn = new Button();
-        downBtn = new Button();
-        rmButton = new Button();
-        addButton = new Button();
+        
+        upBtn = ViewHelper.initChildButton(CSS_SLIDESHOW_BUTTON, ICON_ARROW_UP, TT_SS_UP);
+        downBtn = ViewHelper.initChildButton(CSS_SLIDESHOW_BUTTON, ICON_ARROW_DOWN, TT_SS_DOWN);
+        rmButton = ViewHelper.initChildButton(CSS_SLIDESHOW_BUTTON, ICON_PLUS, TT_SS_RM);
+        addButton = ViewHelper.initChildButton(CSS_SLIDESHOW_BUTTON, ICON_MINUS, TT_SS_ADD);
 
         okayBtn = new Button("Okay");
 

@@ -8,6 +8,16 @@ package epg.view;
 import static epg.ProgramConstants.CSS_PAGEVIEW;
 import static epg.ProgramConstants.CSS_PAGEVIEW_SIDEBAR_BUTTONS;
 import static epg.ProgramConstants.CSS_PAGEVIEW_TOPBAR;
+import static epg.ProgramConstants.ICON_BOARD;
+import static epg.ProgramConstants.ICON_CIRCLE_X;
+import static epg.ProgramConstants.ICON_PICTURE;
+import static epg.ProgramConstants.ICON_TEXT_PLUS;
+import static epg.ProgramConstants.ICON_VIDEO;
+import static epg.ProgramConstants.TT_COMP_IMAGE;
+import static epg.ProgramConstants.TT_COMP_REMOVE;
+import static epg.ProgramConstants.TT_COMP_SS;
+import static epg.ProgramConstants.TT_COMP_TEXT;
+import static epg.ProgramConstants.TT_COMP_VIDEO;
 import epg.controller.PageViewController;
 import epg.model.Component;
 import epg.model.Page;
@@ -85,16 +95,12 @@ public class PageView extends BorderPane {
         bannerButton = new Button("banner");
         pageTitleField = new TextField();
         //sidebar
-        imageCompButton = new Button();
-        imageCompButton.getStyleClass().add(CSS_PAGEVIEW_SIDEBAR_BUTTONS);
-        textCompButton = new Button();
-        textCompButton.getStyleClass().add(CSS_PAGEVIEW_SIDEBAR_BUTTONS);
-        slideCompButton = new Button();
-        slideCompButton.getStyleClass().add(CSS_PAGEVIEW_SIDEBAR_BUTTONS);
-        videoCompButton = new Button();
-        videoCompButton.getStyleClass().add(CSS_PAGEVIEW_SIDEBAR_BUTTONS);
-        removeCompButton = new Button();
-        removeCompButton.getStyleClass().add(CSS_PAGEVIEW_SIDEBAR_BUTTONS);
+
+        imageCompButton = ViewHelper.initChildButton(CSS_PAGEVIEW_SIDEBAR_BUTTONS, ICON_PICTURE, TT_COMP_IMAGE);
+        textCompButton = ViewHelper.initChildButton(CSS_PAGEVIEW_SIDEBAR_BUTTONS, ICON_TEXT_PLUS, TT_COMP_TEXT);
+        slideCompButton = ViewHelper.initChildButton(CSS_PAGEVIEW_SIDEBAR_BUTTONS, ICON_BOARD, TT_COMP_SS);
+        videoCompButton = ViewHelper.initChildButton(CSS_PAGEVIEW_SIDEBAR_BUTTONS, ICON_VIDEO, TT_COMP_VIDEO);
+        removeCompButton = ViewHelper.initChildButton(CSS_PAGEVIEW_SIDEBAR_BUTTONS, ICON_CIRCLE_X, TT_COMP_REMOVE);
     }
     
     private void initHandlers()

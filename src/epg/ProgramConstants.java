@@ -58,6 +58,12 @@ public class ProgramConstants {
     //CSS STYLES FOR PROMPTS
     public static String CSS_SLIDE = "slide";
     public static String CSS_SLIDE_SELECTED = "slide_selected";
+    public static String CSS_SLIDESHOW_BUTTON = "slideshow_button";
+    public static String CSS_TEXT_BUTTON = "text_button";
+    public static String CSS_LIST_BUTTON = "list_button";
+  
+    
+    
     
     //ICONS
     public static String PATH_ICONS = "./appdata/icons/";
@@ -77,6 +83,11 @@ public class ProgramConstants {
     public static String ICON_PICTURE = PATH_ICONS + "picture.png";
     public static String ICON_TEXT_PLUS = PATH_ICONS + "t-plus.png";
     public static String ICON_CIRCLE_X = PATH_ICONS + "circle-x.png";
+    public static String ICON_EYE = PATH_ICONS + "view.png";
+    public static String ICON_EDIT = PATH_ICONS + "edit.png";
+    public static String ICON_HEADER = PATH_ICONS + "header.png";
+    public static String ICON_LIST = PATH_ICONS + "list.png";
+    public static String ICON_PARAGRAPH = PATH_ICONS + "paragraph.png";
     
     
 
@@ -93,7 +104,22 @@ public class ProgramConstants {
     public static String TT_ST_PAGE = "Change the current Page to edit.";
     public static String TT_ST_ADD = "Add a page.";
     public static String TT_ST_REMOVE = "Remove a page.";
+    public static String TT_COMP_IMAGE = "Add an image component";
+    public static String TT_COMP_TEXT = "Add a text component";
+    public static String TT_COMP_VIDEO = "Add a video component";
+    public static String TT_COMP_SS = "Add a slide show component";
+    public static String TT_COMP_REMOVE = "Remove the selected component";
     
+    //  prompt TOOLTIPS
+    public static String TT_TEXT_PARA = "Add a paragraph.";
+    public static String TT_TEXT_HEAD = "Add a header.";
+    public static String TT_TEXT_LIST = "Add a list.";
+    public static String TT_SS_UP = "Move the selected slide up.";
+    public static String TT_SS_DOWN = "Move the selected slide down.";
+    public static String TT_SS_RM = "Remove the selected slide.";
+    public static String TT_SS_ADD = "Add a slide.";
+    public static String TT_LIST_ADD = "Add an item.";
+    public static String TT_LIST_RM = "Remove an item.";
     
     
     

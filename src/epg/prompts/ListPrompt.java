@@ -5,8 +5,14 @@
  */
 package epg.prompts;
 
+import static epg.ProgramConstants.CSS_LIST_BUTTON;
+import static epg.ProgramConstants.ICON_MINUS;
+import static epg.ProgramConstants.ICON_PLUS;
+import static epg.ProgramConstants.TT_LIST_ADD;
+import static epg.ProgramConstants.TT_LIST_RM;
 import epg.model.Item;
 import epg.model.ListComponent;
+import static epg.view.ViewHelper.initChildButton;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
@@ -81,8 +87,8 @@ public class ListPrompt extends Stage{
         itemScroll = new ScrollPane(itemcontainer);
         okayBtn = new Button();
         listbuttoncontainer = new HBox();
-        addBtn = new Button("add");
-        rmBtn = new Button("rm");
+        addBtn = initChildButton(CSS_LIST_BUTTON, ICON_PLUS, TT_LIST_ADD);
+        rmBtn = initChildButton(CSS_LIST_BUTTON, ICON_MINUS, TT_LIST_RM);
         body = new VBox();
         
     }

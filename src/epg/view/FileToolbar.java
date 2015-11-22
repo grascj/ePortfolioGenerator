@@ -6,10 +6,23 @@
 package epg.view;
 
 import static epg.ProgramConstants.CSS_FILETOOLBAR_BUTTONS;
+import static epg.ProgramConstants.ICON_BOOK_OPEN;
+import static epg.ProgramConstants.ICON_FLOPPYDISK;
+import static epg.ProgramConstants.ICON_FOLDER_PLUS;
+import static epg.ProgramConstants.ICON_PAGE_ARROW;
+import static epg.ProgramConstants.ICON_X;
+import static epg.ProgramConstants.TT_FILE_EXIT;
+import static epg.ProgramConstants.TT_FILE_EXPORT;
+import static epg.ProgramConstants.TT_FILE_LOAD;
+import static epg.ProgramConstants.TT_FILE_NEW;
+import static epg.ProgramConstants.TT_FILE_SAVE;
+import static epg.ProgramConstants.TT_FILE_SAVEAS;
 import epg.controller.FileController;
 import epg.model.Portfolio;
-import java.util.ArrayList;
 import javafx.scene.control.Button;
+import javafx.scene.control.Tooltip;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.FlowPane;
 
 /**
@@ -38,19 +51,13 @@ public class FileToolbar extends FlowPane{
     
     private void initButtons()
     {
-        newButton = new Button("new");
-        newButton.getStyleClass().add(CSS_FILETOOLBAR_BUTTONS);
-        loadButton = new Button("load");
-        loadButton.getStyleClass().add(CSS_FILETOOLBAR_BUTTONS);
-        saveButton = new Button("save");
-        saveButton.getStyleClass().add(CSS_FILETOOLBAR_BUTTONS);
-        saveAsButton = new Button("save as");
-        saveAsButton.getStyleClass().add(CSS_FILETOOLBAR_BUTTONS);
-        exportButton = new Button("export");
-        exportButton.getStyleClass().add(CSS_FILETOOLBAR_BUTTONS);
-        exitButton = new Button("exit");
-        exitButton.getStyleClass().add(CSS_FILETOOLBAR_BUTTONS);
         
+        newButton = ViewHelper.initChildButton(CSS_FILETOOLBAR_BUTTONS, ICON_FOLDER_PLUS, TT_FILE_NEW);
+        loadButton = ViewHelper.initChildButton(CSS_FILETOOLBAR_BUTTONS, ICON_BOOK_OPEN, TT_FILE_LOAD);
+        saveButton = ViewHelper.initChildButton(CSS_FILETOOLBAR_BUTTONS, ICON_FLOPPYDISK, TT_FILE_SAVE);
+        saveAsButton = ViewHelper.initChildButton(CSS_FILETOOLBAR_BUTTONS, ICON_FLOPPYDISK, TT_FILE_SAVEAS);
+        exportButton = ViewHelper.initChildButton(CSS_FILETOOLBAR_BUTTONS, ICON_PAGE_ARROW, TT_FILE_EXPORT);
+        exitButton = ViewHelper.initChildButton(CSS_FILETOOLBAR_BUTTONS, ICON_X, TT_FILE_EXIT);
     }
     
     private void initHandlers()
@@ -67,8 +74,7 @@ public class FileToolbar extends FlowPane{
     {
         this.getChildren().addAll(newButton, loadButton, saveButton, saveAsButton, exportButton, exitButton);
     }
-    
-    
+
     public void updateControls(Portfolio portfolio)
     {
         

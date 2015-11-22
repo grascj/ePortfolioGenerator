@@ -5,11 +5,19 @@
  */
 package epg.prompts;
 
+import static epg.ProgramConstants.CSS_TEXT_BUTTON;
+import static epg.ProgramConstants.ICON_HEADER;
+import static epg.ProgramConstants.ICON_LIST;
+import static epg.ProgramConstants.ICON_PARAGRAPH;
 import epg.ProgramConstants.TEXT_TYPE;
+import static epg.ProgramConstants.TT_TEXT_HEAD;
+import static epg.ProgramConstants.TT_TEXT_LIST;
+import static epg.ProgramConstants.TT_TEXT_PARA;
 import epg.model.HeaderComponent;
 import epg.model.ListComponent;
 import epg.model.ParagraphComponent;
 import epg.model.TextComponent;
+import epg.view.ViewHelper;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -53,9 +61,9 @@ public class TextPrompt extends Stage {
         uipositioner = new BorderPane();
         pickLabel = new Label("Choose what type of Text Component:");
         buttoncontainer = new HBox();
-        paraBtn = new Button();
-        listBtn = new Button();
-        headerBtn = new Button();
+        paraBtn = ViewHelper.initChildButton(CSS_TEXT_BUTTON, ICON_PARAGRAPH, TT_TEXT_PARA);
+        listBtn = ViewHelper.initChildButton(CSS_TEXT_BUTTON, ICON_LIST, TT_TEXT_LIST);
+        headerBtn = ViewHelper.initChildButton(CSS_TEXT_BUTTON, ICON_HEADER, TT_TEXT_HEAD);
     }
 
     public void initHandlers() {

@@ -6,15 +6,16 @@
 package epg.view;
 
 import static epg.ProgramConstants.CSS_MODETOOLBAR_BUTTONS;
+import static epg.ProgramConstants.ICON_EDIT;
+import static epg.ProgramConstants.ICON_EYE;
+import static epg.ProgramConstants.TT_MODE_EDIT;
+import static epg.ProgramConstants.TT_MODE_SITE;
 import epg.controller.ModeController;
 import epg.model.Portfolio;
 import javafx.scene.control.Button;
-import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.RowConstraints;
-import javafx.scene.layout.VBox;
 
 /**
  *
@@ -38,11 +39,9 @@ class ModeToolbar extends GridPane{
     }
 
     private void initButtons() {
-        siteButton = new Button();
-        siteButton.getStyleClass().add(CSS_MODETOOLBAR_BUTTONS);
-        editorButton = new Button();
-        editorButton.getStyleClass().add(CSS_MODETOOLBAR_BUTTONS);
         
+        siteButton = ViewHelper.initChildButton(CSS_MODETOOLBAR_BUTTONS, ICON_EYE, TT_MODE_SITE);
+        editorButton = ViewHelper.initChildButton(CSS_MODETOOLBAR_BUTTONS, ICON_EDIT, TT_MODE_EDIT);
     }
 
     private void initHandlers() {
