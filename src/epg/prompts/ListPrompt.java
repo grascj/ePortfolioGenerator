@@ -5,6 +5,7 @@
  */
 package epg.prompts;
 
+import epg.model.Item;
 import epg.model.ListComponent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -33,7 +34,7 @@ public class ListPrompt extends Stage{
     VBox body;
     
     
-    String selection;
+    Item selection;
     
     
     //data
@@ -44,12 +45,13 @@ public class ListPrompt extends Stage{
     public class ItemBox extends HBox
     {
         TextField itemText;
-        String text;
-        public ItemBox(String text)
+        Item item;
+        public ItemBox(Item item)
         {
-            this.text = text;
-            itemText = new TextField(text);
-            itemText.setOnKeyReleased(e->{this.text = itemText.getText();});
+            this.item = item;
+            itemText = new TextField(item.itemtext);
+            itemText.setOnMouseClicked(e->{selection = this.item;});
+            itemText.setOnKeyReleased(e->{this.item.itemtext = itemText.getText();});
             this.getChildren().add(itemText);
         }
     }
@@ -92,7 +94,7 @@ public class ListPrompt extends Stage{
             ok = true;
         });
         
-        addBtn.setOnAction(e->{comp.getListItems().add("");populateItems();});
+        addBtn.setOnAction(e->{comp.getListItems().add(new Item(""));populateItems();});
         rmBtn.setOnAction(e->{comp.getListItems().remove(selection); populateItems();});
         
     }
@@ -116,7 +118,7 @@ public class ListPrompt extends Stage{
     public void populateItems()
     {
         itemcontainer.getChildren().clear();
-        for(String item : comp.getListItems())
+        for(Item item : comp.getListItems())
         {
             ItemBox ibox = new ItemBox(item);
             
@@ -127,7 +129,7 @@ public class ListPrompt extends Stage{
             {
                 //reg css
             }
-            ibox.setOnMouseClicked(e->{selection = ibox.text; populateItems();});
+            ibox.setOnMouseClicked(e->{selection = ibox.item; populateItems();});
             
             itemcontainer.getChildren().add(ibox);
         }

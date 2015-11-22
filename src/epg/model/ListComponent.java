@@ -14,23 +14,26 @@ import java.util.ArrayList;
  */
 public class ListComponent extends TextComponent {
 
-    ArrayList<String> listItems;
+    
+    
+    
+    ArrayList<Item> listItems;
 
-    public ListComponent(FONT font, int fontSize, ArrayList<String> listItems) {
+    public ListComponent(FONT font, int fontSize, ArrayList<Item> listItems) {
         super(font, fontSize);
         this.listItems = listItems;
     }
 
     public ListComponent() {
         super(FONT.Bree_Serif, 12);
-        listItems = new ArrayList<String>();
+        listItems = new ArrayList<Item>();
     }
 
-    public ArrayList<String> getListItems() {
+    public ArrayList<Item> getListItems() {
         return listItems;
     }
 
-    public void setListItems(ArrayList<String> listItems) {
+    public void setListItems(ArrayList<Item> listItems) {
         this.listItems = listItems;
     }
 

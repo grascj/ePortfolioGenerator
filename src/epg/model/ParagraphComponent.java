@@ -19,10 +19,12 @@ public class ParagraphComponent extends TextComponent{
     {
         public int start;
         public int end;
-        public Hyperlink(int start, int end)
+        public String link;
+        public Hyperlink(int start, int end, String link)
         {
             this.start = start;
             this.end = end;
+            this.link = link;
         }
     }
     
