@@ -13,6 +13,7 @@ import static epg.ProgramConstants.TT_MODE_SITE;
 import epg.controller.ModeController;
 import epg.model.Portfolio;
 import javafx.scene.control.Button;
+import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.RowConstraints;
@@ -55,6 +56,7 @@ class ModeToolbar extends GridPane{
         
         RowConstraints rows = new RowConstraints();
         rows.setVgrow(Priority.ALWAYS);
+
         
         this.getRowConstraints().add(rows);
         this.getRowConstraints().add(rows);

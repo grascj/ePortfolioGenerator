@@ -6,36 +6,69 @@ and open the template in the editor.
 /* 
     Created on : Nov 18, 2015, 1:44:30 PM
     Author     : cgmp
+
+
+
+buttons = #48b685
+buttons = #5bc4bf
+bg = #e7e9db
+
 */
 
 
 /*  THIS FILE CONTAINS STYLES FOR THE MAIN APPLICATION STAGE ALONE */
 
 
+//COLORS---------------------------------------------------------------------------------
+
+
+.componentpane, .pageview, .pageeditor, .siteview
+{
+    -fx-background-color: #e7e9db;
+}
+
+
+.pageview_topbar, .sitetoolbar, .modetoolbar, .filetoolbar
+{
+    -fx-background-color: #48b685;
+}
+
+
+.componentview_button, .pageview_sidebar_buttons, .modetoolbar_buttons, .filetoolbar_buttons
+{
+    -fx-background-color: #5bc4bf;
+}
+
+
+
+
+//LAYOUTS-------------------------------------------------------------------------------
+
 //FILETOOLBAR STYLES
 .filetoolbar
 {    
-    -fx-background-color: red;
     -fx-fit-to-width: true;
     -fx-hgap: 5px;
 }
 
 .filetoolbar_buttons
 {
+    -fx-max-height: Infinity;
+    -fx-max-width: Infinity;
     -fx-padding: 10px 50px 10px 50px;
 }
 
 //MODETOOLBAR STYLES
 .modetoolbar
 {
-    -fx-background-color:red;
     -fx-fill-width: true;
+    
 }
 
 .modetoolbar_buttons
 {
-    -fx-min-width: 30px;
     -fx-max-height: Infinity;
+    -fx-max-width: Infinity;
 }
 
 //SiteView
@@ -43,7 +76,6 @@ and open the template in the editor.
 {
     -fx-fit-to-width:true;
     -fx-fit-to-height:true;
-    -fx-background-color: green;
 }
 
 .siteview_webview
@@ -60,7 +92,6 @@ and open the template in the editor.
     -fx-border-color: transparent;
     -fx-fit-to-width:true;
     -fx-fit-to-height:true;
-    -fx-background-color: green;
 }
 
 
@@ -85,7 +116,6 @@ and open the template in the editor.
 {
     -fx-max-height: Infinity;
     //-fx-fit-to-width: true;
-    -fx-background-color: beige;
 }
 
 
@@ -114,7 +144,6 @@ and open the template in the editor.
 //PAGEVIEW
 .pageview
 {
-   -fx-background-color: bisque;
 }
 
 .pageview_topbar
@@ -125,6 +154,7 @@ and open the template in the editor.
 .pageview_sidebar_buttons
 {
     -fx-max-height: Infinity;
+    -fx-max-width: Infinity;
 }
 
 
