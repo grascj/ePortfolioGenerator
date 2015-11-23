@@ -42,6 +42,8 @@ public class ProgramConstants {
     public static String CSS_PAGEEDITOR = "pageeditor";
     
     public static String CSS_SITETOOLBAR = "sitetoolbar";
+    public static String CSS_SITETOOLBAR_CHILD = "sitetoolbar_child";
+
     
     public static String CSS_COMPONENTPANE = "componentpane";
     
@@ -52,6 +54,7 @@ public class ProgramConstants {
     
     public static String CSS_PAGEVIEW = "pageview";
     public static String CSS_PAGEVIEW_TOPBAR = "pageview_topbar";
+    public static String CSS_PAGEVIEW_TOPBAR_CHILD = "pageview_topbar_child";
     public static String CSS_PAGEVIEW_SIDEBAR_BUTTONS = "pageview_sidebar_buttons";
     
    
@@ -61,7 +64,8 @@ public class ProgramConstants {
     public static String CSS_SLIDESHOW_BUTTON = "slideshow_button";
     public static String CSS_TEXT_BUTTON = "text_button";
     public static String CSS_LIST_BUTTON = "list_button";
-  
+    public static String CSS_OK_BUTTON = "ok_button";
+    public static String CSS_CHOOSE_BUTTON = "choose_button";
     
     
     
@@ -88,8 +92,8 @@ public class ProgramConstants {
     public static String ICON_HEADER = PATH_ICONS + "header.png";
     public static String ICON_LIST = PATH_ICONS + "list.png";
     public static String ICON_PARAGRAPH = PATH_ICONS + "paragraph.png";
-    
-    
+    public static String ICON_CHOOSE = PATH_ICONS + "choose.png";
+    public static String ICON_FOOTER = PATH_ICONS + "footer.png";
 
     //TOOLTIPS
     public static String TT_FILE_NEW = "Open a new Portfolio.";
@@ -110,6 +114,10 @@ public class ProgramConstants {
     public static String TT_COMP_SS = "Add a slide show component";
     public static String TT_COMP_REMOVE = "Remove the selected component";
     
+    public static String TT_PV_BANNER = "Edit the page banner.";
+    public static String TT_PV_FOOTER = "Edit the page footer.";
+    
+    
     //  prompt TOOLTIPS
     public static String TT_TEXT_PARA = "Add a paragraph.";
     public static String TT_TEXT_HEAD = "Add a header.";
@@ -120,8 +128,8 @@ public class ProgramConstants {
     public static String TT_SS_ADD = "Add a slide.";
     public static String TT_LIST_ADD = "Add an item.";
     public static String TT_LIST_RM = "Remove an item.";
-    
-    
+    public static String TT_OK = "Done editing.";
+    public static String TT_CHOOSE = "Choose File.";
     
     
     

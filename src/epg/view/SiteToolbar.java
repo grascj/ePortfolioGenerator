@@ -6,8 +6,14 @@
 package epg.view;
 
 import static epg.ProgramConstants.CSS_SITETOOLBAR;
+import static epg.ProgramConstants.CSS_SITETOOLBAR_CHILD;
+import static epg.ProgramConstants.ICON_MINUS;
+import static epg.ProgramConstants.ICON_PLUS;
+import static epg.ProgramConstants.TT_ST_ADD;
+import static epg.ProgramConstants.TT_ST_REMOVE;
 import epg.controller.SiteToolbarController;
 import epg.model.Page;
+import static epg.view.ViewHelper.initChildButton;
 import java.util.ArrayList;
 import java.util.Collection;
 import javafx.scene.control.Button;
@@ -49,12 +55,12 @@ public class SiteToolbar extends HBox{
         nameField = new TextField();
         
         nameContainer = new HBox();
-        nameContainer.getChildren().addAll( nameFieldDesc, nameField);
+        nameContainer.getChildren().addAll(nameFieldDesc, nameField);
 
         
         pageBox = new ComboBox();
-        addPageButton = new Button("add page");
-        removePageButton = new Button("remove page");
+        addPageButton = initChildButton(CSS_SITETOOLBAR_CHILD, ICON_PLUS, TT_ST_ADD);
+        removePageButton = initChildButton(CSS_SITETOOLBAR_CHILD, ICON_MINUS, TT_ST_REMOVE);
     }
     
     private void initHandlers()

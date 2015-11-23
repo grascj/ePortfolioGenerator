@@ -5,10 +5,17 @@
  */
 package epg.prompts;
 
+import static epg.ProgramConstants.CSS_CHOOSE_BUTTON;
+import static epg.ProgramConstants.CSS_OK_BUTTON;
+import static epg.ProgramConstants.ICON_CHECK;
+import static epg.ProgramConstants.ICON_CHOOSE;
 import static epg.ProgramConstants.NEWIMAGE;
 import static epg.ProgramConstants.OKAY;
 import static epg.ProgramConstants.PATH_PROMPTSTYLESHEET;
+import static epg.ProgramConstants.TT_CHOOSE;
+import static epg.ProgramConstants.TT_OK;
 import epg.model.ImageComponent;
+import static epg.view.ViewHelper.initChildButton;
 import java.io.File;
 import java.net.MalformedURLException;
 import java.util.logging.Level;
@@ -82,9 +89,8 @@ public class ImagePrompt extends Stage {
             currentImage = new ImageView();
         
         this.currentFileName = new Label(comp.getFile());
-        okBtn = new Button(OKAY);
-        pickFile = new Button(NEWIMAGE);
-        
+        okBtn = initChildButton(CSS_OK_BUTTON, ICON_CHECK, TT_OK);
+        pickFile = initChildButton(CSS_CHOOSE_BUTTON, ICON_CHOOSE, TT_CHOOSE);
         
         widthField = new TextField(Integer.toString(comp.getWidth()));
         lengthField = new TextField(Integer.toString(comp.getLength()));

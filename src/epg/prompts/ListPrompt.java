@@ -6,10 +6,13 @@
 package epg.prompts;
 
 import static epg.ProgramConstants.CSS_LIST_BUTTON;
+import static epg.ProgramConstants.CSS_OK_BUTTON;
+import static epg.ProgramConstants.ICON_CHECK;
 import static epg.ProgramConstants.ICON_MINUS;
 import static epg.ProgramConstants.ICON_PLUS;
 import static epg.ProgramConstants.TT_LIST_ADD;
 import static epg.ProgramConstants.TT_LIST_RM;
+import static epg.ProgramConstants.TT_OK;
 import epg.model.Item;
 import epg.model.ListComponent;
 import static epg.view.ViewHelper.initChildButton;
@@ -85,7 +88,7 @@ public class ListPrompt extends Stage{
         uicontainer = new BorderPane();
         itemcontainer = new VBox();
         itemScroll = new ScrollPane(itemcontainer);
-        okayBtn = new Button();
+        okayBtn = initChildButton(CSS_OK_BUTTON, ICON_CHECK, TT_OK);
         listbuttoncontainer = new HBox();
         addBtn = initChildButton(CSS_LIST_BUTTON, ICON_PLUS, TT_LIST_ADD);
         rmBtn = initChildButton(CSS_LIST_BUTTON, ICON_MINUS, TT_LIST_RM);

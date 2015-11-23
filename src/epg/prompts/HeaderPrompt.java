@@ -5,8 +5,12 @@
  */
 package epg.prompts;
 
+import static epg.ProgramConstants.CSS_OK_BUTTON;
+import static epg.ProgramConstants.ICON_CHECK;
 import static epg.ProgramConstants.OKAY;
+import static epg.ProgramConstants.TT_OK;
 import epg.model.HeaderComponent;
+import static epg.view.ViewHelper.initChildButton;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -44,7 +48,7 @@ public class HeaderPrompt extends Stage {
         headercontainer = new VBox();
         headerLabel = new Label("Enter your header:");
         headerText = new TextField(this.comp.getText());
-        okayBtn = new Button(OKAY);
+        okayBtn = initChildButton(CSS_OK_BUTTON, ICON_CHECK, TT_OK);
         okayBtn.setOnAction(e->{
             ok = true; 
             this.comp.setText(headerText.getText()); 

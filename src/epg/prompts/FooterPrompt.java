@@ -5,6 +5,10 @@
  */
 package epg.prompts;
 
+import static epg.ProgramConstants.CSS_OK_BUTTON;
+import static epg.ProgramConstants.ICON_CHECK;
+import static epg.ProgramConstants.TT_OK;
+import static epg.view.ViewHelper.initChildButton;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -37,7 +41,7 @@ public class FooterPrompt extends Stage{
         footerLabel = new Label("Set a message for the Footer:");
         footerField = new TextField(footerText);
         uicontainer = new VBox();
-        okayBtn = new Button("Okay");
+        okayBtn = initChildButton(CSS_OK_BUTTON, ICON_CHECK, TT_OK);
         
         initHandlers();
         

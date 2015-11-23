@@ -5,14 +5,17 @@
  */
 package epg.prompts;
 
+import static epg.ProgramConstants.CSS_OK_BUTTON;
 import static epg.ProgramConstants.CSS_SLIDE;
 import static epg.ProgramConstants.CSS_SLIDESHOW_BUTTON;
 import static epg.ProgramConstants.CSS_SLIDE_SELECTED;
 import static epg.ProgramConstants.ICON_ARROW_DOWN;
 import static epg.ProgramConstants.ICON_ARROW_UP;
+import static epg.ProgramConstants.ICON_CHECK;
 import static epg.ProgramConstants.ICON_MINUS;
 import static epg.ProgramConstants.ICON_PLUS;
 import static epg.ProgramConstants.PATH_PROMPTSTYLESHEET;
+import static epg.ProgramConstants.TT_OK;
 import static epg.ProgramConstants.TT_SS_ADD;
 import static epg.ProgramConstants.TT_SS_DOWN;
 import static epg.ProgramConstants.TT_SS_RM;
@@ -21,6 +24,7 @@ import epg.model.Slide;
 import epg.model.SlideShow;
 import epg.model.SlideShowComponent;
 import epg.view.ViewHelper;
+import static epg.view.ViewHelper.initChildButton;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -95,7 +99,7 @@ public class SlideShowPrompt extends Stage {
         rmButton = ViewHelper.initChildButton(CSS_SLIDESHOW_BUTTON, ICON_PLUS, TT_SS_RM);
         addButton = ViewHelper.initChildButton(CSS_SLIDESHOW_BUTTON, ICON_MINUS, TT_SS_ADD);
 
-        okayBtn = new Button("Okay");
+        okayBtn = initChildButton(CSS_OK_BUTTON, ICON_CHECK, TT_OK);
 
         uipositioner = new BorderPane();
 

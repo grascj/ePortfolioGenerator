@@ -5,8 +5,15 @@
  */
 package epg.prompts;
 
+import static epg.ProgramConstants.CSS_CHOOSE_BUTTON;
+import static epg.ProgramConstants.CSS_OK_BUTTON;
+import static epg.ProgramConstants.ICON_CHECK;
+import static epg.ProgramConstants.ICON_CHOOSE;
 import static epg.ProgramConstants.NEWIMAGE;
 import static epg.ProgramConstants.OKAY;
+import static epg.ProgramConstants.TT_CHOOSE;
+import static epg.ProgramConstants.TT_OK;
+import static epg.view.ViewHelper.initChildButton;
 import java.io.File;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -53,8 +60,8 @@ public class BannerPrompt extends Stage {
         fileChooser.getExtensionFilters().addAll(
         new ExtensionFilter("Image Files", "*.png", "*.jpg", "*.png"));
         this.currentFileName = new Label(currentFile);
-        okBtn = new Button(OKAY);
-        pickFile = new Button(NEWIMAGE);
+        okBtn = initChildButton(CSS_OK_BUTTON, ICON_CHECK, TT_OK);
+        pickFile = initChildButton(CSS_CHOOSE_BUTTON, ICON_CHOOSE, TT_CHOOSE);
         
         
         okBtn.setOnAction(e->{

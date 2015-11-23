@@ -8,8 +8,11 @@ package epg.view;
 import static epg.ProgramConstants.CSS_PAGEVIEW;
 import static epg.ProgramConstants.CSS_PAGEVIEW_SIDEBAR_BUTTONS;
 import static epg.ProgramConstants.CSS_PAGEVIEW_TOPBAR;
+import static epg.ProgramConstants.CSS_PAGEVIEW_TOPBAR_CHILD;
+import static epg.ProgramConstants.ICON_BANNER;
 import static epg.ProgramConstants.ICON_BOARD;
 import static epg.ProgramConstants.ICON_CIRCLE_X;
+import static epg.ProgramConstants.ICON_FOOTER;
 import static epg.ProgramConstants.ICON_PICTURE;
 import static epg.ProgramConstants.ICON_TEXT_PLUS;
 import static epg.ProgramConstants.ICON_VIDEO;
@@ -18,9 +21,12 @@ import static epg.ProgramConstants.TT_COMP_REMOVE;
 import static epg.ProgramConstants.TT_COMP_SS;
 import static epg.ProgramConstants.TT_COMP_TEXT;
 import static epg.ProgramConstants.TT_COMP_VIDEO;
+import static epg.ProgramConstants.TT_PV_BANNER;
+import static epg.ProgramConstants.TT_PV_FOOTER;
 import epg.controller.PageViewController;
 import epg.model.Component;
 import epg.model.Page;
+import static epg.view.ViewHelper.initChildButton;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
@@ -91,8 +97,8 @@ public class PageView extends BorderPane {
         colors = new ComboBox();
         colors.getItems().addAll("Beach","Campfire","Personal","SBU Red","Vintage");
         
-        footerButton = new Button("footer");
-        bannerButton = new Button("banner");
+        footerButton = initChildButton(CSS_PAGEVIEW_TOPBAR_CHILD, ICON_FOOTER, TT_PV_FOOTER);
+        bannerButton = initChildButton(CSS_PAGEVIEW_TOPBAR_CHILD, ICON_BANNER, TT_PV_BANNER);
         pageTitleField = new TextField();
         //sidebar
 

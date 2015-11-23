@@ -5,8 +5,12 @@
  */
 package epg.prompts;
 
+import static epg.ProgramConstants.CSS_OK_BUTTON;
+import static epg.ProgramConstants.ICON_CHECK;
 import static epg.ProgramConstants.OKAY;
+import static epg.ProgramConstants.TT_OK;
 import epg.model.ParagraphComponent;
+import static epg.view.ViewHelper.initChildButton;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -62,7 +66,7 @@ public class ParagraphPrompt extends Stage{
         paraLabel = new Label("Enter the text for the Paragraph:");
         paraText = new TextArea();
         paraText.setText(comp.getText());
-        okayBtn = new Button(OKAY);
+        okayBtn = initChildButton(CSS_OK_BUTTON, ICON_CHECK, TT_OK);
     }
     
     private void initHandlers()
