@@ -7,6 +7,8 @@ package epg.view;
 
 import static epg.ProgramConstants.CSS_SITETOOLBAR;
 import static epg.ProgramConstants.CSS_SITETOOLBAR_CHILD;
+import static epg.ProgramConstants.CSS_SITETOOLBAR_NAME;
+import static epg.ProgramConstants.CSS_SITETOOLBAR_NAME_CHILD;
 import static epg.ProgramConstants.ICON_MINUS;
 import static epg.ProgramConstants.ICON_PLUS;
 import static epg.ProgramConstants.TT_ST_ADD;
@@ -50,15 +52,19 @@ public class SiteToolbar extends HBox{
     {
         this.getStyleClass().add(CSS_SITETOOLBAR);        
        
-        
-        nameFieldDesc = new Label("Name:");
+        nameFieldDesc = new Label("Name: ");
         nameField = new TextField();
+        
+        nameField.getStyleClass().add(CSS_SITETOOLBAR_NAME_CHILD);
+        nameFieldDesc.getStyleClass().add(CSS_SITETOOLBAR_NAME_CHILD);
         
         nameContainer = new HBox();
         nameContainer.getChildren().addAll(nameFieldDesc, nameField);
+        nameContainer.getStyleClass().addAll(CSS_SITETOOLBAR_CHILD, CSS_SITETOOLBAR_NAME);
 
-        
         pageBox = new ComboBox();
+        pageBox.getStyleClass().add(CSS_SITETOOLBAR_CHILD);
+        
         addPageButton = initChildButton(CSS_SITETOOLBAR_CHILD, ICON_PLUS, TT_ST_ADD);
         removePageButton = initChildButton(CSS_SITETOOLBAR_CHILD, ICON_MINUS, TT_ST_REMOVE);
     }

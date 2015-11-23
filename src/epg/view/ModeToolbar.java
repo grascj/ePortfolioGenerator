@@ -46,8 +46,8 @@ class ModeToolbar extends GridPane{
     }
 
     private void initHandlers() {
-        siteButton.setOnAction(e->{mc.handleSiteMode();});
-        editorButton.setOnAction(e->{mc.handleEditMode();});
+        siteButton.setOnAction(e->{mc.handleEditMode();});
+        editorButton.setOnAction(e->{mc.handleSiteMode();});
     }
     
     private void placeChildren()

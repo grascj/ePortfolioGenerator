@@ -29,6 +29,7 @@ import epg.model.Page;
 import static epg.view.ViewHelper.initChildButton;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
@@ -41,14 +42,17 @@ import javafx.scene.layout.RowConstraints;
  * @author cgmp
  */
 public class PageView extends BorderPane {
-    
+
     //children
     HBox topBox;
     GridPane sideBox;
     ComboBox layouts;
     ComboBox colors;
-    
+
     ComboBox fonts;
+
+    HBox titlecontainer;
+    Label titleLabel;
     
     Button footerButton;
     Button bannerButton;
@@ -58,20 +62,19 @@ public class PageView extends BorderPane {
     Button slideCompButton;
     Button videoCompButton;
     Button removeCompButton;
-   
+
     //
     Component selectedComponent;
     ComponentViewer cv;
     PageViewController pvc;
-    
-    public PageView(PageViewController pvc)
-    {
+
+    public PageView(PageViewController pvc) {
         this.pvc = pvc;
         initChildren();
         initHandlers();
         placeChildren();
         this.getStyleClass().add(CSS_PAGEVIEW);
-        
+
     }
 
     private void initChildren() {
@@ -79,27 +82,37 @@ public class PageView extends BorderPane {
         topBox = new HBox();
         topBox.getStyleClass().add(CSS_PAGEVIEW_TOPBAR);
         sideBox = new GridPane();
-        
+
         cv = new ComponentViewer();
         /*
-            public enum LAYOUT      {lownav, sidenav, gaps, topnav, fixedname};
-            public enum COLOR       {beach, campfire, personal, SBUred, vintage};
-            public enum FONT        {Fjalla_One, Bree_Serif, Muli, Vollkorn, Iconsolata};
+         public enum LAYOUT      {lownav, sidenav, gaps, topnav, fixedname};
+         public enum COLOR       {beach, campfire, personal, SBUred, vintage};
+         public enum FONT        {Fjalla_One, Bree_Serif, Muli, Vollkorn, Iconsolata};
 
-        */
+         */
         //buttons n stuff
+
+        titlecontainer = new HBox();
+        titleLabel = new Label("Title: ");
+        pageTitleField = new TextField();
+
         fonts = new ComboBox();
         fonts.getItems().addAll("Fjalla One", "Bree Serif", "Muli", "Vollkorn", "Iconsolata");
-        
+
         layouts = new ComboBox();
-        layouts.getItems().addAll("Low Nav","Side Nav","Gaps","Top Nav","Fixed Name");
-        
+        layouts.getItems().addAll("Low Nav", "Side Nav", "Gaps", "Top Nav", "Fixed Name");
+
         colors = new ComboBox();
-        colors.getItems().addAll("Beach","Campfire","Personal","SBU Red","Vintage");
+        colors.getItems().addAll("Beach", "Campfire", "Personal", "SBU Red", "Vintage");
+
+        titlecontainer.getStyleClass().add(CSS_PAGEVIEW_TOPBAR_CHILD);
+        fonts.getStyleClass().add(CSS_PAGEVIEW_TOPBAR_CHILD);
+        layouts.getStyleClass().add(CSS_PAGEVIEW_TOPBAR_CHILD);
+        colors.getStyleClass().add(CSS_PAGEVIEW_TOPBAR_CHILD);
+        
         
         footerButton = initChildButton(CSS_PAGEVIEW_TOPBAR_CHILD, ICON_FOOTER, TT_PV_FOOTER);
         bannerButton = initChildButton(CSS_PAGEVIEW_TOPBAR_CHILD, ICON_BANNER, TT_PV_BANNER);
-        pageTitleField = new TextField();
         //sidebar
 
         imageCompButton = ViewHelper.initChildButton(CSS_PAGEVIEW_SIDEBAR_BUTTONS, ICON_PICTURE, TT_COMP_IMAGE);
@@ -108,68 +121,72 @@ public class PageView extends BorderPane {
         videoCompButton = ViewHelper.initChildButton(CSS_PAGEVIEW_SIDEBAR_BUTTONS, ICON_VIDEO, TT_COMP_VIDEO);
         removeCompButton = ViewHelper.initChildButton(CSS_PAGEVIEW_SIDEBAR_BUTTONS, ICON_CIRCLE_X, TT_COMP_REMOVE);
     }
-    
-    private void initHandlers()
-    {
-        layouts.setOnAction(e->{pvc.handleLayoutChange(layouts.getSelectionModel().getSelectedIndex());});
-        colors.setOnAction(e->{pvc.handleColorChange(colors.getSelectionModel().getSelectedIndex());});
-        fonts.setOnAction(e->{pvc.handleFontChange(fonts.getSelectionModel().getSelectedIndex());});
-        
-        footerButton.setOnAction(e->{pvc.handleFooterChange();});
-        bannerButton.setOnAction(e->{pvc.handleBannerChange();});
-        pageTitleField.setOnKeyReleased(e->{pvc.handleTitleChange(pageTitleField.getText());});
-        imageCompButton.setOnAction(e->{pvc.handleImageComp();});
-        textCompButton.setOnAction(e->{pvc.handleTextComp();});
-        slideCompButton.setOnAction(e->{pvc.handleSlideComp();});
-        videoCompButton.setOnAction(e->{pvc.handleVideoComp();});
-        removeCompButton.setOnAction(e->{pvc.handleRemoveComp(cv.selection);});
+
+    private void initHandlers() {
+        layouts.setOnAction(e -> {
+            pvc.handleLayoutChange(layouts.getSelectionModel().getSelectedIndex());
+        });
+        colors.setOnAction(e -> {
+            pvc.handleColorChange(colors.getSelectionModel().getSelectedIndex());
+        });
+        fonts.setOnAction(e -> {
+            pvc.handleFontChange(fonts.getSelectionModel().getSelectedIndex());
+        });
+
+        footerButton.setOnAction(e -> {
+            pvc.handleFooterChange();
+        });
+        bannerButton.setOnAction(e -> {
+            pvc.handleBannerChange();
+        });
+        pageTitleField.setOnKeyReleased(e -> {
+            pvc.handleTitleChange(pageTitleField.getText());
+        });
+        imageCompButton.setOnAction(e -> {
+            pvc.handleImageComp();
+        });
+        textCompButton.setOnAction(e -> {
+            pvc.handleTextComp();
+        });
+        slideCompButton.setOnAction(e -> {
+            pvc.handleSlideComp();
+        });
+        videoCompButton.setOnAction(e -> {
+            pvc.handleVideoComp();
+        });
+        removeCompButton.setOnAction(e -> {
+            pvc.handleRemoveComp(cv.selection);
+        });
     }
-    
-    private void placeChildren()
-    {
-        topBox.getChildren().addAll(fonts,layouts, colors, footerButton, bannerButton, pageTitleField);
-        
-        
+
+    private void placeChildren() {
+        titlecontainer.getChildren().addAll(titleLabel, pageTitleField);
+        topBox.getChildren().addAll(titlecontainer, fonts, layouts, colors, footerButton, bannerButton);
+
         RowConstraints a = new RowConstraints();
         a.vgrowProperty().set(Priority.ALWAYS);
-        for(int i = 0; i < 5; i++)
-        {
+        for (int i = 0; i < 5; i++) {
             sideBox.getRowConstraints().add(a);
         }
         sideBox.addColumn(0, imageCompButton, textCompButton, slideCompButton, videoCompButton, removeCompButton);
-                
-        
+
         //sideBox.getChildren().addAll(imageCompButton, textCompButton, slideCompButton, videoCompButton, removeCompButton);
-        
-        
-        
-        
         this.setTop(topBox);
         this.setLeft(sideBox);
         this.setCenter(cv);
-        
-        
-        
+
     }
-    
-    public void update(Page page)
-    {
+
+    public void update(Page page) {
         pageTitleField.setText(page.getTitle());
         layouts.getSelectionModel().select(page.getLayout().ordinal());
         colors.getSelectionModel().select(page.getColors().ordinal());
         fonts.getSelectionModel().select(page.getFont().ordinal());
         cv.update(page.getComponents());
     }
-    
-    public Component getComponent()
-    {
+
+    public Component getComponent() {
         return selectedComponent;
     }
-    
-    
-    
-    
-    
-    
-    
+
 }

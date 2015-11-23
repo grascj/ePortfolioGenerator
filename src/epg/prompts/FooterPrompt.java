@@ -5,14 +5,17 @@
  */
 package epg.prompts;
 
+import static epg.ProgramConstants.CSS_CONTAINER;
 import static epg.ProgramConstants.CSS_OK_BUTTON;
 import static epg.ProgramConstants.ICON_CHECK;
+import static epg.ProgramConstants.PATH_PROMPTSTYLESHEET;
 import static epg.ProgramConstants.TT_OK;
 import static epg.view.ViewHelper.initChildButton;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
@@ -36,6 +39,7 @@ public class FooterPrompt extends Stage{
     public FooterPrompt(String currentFooterText)
     {
         ok = false;
+        
         this.footerText = currentFooterText;
         
         footerLabel = new Label("Set a message for the Footer:");
@@ -45,10 +49,15 @@ public class FooterPrompt extends Stage{
         
         initHandlers();
         
-        uicontainer.getChildren().addAll(footerLabel, footerField, okayBtn);
+        HBox okcontainer = new HBox();
+        okcontainer.getStyleClass().add(CSS_CONTAINER);
+        okcontainer.getChildren().add(okayBtn);
         
+        uicontainer.getChildren().addAll(footerLabel, footerField, okcontainer);
+        uicontainer.getStyleClass().add(CSS_CONTAINER);
         
-        Scene promptbody = new Scene(uicontainer);
+        Scene promptbody = new Scene(uicontainer,300,300);
+        promptbody.getStylesheets().add(PATH_PROMPTSTYLESHEET);
         this.setScene(promptbody);
         this.showAndWait(); 
     }

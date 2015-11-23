@@ -5,11 +5,13 @@
  */
 package epg.prompts;
 
+import static epg.ProgramConstants.CSS_CONTAINER;
 import static epg.ProgramConstants.CSS_LIST_BUTTON;
 import static epg.ProgramConstants.CSS_OK_BUTTON;
 import static epg.ProgramConstants.ICON_CHECK;
 import static epg.ProgramConstants.ICON_MINUS;
 import static epg.ProgramConstants.ICON_PLUS;
+import static epg.ProgramConstants.PATH_PROMPTSTYLESHEET;
 import static epg.ProgramConstants.TT_LIST_ADD;
 import static epg.ProgramConstants.TT_LIST_RM;
 import static epg.ProgramConstants.TT_OK;
@@ -75,7 +77,8 @@ public class ListPrompt extends Stage{
         initHandlers();
         placeChildren();
         
-        Scene promptBody = new Scene(uicontainer);
+        Scene promptBody = new Scene(uicontainer, 300, 300);
+        promptBody.getStylesheets().add(PATH_PROMPTSTYLESHEET);
         this.setScene(promptBody);
         this.showAndWait();
                 
@@ -94,6 +97,12 @@ public class ListPrompt extends Stage{
         rmBtn = initChildButton(CSS_LIST_BUTTON, ICON_MINUS, TT_LIST_RM);
         body = new VBox();
         
+        
+        uicontainer.getStyleClass().add(CSS_CONTAINER);
+        itemcontainer.getStyleClass().add(CSS_CONTAINER);
+        itemScroll.getStyleClass().add(CSS_CONTAINER);
+        listbuttoncontainer.getStyleClass().add(CSS_CONTAINER);
+        //@todo make beautiful
     }
     
     private void initHandlers()

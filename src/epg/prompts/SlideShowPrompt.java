@@ -5,6 +5,7 @@
  */
 package epg.prompts;
 
+import static epg.ProgramConstants.CSS_CONTAINER;
 import static epg.ProgramConstants.CSS_OK_BUTTON;
 import static epg.ProgramConstants.CSS_SLIDE;
 import static epg.ProgramConstants.CSS_SLIDESHOW_BUTTON;
@@ -96,8 +97,8 @@ public class SlideShowPrompt extends Stage {
         
         upBtn = ViewHelper.initChildButton(CSS_SLIDESHOW_BUTTON, ICON_ARROW_UP, TT_SS_UP);
         downBtn = ViewHelper.initChildButton(CSS_SLIDESHOW_BUTTON, ICON_ARROW_DOWN, TT_SS_DOWN);
-        rmButton = ViewHelper.initChildButton(CSS_SLIDESHOW_BUTTON, ICON_PLUS, TT_SS_RM);
-        addButton = ViewHelper.initChildButton(CSS_SLIDESHOW_BUTTON, ICON_MINUS, TT_SS_ADD);
+        rmButton = ViewHelper.initChildButton(CSS_SLIDESHOW_BUTTON, ICON_MINUS, TT_SS_RM);
+        addButton = ViewHelper.initChildButton(CSS_SLIDESHOW_BUTTON, ICON_PLUS, TT_SS_ADD);
 
         okayBtn = initChildButton(CSS_OK_BUTTON, ICON_CHECK, TT_OK);
 
@@ -139,9 +140,11 @@ public class SlideShowPrompt extends Stage {
         uipositioner.setTop(titleBox);
         uipositioner.setCenter(slideScroll);
         uipositioner.setLeft(sideToolbar);
-
         uipositioner.setBottom(okayBtn);
-
+        
+        titleBox.getStyleClass().add(CSS_CONTAINER);
+        sideToolbar.getStyleClass().add(CSS_CONTAINER);
+        uipositioner.getStyleClass().add(CSS_CONTAINER);
         Scene promptbody = new Scene(uipositioner, 400, 400);
         promptbody.getStylesheets().add(PATH_PROMPTSTYLESHEET);
         this.setScene(promptbody);

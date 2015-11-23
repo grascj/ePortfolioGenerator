@@ -5,9 +5,10 @@
  */
 package epg.prompts;
 
+import static epg.ProgramConstants.CSS_CONTAINER;
 import static epg.ProgramConstants.CSS_OK_BUTTON;
 import static epg.ProgramConstants.ICON_CHECK;
-import static epg.ProgramConstants.OKAY;
+import static epg.ProgramConstants.PATH_PROMPTSTYLESHEET;
 import static epg.ProgramConstants.TT_OK;
 import epg.model.ParagraphComponent;
 import static epg.view.ViewHelper.initChildButton;
@@ -51,7 +52,11 @@ public class ParagraphPrompt extends Stage{
         initHandlers();
         placeChildren();
         
+        uipositioner.getStyleClass().add(CSS_CONTAINER);
+        fb.getStyleClass().add(CSS_CONTAINER);
+        paragraphcontainer.getStyleClass().add(CSS_CONTAINER);
         Scene promptbody = new Scene(uipositioner);
+        promptbody.getStylesheets().add(PATH_PROMPTSTYLESHEET);
         this.setScene(promptbody);
         this.showAndWait();
         

@@ -5,9 +5,10 @@
  */
 package epg.prompts;
 
+import static epg.ProgramConstants.CSS_CONTAINER;
 import static epg.ProgramConstants.CSS_OK_BUTTON;
 import static epg.ProgramConstants.ICON_CHECK;
-import static epg.ProgramConstants.OKAY;
+import static epg.ProgramConstants.PATH_PROMPTSTYLESHEET;
 import static epg.ProgramConstants.TT_OK;
 import epg.model.HeaderComponent;
 import static epg.view.ViewHelper.initChildButton;
@@ -57,11 +58,16 @@ public class HeaderPrompt extends Stage {
             this.hide();
         });
         headercontainer.getChildren().addAll(headerLabel, headerText, okayBtn);
+        headercontainer.getStyleClass().add(CSS_CONTAINER);
+        fb.getStyleClass().add(CSS_CONTAINER);
+        
         
         uicontainer.setTop(fb);
         uicontainer.setCenter(headercontainer);
-
-        Scene promptbody = new Scene(uicontainer);
+        uicontainer.getStyleClass().add(CSS_CONTAINER);
+        
+        Scene promptbody = new Scene(uicontainer,300,200);
+        promptbody.getStylesheets().add(PATH_PROMPTSTYLESHEET);
         this.setScene(promptbody);
         this.showAndWait();
 

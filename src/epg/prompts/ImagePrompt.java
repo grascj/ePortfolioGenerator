@@ -6,11 +6,11 @@
 package epg.prompts;
 
 import static epg.ProgramConstants.CSS_CHOOSE_BUTTON;
+import static epg.ProgramConstants.CSS_CONTAINER;
 import static epg.ProgramConstants.CSS_OK_BUTTON;
+import static epg.ProgramConstants.DEFAULT_IMG;
 import static epg.ProgramConstants.ICON_CHECK;
 import static epg.ProgramConstants.ICON_CHOOSE;
-import static epg.ProgramConstants.NEWIMAGE;
-import static epg.ProgramConstants.OKAY;
 import static epg.ProgramConstants.PATH_PROMPTSTYLESHEET;
 import static epg.ProgramConstants.TT_CHOOSE;
 import static epg.ProgramConstants.TT_OK;
@@ -27,6 +27,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
 import javafx.stage.FileChooser.ExtensionFilter;
@@ -41,16 +42,14 @@ public class ImagePrompt extends Stage {
 
     //component
     ImageComponent comp;
-    
+
     //data
     int width;
     int length;
     String caption;
     String fileName;
     String filePath;
-    
-    
-    
+
     //UI 
     Stage ui;
     Button okBtn;
@@ -58,18 +57,16 @@ public class ImagePrompt extends Stage {
     Label currentFileName;
     FileChooser fileChooser;
     ImageView currentImage;
-    
+    Label captionLabel;
+
     TextField widthField;
     TextField lengthField;
     TextField captionField;
-    
-    
+
     //FLAG
     boolean ok;
-    
-    
-    public ImagePrompt(Stage primaryStage, ImageComponent comp)
-    {
+
+    public ImagePrompt(Stage primaryStage, ImageComponent comp) {
         //SET THE FLAG TO FALSE, NEEDS TO BE TRUE TO COMMIT CHANGES
         ok = false;
         this.comp = comp;
@@ -77,63 +74,66 @@ public class ImagePrompt extends Stage {
         initModality(Modality.APPLICATION_MODAL);
         initOwner(primaryStage);
 
-        
         fileChooser = new FileChooser();
         fileChooser.getExtensionFilters().addAll(
-        new ExtensionFilter("Image Files", "*.png", "*.jpg", "*.png"));
-       
+                new ExtensionFilter("Image Files", "*.png", "*.jpg", "*.png"));
+
         //init fields
-        if(comp.getImageURL() != null)
-            currentImage = new ImageView(comp.getImageURL());
-        else
-            currentImage = new ImageView();
-        
-        this.currentFileName = new Label(comp.getFile());
+         if (comp.getImageURL() != null) {
+            this.currentImage = new ImageView("file:" + comp.getImageURL());
+            this.currentFileName = new Label(comp.getFile());
+        } else {
+            this.currentImage = new ImageView("file:" + DEFAULT_IMG);
+            this.currentFileName = new Label("DefaultImage.png");
+        }
+
         okBtn = initChildButton(CSS_OK_BUTTON, ICON_CHECK, TT_OK);
         pickFile = initChildButton(CSS_CHOOSE_BUTTON, ICON_CHOOSE, TT_CHOOSE);
-        
+
         widthField = new TextField(Integer.toString(comp.getWidth()));
         lengthField = new TextField(Integer.toString(comp.getLength()));
         captionField = new TextField(caption);
 
         initHandlers();
-        
-        
+
         BorderPane uicontainer = new BorderPane();
-        uicontainer.setTop(currentImage);
+        //uicontainer.setTop(currentImage);
         BorderPane center = new BorderPane();
         VBox topBox = new VBox();
-        topBox.getChildren().addAll(currentFileName, pickFile, captionField);
+        topBox.getStyleClass().add(CSS_CONTAINER);
+
+        captionLabel = new Label("Caption: ");
+        HBox captionBox = new HBox();
+        captionBox.getChildren().addAll(captionLabel, captionField);
+        captionBox.getStyleClass().add(CSS_CONTAINER);
+        
+        topBox.getChildren().addAll(currentImage, currentFileName, pickFile, captionBox);
         center.setTop(topBox);
-        
+
         VBox leftBox = new VBox();
-        leftBox.getChildren().addAll(new Label("Set the width:"),widthField);
+        leftBox.getStyleClass().add(CSS_CONTAINER);
+        leftBox.getChildren().addAll(new Label("Set the width:"), widthField);
         center.setLeft(leftBox);
-        
+
         VBox rightBox = new VBox();
-        rightBox.getChildren().addAll(new Label("Set the height:"),lengthField);
+        rightBox.getStyleClass().add(CSS_CONTAINER);
+        rightBox.getChildren().addAll(new Label("Set the height:"), lengthField);
         center.setRight(rightBox);
-        
-        
-        
+
         uicontainer.setCenter(center);
         uicontainer.setBottom(okBtn);
-        
-        
-        
+        uicontainer.getStyleClass().add(CSS_CONTAINER);
         Scene promptScene = new Scene(uicontainer, 400, 400);
         promptScene.getStylesheets().add(PATH_PROMPTSTYLESHEET);
         this.setScene(promptScene);
         this.show("hello");
         //@todo pick size
-        
+
     }
-    
-    
-    public void initHandlers()
-    {
-         okBtn.setOnAction(e->{
-             //@todo idiot proof the number values
+
+    public void initHandlers() {
+        okBtn.setOnAction(e -> {
+            //@todo idiot proof the number values
             ok = true;
             comp.setFile(fileName);
             comp.setImageURL(filePath);
@@ -143,36 +143,33 @@ public class ImagePrompt extends Stage {
             comp.setCaption(caption);
             this.hide();
         });
-        pickFile.setOnAction(e->{try {
-            this.fileInput();
-             } catch (MalformedURLException ex) {
-                 Logger.getLogger(ImagePrompt.class.getName()).log(Level.SEVERE, null, ex);
-             }
-});
+        pickFile.setOnAction(e -> {
+            try {
+                this.fileInput();
+            } catch (MalformedURLException ex) {
+                Logger.getLogger(ImagePrompt.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        });
     }
-    
-    public void fileInput() throws MalformedURLException 
-    {
-                File selectedFile = fileChooser.showOpenDialog(this);
-                if(selectedFile != null)
-                {
-                    
-                    currentImage.setImage(new Image(selectedFile.toURI().toString()));
-                    filePath = selectedFile.getPath();
-                    fileName = selectedFile.getName();
-                    currentFileName.setText(fileName);
-                }
+
+    public void fileInput() throws MalformedURLException {
+        File selectedFile = fileChooser.showOpenDialog(this);
+        if (selectedFile != null) {
+
+            currentImage.setImage(new Image(selectedFile.toURI().toString()));
+            filePath = selectedFile.getPath();
+            fileName = selectedFile.getName();
+            currentFileName.setText(fileName);
+        }
     }
-  
-    public void show(String message)
-    {
+
+    public void show(String message) {
         //@todo message for prompt
         this.showAndWait();
     }
-    
-    public boolean isOk()
-    {
+
+    public boolean isOk() {
         return ok;
     }
-    
+
 }

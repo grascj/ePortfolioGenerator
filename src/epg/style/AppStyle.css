@@ -34,7 +34,7 @@ bg = #e7e9db
 }
 
 
-.componentview_button, .pageview_sidebar_buttons, .modetoolbar_buttons, .filetoolbar_buttons
+.componentview_button, .pageview_sidebar_buttons, .modetoolbar_buttons, .filetoolbar_buttons, .sitetoolbar_child, .pageview_topbar_child
 {
     -fx-background-color: #5bc4bf;
 }
@@ -47,8 +47,12 @@ bg = #e7e9db
 //FILETOOLBAR STYLES
 .filetoolbar
 {    
-    -fx-fit-to-width: true;
+
+    -fx-fit-to-height: true;
     -fx-hgap: 5px;
+    -fx-border-width: 0 0 10px 0;
+    -fx-border-color: #e7e9db;
+    -fx-padding: 0 0 1px 0;//fix dumb button bug
 }
 
 .filetoolbar_buttons
@@ -56,24 +60,34 @@ bg = #e7e9db
     -fx-max-height: Infinity;
     -fx-max-width: Infinity;
     -fx-padding: 10px 50px 10px 50px;
+
+    -fx-border-radius: 0 0 0 0;
+    -fx-background-radius: 0 0 0 0;
 }
 
 //MODETOOLBAR STYLES
 .modetoolbar
 {
     -fx-fill-width: true;
-    
+    -fx-border-width: 0 10px 0 0;
+    -fx-border-color: #e7e9db;
+
 }
 
 .modetoolbar_buttons
 {
     -fx-max-height: Infinity;
     -fx-max-width: Infinity;
+    -fx-border-radius: 0 0 0 0;
+    -fx-background-radius: 0 0 0 0;
+
 }
 
 //SiteView
 .siteview
 {
+    -fx-border-width: 0 10px 10px 0;
+    -fx-border-color: transparent;
     -fx-fit-to-width:true;
     -fx-fit-to-height:true;
 }
@@ -88,7 +102,7 @@ bg = #e7e9db
 //PageEditor Styles
 .pageeditor
 {
-    -fx-border-width: 10px;
+    -fx-border-width: 0 10px 10px 0;
     -fx-border-color: transparent;
     -fx-fit-to-width:true;
     -fx-fit-to-height:true;
@@ -102,13 +116,31 @@ bg = #e7e9db
     -fx-border-color: transparent;
     -fx-alignment: center;
     -fx-spacing: 30px;
+    -fx-fit-to-height: true;
+    -fx-padding: 0 0 1px 0;
+
 }
 
 .sitetoolbar_child
 {
-    
+    -fx-max-height: Infinity;
+    -fx-max-width: Infinity;
+    -fx-alignment: center;
+    -fx-padding: 5px 20px 5px 20px;
+    -fx-border-radius: 3 3 3 3;
+    -fx-background-radius: 3 3 3 3;
+
 }
 
+.sitetoolbar_name
+{
+    -fx-alignment: center;
+}
+
+.sitetoolbar_name_child
+{
+    -fx-padding: 5px 20px 5px 20px;
+}
 
 //COMPONENTVIEW STYLES
 
@@ -148,13 +180,32 @@ bg = #e7e9db
 
 .pageview_topbar
 {
+    -fx-spacing: 30px;
     -fx-alignment: center;
+    -fx-border-width: 0px 0px 10px 0px;
+    -fx-border-color: transparent;
+    -fx-padding: 0 0 1px 0;
+
+}
+
+.pageview_topbar_child
+{
+    -fx-max-height: Infinity;
+    -fx-max-width: Infinity;
+    -fx-alignment: center;
+    -fx-border-radius: 3 3 3 3;
+    -fx-background-radius: 3 3 3 3;
+    -fx-padding: 5px 20px 5px 20px;
+
 }
 
 .pageview_sidebar_buttons
 {
     -fx-max-height: Infinity;
     -fx-max-width: Infinity;
+    -fx-border-radius: 0 0 0 0;
+    -fx-background-radius: 0 0 0 0;
+
 }
 
 

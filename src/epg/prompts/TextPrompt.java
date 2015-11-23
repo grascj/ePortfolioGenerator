@@ -5,10 +5,12 @@
  */
 package epg.prompts;
 
-import static epg.ProgramConstants.CSS_TEXT_BUTTON;
+import static epg.ProgramConstants.CSS_CONTAINER;
+import static epg.ProgramConstants.CSS_PROMPT_BUTTON;
 import static epg.ProgramConstants.ICON_HEADER;
 import static epg.ProgramConstants.ICON_LIST;
 import static epg.ProgramConstants.ICON_PARAGRAPH;
+import static epg.ProgramConstants.PATH_PROMPTSTYLESHEET;
 import epg.ProgramConstants.TEXT_TYPE;
 import static epg.ProgramConstants.TT_TEXT_HEAD;
 import static epg.ProgramConstants.TT_TEXT_LIST;
@@ -61,9 +63,9 @@ public class TextPrompt extends Stage {
         uipositioner = new BorderPane();
         pickLabel = new Label("Choose what type of Text Component:");
         buttoncontainer = new HBox();
-        paraBtn = ViewHelper.initChildButton(CSS_TEXT_BUTTON, ICON_PARAGRAPH, TT_TEXT_PARA);
-        listBtn = ViewHelper.initChildButton(CSS_TEXT_BUTTON, ICON_LIST, TT_TEXT_LIST);
-        headerBtn = ViewHelper.initChildButton(CSS_TEXT_BUTTON, ICON_HEADER, TT_TEXT_HEAD);
+        paraBtn = ViewHelper.initChildButton(CSS_PROMPT_BUTTON, ICON_PARAGRAPH, TT_TEXT_PARA);
+        listBtn = ViewHelper.initChildButton(CSS_PROMPT_BUTTON, ICON_LIST, TT_TEXT_LIST);
+        headerBtn = ViewHelper.initChildButton(CSS_PROMPT_BUTTON, ICON_HEADER, TT_TEXT_HEAD);
     }
 
     public void initHandlers() {
@@ -92,11 +94,18 @@ public class TextPrompt extends Stage {
     public void placeChildren() {
         buttoncontainer.getChildren().addAll(paraBtn, listBtn, headerBtn);
 
-        uipositioner.setTop(pickLabel);
+        HBox a = new HBox();
+        a.getChildren().add(pickLabel);
+        a.getStyleClass().add(CSS_CONTAINER);
+        uipositioner.setTop(a);
         uipositioner.setCenter(buttoncontainer);
 
-        Scene promptbody = new Scene(uipositioner);
+        buttoncontainer.getStyleClass().add(CSS_CONTAINER);
+        uipositioner.getStyleClass().add(CSS_CONTAINER);
+        Scene promptbody = new Scene(uipositioner, 300, 100);
+        promptbody.getStylesheets().add(PATH_PROMPTSTYLESHEET);
         this.setScene(promptbody);
+      
     }
 
     public TextComponent getComp() {

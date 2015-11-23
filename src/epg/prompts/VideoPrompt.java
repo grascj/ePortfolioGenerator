@@ -6,6 +6,7 @@
 package epg.prompts;
 
 import static epg.ProgramConstants.CSS_CHOOSE_BUTTON;
+import static epg.ProgramConstants.CSS_CONTAINER;
 import static epg.ProgramConstants.CSS_OK_BUTTON;
 import static epg.ProgramConstants.ICON_CHECK;
 import static epg.ProgramConstants.ICON_CHOOSE;
@@ -23,6 +24,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
 import javafx.stage.FileChooser.ExtensionFilter;
@@ -96,17 +98,28 @@ public class VideoPrompt extends Stage {
         initHandlers();
         
         
+        
         BorderPane uicontainer = new BorderPane();
         BorderPane center = new BorderPane();
+        center.getStyleClass().add(CSS_CONTAINER);
         VBox topBox = new VBox();
-        topBox.getChildren().addAll(currentFileName, pickFile, captionField);
+        
+        Label captionLabel = new Label("Caption: ");
+        HBox captionBox = new HBox();
+        captionBox.getChildren().addAll(captionLabel, captionField);
+        captionBox.getStyleClass().add(CSS_CONTAINER);
+        
+        
+        topBox.getChildren().addAll(currentFileName, pickFile, captionBox);
         center.setTop(topBox);
         
         VBox leftBox = new VBox();
+        leftBox.getStyleClass().add(CSS_CONTAINER);
         leftBox.getChildren().addAll(new Label("Set the width:"),widthField);
         center.setLeft(leftBox);
         
         VBox rightBox = new VBox();
+        rightBox.getStyleClass().add(CSS_CONTAINER);
         rightBox.getChildren().addAll(new Label("Set the height:"),lengthField);
         center.setRight(rightBox);
         
@@ -115,9 +128,9 @@ public class VideoPrompt extends Stage {
         uicontainer.setCenter(center);
         uicontainer.setBottom(okBtn);
         
+        uicontainer.getStyleClass().add(CSS_CONTAINER);
         
-        
-        Scene promptScene = new Scene(uicontainer, 400, 400);
+        Scene promptScene = new Scene(uicontainer, 400, 200);
         promptScene.getStylesheets().add(PATH_PROMPTSTYLESHEET);        
         this.setScene(promptScene);
         this.show("hello");

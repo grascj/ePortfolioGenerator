@@ -17,7 +17,7 @@ public class ProgramConstants {
     public enum TEXT_TYPE   {HEADER, PARAGRAPH, LIST};
 
     //Defaults
-    public static String DEFAULT_SLIDEIMG = "./appdata/default_images/DefaultStartSlide.png";
+    public static String DEFAULT_IMG = "./appdata/default_images/DefaultStartSlide.png";
     
     //UI text and such
     public static String OKAY = "OK";
@@ -43,7 +43,8 @@ public class ProgramConstants {
     
     public static String CSS_SITETOOLBAR = "sitetoolbar";
     public static String CSS_SITETOOLBAR_CHILD = "sitetoolbar_child";
-
+    public static String CSS_SITETOOLBAR_NAME = "sitetoolbar_name";
+    public static String CSS_SITETOOLBAR_NAME_CHILD = "sitetoolbar_name_child";
     
     public static String CSS_COMPONENTPANE = "componentpane";
     
@@ -66,6 +67,17 @@ public class ProgramConstants {
     public static String CSS_LIST_BUTTON = "list_button";
     public static String CSS_OK_BUTTON = "ok_button";
     public static String CSS_CHOOSE_BUTTON = "choose_button";
+    
+    public static String CSS_PROMPT_BUTTON = "prompt_button";
+    public static String CSS_CONTAINER = "container";
+    
+    public static String CSS_BANNER = "banner";
+    public static String CSS_BANNER_IMAGE = "banner_image";
+    
+    
+    
+    
+    public static String CSS_BUTTON_CONTAINER = "button_container"; 
     
     
     
@@ -113,6 +125,9 @@ public class ProgramConstants {
     public static String TT_COMP_VIDEO = "Add a video component";
     public static String TT_COMP_SS = "Add a slide show component";
     public static String TT_COMP_REMOVE = "Remove the selected component";
+    
+    
+    
     
     public static String TT_PV_BANNER = "Edit the page banner.";
     public static String TT_PV_FOOTER = "Edit the page footer.";

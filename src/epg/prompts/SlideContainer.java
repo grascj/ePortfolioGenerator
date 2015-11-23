@@ -5,7 +5,7 @@
  */
 package epg.prompts;
 
-import static epg.ProgramConstants.DEFAULT_SLIDEIMG;
+import static epg.ProgramConstants.DEFAULT_IMG;
 import epg.model.Slide;
 import java.io.File;
 import java.net.MalformedURLException;
@@ -57,7 +57,7 @@ public class SlideContainer extends HBox {
         if (slide.imageURL != null) {
             slideImage = new ImageView("file:"+slide.imageURL);
         } else {
-            slideImage = new ImageView("file:" + DEFAULT_SLIDEIMG);
+            slideImage = new ImageView("file:" + DEFAULT_IMG);
         }
 
         captionBox = new VBox();

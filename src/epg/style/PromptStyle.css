@@ -12,9 +12,46 @@ and open the template in the editor.
 
 
 
+.container, .banner
+{
+    -fx-background-color: #48b685;
+}
+
+
+.ok_button, .choose_button, .prompt_button, .slideshow_button
+{
+    -fx-background-color: #5bc4bf;
+}
+
+
+
+//MISC
+
+
+.ok_button, .choose_button, .prompt_button
+{
+    -fx-max-height: Infinity;
+    -fx-max-width: Infinity;
+    -fx-padding: 10px 20px 10px 20px;
+}
+
+.button_container
+{
+    -fx-spacing: 30px;
+    -fx-alignment: center;
+}
+
+.slideshow_button
+{
+    -fx-max-height: Infinity;
+    -fx-max-width: Infinity;
+}
+
+
+
 
 //SLIDESHOW
-.slide
+.slide//@todo MAKE PRETTY
 {
     -fx-background-color: blue;
 }
@@ -22,4 +59,17 @@ and open the template in the editor.
 .slide_selected
 {
     -fx-background-color: red;
+}
+
+
+//BANNER
+.banner, .container
+{
+    -fx-spacing: 20px;
+    -fx-alignment: center;
+}
+.banner_image
+{
+    -fx-max-height: 150px;
+    -fx-max-width: 150px;
 }
