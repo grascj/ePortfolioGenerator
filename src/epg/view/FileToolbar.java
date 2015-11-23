@@ -10,6 +10,7 @@ import static epg.ProgramConstants.ICON_BOOK_OPEN;
 import static epg.ProgramConstants.ICON_FLOPPYDISK;
 import static epg.ProgramConstants.ICON_FOLDER_PLUS;
 import static epg.ProgramConstants.ICON_PAGE_ARROW;
+import static epg.ProgramConstants.ICON_SAVEAS;
 import static epg.ProgramConstants.ICON_X;
 import static epg.ProgramConstants.TT_FILE_EXIT;
 import static epg.ProgramConstants.TT_FILE_EXPORT;
@@ -52,7 +53,7 @@ public class FileToolbar extends FlowPane{
         newButton = ViewHelper.initChildButton(CSS_FILETOOLBAR_BUTTONS, ICON_FOLDER_PLUS, TT_FILE_NEW);
         loadButton = ViewHelper.initChildButton(CSS_FILETOOLBAR_BUTTONS, ICON_BOOK_OPEN, TT_FILE_LOAD);
         saveButton = ViewHelper.initChildButton(CSS_FILETOOLBAR_BUTTONS, ICON_FLOPPYDISK, TT_FILE_SAVE);
-        saveAsButton = ViewHelper.initChildButton(CSS_FILETOOLBAR_BUTTONS, ICON_FLOPPYDISK, TT_FILE_SAVEAS);
+        saveAsButton = ViewHelper.initChildButton(CSS_FILETOOLBAR_BUTTONS, ICON_SAVEAS, TT_FILE_SAVEAS);
         exportButton = ViewHelper.initChildButton(CSS_FILETOOLBAR_BUTTONS, ICON_PAGE_ARROW, TT_FILE_EXPORT);
         exitButton = ViewHelper.initChildButton(CSS_FILETOOLBAR_BUTTONS, ICON_X, TT_FILE_EXIT);
     }

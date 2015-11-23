@@ -47,6 +47,7 @@ public class ProgramConstants {
     public static String CSS_SITETOOLBAR_NAME_CHILD = "sitetoolbar_name_child";
     
     public static String CSS_COMPONENTPANE = "componentpane";
+    public static String CSS_COMP_SCROLLPANE = "comp_scrollpane";
     
     public static String CSS_COMPONENTVIEW = "componentview";
     public static String CSS_COMPONENTVIEW_SELECTED = "componentview_selected";
@@ -106,6 +107,7 @@ public class ProgramConstants {
     public static String ICON_PARAGRAPH = PATH_ICONS + "paragraph.png";
     public static String ICON_CHOOSE = PATH_ICONS + "choose.png";
     public static String ICON_FOOTER = PATH_ICONS + "footer.png";
+    public static String ICON_SAVEAS = PATH_ICONS + "save-as.png";
 
     //TOOLTIPS
     public static String TT_FILE_NEW = "Open a new Portfolio.";

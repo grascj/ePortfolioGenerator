@@ -22,24 +22,36 @@ bg = #e7e9db
 //COLORS---------------------------------------------------------------------------------
 
 
-.componentpane, .pageview, .pageeditor, .siteview
+.componentpane, .pageview, .pageeditor, .siteview, .comp_scrollpane, .componentpane
 {
-    -fx-background-color: #e7e9db;
+    -fx-background-color: #7CC2AF;
+}
+
+.siteview, .comp_scrollpane
+{
+    -fx-border-color: #085F43;
+    -fx-border-style: solid;
+    -fx-border-width: 1px;
 }
 
 
 .pageview_topbar, .sitetoolbar, .modetoolbar, .filetoolbar
 {
-    -fx-background-color: #48b685;
+    -fx-background-color: #4CA089;
 }
 
 
 .componentview_button, .pageview_sidebar_buttons, .modetoolbar_buttons, .filetoolbar_buttons, .sitetoolbar_child, .pageview_topbar_child
 {
-    -fx-background-color: #5bc4bf;
+    -fx-background-color: #2F8A71;
+    -fx-border-color: #085F43;
 }
 
+.filetoolbar, .modetoolbar
+{
+    -fx-border-color: #7CC2AF;
 
+}
 
 
 //LAYOUTS-------------------------------------------------------------------------------
@@ -51,7 +63,6 @@ bg = #e7e9db
     -fx-fit-to-height: true;
     -fx-hgap: 5px;
     -fx-border-width: 0 0 10px 0;
-    -fx-border-color: #e7e9db;
     -fx-padding: 0 0 1px 0;//fix dumb button bug
 }
 
@@ -70,7 +81,6 @@ bg = #e7e9db
 {
     -fx-fill-width: true;
     -fx-border-width: 0 10px 0 0;
-    -fx-border-color: #e7e9db;
 
 }
 
@@ -144,16 +154,18 @@ bg = #e7e9db
 
 //COMPONENTVIEW STYLES
 
-.componentpane
+.componentpane, .comp_scrollpane
 {
     -fx-max-height: Infinity;
-    //-fx-fit-to-width: true;
+    -fx-max-width: Infinity;
+    -fx-fit-to-width: true;
+    -fx-fit-to-height: true;
 }
 
 
 .componentview
 {
-
+    -fx-alignment: center;
     -fx-fit-to-width:true;
     -fx-background-color: orange;
 }

@@ -14,13 +14,14 @@ and open the template in the editor.
 
 .container, .banner
 {
-    -fx-background-color: #48b685;
+    -fx-background-color: #7CC2AF;
 }
 
 
 .ok_button, .choose_button, .prompt_button, .slideshow_button
 {
-    -fx-background-color: #5bc4bf;
+    -fx-background-color: #2F8A71;
+    -fx-border-color: #085F43;
 }
 
 

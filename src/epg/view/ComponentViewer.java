@@ -8,6 +8,7 @@ package epg.view;
 import static epg.ProgramConstants.CSS_COMPONENTPANE;
 import static epg.ProgramConstants.CSS_COMPONENTVIEW;
 import static epg.ProgramConstants.CSS_COMPONENTVIEW_SELECTED;
+import static epg.ProgramConstants.CSS_COMP_SCROLLPANE;
 import epg.model.Component;
 import java.util.ArrayList;
 import javafx.scene.control.ScrollPane;
@@ -29,7 +30,7 @@ class ComponentViewer extends ScrollPane {
         componentPane = new VBox();
         componentPane.getStyleClass().add(CSS_COMPONENTPANE);
 
-        this.getStyleClass().add(CSS_COMPONENTPANE);
+        this.getStyleClass().add(CSS_COMP_SCROLLPANE);
         this.setContent(componentPane);
     }
 
