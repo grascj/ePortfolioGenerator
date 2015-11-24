@@ -75,6 +75,7 @@ public class ProgramConstants {
     public static String CSS_BANNER = "banner";
     public static String CSS_BANNER_IMAGE = "banner_image";
     
+    public static String CSS_PROMPT_IMAGE = "prompt_image";
     
     
     

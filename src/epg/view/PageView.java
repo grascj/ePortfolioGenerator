@@ -70,10 +70,10 @@ public class PageView extends BorderPane {
 
     public PageView(PageViewController pvc) {
         this.pvc = pvc;
+        this.getStyleClass().add(CSS_PAGEVIEW);
         initChildren();
         initHandlers();
         placeChildren();
-        this.getStyleClass().add(CSS_PAGEVIEW);
 
     }
 

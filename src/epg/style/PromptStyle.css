@@ -12,7 +12,7 @@ and open the template in the editor.
 
 
 
-.container, .banner
+.container, .banner, .container_nospacing
 {
     -fx-background-color: #7CC2AF;
 }
@@ -24,10 +24,35 @@ and open the template in the editor.
     -fx-border-color: #085F43;
 }
 
+.slide
+{
+    -fx-background-color: #4CA089;
+}
+
+.selection, .slide_selected
+{
+    -fx-background-color: #478D76;
+    -fx-border-color: #085F43;
+}
+
+.slide_toolbar
+{
+    -fx-background-color: #4CA089;
+    -fx-alignment: center;
+}
+
 
 
 //MISC
 
+.prompt_image
+{
+    -fx-max-height: 150px;
+    -fx-max-width: 150px;
+    -fx-alignment: center;
+    //-fx-fit-to-height: true;
+    //-fx-fit-to-width: true;
+}
 
 .ok_button, .choose_button, .prompt_button
 {
@@ -49,17 +74,35 @@ and open the template in the editor.
 }
 
 
+.container
+{
+    -fx-max-height: Infinity;
+    -fx-max-width: Infinity;
+    -fx-fit-to-width: true;
+    -fx-fit-to-height: true;
+}
 
+.container_nospacing
+{
+    -fx-max-height: Infinity;
+    -fx-max-width: Infinity;
+    -fx-fit-to-width: true;
+    -fx-fit-to-height: true;
+    -fx-spacing: 2px;
+    
+}
 
 //SLIDESHOW
 .slide//@todo MAKE PRETTY
 {
-    -fx-background-color: blue;
+    -fx-max-height: Infinity;
+    -fx-max-width: Infinity;
 }
 
 .slide_selected
 {
-    -fx-background-color: red;
+    -fx-max-height: Infinity;
+    -fx-max-width: Infinity;
 }
 
 
@@ -73,4 +116,8 @@ and open the template in the editor.
 {
     -fx-max-height: 150px;
     -fx-max-width: 150px;
+    -fx-fit-to-width: true;
+    -fx-fit-to-height: true;
 }
+
+

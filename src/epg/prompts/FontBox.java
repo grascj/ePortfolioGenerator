@@ -5,6 +5,7 @@
  */
 package epg.prompts;
 
+import static epg.ProgramConstants.CSS_PROMPT_BUTTON;
 import epg.ProgramConstants.FONT;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
@@ -31,6 +32,10 @@ public class FontBox extends HBox{
         typeBox.getSelectionModel().select(font.ordinal());
         this.fontSize = fontSize;
         sizeField = new TextField(""+this.fontSize);
+        
+        sizeField.setMaxWidth(40);
+        
+        typeBox.getStyleClass().add(CSS_PROMPT_BUTTON);
         
         this.getChildren().addAll(typeBox, sizeField);
     }

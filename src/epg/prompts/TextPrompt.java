@@ -25,6 +25,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 /**
@@ -49,6 +50,8 @@ public class TextPrompt extends Stage {
     TEXT_TYPE tt;
 
     public TextPrompt() {
+        initModality(Modality.APPLICATION_MODAL);
+
         ok = false;
 
         initUI();
@@ -105,7 +108,7 @@ public class TextPrompt extends Stage {
         Scene promptbody = new Scene(uipositioner, 300, 100);
         promptbody.getStylesheets().add(PATH_PROMPTSTYLESHEET);
         this.setScene(promptbody);
-      
+
     }
 
     public TextComponent getComp() {

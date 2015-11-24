@@ -18,6 +18,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 /**
@@ -38,43 +39,42 @@ public class HeaderPrompt extends Stage {
     boolean ok;
 
     public HeaderPrompt(HeaderComponent comp) {
+        initModality(Modality.APPLICATION_MODAL);
+
         ok = false;
         this.comp = comp;
 
-        
-        
-        fb = new FontBox(comp.getFont(),comp.getFontSize());
-        
+        fb = new FontBox(comp.getFont(), comp.getFontSize());
+
         uicontainer = new BorderPane();
         headercontainer = new VBox();
         headerLabel = new Label("Enter your header:");
         headerText = new TextField(this.comp.getText());
         okayBtn = initChildButton(CSS_OK_BUTTON, ICON_CHECK, TT_OK);
-        okayBtn.setOnAction(e->{
-            ok = true; 
-            this.comp.setText(headerText.getText()); 
+        okayBtn.setOnAction(e -> {
+            ok = true;
+            this.comp.setText(headerText.getText());
             this.comp.setFont(fb.getFontType());
             this.comp.setFontSize(fb.getFontSize());
             this.hide();
         });
-        headercontainer.getChildren().addAll(headerLabel, headerText, okayBtn);
+        headercontainer.getChildren().addAll(headerLabel, headerText);
         headercontainer.getStyleClass().add(CSS_CONTAINER);
         fb.getStyleClass().add(CSS_CONTAINER);
-        
-        
+
         uicontainer.setTop(fb);
         uicontainer.setCenter(headercontainer);
+        uicontainer.setBottom(okayBtn);
         uicontainer.getStyleClass().add(CSS_CONTAINER);
-        
-        Scene promptbody = new Scene(uicontainer,300,200);
+
+        Scene promptbody = new Scene(uicontainer, 300, 200);
         promptbody.getStylesheets().add(PATH_PROMPTSTYLESHEET);
         this.setScene(promptbody);
         this.showAndWait();
 
     }
-    
-    public boolean isOk()
-    {
+
+    public boolean isOk() {
         return ok;
     }
 

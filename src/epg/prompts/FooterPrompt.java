@@ -17,68 +17,68 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 /**
  *
  * @author cgmp
  */
-public class FooterPrompt extends Stage{
-    
+public class FooterPrompt extends Stage {
+
     String footerText;
-    
+
     TextField footerField;
     VBox uicontainer;
     Button okayBtn;
     Label footerLabel;
-    
+
     //FLAG
     boolean ok;
-    
-    
-    public FooterPrompt(String currentFooterText)
-    {
+
+    public FooterPrompt(String currentFooterText) {
+        initModality(Modality.APPLICATION_MODAL);
+
         ok = false;
-        
+
         this.footerText = currentFooterText;
-        
+
         footerLabel = new Label("Set a message for the Footer:");
         footerField = new TextField(footerText);
         uicontainer = new VBox();
         okayBtn = initChildButton(CSS_OK_BUTTON, ICON_CHECK, TT_OK);
-        
+
         initHandlers();
-        
+
         HBox okcontainer = new HBox();
         okcontainer.getStyleClass().add(CSS_CONTAINER);
         okcontainer.getChildren().add(okayBtn);
-        
+
         uicontainer.getChildren().addAll(footerLabel, footerField, okcontainer);
         uicontainer.getStyleClass().add(CSS_CONTAINER);
-        
-        Scene promptbody = new Scene(uicontainer,300,300);
+
+        Scene promptbody = new Scene(uicontainer, 300, 300);
         promptbody.getStylesheets().add(PATH_PROMPTSTYLESHEET);
         this.setScene(promptbody);
-        this.showAndWait(); 
+        this.showAndWait();
     }
-    
-    
-    private void initHandlers()
-    {
-        footerField.setOnKeyReleased(e-> {footerText = footerField.getText();});
-        okayBtn.setOnAction(e->{ok = true; this.hide();});
+
+    private void initHandlers() {
+        footerField.setOnKeyReleased(e -> {
+            footerText = footerField.getText();
+        });
+        okayBtn.setOnAction(e -> {
+            ok = true;
+            this.hide();
+        });
     }
-    
-    public boolean isOk()
-    {
+
+    public boolean isOk() {
         return ok;
     }
-    
-    public String getData()
-    {
+
+    public String getData() {
         return footerText;
     }
-    
-    
-    
+
 }

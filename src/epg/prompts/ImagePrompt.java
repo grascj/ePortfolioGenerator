@@ -8,6 +8,7 @@ package epg.prompts;
 import static epg.ProgramConstants.CSS_CHOOSE_BUTTON;
 import static epg.ProgramConstants.CSS_CONTAINER;
 import static epg.ProgramConstants.CSS_OK_BUTTON;
+import static epg.ProgramConstants.CSS_PROMPT_IMAGE;
 import static epg.ProgramConstants.DEFAULT_IMG;
 import static epg.ProgramConstants.ICON_CHECK;
 import static epg.ProgramConstants.ICON_CHOOSE;
@@ -79,14 +80,20 @@ public class ImagePrompt extends Stage {
                 new ExtensionFilter("Image Files", "*.png", "*.jpg", "*.png"));
 
         //init fields
-         if (comp.getImageURL() != null) {
+        if (comp.getImageURL() != null) {
             this.currentImage = new ImageView("file:" + comp.getImageURL());
             this.currentFileName = new Label(comp.getFile());
         } else {
             this.currentImage = new ImageView("file:" + DEFAULT_IMG);
             this.currentFileName = new Label("DefaultImage.png");
         }
-
+        
+        currentImage.setPreserveRatio(true);
+        currentImage.getStyleClass().add(CSS_PROMPT_IMAGE);
+        currentImage.setFitHeight(150);
+        currentImage.setFitWidth(150);
+        
+        
         okBtn = initChildButton(CSS_OK_BUTTON, ICON_CHECK, TT_OK);
         pickFile = initChildButton(CSS_CHOOSE_BUTTON, ICON_CHOOSE, TT_CHOOSE);
 
@@ -106,7 +113,7 @@ public class ImagePrompt extends Stage {
         HBox captionBox = new HBox();
         captionBox.getChildren().addAll(captionLabel, captionField);
         captionBox.getStyleClass().add(CSS_CONTAINER);
-        
+
         topBox.getChildren().addAll(currentImage, currentFileName, pickFile, captionBox);
         center.setTop(topBox);
 

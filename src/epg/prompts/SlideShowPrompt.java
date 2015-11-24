@@ -34,6 +34,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 /**
@@ -68,6 +69,8 @@ public class SlideShowPrompt extends Stage {
     boolean ok;
 
     public SlideShowPrompt(SlideShowComponent comp) {
+        initModality(Modality.APPLICATION_MODAL);
+
         this.comp = comp;
         ok = false;
         initUI();
@@ -91,10 +94,11 @@ public class SlideShowPrompt extends Stage {
         titleField = new TextField();
 
         slidePane = new VBox();
+        slidePane.getStyleClass().add("container_nospacing");
         slideScroll = new ScrollPane(slidePane);
 
         sideToolbar = new VBox();
-        
+
         upBtn = ViewHelper.initChildButton(CSS_SLIDESHOW_BUTTON, ICON_ARROW_UP, TT_SS_UP);
         downBtn = ViewHelper.initChildButton(CSS_SLIDESHOW_BUTTON, ICON_ARROW_DOWN, TT_SS_DOWN);
         rmButton = ViewHelper.initChildButton(CSS_SLIDESHOW_BUTTON, ICON_MINUS, TT_SS_RM);
@@ -141,9 +145,10 @@ public class SlideShowPrompt extends Stage {
         uipositioner.setCenter(slideScroll);
         uipositioner.setLeft(sideToolbar);
         uipositioner.setBottom(okayBtn);
-        
-        titleBox.getStyleClass().add(CSS_CONTAINER);
-        sideToolbar.getStyleClass().add(CSS_CONTAINER);
+
+        slideScroll.getStyleClass().add(CSS_CONTAINER);
+        titleBox.getStyleClass().add("slide_toolbar");
+        sideToolbar.getStyleClass().add("slide_toolbar");
         uipositioner.getStyleClass().add(CSS_CONTAINER);
         Scene promptbody = new Scene(uipositioner, 400, 400);
         promptbody.getStylesheets().add(PATH_PROMPTSTYLESHEET);
@@ -158,13 +163,13 @@ public class SlideShowPrompt extends Stage {
                 ss.selectedSlide = s;
                 this.update();
             });
-            
+
             if (s == ss.selectedSlide) {
                 sc.getStyleClass().add(CSS_SLIDE_SELECTED);
             } else {
                 sc.getStyleClass().add(CSS_SLIDE);
             }
-            
+
             slidePane.getChildren().add(sc);
         }
 

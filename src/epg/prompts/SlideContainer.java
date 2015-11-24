@@ -60,6 +60,11 @@ public class SlideContainer extends HBox {
             slideImage = new ImageView("file:" + DEFAULT_IMG);
         }
 
+        
+        slideImage.setPreserveRatio(true);
+        slideImage.setFitHeight(150);
+        slideImage.setFitWidth(150);
+        
         captionBox = new VBox();
         captionBox.getChildren().addAll(captionLabel, captionField);
         this.getChildren().addAll(slideImage, captionBox);

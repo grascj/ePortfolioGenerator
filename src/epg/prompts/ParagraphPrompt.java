@@ -18,40 +18,39 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 /**
  *
  * @author cgmp
  */
-public class ParagraphPrompt extends Stage{
+public class ParagraphPrompt extends Stage {
 
     BorderPane uipositioner;
     FontBox fb;
-    
+
     VBox paragraphcontainer;
-    
+
     Label paraLabel;
     TextArea paraText;
-    
-    
-    
+
     Button okayBtn;
-    
-    
-    
+
     //data
     ParagraphComponent comp;
     boolean ok;
-    
+
     public ParagraphPrompt(ParagraphComponent comp) {
+        initModality(Modality.APPLICATION_MODAL);
+
         this.comp = comp;
         ok = false;
-        
+
         initUI();
         initHandlers();
         placeChildren();
-        
+
         uipositioner.getStyleClass().add(CSS_CONTAINER);
         fb.getStyleClass().add(CSS_CONTAINER);
         paragraphcontainer.getStyleClass().add(CSS_CONTAINER);
@@ -59,46 +58,45 @@ public class ParagraphPrompt extends Stage{
         promptbody.getStylesheets().add(PATH_PROMPTSTYLESHEET);
         this.setScene(promptbody);
         this.showAndWait();
-        
+
     }
-    
-    private void initUI()
-    {
+
+    private void initUI() {
         uipositioner = new BorderPane();
         fb = new FontBox(comp.getFont(), comp.getFontSize());
-        
+
         paragraphcontainer = new VBox();
         paraLabel = new Label("Enter the text for the Paragraph:");
         paraText = new TextArea();
         paraText.setText(comp.getText());
         okayBtn = initChildButton(CSS_OK_BUTTON, ICON_CHECK, TT_OK);
     }
-    
-    private void initHandlers()
-    {
-        okayBtn.setOnAction(e->{ok = true; comp.setText(paraText.getText()); this.hide();});
+
+    private void initHandlers() {
+        okayBtn.setOnAction(e -> {
+            ok = true;
+            comp.setText(paraText.getText());
+            this.hide();
+        });
     }
-    
-    private void placeChildren()
-    {
-        
+
+    private void placeChildren() {
+
         paragraphcontainer.getChildren().addAll(paraLabel, paraText);
-        
+
         uipositioner.setTop(fb);
         uipositioner.setCenter(paragraphcontainer);
         uipositioner.setBottom(okayBtn);
     }
-    
-    public boolean isOk()
-    {
+
+    public boolean isOk() {
         return ok;
     }
-    
+
     //check the string, if a hyperlink is no longer present it gets deleted
-    public String checkChanges()
-    {
-        
+    public String checkChanges() {
+
         return null;
-    }   
-        
+    }
+
 }
