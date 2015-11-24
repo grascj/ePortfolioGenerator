@@ -1,0 +1,65 @@
+/*this css file is for the layout of the document*/
+/*
+//sbu-like
+
+background-color: #AA3939;
+background-color: #D46A6A;
+background-color: #FFAAAA;
+*/
+
+
+#namediv{
+background-color: #D46A6A;
+}
+
+#components, html,body {
+background-color: #AA3939;
+}
+
+
+
+#navbar{
+background-color: #D46A6A;
+}
+.compdiv {
+background-color: #FFAAAA;
+}
+
+
+
+#nametxt, #textcomp {
+color:black;
+}
+
+
+.pagelink{
+color:black;
+}
+
+
+
+
+/*
+#banner
+#bannerImage
+#footer
+#footerImage
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

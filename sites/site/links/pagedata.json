@@ -1,0 +1,24 @@
+{
+"name": "Links: Chris Grasing",
+"title": "Links",
+"layout": "3",
+"bannerImage": "https://c.thumbs.redditmedia.com/fnyGdlYrdpo8EEln.png",
+"footerImage": "https://c.thumbs.redditmedia.com/fnyGdlYrdpo8EEln.png",
+"navbar": 
+[
+"<a href=\"../homepage/index.html\" class=\"pagelink\">Homepage</a>",
+"<a href=\"../about/index.html\" class=\"pagelink\">About</a>",
+"<a href=\"../links/index.html\" class=\"pagelink\">Links</a>",
+"<a href=\"../work/index.html\" class=\"pagelink\">Work</a>",
+"<a href=\"../videos/index.html\" class=\"pagelink\">Videos</a>"
+],
+"components": 
+[
+"<div class=\"compdiv\"><h1 class=\"header textcomp\">Useful Links For Programming</h1></div>",
+"<div class=\"compdiv\"><ul class=\"list\"><li><a href=\"https://programming.reddit.com\">reddit.com/r/programming</a></li><li><a href=\"https://www.stackoverflow.com\">Stack Overflow</a></li><li><a href=\"https://www.codecademy.com\">Code Academy</a></li></ul></div>",
+"<div class=\"compdiv\"><p class=\"paragraph textcomp\">(So you can be like this guy.)</p><div>",
+"<div class=\"compdiv\"><img class=\"comp\" width=\"547\" height=\"312\" src=\"./media/hacker.png\"></img></div>"
+],
+"slideshows":
+[{"title": "utah", "index":"0", "images":["pic.jpg", "images.jpg"], "captions":["herro","le bayeux mmaymay"], "updater": "0"}]
+}

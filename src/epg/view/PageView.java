@@ -16,11 +16,14 @@ import static epg.ProgramConstants.ICON_FOOTER;
 import static epg.ProgramConstants.ICON_PICTURE;
 import static epg.ProgramConstants.ICON_TEXT_PLUS;
 import static epg.ProgramConstants.ICON_VIDEO;
+import static epg.ProgramConstants.TT_COLOR;
 import static epg.ProgramConstants.TT_COMP_IMAGE;
 import static epg.ProgramConstants.TT_COMP_REMOVE;
 import static epg.ProgramConstants.TT_COMP_SS;
 import static epg.ProgramConstants.TT_COMP_TEXT;
 import static epg.ProgramConstants.TT_COMP_VIDEO;
+import static epg.ProgramConstants.TT_FONT;
+import static epg.ProgramConstants.TT_LAYOUT;
 import static epg.ProgramConstants.TT_PV_BANNER;
 import static epg.ProgramConstants.TT_PV_FOOTER;
 import epg.controller.PageViewController;
@@ -31,6 +34,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Tooltip;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
@@ -98,13 +102,16 @@ public class PageView extends BorderPane {
 
         fonts = new ComboBox();
         fonts.getItems().addAll("Fjalla One", "Bree Serif", "Muli", "Vollkorn", "Iconsolata");
-
+        fonts.setTooltip(new Tooltip(TT_FONT));
+        
         layouts = new ComboBox();
         layouts.getItems().addAll("Low Nav", "Side Nav", "Gaps", "Top Nav", "Fixed Name");
-
+        layouts.setTooltip(new Tooltip(TT_LAYOUT));
+        
         colors = new ComboBox();
         colors.getItems().addAll("Beach", "Campfire", "Personal", "SBU Red", "Vintage");
-
+        colors.setTooltip(new Tooltip(TT_COLOR));
+        
         titlecontainer.getStyleClass().add(CSS_PAGEVIEW_TOPBAR_CHILD);
         fonts.getStyleClass().add(CSS_PAGEVIEW_TOPBAR_CHILD);
         layouts.getStyleClass().add(CSS_PAGEVIEW_TOPBAR_CHILD);

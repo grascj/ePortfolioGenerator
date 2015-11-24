@@ -129,6 +129,10 @@ public class ProgramConstants {
     public static String TT_COMP_SS = "Add a slide show component";
     public static String TT_COMP_REMOVE = "Remove the selected component";
     
+    public static String TT_FONT = "Select a page font.";
+    public static String TT_LAYOUT = "Select a page layout.";
+    public static String TT_COLOR = "Select a page color scheme.";
+    
     
     
     
