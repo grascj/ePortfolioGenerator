@@ -40,6 +40,7 @@ public abstract class Component {
     
     public abstract void editPrompt();
     public abstract void display();
-    public abstract String htmlify();    
+    public abstract String htmlify();
+    public abstract String jsonify();
     public abstract String getDisplayText();
 }

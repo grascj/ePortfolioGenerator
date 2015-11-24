@@ -14,7 +14,6 @@ import java.util.ArrayList;
 public class Portfolio {
     String studentName;
     ArrayList<Page> pages;
-    int numPages;
     String fileName;
     
     
@@ -25,14 +24,12 @@ public class Portfolio {
         studentName = "";
         pages = new ArrayList<Page>();
         pages.add(new Page());
-        numPages = 1;
-        fileName = "default title";
+        fileName = "";
     }
     public Portfolio(String studentName, ArrayList<Page> pages, int numPages, String fileName)
     {
         this.studentName = studentName;
         this.pages = pages;
-        this.numPages = numPages;
         this.fileName = fileName;
     }
 
@@ -48,9 +45,7 @@ public class Portfolio {
         this.pages = pages;
     }
 
-    public void setNumPages(int numPages) {
-        this.numPages = numPages;
-    }
+
 
     public void setFileName(String fileName) {
         this.fileName = fileName;
@@ -64,9 +59,7 @@ public class Portfolio {
         return pages;
     }
 
-    public int getNumPages() {
-        return numPages;
-    }
+
 
     public String getFileName() {
         return fileName;

@@ -101,7 +101,7 @@ and open the template in the editor.
 }
 
 //SLIDESHOW
-.slide//@todo MAKE PRETTY
+.slide
 {
     -fx-max-height: Infinity;
     -fx-max-width: Infinity;

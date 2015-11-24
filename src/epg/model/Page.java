@@ -20,7 +20,6 @@ import java.util.ArrayList;
 public class Page {
     
     
-    //@TODO fonts?
     FONT pagefont;
     LAYOUT layout;
     COLOR colors;
@@ -29,12 +28,14 @@ public class Page {
     String footer;
     String title;
     
-            
-            
     ArrayList<Component> components;
     ArrayList<SlideShow> slideshows;
+
     
-    //CONSTRUCTORS
+
+
+
+//CONSTRUCTORS
     public Page()
     {
       pagefont = FONT.Bree_Serif;
@@ -44,6 +45,7 @@ public class Page {
       bannerURL = null;
       footer = "";
       components = new ArrayList<Component>();
+      slideshows = new ArrayList<SlideShow>();
     }
     
     public ArrayList<SlideShow> getSlideshows() {

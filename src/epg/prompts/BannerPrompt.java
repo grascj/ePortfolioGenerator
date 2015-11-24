@@ -115,7 +115,6 @@ public class BannerPrompt extends Stage {
     }
 
     public void show(String message) {
-        //@todo message for prompt
         this.showAndWait();
     }
 

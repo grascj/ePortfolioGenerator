@@ -135,6 +135,7 @@ public class HTMLWorker {
     /*
      public static String generateParagraphComponentHTML(ParagraphComponent comp) {
      }*/
+    
     //need to make a json to correspond to it
     public static String generateSlideShowComponentHTML(SlideShowComponent comp, int numSlideShow) {
         //60% of total height for the image 

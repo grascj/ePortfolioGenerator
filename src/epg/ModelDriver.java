@@ -24,7 +24,6 @@ public class ModelDriver {
      */
     public static void main(String[] args) {
         
-        
         HeaderComponent hcomp = new HeaderComponent();
         hcomp.setFont(FONT.Iconsolata);
         hcomp.setFontSize(20);
@@ -40,7 +39,10 @@ public class ModelDriver {
         lcomp.setListItems(itemz);
         System.out.println(lcomp.htmlify());
         
-        
+        String a1 = "butts";
+        String a2 = a1;
+        a1 = "butts2";
+        System.out.println(a2);
         
         
         

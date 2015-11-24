@@ -109,8 +109,12 @@ public class PageViewController {
         SlideShowPrompt popup = new SlideShowPrompt(comp);
         if (popup.isOk()) {
             pe.getPage().getComponents().add(comp);
+            pe.getPage().getSlideshows().add(comp.getslideshow());
             pe.updatePage();
         }
+        
+            //@todo add slideshow to the page list of slideshows 
+
 
     }
 

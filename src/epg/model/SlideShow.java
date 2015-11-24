@@ -30,7 +30,7 @@ ArrayList<Slide> slides;
         title = "";
         
     }
-    
+    //@todo add slideshow to the page list of slideshows 
     
     
     public String getTitle()
