@@ -69,7 +69,16 @@ public class PageEditor extends BorderPane {
     public void update()
     {
         pageView.update(selectedPage);
-        siteToolbar.update(portfolio.getPages(), portfolio.getPages().indexOf(selectedPage));
+        siteToolbar.update(portfolio, portfolio.getPages().indexOf(selectedPage));
+    }
+    
+    
+    public void portfolioChange(Portfolio portfolio, Page selectedPage)
+    {
+        this.portfolio = portfolio;
+        this.selectedPage = selectedPage;
+        pageView.update(selectedPage);
+        siteToolbar.update(portfolio, portfolio.getPages().indexOf(selectedPage));
     }
     
     

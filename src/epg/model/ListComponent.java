@@ -6,6 +6,7 @@
 package epg.model;
 
 import epg.ProgramConstants.FONT;
+import epg.file.HTMLWorker;
 import java.util.ArrayList;
 
 /**
@@ -52,7 +53,7 @@ public class ListComponent extends TextComponent {
 
     @Override
     public String htmlify() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return HTMLWorker.generateListComponentHTML(this);
     }
 
 }

@@ -5,6 +5,7 @@
  */
 package epg.controller;
 
+import epg.model.Portfolio;
 import epg.view.PortfolioView;
 
 /**
@@ -22,7 +23,7 @@ public class FileController {
     }
 
     public void handleNew() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        pv.changePortfolio(new Portfolio());
     }
 
     public void handleLoad() {
@@ -38,7 +39,7 @@ public class FileController {
     }
 
     public void handleExit() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        System.exit(0);
     }
 
     public void handleSaveAs() {

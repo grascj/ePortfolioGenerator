@@ -6,6 +6,7 @@
 package epg.model;
 
 import epg.ProgramConstants.FONT;
+import epg.file.HTMLWorker;
 
 
 /**
@@ -50,7 +51,7 @@ public class HeaderComponent extends TextComponent{
 
     @Override
     public String htmlify() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return HTMLWorker.generateHeaderComponentHTML(this);
     }
     
     

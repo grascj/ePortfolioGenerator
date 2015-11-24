@@ -148,8 +148,6 @@ public class ImagePrompt extends Stage {
         promptScene.getStylesheets().add(PATH_PROMPTSTYLESHEET);
         this.setScene(promptScene);
         this.show("hello");
-        //@todo pick size
-
     }
 
     public void initHandlers() {

@@ -15,6 +15,7 @@ import static epg.ProgramConstants.TT_ST_ADD;
 import static epg.ProgramConstants.TT_ST_REMOVE;
 import epg.controller.SiteToolbarController;
 import epg.model.Page;
+import epg.model.Portfolio;
 import static epg.view.ViewHelper.initChildButton;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -84,13 +85,14 @@ public class SiteToolbar extends HBox{
         this.getChildren().addAll(nameContainer, pageBox, addPageButton, removePageButton);
     }
     
-    public void update(ArrayList<Page> pages, int index)
+    public void update(Portfolio portfolio, int index)
     {
         pageBox.getItems().clear();
-        pageBox.getItems().setAll(pages);
+        pageBox.getItems().setAll(portfolio.getPages());
         pageBox.getSelectionModel().select(index);
+        nameField.setText(portfolio.getStudentName());
     }
-    
+
 
     public void updateCurrentTitle()
     {
