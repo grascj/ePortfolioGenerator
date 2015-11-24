@@ -52,7 +52,7 @@ public class ListPrompt extends Stage {
     boolean ok;
 
     public class ItemBox extends HBox {
-
+        
         TextField itemText;
         Item item;
 
@@ -70,6 +70,7 @@ public class ListPrompt extends Stage {
     }
 
     public ListPrompt(ListComponent comp) {
+        this.setTitle("Add List");
         initModality(Modality.APPLICATION_MODAL);
 
         this.comp = comp;

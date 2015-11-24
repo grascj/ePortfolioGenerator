@@ -52,6 +52,7 @@ public class BannerPrompt extends Stage {
     HBox buttoncontainer;
 
     public BannerPrompt(Stage primaryStage, String currentFileURL, String currentFile) {
+        this.setTitle("Edit Banner");
         okay = false;
         initModality(Modality.APPLICATION_MODAL);
         initOwner(primaryStage);

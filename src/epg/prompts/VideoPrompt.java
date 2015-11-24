@@ -68,6 +68,7 @@ public class VideoPrompt extends Stage {
     
     public VideoPrompt(Stage primaryStage, VideoComponent comp)
     {
+        this.setTitle("Add Video");
         
         //SET THE FLAG TO FALSE, NEEDS TO BE TRUE TO COMMIT CHANGES
         ok = false;
@@ -102,35 +103,37 @@ public class VideoPrompt extends Stage {
         BorderPane uicontainer = new BorderPane();
         BorderPane center = new BorderPane();
         center.getStyleClass().add(CSS_CONTAINER);
+        
         VBox topBox = new VBox();
+        topBox.setStyle("-fx-border-width: 0 0 10px 0; -fx-border-color:transparent;");
         
         Label captionLabel = new Label("Caption: ");
         HBox captionBox = new HBox();
         captionBox.getChildren().addAll(captionLabel, captionField);
         captionBox.getStyleClass().add(CSS_CONTAINER);
         
-        
+        topBox.getStyleClass().add(CSS_CONTAINER);
         topBox.getChildren().addAll(currentFileName, pickFile, captionBox);
         center.setTop(topBox);
         
         VBox leftBox = new VBox();
-        leftBox.getStyleClass().add(CSS_CONTAINER);
+        leftBox.getStyleClass().add("container_nospacing");
         leftBox.getChildren().addAll(new Label("Set the width:"),widthField);
         center.setLeft(leftBox);
         
         VBox rightBox = new VBox();
-        rightBox.getStyleClass().add(CSS_CONTAINER);
+        rightBox.getStyleClass().add("container_nospacing");
         rightBox.getChildren().addAll(new Label("Set the height:"),lengthField);
         center.setRight(rightBox);
         
-        
+        center.setStyle("-fx-border-width: 0 0 10px 0; -fx-border-color:transparent;");
         
         uicontainer.setCenter(center);
         uicontainer.setBottom(okBtn);
         
         uicontainer.getStyleClass().add(CSS_CONTAINER);
         
-        Scene promptScene = new Scene(uicontainer, 400, 200);
+        Scene promptScene = new Scene(uicontainer, 400, 300);
         promptScene.getStylesheets().add(PATH_PROMPTSTYLESHEET);        
         this.setScene(promptScene);
         this.show("hello");

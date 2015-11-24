@@ -12,6 +12,14 @@ and open the template in the editor.
 
 
 
+.root
+{
+    -fx-font-family: serif;
+    -fx-font-size: 12pt;
+}
+
+
+
 .container, .banner, .container_nospacing
 {
     -fx-background-color: #7CC2AF;

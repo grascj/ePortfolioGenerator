@@ -23,6 +23,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
@@ -60,6 +61,9 @@ public class ImagePrompt extends Stage {
     ImageView currentImage;
     Label captionLabel;
 
+    Label floatLabel;
+    ComboBox floatBox;
+    
     TextField widthField;
     TextField lengthField;
     TextField captionField;
@@ -68,6 +72,7 @@ public class ImagePrompt extends Stage {
     boolean ok;
 
     public ImagePrompt(Stage primaryStage, ImageComponent comp) {
+        this.setTitle("Add Image");
         //SET THE FLAG TO FALSE, NEEDS TO BE TRUE TO COMMIT CHANGES
         ok = false;
         this.comp = comp;
@@ -93,6 +98,14 @@ public class ImagePrompt extends Stage {
         currentImage.setFitHeight(150);
         currentImage.setFitWidth(150);
         
+        //@todo implement
+        floatLabel = new Label("Floating: ");
+        floatBox = new ComboBox();
+        floatBox.getItems().addAll("No","Left","Right");
+        HBox floatcontainer = new HBox();
+        floatcontainer.getChildren().addAll(floatLabel,floatBox);
+        floatcontainer.getStyleClass().add(CSS_CONTAINER);
+        
         
         okBtn = initChildButton(CSS_OK_BUTTON, ICON_CHECK, TT_OK);
         pickFile = initChildButton(CSS_CHOOSE_BUTTON, ICON_CHOOSE, TT_CHOOSE);
@@ -114,7 +127,8 @@ public class ImagePrompt extends Stage {
         captionBox.getChildren().addAll(captionLabel, captionField);
         captionBox.getStyleClass().add(CSS_CONTAINER);
 
-        topBox.getChildren().addAll(currentImage, currentFileName, pickFile, captionBox);
+        topBox.getChildren().addAll(currentImage, currentFileName, pickFile, captionBox, floatcontainer);
+        topBox.setStyle("-fx-border-width: 0 0 10px 0; -fx-border-color:transparent;");
         center.setTop(topBox);
 
         VBox leftBox = new VBox();
@@ -130,7 +144,7 @@ public class ImagePrompt extends Stage {
         uicontainer.setCenter(center);
         uicontainer.setBottom(okBtn);
         uicontainer.getStyleClass().add(CSS_CONTAINER);
-        Scene promptScene = new Scene(uicontainer, 400, 400);
+        Scene promptScene = new Scene(uicontainer, 400, 480);
         promptScene.getStylesheets().add(PATH_PROMPTSTYLESHEET);
         this.setScene(promptScene);
         this.show("hello");

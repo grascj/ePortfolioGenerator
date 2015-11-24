@@ -69,6 +69,7 @@ public class SlideShowPrompt extends Stage {
     boolean ok;
 
     public SlideShowPrompt(SlideShowComponent comp) {
+        this.setTitle("Add Slide Show");
         initModality(Modality.APPLICATION_MODAL);
 
         this.comp = comp;

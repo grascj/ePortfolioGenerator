@@ -39,6 +39,7 @@ public class HeaderPrompt extends Stage {
     boolean ok;
 
     public HeaderPrompt(HeaderComponent comp) {
+        this.setTitle("Add Header");
         initModality(Modality.APPLICATION_MODAL);
 
         ok = false;

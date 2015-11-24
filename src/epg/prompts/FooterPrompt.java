@@ -37,6 +37,7 @@ public class FooterPrompt extends Stage {
     boolean ok;
 
     public FooterPrompt(String currentFooterText) {
+        this.setTitle("Enter Footer");
         initModality(Modality.APPLICATION_MODAL);
 
         ok = false;
