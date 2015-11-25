@@ -138,5 +138,16 @@ public class PortfolioView {
         updateUI();
 
     }
+    
+    public Portfolio getPortfolio()
+    {
+        return workingPortfolio;
+    }
+
+    public Stage getPrimaryStage() {
+        return primaryStage;
+    }
+    
+    
 
 }

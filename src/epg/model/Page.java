@@ -36,12 +36,13 @@ public class Page {
 
 
 //CONSTRUCTORS
-    public Page(FONT pagefont, LAYOUT layout, COLOR colors, String title, String bannerURL, String footer, ArrayList<Component> components, ArrayList<SlideShow> slideshows)
+    public Page(FONT pagefont, LAYOUT layout, COLOR colors, String title,String banner, String bannerURL, String footer, ArrayList<Component> components, ArrayList<SlideShow> slideshows)
     {
       this.pagefont = pagefont;
       this.layout = layout;
       this.colors = colors;
       this.title =title;
+      this.banner = banner;
       this.bannerURL =bannerURL;
       this.footer =footer;
       this.components =components;
@@ -56,6 +57,7 @@ public class Page {
       layout = LAYOUT.lownav;
       colors = COLOR.SBUred;
       title = "Untitled Page";
+      banner = "";
       bannerURL = "";
       footer = "";
       components = new ArrayList<Component>();

@@ -5,8 +5,15 @@
  */
 package epg.controller;
 
+import static epg.ProgramConstants.PATH_SAVES;
+import epg.file.JsonCreator;
 import epg.model.Portfolio;
 import epg.view.PortfolioView;
+import java.io.File;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javafx.stage.FileChooser;
 
 /**
  *
@@ -27,11 +34,29 @@ public class FileController {
     }
 
     public void handleLoad() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+                
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.getExtensionFilters().addAll(
+        new FileChooser.ExtensionFilter("JSON files", "*.json"));
+        fileChooser.setInitialDirectory(new File(PATH_SAVES));
+        File selectedFile = fileChooser.showOpenDialog(pv.getPrimaryStage());
+        if(selectedFile != null)
+        {
+            try {
+                pv.changePortfolio(JsonCreator.loadPortfolio(selectedFile.getPath()));
+            } catch (IOException ex) {
+                Logger.getLogger(FileController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
     }
 
     public void handleSave() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        try {
+            JsonCreator.savePortfolio(pv.getPortfolio());
+        } catch (IOException ex) {
+            Logger.getLogger(FileController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     public void handleExport() {

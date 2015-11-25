@@ -5,6 +5,7 @@ import epg.ProgramConstants.COMPONENTS;
 import static epg.ProgramConstants.COMPONENTS.HEADER;
 import epg.ProgramConstants.FONT;
 import epg.ProgramConstants.LAYOUT;
+import static epg.ProgramConstants.PATH_SAVES;
 import static epg.ProgramConstants.PATH_SITES;
 import epg.model.Component;
 import epg.model.HeaderComponent;
@@ -26,12 +27,15 @@ import epg.model.Slide;
 import epg.model.SlideShow;
 import epg.model.SlideShowComponent;
 import epg.model.VideoComponent;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.InputStream;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.util.HashMap;
 import java.util.Map;
 import javax.json.JsonObjectBuilder;
+import javax.json.JsonReader;
 import javax.json.JsonWriterFactory;
 import javax.json.stream.JsonGenerator;
 
@@ -112,7 +116,7 @@ public class JsonCreator {
                 .add(JSON_PAGES, savePages(portfolioToSave.getPages()))
                 .build();
 
-        writeToFile("./sites/test.json", portfolioJSON);
+        writeToFile(PATH_SAVES + portfolioToSave.getFileName() + ".json", portfolioJSON);
     }
 
     static private JsonArray savePages(ArrayList<Page> pages) {
@@ -178,6 +182,16 @@ public class JsonCreator {
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////    
 ////LOADING//////////LOADING//////////LOADING//////////LOADING//////////LOADING//////////LOADING//////////LOADING//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //@todo load from file not just data
+    static public Portfolio loadPortfolio(String filepath) throws FileNotFoundException, IOException {
+        InputStream is = new FileInputStream(filepath);
+        JsonReader jsonReader = Json.createReader(is);
+        JsonObject json = jsonReader.readObject();
+        jsonReader.close();
+        is.close();
+
+        return loadPortfolioObject(json);
+    }
+
     static public Portfolio loadPortfolioObject(JsonObject portfolioJSON) {
 
         Portfolio portfolio = new Portfolio(
@@ -200,6 +214,7 @@ public class JsonCreator {
                     COLOR.values()[pJSON.getInt(JSON_COLORS)],
                     pJSON.getString(JSON_TITLE),
                     pJSON.getString(JSON_BANNER),
+                    pJSON.getString(JSON_BANNERURL),
                     pJSON.getString(JSON_FOOTER),/////////////////THE ARRRAYS NOWS
                     loadComponents(pJSON.getJsonArray(JSON_PAGES)),
                     loadSlideShows(pJSON.getJsonArray(JSON_SLIDESHOWS))
@@ -212,37 +227,39 @@ public class JsonCreator {
 
     private static ArrayList<Component> loadComponents(JsonArray compsJSON) {
         ArrayList<Component> comps = new ArrayList<>();
-        
-        for(int i = 0; i < compsJSON.size(); i++)
-        {
-            JsonObject cJSON = compsJSON.getJsonObject(i);
-            
-            switch(COMPONENTS.values()[cJSON.getInt(JSON_TYPE)]){
-                case HEADER:        comps.add(new HeaderComponent(cJSON));
-                case IMAGE:         comps.add(new ImageComponent(cJSON));
-                case LIST:          comps.add(new ListComponent(cJSON));
-                case PARAGRAPH:     comps.add(new ParagraphComponent(cJSON));
-                case SLIDESHOW:     comps.add(new SlideShowComponent(cJSON));
-                case VIDEO:         comps.add(new VideoComponent(cJSON));
+        if (compsJSON != null) {
+            for (int i = 0; i < compsJSON.size(); i++) {
+                JsonObject cJSON = compsJSON.getJsonObject(i);
+
+                switch (COMPONENTS.values()[cJSON.getInt(JSON_TYPE)]) {
+                    case HEADER:
+                        comps.add(new HeaderComponent(cJSON));
+                    case IMAGE:
+                        comps.add(new ImageComponent(cJSON));
+                    case LIST:
+                        comps.add(new ListComponent(cJSON));
+                    case PARAGRAPH:
+                        comps.add(new ParagraphComponent(cJSON));
+                    case SLIDESHOW:
+                        comps.add(new SlideShowComponent(cJSON));
+                    case VIDEO:
+                        comps.add(new VideoComponent(cJSON));
+                }
             }
         }
         return comps;
     }
 
-    
-    private static ArrayList<SlideShow> loadSlideShows(JsonArray slideshowsJSON)
-    {
+    private static ArrayList<SlideShow> loadSlideShows(JsonArray slideshowsJSON) {
         ArrayList<SlideShow> slideshows = new ArrayList<SlideShow>();
-        for(int i = 0; i < slideshowsJSON.size(); i++)
-        {
+        for (int i = 0; i < slideshowsJSON.size(); i++) {
             slideshows.add(loadSlideShow(slideshowsJSON.getJsonObject(i)));
-            
+
         }
-        
+
         return slideshows;
     }
-    
-    
+
     static public SlideShow loadSlideShow(JsonObject ssJSON) {
 
         ArrayList<Slide> slides = new ArrayList<Slide>();

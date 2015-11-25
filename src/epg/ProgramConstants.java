@@ -28,8 +28,8 @@ public class ProgramConstants {
     public static String NEWVIDEO = "Pick a video.";
    
     //Paths
-    public static String PATH_SAVES = "./saves";
-    public static String PATH_SITES = "./sites";
+    public static String PATH_SAVES = "./saves/";
+    public static String PATH_SITES = "./sites/";
     public static String PATH_STYLESHEET = "epg/style/AppStyle.css";
     public static String PATH_PROMPTSTYLESHEET = "epg/style/PromptStyle.css";
 

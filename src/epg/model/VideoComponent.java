@@ -41,6 +41,8 @@ public class VideoComponent extends Component {
     public VideoComponent() {
         super(200, 200);
         caption = "";
+        file = "";
+        fileURL = "";
     }
 
     public String getCaption() {

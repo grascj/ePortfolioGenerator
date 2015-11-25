@@ -10,6 +10,7 @@ import static epg.ProgramConstants.CSS_BANNER_IMAGE;
 import static epg.ProgramConstants.CSS_BUTTON_CONTAINER;
 import static epg.ProgramConstants.CSS_CHOOSE_BUTTON;
 import static epg.ProgramConstants.CSS_OK_BUTTON;
+import static epg.ProgramConstants.CSS_PROMPT_IMAGE;
 import static epg.ProgramConstants.DEFAULT_IMG;
 import static epg.ProgramConstants.ICON_CHECK;
 import static epg.ProgramConstants.ICON_CHOOSE;
@@ -64,6 +65,11 @@ public class BannerPrompt extends Stage {
             this.currentIMG = new ImageView("file:" + DEFAULT_IMG);
             this.currentFileName = new Label("DefaultImage.png");
         }
+        
+        currentIMG.setPreserveRatio(true);
+        currentIMG.getStyleClass().add(CSS_PROMPT_IMAGE);
+        currentIMG.setFitHeight(150);
+        currentIMG.setFitWidth(150);
 
         fileChooser = new FileChooser();
         fileChooser.getExtensionFilters().addAll(
