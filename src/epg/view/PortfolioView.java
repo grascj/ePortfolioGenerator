@@ -14,6 +14,9 @@ import epg.controller.FileController;
 import epg.controller.ModeController;
 import epg.error.ErrorHandler;
 import epg.model.Portfolio;
+import epg.view.ModeToolbar.MODE_STATE;
+import static epg.view.ModeToolbar.MODE_STATE.EDIT;
+import static epg.view.ModeToolbar.MODE_STATE.VIEW;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
@@ -72,6 +75,8 @@ public class PortfolioView {
         uiPositioner = new BorderPane();
         uiPositioner.setTop(fileTB);
         uiPositioner.setLeft(modeTB);
+        modeTB.state = MODE_STATE.EDIT;
+        modeTB.updateControls(workingPortfolio);
         uiPositioner.setCenter(pageEditor);
 
         // GET THE SIZE OF THE SCREEN
@@ -93,10 +98,14 @@ public class PortfolioView {
 
     //@todo idiot proof buttons
     public void viewMode() {
+        modeTB.state = EDIT;
+        modeTB.updateControls(workingPortfolio);
         uiPositioner.setCenter(pageEditor);
     }
 
     public void editMode() {
+        modeTB.state = VIEW;
+        modeTB.updateControls(workingPortfolio);
         uiPositioner.setCenter(siteView);
     }
 
@@ -138,16 +147,13 @@ public class PortfolioView {
         updateUI();
 
     }
-    
-    public Portfolio getPortfolio()
-    {
+
+    public Portfolio getPortfolio() {
         return workingPortfolio;
     }
 
     public Stage getPrimaryStage() {
         return primaryStage;
     }
-    
-    
 
 }

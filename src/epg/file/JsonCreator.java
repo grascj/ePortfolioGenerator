@@ -181,7 +181,6 @@ public class JsonCreator {
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////    
 ////LOADING//////////LOADING//////////LOADING//////////LOADING//////////LOADING//////////LOADING//////////LOADING//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    //@todo load from file not just data
     static public Portfolio loadPortfolio(String filepath) throws FileNotFoundException, IOException {
         InputStream is = new FileInputStream(filepath);
         JsonReader jsonReader = Json.createReader(is);
@@ -234,16 +233,22 @@ public class JsonCreator {
                 switch (COMPONENTS.values()[cJSON.getInt(JSON_TYPE)]) {
                     case HEADER:
                         comps.add(new HeaderComponent(cJSON));
+                        break;
                     case IMAGE:
                         comps.add(new ImageComponent(cJSON));
+                        break;
                     case LIST:
                         comps.add(new ListComponent(cJSON));
+                        break;
                     case PARAGRAPH:
                         comps.add(new ParagraphComponent(cJSON));
+                        break;
                     case SLIDESHOW:
                         comps.add(new SlideShowComponent(cJSON));
+                        break;
                     case VIDEO:
                         comps.add(new VideoComponent(cJSON));
+                        break;
                 }
             }
         }

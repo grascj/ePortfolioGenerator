@@ -24,9 +24,11 @@ class ComponentViewer extends ScrollPane {
 
     VBox componentPane;
     ArrayList<Component> componentList;
-    Component selection;
+    public Component selection;
+    PageView owner;
 
-    public ComponentViewer() {
+    public ComponentViewer(PageView owner) {
+        this.owner = owner;
         componentPane = new VBox();
         componentPane.getStyleClass().add(CSS_COMPONENTPANE);
 
@@ -48,6 +50,7 @@ class ComponentViewer extends ScrollPane {
 
             cv.setOnMouseClicked(e -> {
                 selection = cv.getComponent();
+                owner.idiotProofTB();
                 update(this.componentList);
             });
 

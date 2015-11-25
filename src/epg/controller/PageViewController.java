@@ -112,10 +112,8 @@ public class PageViewController {
             pe.getPage().getSlideshows().add(comp.getslideshow());
             pe.updatePage();
         }
-        
+
             //@todo add slideshow to the page list of slideshows 
-
-
     }
 
     public void handleVideoComp() {
@@ -129,6 +127,7 @@ public class PageViewController {
 
     public void handleRemoveComp(Component comp) {
         pe.getPage().getComponents().remove(comp);
+        pe.disarm();
         pe.updatePage();
     }
 

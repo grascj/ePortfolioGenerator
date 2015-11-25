@@ -87,7 +87,7 @@ public class PageView extends BorderPane {
         topBox.getStyleClass().add(CSS_PAGEVIEW_TOPBAR);
         sideBox = new GridPane();
 
-        cv = new ComponentViewer();
+        cv = new ComponentViewer(this);
         /*
          public enum LAYOUT      {lownav, sidenav, gaps, topnav, fixedname};
          public enum COLOR       {beach, campfire, personal, SBUred, vintage};
@@ -189,8 +189,23 @@ public class PageView extends BorderPane {
         layouts.getSelectionModel().select(page.getLayout().ordinal());
         colors.getSelectionModel().select(page.getColors().ordinal());
         fonts.getSelectionModel().select(page.getFont().ordinal());
+        idiotProofTB();
         cv.update(page.getComponents());
     }
+    
+    public void idiotProofTB()
+    {
+        if(cv.selection == null)
+            removeCompButton.setDisable(true);
+        else
+            removeCompButton.setDisable(false);
+    }
+    
+    public void disarm()
+    {
+        cv.selection = null;
+    }
+    
 
     public Component getComponent() {
         return selectedComponent;

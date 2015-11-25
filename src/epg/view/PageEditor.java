@@ -114,4 +114,9 @@ public class PageEditor extends BorderPane {
         siteToolbar.updateCurrentTitle();
     }
     
+    public void disarm()
+    {
+        pageView.disarm();
+    }
+    
 }

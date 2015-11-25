@@ -87,6 +87,11 @@ public class SiteToolbar extends HBox{
     
     public void update(Portfolio portfolio, int index)
     {
+        if(portfolio.getPages().size() <= 1)
+            removePageButton.setDisable(true);
+        else
+            removePageButton.setDisable(false);
+        
         pageBox.getItems().clear();
         pageBox.getItems().setAll(portfolio.getPages());
         pageBox.getSelectionModel().select(index);

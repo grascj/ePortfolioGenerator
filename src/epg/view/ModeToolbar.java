@@ -23,12 +23,14 @@ import javafx.scene.layout.RowConstraints;
  * @author cgmp
  */
 class ModeToolbar extends GridPane{
+    enum MODE_STATE {VIEW, EDIT};
     
     //@TODO use an enum for state perhaps
     
     Button siteButton;
     Button editorButton;
     ModeController mc;
+    MODE_STATE state;
     
     public ModeToolbar(ModeController mc)
     {
@@ -70,7 +72,21 @@ class ModeToolbar extends GridPane{
     
     public void updateControls(Portfolio portfolio)
     {
-        //@TODO make the other button hidden
+        switch(state)
+        {
+            case VIEW: 
+            {
+                siteButton.setDisable(true);
+                editorButton.setDisable(false);
+                break;
+            }
+            case EDIT:
+            {
+                siteButton.setDisable(false);
+                editorButton.setDisable(true);
+                break;
+            }
+        }
     }
     
     
