@@ -85,8 +85,8 @@ public class ImagePrompt extends Stage {
                 new ExtensionFilter("Image Files", "*.png", "*.jpg", "*.png"));
 
         //init fields
-        if (comp.getImageURL() != null) {
-            this.currentImage = new ImageView("file:" + comp.getImageURL());
+        if (comp.getFileURL()!= null) {
+            this.currentImage = new ImageView("file:" + comp.getFileURL());
             this.currentFileName = new Label(comp.getFile());
         } else {
             this.currentImage = new ImageView("file:" + DEFAULT_IMG);

@@ -11,11 +11,16 @@ package epg;
  */
 public class ProgramConstants {
     
-    public enum FONT        {Fjalla_One, Bree_Serif, Muli, Vollkorn, Iconsolata};
-    public enum LAYOUT      {lownav, sidenav, gaps, topnav, fixedname};
-    public enum COLOR       {beach, campfire, personal, SBUred, vintage};
-    public enum TEXT_TYPE   {HEADER, PARAGRAPH, LIST};
+    public static enum FONT        {Fjalla_One, Bree_Serif, Muli, Vollkorn, Iconsolata};
+    public static enum LAYOUT      {lownav, sidenav, gaps, topnav, fixedname};
+    public static enum COLOR       {beach, campfire, personal, SBUred, vintage};
+    public static enum TEXT_TYPE   {HEADER, PARAGRAPH, LIST};
 
+    public static enum COMPONENTS  {HEADER, IMAGE, LIST, PARAGRAPH, SLIDESHOW, VIDEO};
+    
+    
+    
+    
     //Defaults
     public static String DEFAULT_IMG = "./appdata/default_images/DefaultStartSlide.png";
     

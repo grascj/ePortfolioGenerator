@@ -5,25 +5,33 @@
  */
 package epg.model;
 
+import epg.ProgramConstants.COMPONENTS;
 import epg.ProgramConstants.FONT;
 import epg.file.HTMLWorker;
-
+import static epg.file.JsonCreator.JSON_FONT_SIZE;
+import static epg.file.JsonCreator.JSON_FONT_TYPE;
+import static epg.file.JsonCreator.JSON_TEXT;
+import static epg.file.JsonCreator.JSON_TYPE;
+import javax.json.Json;
+import javax.json.JsonObject;
+import javax.json.JsonObjectBuilder;
 
 /**
  *
  * @author cgmp
  */
-public class HeaderComponent extends TextComponent{
-
-    String text;
+public class HeaderComponent extends TextComponent {
+    static COMPONENTS type = COMPONENTS.HEADER;
     
+    
+    String text;
+
     public HeaderComponent(FONT font, int fontSize, String text) {
         super(font, fontSize);
         this.text = text;
     }
-    
-    public HeaderComponent()
-    {
+
+    public HeaderComponent() {
         super(FONT.Bree_Serif, 16);
         this.text = "";
     }
@@ -35,25 +43,34 @@ public class HeaderComponent extends TextComponent{
     public void setText(String text) {
         this.text = text;
     }
-    
-    
-    
-    
-    @Override
-    public void editPrompt() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 
-    @Override
-    public void display() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    
+    
+    
+    
+    public HeaderComponent(JsonObject compJSON)
+    {
+        super(FONT.values()[compJSON.getInt(JSON_FONT_TYPE)], compJSON.getInt(JSON_FONT_SIZE));
+        this.text = compJSON.getString(JSON_TEXT); 
     }
+    
+    @Override
+    public JsonObject jsonify() {
+            JsonObjectBuilder comp = Json.createObjectBuilder()
+                    .add(JSON_TYPE, type.ordinal())
+                    .add(JSON_TEXT, text)
+                    .add(JSON_FONT_TYPE, this.font.ordinal())
+                    .add(JSON_FONT_SIZE, this.fontSize);
+            
+            
+            
+        return comp.build();
+    }
+    
 
     @Override
     public String htmlify() {
         return HTMLWorker.generateHeaderComponentHTML(this);
     }
-    
-    
-    
+
 }

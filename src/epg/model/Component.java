@@ -5,6 +5,8 @@
  */
 package epg.model;
 
+import javax.json.JsonObject;
+
 /**
  *
  * @author cgmp
@@ -12,12 +14,12 @@ package epg.model;
 public abstract class Component {
     
     int width;
-    int length;
+    int height;
     
-    public Component(int width, int length)
+    public Component(int width, int height)
     {
         this.width = width;
-        this.length = length;
+        this.height = height;
     }
 
     public int getWidth() {
@@ -29,18 +31,16 @@ public abstract class Component {
     }
 
     public int getLength() {
-        return length;
+        return height;
     }
 
     public void setLength(int length) {
-        this.length = length;
+        this.height = length;
     }
            
     public abstract String getFile();
     
-    public abstract void editPrompt();
-    public abstract void display();
     public abstract String htmlify();
-    public abstract String jsonify();
+    public abstract JsonObject jsonify();
     public abstract String getDisplayText();
 }

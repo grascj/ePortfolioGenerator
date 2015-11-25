@@ -1,32 +1,27 @@
 package epg.file;
 
-import static epg.ProgramConstants.PATH_SAVES;
 import static epg.ProgramConstants.PATH_SITES;
 import epg.model.Component;
 import epg.model.Page;
 import epg.model.Portfolio;
-import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.ArrayList;
-import java.util.List;
 import javax.json.Json;
 import javax.json.JsonArray;
 import javax.json.JsonArrayBuilder;
 import javax.json.JsonObject;
-import javax.json.JsonReader;
-import javax.json.JsonValue;
 import javax.json.JsonWriter;
 import epg.model.Slide;
 import epg.model.SlideShow;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.io.StringWriter;
-import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.Map;
+import javax.json.JsonObjectBuilder;
+import javax.json.JsonValue;
 import javax.json.JsonWriterFactory;
 import javax.json.stream.JsonGenerator;
 
@@ -56,6 +51,20 @@ public class JsonCreator {
     public static String JSON_COMPONENTS = "components";
     public static String JSON_SLIDESHOWS = "slideshows";
 
+    //COMPONENTS
+    public static String JSON_TYPE = "type";
+    public static String JSON_TEXT = "text";
+    public static String JSON_FONT_SIZE = "font_size";
+    public static String JSON_FONT_TYPE = "fpnt_type";
+    public static String JSON_CAPTION = "caption";
+    public static String JSON_WIDTH = "width";
+    public static String JSON_HEIGHT = "height";
+    public static String JSON_FILE = "file";
+    public static String JSON_FILE_URL = "file_url";
+    public static String JSON_SLIDESHOW = "slideshow";
+    public static String JSON_SLIDES = "slides";
+    public static String JSON_ITEMS = "items";
+
     public static String JSON_NAVBAR = "navbar";
 
     public static String JSON_INDEX = "index";
@@ -75,7 +84,8 @@ public class JsonCreator {
      * @throws IOException Thrown when there are issues writing to the JSON
      * file.
      */
-    public void savePortfolio(Portfolio portfolioToSave) throws IOException {
+/////////////////////SAVING///////////SAVING////////////////////////////////////////////////    
+    static public void savePortfolio(Portfolio portfolioToSave) throws IOException {
         //going to need a jsonhelper method in each component to keep polymorphism going
         //make object
         //portfolio data
@@ -95,7 +105,7 @@ public class JsonCreator {
         //WriteToFile():
     }
 
-    public JsonArray savePages(ArrayList<Page> pages) {
+    static private JsonArray savePages(ArrayList<Page> pages) {
         JsonArrayBuilder pagesJSON = Json.createArrayBuilder();
 
         for (Page page : pages) {
@@ -108,7 +118,7 @@ public class JsonCreator {
                     .add(JSON_FOOTER, page.getFooter())
                     .add(JSON_TITLE, page.getTitle())
                     .add(JSON_COMPONENTS, saveComponents(page.getComponents()))
-                    .add(JSON_SLIDESHOWS,)
+                    .add(JSON_SLIDESHOWS, saveSlideShow(page.getSlideshows()))
                     .build();
 
             pagesJSON.add(pageJSON);
@@ -117,29 +127,71 @@ public class JsonCreator {
         return pagesJSON.build();
     }
 
-    public JsonArray saveComponents(ArrayList<Component> comps) {
+    static private JsonArray saveComponents(ArrayList<Component> comps) {
         JsonArrayBuilder compsJSON = Json.createArrayBuilder();
-        
-        for(Component comp : comps)
-        {
-            JsonObject compJSON = Json.createObjectBuilder()
-                    
-                    .build();
-            
-            
+
+        for (Component comp : comps) {
             compsJSON.add(comp.jsonify());
         }
-        
+
         return compsJSON.build();
     }
 
     
     
+    static private JsonArray saveSlideShow(ArrayList<SlideShow> slideshows)
+    {
+        JsonArrayBuilder slideshowsJSON = Json.createArrayBuilder();
+        for(SlideShow ss : slideshows)
+        {
+            slideshowsJSON.add(saveSlideShow(ss));
+        }
+        return slideshowsJSON.build();
+    }
     
     
-    
-    
-    public void makePageData(Portfolio portfolio, Page page) throws IOException {
+    static public JsonObject saveSlideShow(SlideShow ss) {
+        JsonObjectBuilder ssJSON = Json.createObjectBuilder()
+                .add(JSON_TITLE, ss.title);
+
+        JsonArrayBuilder slidesJSON = Json.createArrayBuilder();
+
+        for (Slide s : ss.getSlides()) {
+            JsonObject sJSON = Json.createObjectBuilder()
+                    .add(JSON_CAPTION, s.caption)
+                    .add(JSON_FILE, s.image)
+                    .add(JSON_FILE_URL, s.imageURL)
+                    .build();
+            slidesJSON.add(sJSON);
+        }
+
+        ssJSON.add(JSON_SLIDES, slidesJSON);
+
+        return ssJSON.build();
+    }
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////    
+////LOADING//////////LOADING//////////LOADING//////////LOADING//////////LOADING//////////LOADING//////////LOADING//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    static public SlideShow loadSlideShow(JsonObject ssJSON) {
+
+        ArrayList<Slide> slides = new ArrayList<Slide>();
+
+        for (int i = 0; i < ssJSON.getJsonArray(JSON_SLIDES).size(); i++) {
+            JsonObject sJSON = ssJSON.getJsonArray(JSON_SLIDES).getJsonObject(i);
+            slides.add(new Slide(
+                    sJSON.getString(JSON_CAPTION),
+                    sJSON.getString(JSON_FILE),
+                    sJSON.getString(JSON_FILE_URL)));
+        }
+
+        SlideShow ss = new SlideShow(slides, ssJSON.getJsonArray(JSON_SLIDES).size(), ssJSON.getString(JSON_TITLE));
+
+        return ss;
+    }
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////    
+///////////////////////////SITES///////////SITES/////////////////////////////////////////////////
+    static public void makePageData(Portfolio portfolio, Page page) throws IOException {
         String jsonFilePath = PATH_SITES + SLASH + portfolio.getFileName() + SLASH + page.getTitle() + SLASH + PAGEDATA;
 
         JsonObject data = Json.createObjectBuilder()
@@ -157,7 +209,7 @@ public class JsonCreator {
     }
 
     //@todo make current stick out
-    private JsonArray makeNavbarHTML(ArrayList<Page> pages) {
+    static private JsonArray makeNavbarHTML(ArrayList<Page> pages) {
         JsonArrayBuilder navbar = Json.createArrayBuilder();
         //make a link for each page to use in the navbar
         for (Page page : pages) {
@@ -166,7 +218,7 @@ public class JsonCreator {
         return navbar.build();
     }
 
-    private JsonArray makeComponentHTML(ArrayList<Component> comps) {
+    static private JsonArray makeComponentHTML(ArrayList<Component> comps) {
         //get the html for each component to inject in the javascript
         JsonArrayBuilder compList = Json.createArrayBuilder();
         for (Component comp : comps) {
@@ -175,7 +227,7 @@ public class JsonCreator {
         return compList.build();
     }
 
-    public void writeToFile(String jsonFilePath, JsonObject obj) throws FileNotFoundException {
+    static void writeToFile(String jsonFilePath, JsonObject obj) throws FileNotFoundException {
         StringWriter sw = new StringWriter();
         Map<String, Object> properties = new HashMap<>(1);
         properties.put(JsonGenerator.PRETTY_PRINTING, true);
@@ -194,7 +246,7 @@ public class JsonCreator {
         pw.close();
     }
 
-    private JsonArray makeSlideShowData(ArrayList<SlideShow> slideshows) {
+    static private JsonArray makeSlideShowData(ArrayList<SlideShow> slideshows) {
         JsonArrayBuilder ssList = Json.createArrayBuilder();
         if (slideshows != null) {
             //making slide show object

@@ -148,7 +148,7 @@ public class VideoPrompt extends Stage {
             //@todo idiot proof the number values
             ok = true;
             comp.setFile(fileName);
-            comp.setVideoURL(filePath);
+            comp.setFileURL(filePath);
             comp.setLength(Integer.parseInt(widthField.getText()));
             comp.setWidth(Integer.parseInt(widthField.getText()));
             caption = captionField.getText();

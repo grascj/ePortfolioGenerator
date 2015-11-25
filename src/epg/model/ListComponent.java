@@ -5,9 +5,20 @@
  */
 package epg.model;
 
+import epg.ProgramConstants.COMPONENTS;
 import epg.ProgramConstants.FONT;
 import epg.file.HTMLWorker;
+import static epg.file.JsonCreator.JSON_FONT_SIZE;
+import static epg.file.JsonCreator.JSON_FONT_TYPE;
+import static epg.file.JsonCreator.JSON_ITEMS;
+import static epg.file.JsonCreator.JSON_TEXT;
+import static epg.file.JsonCreator.JSON_TYPE;
 import java.util.ArrayList;
+import javax.json.Json;
+import javax.json.JsonArray;
+import javax.json.JsonArrayBuilder;
+import javax.json.JsonObject;
+import javax.json.JsonObjectBuilder;
 
 /**
  *
@@ -15,9 +26,8 @@ import java.util.ArrayList;
  */
 public class ListComponent extends TextComponent {
 
-    
-    
-    
+    static COMPONENTS type = COMPONENTS.LIST;
+
     ArrayList<Item> listItems;
 
     public ListComponent(FONT font, int fontSize, ArrayList<Item> listItems) {
@@ -40,15 +50,39 @@ public class ListComponent extends TextComponent {
 
     
     
-    
-    @Override
-    public void editPrompt() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public ListComponent(JsonObject compJSON) {
+        super(FONT.values()[compJSON.getInt(JSON_FONT_TYPE)], compJSON.getInt(JSON_FONT_SIZE));
+        
+        listItems = new ArrayList<Item>();
+        
+        JsonArray itemsJSON = compJSON.getJsonArray(JSON_ITEMS);
+        
+        for(int i = 0; i < itemsJSON.size(); i++)
+        {
+            listItems.add(new Item(itemsJSON.getString(i)));
+        }
+                    
+        
     }
 
     @Override
-    public void display() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public JsonObject jsonify() {
+        JsonObjectBuilder comp = Json.createObjectBuilder()
+                .add(JSON_TYPE, type.ordinal())
+                .add(JSON_FONT_TYPE, this.font.ordinal())
+                .add(JSON_FONT_SIZE, this.fontSize);
+                
+        
+        JsonArrayBuilder items = Json.createArrayBuilder();
+        for(Item item : listItems)
+        {
+            JsonObject itemJSON = Json.createObjectBuilder()
+                    .add(JSON_TEXT, item.itemtext).build();
+            items.add(itemJSON);
+        }
+        
+        comp.add(JSON_ITEMS, items);
+        return comp.build();
     }
 
     @Override

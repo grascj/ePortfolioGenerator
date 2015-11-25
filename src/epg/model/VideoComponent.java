@@ -5,29 +5,41 @@
  */
 package epg.model;
 
+import epg.ProgramConstants.COMPONENTS;
 import epg.file.HTMLWorker;
+import static epg.file.JsonCreator.JSON_CAPTION;
+import static epg.file.JsonCreator.JSON_FILE;
+import static epg.file.JsonCreator.JSON_FILE_URL;
+import static epg.file.JsonCreator.JSON_HEIGHT;
+import static epg.file.JsonCreator.JSON_TYPE;
+import static epg.file.JsonCreator.JSON_WIDTH;
+import javax.json.Json;
+import javax.json.JsonObject;
+import javax.json.JsonObjectBuilder;
 
 /**
  *
  * @author cgmp
  */
-public class VideoComponent extends Component{
+public class VideoComponent extends Component {
+    static COMPONENTS type = COMPONENTS.VIDEO;
     
-    String videoURL;
+    
+    
+    String fileURL;
     String file;
     String caption;
-    
-    
-    public VideoComponent(int width, int length, String videoURL, String video, String caption) {
+
+    public VideoComponent(int width, int length, String fileURL, String video, String caption) {
         super(width, length);
-        this.videoURL = videoURL;
+        this.fileURL = fileURL;
         this.file = video;
         this.caption = caption;
-        
+
     }
 
     public VideoComponent() {
-        super(200,200);
+        super(200, 200);
         caption = "";
     }
 
@@ -39,12 +51,12 @@ public class VideoComponent extends Component{
         this.caption = caption;
     }
 
-    public String getVideoURL() {
-        return videoURL;
+    public String getFileURL() {
+        return fileURL;
     }
 
-    public void setVideoURL(String videoURL) {
-        this.videoURL = videoURL;
+    public void setFileURL(String fileURL) {
+        this.fileURL = fileURL;
     }
 
     @Override
@@ -56,26 +68,34 @@ public class VideoComponent extends Component{
         this.file = video;
     }
 
-    
-    
-    @Override
-    public void editPrompt() {
-            //prompt to edit
+    public VideoComponent(JsonObject compJSON) {
+        super(compJSON.getInt(JSON_WIDTH), compJSON.getInt(JSON_HEIGHT));
+        caption = compJSON.getString(JSON_CAPTION);
+        file = compJSON.getString(JSON_FILE);
+        fileURL = compJSON.getString(JSON_FILE_URL);
     }
 
     @Override
-    public void display() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public JsonObject jsonify() {
+        JsonObjectBuilder comp = Json.createObjectBuilder()
+                .add(JSON_TYPE, type.ordinal())
+                .add(JSON_WIDTH, width)
+                .add(JSON_HEIGHT, height)
+                .add(JSON_CAPTION, caption)
+                .add(JSON_FILE, file)
+                .add(JSON_FILE_URL, fileURL);
+
+        return comp.build();
     }
 
     @Override
     public String htmlify() {
         return HTMLWorker.generateVideoComponentHTML(this);
     }
-    
+
     @Override
     public String getDisplayText() {
-        return "A Video which is: " + width + "px wide and " + length + "px tall. The file name is: " + file;
-    }    
-    
+        return "A Video which is: " + width + "px wide and " + height + "px tall. The file name is: " + file;
+    }
+
 }
