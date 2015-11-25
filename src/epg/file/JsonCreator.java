@@ -215,7 +215,7 @@ public class JsonCreator {
                     pJSON.getString(JSON_BANNER),
                     pJSON.getString(JSON_BANNERURL),
                     pJSON.getString(JSON_FOOTER),/////////////////THE ARRRAYS NOWS
-                    loadComponents(pJSON.getJsonArray(JSON_PAGES)),
+                    loadComponents(pJSON.getJsonArray(JSON_COMPONENTS)),
                     loadSlideShows(pJSON.getJsonArray(JSON_SLIDESHOWS))
             ));
 

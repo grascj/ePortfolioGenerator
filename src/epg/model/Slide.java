@@ -27,8 +27,8 @@ public class Slide {
     public Slide()
     {
         this.caption = "";
-        this.image = null;
-        this.imageURL = null;
+        this.image = "";
+        this.imageURL = "";
     }
             
     

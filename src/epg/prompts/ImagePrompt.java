@@ -72,6 +72,14 @@ public class ImagePrompt extends Stage {
     boolean ok;
 
     public ImagePrompt(Stage primaryStage, ImageComponent comp) {
+        
+        width = comp.getWidth();
+        length = comp.getLength();
+        caption = comp.getCaption();
+        fileName = comp.getFile();
+        filePath = comp.getFileURL();
+        
+                
         this.setTitle("Add Image");
         //SET THE FLAG TO FALSE, NEEDS TO BE TRUE TO COMMIT CHANGES
         ok = false;

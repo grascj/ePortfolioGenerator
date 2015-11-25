@@ -68,6 +68,13 @@ public class VideoPrompt extends Stage {
     
     public VideoPrompt(Stage primaryStage, VideoComponent comp)
     {
+                
+        width = comp.getWidth();
+        length = comp.getLength();
+        caption = comp.getCaption();
+        fileName = comp.getFile();
+        filePath = comp.getFileURL();
+        
         this.setTitle("Add Video");
         
         //SET THE FLAG TO FALSE, NEEDS TO BE TRUE TO COMMIT CHANGES

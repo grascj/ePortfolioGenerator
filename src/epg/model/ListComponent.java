@@ -59,7 +59,7 @@ public class ListComponent extends TextComponent {
         
         for(int i = 0; i < itemsJSON.size(); i++)
         {
-            listItems.add(new Item(itemsJSON.getString(i)));
+            listItems.add(new Item(itemsJSON.getString(i, JSON_TEXT)));
         }
                     
         
