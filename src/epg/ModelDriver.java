@@ -5,11 +5,20 @@
  */
 package epg;
 
-import epg.ProgramConstants.FONT;
-import epg.model.HeaderComponent;
-import epg.model.Item;
-import epg.model.ListComponent;
+import epg.ProgramConstants.LAYOUT;
+import epg.file.JsonCreator;
+import epg.model.ImageComponent;
+import epg.model.Page;
+import epg.model.Portfolio;
+import epg.model.Slide;
+import epg.model.SlideShow;
+import epg.model.SlideShowComponent;
+import epg.model.VideoComponent;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import static javax.print.attribute.standard.Chromaticity.COLOR;
 
 /**
  *
@@ -24,6 +33,7 @@ public class ModelDriver {
      */
     public static void main(String[] args) {
         
+        /*
         HeaderComponent hcomp = new HeaderComponent();
         hcomp.setFont(FONT.Iconsolata);
         hcomp.setFontSize(20);
@@ -43,6 +53,7 @@ public class ModelDriver {
         String a2 = a1;
         a1 = "butts2";
         System.out.println(a2);
+        */
         
         
         
@@ -58,35 +69,31 @@ public class ModelDriver {
         
         
         
-        /*
         
-        Portfolio trees = new Portfolio("chris grasing", null, 3, "TreesPortfolio");
+        Portfolio trees = new Portfolio("chris grasing", null, "TreesPortfolio");
         
         ArrayList<Page> pages = new ArrayList<Page>();
         
         Page a = new Page();
         a.setBanner("tree1.jpg");
-        a.setColors(COLOR.EDGY);
         a.setFooter("treef1.jpg");
-        a.setLayout(LAYOUT.NORMAL);
         a.setTitle("page1");
-        a.getComponents().add(new ImageComponent(200,200,"urlherb","herb.png"));
-        a.getComponents().add(new VideoComponent(200,200,"urltreevid","treevid.mp4"));
+        a.getComponents().add(new ImageComponent(200,200,"urlherb","","herb.png"));
+        a.getComponents().add(new VideoComponent(200,200,"urltreevid","","treevid.mp4"));
         pages.add(a);
         
         a = new Page();
         a.setBanner("tree2.jpg");
-        a.setColors(COLOR.EIGHTIES);
+        
         a.setFooter("treef2.jpg");
-        a.setLayout(LAYOUT.a);
         a.setTitle("page2");
         pages.add(a);
         
         a = new Page();
         a.setBanner("tree3.jpg");
-        a.setColors(COLOR.NINTIESKIDS);
+        
         a.setFooter("treef3.jpg");
-        a.setLayout(LAYOUT.b);
+        
         a.setTitle("page3");
         SlideShow ss = new SlideShow(new ArrayList<Slide>(), 2, "treess");
         ss.getSlides().add(new Slide("hi","hi.jpg","hiurl"));
@@ -96,8 +103,8 @@ public class ModelDriver {
         ss2.getSlides().add(new Slide("hi4","hi4.jpg","hi4url"));
         a.getComponents().add(new SlideShowComponent(200,200,ss));
         a.getComponents().add(new SlideShowComponent(200,200,ss2));
-        a.getComponents().add(new ImageComponent(200,200,"urlherb2","herb2.png"));
-        a.getComponents().add(new VideoComponent(200,200,"urltreevid2","treevid2.mp4"));
+        a.getComponents().add(new ImageComponent(200,200,"urlherb2","caption?","herb2.png"));
+        a.getComponents().add(new VideoComponent(200,200,"urltreevid2","caption?","treevid2.mp4"));
         a.setSlideshows(new ArrayList<SlideShow>());
         a.getSlideshows().add(ss);
         a.getSlideshows().add(ss2);
@@ -106,18 +113,12 @@ public class ModelDriver {
         
         trees.setPages(pages);
         
-        JsonCreator c = new JsonCreator();
-        
-        
-        for(Page k : trees.getPages())
-        {
-            try {
-                c.makePageData(trees, k);
-            } catch (IOException ex) {
-                Logger.getLogger(EPortfolioGenerator.class.getName()).log(Level.SEVERE, null, ex);
-            }
+        try {
+            JsonCreator.savePortfolio(trees);
+        } catch (IOException ex) {
+            Logger.getLogger(ModelDriver.class.getName()).log(Level.SEVERE, null, ex);
         }
-                */
+                
     }
                 
     

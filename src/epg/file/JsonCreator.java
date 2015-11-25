@@ -112,7 +112,7 @@ public class JsonCreator {
                 .add(JSON_PAGES, savePages(portfolioToSave.getPages()))
                 .build();
 
-        //WriteToFile():
+        writeToFile("./sites/test.json", portfolioJSON);
     }
 
     static private JsonArray savePages(ArrayList<Page> pages) {

@@ -56,7 +56,7 @@ public class Page {
       layout = LAYOUT.lownav;
       colors = COLOR.SBUred;
       title = "Untitled Page";
-      bannerURL = null;
+      bannerURL = "";
       footer = "";
       components = new ArrayList<Component>();
       slideshows = new ArrayList<SlideShow>();

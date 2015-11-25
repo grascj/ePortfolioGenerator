@@ -5,7 +5,6 @@
  */
 package epg.view;
 
-import static epg.ProgramConstants.CSS_COMPONENTVIEW;
 import static epg.ProgramConstants.CSS_COMPONENTVIEW_BUTTON;
 import static epg.ProgramConstants.CSS_COMPONENTVIEW_LABEL;
 import epg.model.Component;

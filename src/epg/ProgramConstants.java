@@ -14,7 +14,6 @@ public class ProgramConstants {
     public static enum FONT        {Fjalla_One, Bree_Serif, Muli, Vollkorn, Iconsolata};
     public static enum LAYOUT      {lownav, sidenav, gaps, topnav, fixedname};
     public static enum COLOR       {beach, campfire, personal, SBUred, vintage};
-
     public static enum COMPONENTS  {HEADER, IMAGE, LIST, PARAGRAPH, SLIDESHOW, VIDEO};
     
     
