@@ -5,13 +5,14 @@
  */
 package epg.prompts;
 
+import static com.sun.glass.ui.Clipboard.TEXT_TYPE;
+import epg.ProgramConstants.COMPONENTS;
 import static epg.ProgramConstants.CSS_CONTAINER;
 import static epg.ProgramConstants.CSS_PROMPT_BUTTON;
 import static epg.ProgramConstants.ICON_HEADER;
 import static epg.ProgramConstants.ICON_LIST;
 import static epg.ProgramConstants.ICON_PARAGRAPH;
 import static epg.ProgramConstants.PATH_PROMPTSTYLESHEET;
-import epg.ProgramConstants.TEXT_TYPE;
 import static epg.ProgramConstants.TT_TEXT_HEAD;
 import static epg.ProgramConstants.TT_TEXT_LIST;
 import static epg.ProgramConstants.TT_TEXT_PARA;
@@ -47,7 +48,7 @@ public class TextPrompt extends Stage {
 
     //FLAG
     boolean ok;
-    TEXT_TYPE tt;
+    COMPONENTS tt;
 
     public TextPrompt() {
         initModality(Modality.APPLICATION_MODAL);
@@ -76,21 +77,21 @@ public class TextPrompt extends Stage {
             this.hide();
             comp = new ParagraphComponent();
             ok = true;
-            tt = TEXT_TYPE.PARAGRAPH;
+            tt = COMPONENTS.PARAGRAPH;
         });
 
         listBtn.setOnAction(e -> {
             this.hide();
             comp = new ListComponent();
             ok = true;
-            tt = TEXT_TYPE.LIST;
+            tt = COMPONENTS.LIST;
         });
 
         headerBtn.setOnAction(e -> {
             this.hide();
             comp = new HeaderComponent();
             ok = true;
-            tt = TEXT_TYPE.HEADER;
+            tt = COMPONENTS.HEADER;
         });
     }
 
@@ -115,7 +116,7 @@ public class TextPrompt extends Stage {
         return comp;
     }
 
-    public TEXT_TYPE getTextType() {
+    public COMPONENTS getTextType() {
         return tt;
     }
 

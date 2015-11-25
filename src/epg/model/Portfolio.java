@@ -26,7 +26,7 @@ public class Portfolio {
         pages.add(new Page());
         fileName = "";
     }
-    public Portfolio(String studentName, ArrayList<Page> pages, int numPages, String fileName)
+    public Portfolio(String studentName, ArrayList<Page> pages, String fileName)
     {
         this.studentName = studentName;
         this.pages = pages;

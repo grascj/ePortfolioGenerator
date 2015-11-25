@@ -36,6 +36,20 @@ public class Page {
 
 
 //CONSTRUCTORS
+    public Page(FONT pagefont, LAYOUT layout, COLOR colors, String title, String bannerURL, String footer, ArrayList<Component> components, ArrayList<SlideShow> slideshows)
+    {
+      this.pagefont = pagefont;
+      this.layout = layout;
+      this.colors = colors;
+      this.title =title;
+      this.bannerURL =bannerURL;
+      this.footer =footer;
+      this.components =components;
+      this.slideshows =slideshows;
+    }
+    
+    
+    
     public Page()
     {
       pagefont = FONT.Bree_Serif;

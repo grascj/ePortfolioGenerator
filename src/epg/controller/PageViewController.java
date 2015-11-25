@@ -6,9 +6,9 @@
 package epg.controller;
 
 import epg.ProgramConstants.COLOR;
+import epg.ProgramConstants.COMPONENTS;
 import epg.ProgramConstants.FONT;
 import epg.ProgramConstants.LAYOUT;
-import epg.ProgramConstants.TEXT_TYPE;
 import epg.model.Component;
 import epg.model.HeaderComponent;
 import epg.model.ImageComponent;
@@ -87,13 +87,13 @@ public class PageViewController {
         TextPrompt popup = new TextPrompt();
         if (popup.isOk()) {
             boolean flag = false;
-            if (popup.getTextType() == TEXT_TYPE.HEADER) {
+            if (popup.getTextType() == COMPONENTS.HEADER) {
                 HeaderPrompt prompt = new HeaderPrompt((HeaderComponent) popup.getComp());
                 flag = prompt.isOk();
-            } else if (popup.getTextType() == TEXT_TYPE.PARAGRAPH) {
+            } else if (popup.getTextType() == COMPONENTS.PARAGRAPH) {
                 ParagraphPrompt prompt = new ParagraphPrompt((ParagraphComponent) popup.getComp());
                 flag = prompt.isOk();
-            } else if (popup.getTextType() == TEXT_TYPE.LIST) {
+            } else if (popup.getTextType() == COMPONENTS.LIST) {
                 ListPrompt prompt = new ListPrompt((ListComponent) popup.getComp());
                 flag = prompt.isOk();
             }
