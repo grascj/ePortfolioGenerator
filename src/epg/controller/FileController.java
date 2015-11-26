@@ -8,6 +8,7 @@ package epg.controller;
 import static epg.ProgramConstants.PATH_SAVES;
 import epg.file.JsonCreator;
 import epg.model.Portfolio;
+import epg.prompts.SaveAsPrompt;
 import epg.view.PortfolioView;
 import java.io.File;
 import java.io.IOException;
@@ -68,7 +69,8 @@ public class FileController {
     }
 
     public void handleSaveAs() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        new SaveAsPrompt(pv.getPortfolio());
+        handleSave();        
     }
     
     
