@@ -1,0 +1,6 @@
+"<a href=\"../Homepage/index.html\" class=\"pagelink\">Homepage</a>",
+"<a href=\"../About/index.html\" class=\"pagelink\">About</a>",
+"<a href=\"../Links/index.html\" class=\"pagelink\">Links</a>",
+"<a href=\"../Work/index.html\" class=\"pagelink\">Work</a>",
+"<a href=\"../Videos/index.html\" class=\"pagelink\">Videos</a>"
+

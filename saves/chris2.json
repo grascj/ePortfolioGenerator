@@ -10,7 +10,7 @@
             "bannerurl":"",
             "banner":"",
             "footer":"",
-            "title":"Untitled Page",
+            "title":"test",
             "components":[
                 {
                     "type":1,
@@ -47,6 +47,38 @@
                     "fpnt_type":1,
                     "font_size":12,
                     "items":[
+                    ]
+                }
+            ],
+            "slideshows":[
+            ]
+        },
+        {
+            "font":1,
+            "layout":0,
+            "colors":3,
+            "bannerurl":"",
+            "banner":"",
+            "footer":"",
+            "title":"page2",
+            "components":[
+                {
+                    "type":2,
+                    "fpnt_type":1,
+                    "font_size":12,
+                    "items":[
+                        {
+                            "text":"test"
+                        },
+                        {
+                            "text":""
+                        },
+                        {
+                            "text":""
+                        },
+                        {
+                            "text":""
+                        }
                     ]
                 }
             ],

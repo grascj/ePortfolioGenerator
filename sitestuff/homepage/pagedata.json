@@ -1,0 +1,24 @@
+{
+"name": "Homepage: Chris Grasing",
+"title": "Homepage",
+"layout": "2",
+"bannerImage": "http://www.rs-services.be/wp-content/uploads/2013/08/programming_banner.jpg",
+"footerImage": "https://b.thumbs.redditmedia.com/Q8kF520o60HYLBloQvQdw2Ll8JJMVuwzolQzMf3EWYA.png",
+"navbar": 
+[
+"<a href=\"../homepage/index.html\" class=\"pagelink\">Homepage</a>",
+"<a href=\"../about/index.html\" class=\"pagelink\">About</a>",
+"<a href=\"../links/index.html\" class=\"pagelink\">Links</a>",
+"<a href=\"../work/index.html\" class=\"pagelink\">Work</a>",
+"<a href=\"../videos/index.html\" class=\"pagelink\">Videos</a>"
+],
+"components": 
+[
+"<div class=\"compdiv\"><h1 class=\"header textcomp\">My Online Portfolio</h1></div>",
+"<div class=\"compdiv\"><img class=\"comp\" width=\"620\" height=\"258\" src=\"./media/prog-languages.png\"></img></div>",
+"<div class=\"compdiv\"><img class=\"comp\" width=\"177\" height=\"201\" src=\"./media/sbshield.jpg\"></img></div>",
+"<div class=\"compdiv\"><p class=\"paragraph textcomp\">I am a computer science student at <a href=\"http://www.stonybrook.edu\">Stony Brook University</a>. I hope you enjoy my Portfolio.</p></div>"
+],
+"slideshows":
+[{"title": "utah", "index":"0", "images":["pic.jpg", "images.jpg"], "captions":["herro","le bayeux mmaymay"], "updater": "0"}]
+}

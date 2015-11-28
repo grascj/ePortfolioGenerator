@@ -7,6 +7,7 @@ package epg.controller;
 
 import static epg.ProgramConstants.PATH_SAVES;
 import epg.file.JsonCreator;
+import epg.file.SiteBuilder;
 import epg.model.Portfolio;
 import epg.prompts.SaveAsPrompt;
 import epg.view.PortfolioView;
@@ -61,7 +62,11 @@ public class FileController {
     }
 
     public void handleExport() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        try {
+            SiteBuilder.buildSite(pv.getPortfolio());
+        } catch (IOException ex) {
+            Logger.getLogger(FileController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     public void handleExit() {

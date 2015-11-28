@@ -27,7 +27,7 @@ function getData()
 			pagedata = JSON.parse(xmlhttp.responseText);
 			init();
 		}
-	}
+	};
 
 	xmlhttp.open("GET", DATALOC, true);
 	xmlhttp.send();
@@ -121,7 +121,7 @@ function previousButton(slideshow)
 {
 slideshow.index--;
 if(slideshow.index < 0)
-{slideshow.index=slideshow.images.length}
+{slideshow.index=slideshow.images.length;}
 update(slideshow);
 }
 

@@ -1,0 +1,26 @@
+{
+"name": "About: Chris Grasing",
+"title": "About",
+"layout": "1",
+"bannerImage": "https://b.thumbs.redditmedia.com/Q8kF520o60HYLBloQvQdw2Ll8JJMVuwzolQzMf3EWYA.png",
+"footerImage": "https://b.thumbs.redditmedia.com/Q8kF520o60HYLBloQvQdw2Ll8JJMVuwzolQzMf3EWYA.png",
+"navbar": 
+[
+"<a href=\"../homepage/index.html\" class=\"pagelink\">Homepage</a>",
+"<a href=\"../about/index.html\" class=\"pagelink\">About</a>",
+"<a href=\"../links/index.html\" class=\"pagelink\">Links</a>",
+"<a href=\"../work/index.html\" class=\"pagelink\">Work</a>",
+"<a href=\"../videos/index.html\" class=\"pagelink\">Videos</a>"
+],
+"components": 
+[
+"<div class=\"compdiv\"><h1 class=\"header textcomp\">About Me;</h1></div>",
+"<div class=\"compdiv\"><p class=\"paragraph textcomp\">My name is Christopher Grasing and I'm from Seaford, Long Island. I am currently a computer science student here at Stonybrook University. I have taken classes at Binghamton University and Farmingdale State prior to transferring here. I love to program and have a passion for all things unix.</p></div>",
+"<div class=\"compdiv\"><p class=\"paragraph textcomp\">Some other stuff about me is that I love to play board games and drink beer. Doing both at the same time is even better.</p></div>",
+"<div class=\"compdiv\"><img class=\"comp\" width=\"191\" height=\"280\" src=\"./media/sierranevada.jpg\"></img></div>",
+"<div class=\"compdiv\"><p class=\"paragraph textcomp\">I also love dogs and have a German Shepherd named Henry!</p></div>",
+"<div class=\"compdiv\"><img class=\"comp\" width=\"400\" height=\"300\" src=\"./media/gsd.jpg\"></img></div>"
+],
+"slideshows":
+[{"title": "utah", "index":"0", "images":["pic.jpg", "images.jpg"], "captions":["herro","le bayeux mmaymay"], "updater": "0"}]
+}
