@@ -291,6 +291,7 @@ public class JsonCreator {
         JsonObject data = Json.createObjectBuilder()
                 .add(JSON_NAME, portfolio.getStudentName())
                 .add(JSON_TITLE, page.getTitle())
+                .add(JSON_FONT, page.getFont().ordinal())
                 .add(JSON_LAYOUT, page.getLayout().ordinal())
                 .add(JSON_COLORS, page.getColors().ordinal())
                 .add(JSON_BANNER, page.getBanner())

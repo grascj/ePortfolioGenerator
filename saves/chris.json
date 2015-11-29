@@ -4,12 +4,12 @@
     "filename":"chris",
     "pages":[
         {
-            "font":1,
+            "font":2,
             "layout":0,
             "colors":3,
             "bannerurl":"",
             "banner":"",
-            "footer":"",
+            "footer":"this is a footer",
             "title":"Untitled Page",
             "components":[
                 {
@@ -17,26 +17,16 @@
                     "width":200,
                     "height":200,
                     "caption":"",
-                    "file":"",
-                    "file_url":""
-                },
-                {
-                    "type":4,
-                    "width":200,
-                    "height":200,
-                    "slideshow":{
-                        "title":"",
-                        "slides":[
-                        ]
-                    }
+                    "file":"DefaultStartSlide.png",
+                    "file_url":"./appdata/default_images/DefaultStartSlide.png"
                 },
                 {
                     "type":5,
                     "width":200,
                     "height":200,
                     "caption":"",
-                    "file":"",
-                    "file_url":""
+                    "file":"DefaultStartSlide.png",
+                    "file_url":"./appdata/default_images/DefaultStartSlide.png"
                 }
             ],
             "slideshows":[

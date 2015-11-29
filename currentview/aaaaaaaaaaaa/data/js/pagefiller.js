@@ -78,7 +78,7 @@ function pagefontSetup()
     }
     if(font == 4)
     {
-        $("body").addClass("Inconsolata");
+        $("body").addClass("Iconsolata");
     }
        
 }

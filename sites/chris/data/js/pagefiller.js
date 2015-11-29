@@ -39,6 +39,7 @@ function init()
 
     staticPageSetup();
     layoutSetup();
+    pagefontSetup();
     colorSetup();
     processComponents();
     processNavBar();
@@ -53,6 +54,33 @@ function staticPageSetup()
         $("#banner").attr("src", pagedata.banner);
     if (pagedata.footer != null && pagedata.footer != "")
         $("#footer").html(pagedata.footer);
+}
+
+function pagefontSetup()
+{
+    var font = pagedata.font;
+    
+    if(font == 0)
+    {
+        $("body").addClass("Fjalla_One");
+    }
+    if(font == 1)
+    {
+        $("body").addClass("Bree_Serif");
+    }
+    if(font == 2)
+    {
+        $("body").addClass("Muli");
+    }
+    if(font == 3)
+    {
+        $("body").addClass("Vollkorn");
+    }
+    if(font == 4)
+    {
+        $("body").addClass("Inconsolata");
+    }
+       
 }
 
 function layoutSetup()
