@@ -6,6 +6,8 @@
 package epg.model;
 
 import epg.ProgramConstants.FONT;
+import java.io.File;
+import java.util.ArrayList;
 
 /**
  *
@@ -39,6 +41,11 @@ public abstract class TextComponent extends Component{
         this.fontSize = fontSize;
     }
 
+    
+    
+        
+    @Override
+    public ArrayList<File> getMedia(){return null;}
     @Override
     public String getFile(){return null;}
     @Override

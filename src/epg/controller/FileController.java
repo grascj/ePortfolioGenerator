@@ -63,7 +63,7 @@ public class FileController {
 
     public void handleExport() {
         try {
-            SiteBuilder.buildSite(pv.getPortfolio());
+            pv.loadSiteView(SiteBuilder.buildSite(pv.getPortfolio()));
         } catch (IOException ex) {
             Logger.getLogger(FileController.class.getName()).log(Level.SEVERE, null, ex);
         }

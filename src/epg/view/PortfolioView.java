@@ -156,4 +156,11 @@ public class PortfolioView {
         return primaryStage;
     }
 
+    
+    
+    public void loadSiteView(String url)
+    {
+        siteView.loadURL(url);
+    }
+    
 }

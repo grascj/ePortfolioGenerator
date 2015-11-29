@@ -13,6 +13,8 @@ import static epg.file.JsonCreator.JSON_FILE_URL;
 import static epg.file.JsonCreator.JSON_HEIGHT;
 import static epg.file.JsonCreator.JSON_TYPE;
 import static epg.file.JsonCreator.JSON_WIDTH;
+import java.io.File;
+import java.util.ArrayList;
 import javax.json.Json;
 import javax.json.JsonObject;
 import javax.json.JsonObjectBuilder;
@@ -65,6 +67,16 @@ public class VideoComponent extends Component {
     public String getFile() {
         return file;
     }
+    
+    
+        
+    @Override
+    public ArrayList<File> getMedia(){
+        ArrayList<File> list = new ArrayList<File>();
+        list.add(new File(fileURL));
+        return list;
+    }
+    
 
     public void setFile(String video) {
         this.file = video;

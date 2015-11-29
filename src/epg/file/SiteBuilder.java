@@ -6,6 +6,8 @@
 package epg.file;
 
 import static epg.ProgramConstants.PATH_SITES;
+import epg.model.Component;
+import epg.model.Page;
 import epg.model.Portfolio;
 import java.io.File;
 import java.io.IOException;
@@ -19,7 +21,7 @@ public class SiteBuilder {
 
     public static String DOT = ".";
     public static String SLASH = "/";
-    public static String TEMPLATE =  "./templates/";
+    public static String TEMPLATE = "./templates/";
 
     private SiteBuilder() {
     }
@@ -33,12 +35,17 @@ public class SiteBuilder {
 
         //delete possible stuff
         destroy(new File(nameFolder));
+        
         //create folders
-        createDirectories(new File(nameFolder), portfolio);
         //load folders with template files
+        createDirectories(new File(nameFolder), portfolio);
 
+        //use HTMLWorker to create the pagedata
+        
+        
+        
         //first page url
-        return ".";
+        return "file:" + new File(nameFolder + SLASH + portfolio.getPages().get(0) + SLASH + "index.html").getAbsolutePath();
     }
 
     public static void destroy(File fileToKill) {
@@ -51,15 +58,48 @@ public class SiteBuilder {
     }
 
     public static boolean createDirectories(File nameFolder, Portfolio portfolio) throws IOException {
-        //copy site data
+
+        //create the folder for the site
         System.out.println(nameFolder);
         boolean wot = nameFolder.getAbsoluteFile().mkdir();
         System.out.println(wot);
-        
+
+        //copy the data template
         new File(nameFolder + "/data/").getAbsoluteFile().mkdir();
         recursiveCopy(new File(TEMPLATE + "/data/").getAbsoluteFile(), new File(nameFolder + "/data/").getAbsoluteFile());
-        
-        
+
+        //make each page folder
+        for (Page page : portfolio.getPages()) {
+            //make page folder
+            File pageFolder = new File(nameFolder + SLASH + page.getTitle());
+            pageFolder.mkdir();
+
+            /*copy page goodies into folder*/
+            
+            //make pagedata
+            JsonCreator.makePageData(portfolio, page, nameFolder + SLASH + page.getTitle() + SLASH + "pagedata.json");
+
+
+            //copy html and make media folder
+            recursiveCopy(new File(TEMPLATE + "/page/").getAbsoluteFile(), pageFolder.getAbsoluteFile());
+
+            String mediaFolder =  pageFolder.toString() + SLASH + "media" + SLASH;
+            
+            
+            //copy images
+            if(page.getBannerURL() != "")
+                Files.copy(new File(page.getBannerURL()).toPath(), new File(mediaFolder + page.getBanner()).toPath());
+            
+            for (Component comp : page.getComponents()) {
+                if (comp.getMedia() != null) {
+                    for (File media : comp.getMedia()) {
+                        if(!(new File(mediaFolder + media.getName()).isFile()))
+                        Files.copy(media.toPath(), new File(mediaFolder + media.getName()).toPath());
+                    }
+                }
+            }
+        }
+
         return true;
     }
 

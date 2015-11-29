@@ -1,0 +1,16 @@
+
+{
+    "name":"Tree",
+    "title":"page1",
+    "layout":0,
+    "banner":"",
+    "footer":"",
+    "navbar":[
+        "<a href=\"../page1/index.html\" class=\"pagelink\">page1</a>"
+    ],
+    "components":[
+        "<div class=\"compdiv\"><img class=\"comp\" width=\"200\" height=\"200\" src=\"./media/glyphicons-37-file.png\"></img></div>"
+    ],
+    "slideshows":[
+    ]
+}

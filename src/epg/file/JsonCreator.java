@@ -284,8 +284,8 @@ public class JsonCreator {
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////    
 ///////////////////////////SITES///////////SITES/////////////////////////////////////////////////
-    static public void makePageData(Portfolio portfolio, Page page) throws IOException {
-        String jsonFilePath = PATH_SITES + SLASH + portfolio.getFileName() + SLASH + page.getTitle() + SLASH + PAGEDATA;
+    static public void makePageData(Portfolio portfolio, Page page, String path) throws IOException {
+        String jsonFilePath = path;
 
         JsonObject data = Json.createObjectBuilder()
                 .add(JSON_NAME, portfolio.getStudentName())

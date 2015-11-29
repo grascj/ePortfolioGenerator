@@ -5,6 +5,8 @@
  */
 package epg.model;
 
+import java.io.File;
+import java.util.ArrayList;
 import javax.json.JsonObject;
 
 /**
@@ -39,6 +41,9 @@ public abstract class Component {
     }
            
     public abstract String getFile();
+    
+    //return all the files? add to media?
+    public abstract ArrayList<File> getMedia();
     
     public abstract String htmlify();
     public abstract JsonObject jsonify();

@@ -12,6 +12,8 @@ import static epg.file.JsonCreator.JSON_HEIGHT;
 import static epg.file.JsonCreator.JSON_SLIDESHOW;
 import static epg.file.JsonCreator.JSON_TYPE;
 import static epg.file.JsonCreator.JSON_WIDTH;
+import java.io.File;
+import java.util.ArrayList;
 import javax.json.Json;
 import javax.json.JsonObject;
 import javax.json.JsonObjectBuilder;
@@ -49,7 +51,19 @@ public class SlideShowComponent extends Component {
         return null;
     }
     
-    
+        
+    @Override
+    public ArrayList<File> getMedia(){
+        ArrayList<File> list = new ArrayList<File>();
+        
+        for(Slide s : slideshow.getSlides())
+        {
+            list.add(new File(s.imageURL));
+        }
+        
+        
+        return list;
+    }
     
     
     
