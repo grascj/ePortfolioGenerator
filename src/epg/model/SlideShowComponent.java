@@ -6,6 +6,8 @@
 package epg.model;
 
 import epg.ProgramConstants.COMPONENTS;
+import static epg.ProgramConstants.DEFAULT_IMG;
+import static epg.ProgramConstants.DEFAULT_IMG_NAME;
 import epg.file.HTMLWorker;
 import epg.file.JsonCreator;
 import static epg.file.JsonCreator.JSON_HEIGHT;
@@ -23,8 +25,9 @@ import javax.json.JsonObjectBuilder;
  * @author cgmp
  */
 public class SlideShowComponent extends Component {
+
     static COMPONENTS type = COMPONENTS.SLIDESHOW;
-    
+
     SlideShow slideshow;
 
     public SlideShowComponent(int width, int length, SlideShow slideshow) {
@@ -50,32 +53,30 @@ public class SlideShowComponent extends Component {
     public String getFile() {
         return null;
     }
-    
-        
+
     @Override
-    public ArrayList<File> getMedia(){
+    public ArrayList<File> getMedia() {
         ArrayList<File> list = new ArrayList<File>();
-        
-        for(Slide s : slideshow.getSlides())
-        {
-            list.add(new File(s.imageURL));
+
+        for (Slide s : slideshow.getSlides()) {
+            if (!s.imageURL.equals("")) {
+                list.add(new File(s.imageURL));
+            } else {
+                s.image = DEFAULT_IMG_NAME;
+                s.imageURL = DEFAULT_IMG;
+                list.add(new File(DEFAULT_IMG));
+            }
         }
-        
-        
+
         return list;
     }
-    
-    
-    
-    
-    
-    public SlideShowComponent(JsonObject compJSON)
-    {
+
+    public SlideShowComponent(JsonObject compJSON) {
         super(compJSON.getInt(JSON_WIDTH), compJSON.getInt(JSON_HEIGHT));
         slideshow = JsonCreator.loadSlideShow(compJSON.getJsonObject(JSON_SLIDESHOW));
-               
-    }  
-    
+
+    }
+
     @Override
     public JsonObject jsonify() {
         JsonObjectBuilder comp = Json.createObjectBuilder()
@@ -83,8 +84,7 @@ public class SlideShowComponent extends Component {
                 .add(JSON_WIDTH, width)
                 .add(JSON_HEIGHT, height)
                 .add(JSON_SLIDESHOW, JsonCreator.saveSlideShow(slideshow));
-                
-        
+
         return comp.build();
     }
 

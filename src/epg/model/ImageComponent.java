@@ -6,6 +6,8 @@
 package epg.model;
 
 import epg.ProgramConstants.COMPONENTS;
+import static epg.ProgramConstants.DEFAULT_IMG;
+import static epg.ProgramConstants.DEFAULT_IMG_NAME;
 import epg.file.HTMLWorker;
 import static epg.file.JsonCreator.JSON_CAPTION;
 import static epg.file.JsonCreator.JSON_FILE;
@@ -24,9 +26,9 @@ import javax.json.JsonObjectBuilder;
  * @author cgmp
  */
 public class ImageComponent extends Component {
+
     static COMPONENTS type = COMPONENTS.IMAGE;
-    
-    
+
     String fileURL;
     String file;
     String caption;
@@ -72,26 +74,26 @@ public class ImageComponent extends Component {
         this.file = file;
     }
 
-    
-    
-      @Override
-    public ArrayList<File> getMedia(){
+    @Override
+    public ArrayList<File> getMedia() {
         ArrayList<File> list = new ArrayList<File>();
-        list.add(new File(fileURL));
+        if (!fileURL.equals("")) {
+            list.add(new File(fileURL));
+        } else {
+            file = DEFAULT_IMG_NAME;
+            fileURL = DEFAULT_IMG;
+            list.add(new File(DEFAULT_IMG));
+        }
         return list;
     }
-    
-    
-    public ImageComponent(JsonObject compJSON)
-    {
+
+    public ImageComponent(JsonObject compJSON) {
         super(compJSON.getInt(JSON_WIDTH), compJSON.getInt(JSON_HEIGHT));
         caption = compJSON.getString(JSON_CAPTION);
         file = compJSON.getString(JSON_FILE);
-        fileURL = compJSON.getString(JSON_FILE_URL);        
+        fileURL = compJSON.getString(JSON_FILE_URL);
     }
-    
-    
-    
+
     @Override
     public JsonObject jsonify() {
         JsonObjectBuilder comp = Json.createObjectBuilder()
@@ -101,7 +103,7 @@ public class ImageComponent extends Component {
                 .add(JSON_CAPTION, caption)
                 .add(JSON_FILE, file)
                 .add(JSON_FILE_URL, fileURL);
-        
+
         return comp.build();
     }
 

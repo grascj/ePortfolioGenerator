@@ -1,0 +1,28 @@
+
+{
+    "name":"chris",
+    "title":"Untitled Page",
+    "layout":4,
+    "colors":1,
+    "banner":"",
+    "footer":"",
+    "navbar":[
+        "<a href=\"../Untitled Page/index.html\" class=\"pagelink\">Untitled Page</a>"
+    ],
+    "components":[
+        "<div class=\"compdiv\"><img class=\"comp\" width=\"200\" height=\"200\" src=\"./media/DefaultStartSlide.png\"></img></div>",
+        "<div class=\"compdiv\"><div class=\"slideshowcontainer\" style=\"width:200px;height:200px;\"><h1 class=\"slideshowtitle\"></h1><img class=\"slideshowimage\" id=\"img\"></img><p class=\"slideshowcaption\" id=\"caption\"></p><div class=\"slideshowbuttoncontainer\"><img class=\"prevButton slideshowbutton\" src=\"../data/button_images/previous.png\" onclick=\"previousButton(pagedata.slideshows[0])\"></img><img class=\"playButton slideshowbutton\" id=\"button\" src=\"../data/button_images/play.png\" onclick=\"playSlideShow(pagedata.slideshows[0])\"></img><img class=\"nextButton slideshowbutton\" src=\"../data/button_images/next.png\" onclick=\"nextButton(pagedata.slideshows[0])\"></img></div></div>",
+        "<div class=\"compdiv\"><video class=\"comp\" type=\"video/mp4\" width=\"200\" height=\"200\" src=\"./media/DefaultStartSlide.png\" controls></video></div>"
+    ],
+    "slideshows":[
+        {
+            "title":"",
+            "index":"0",
+            "images":[
+            ],
+            "captions":[
+            ],
+            "updater":"0"
+        }
+    ]
+}

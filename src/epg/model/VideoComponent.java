@@ -6,6 +6,8 @@
 package epg.model;
 
 import epg.ProgramConstants.COMPONENTS;
+import static epg.ProgramConstants.DEFAULT_IMG;
+import static epg.ProgramConstants.DEFAULT_IMG_NAME;
 import epg.file.HTMLWorker;
 import static epg.file.JsonCreator.JSON_CAPTION;
 import static epg.file.JsonCreator.JSON_FILE;
@@ -24,10 +26,9 @@ import javax.json.JsonObjectBuilder;
  * @author cgmp
  */
 public class VideoComponent extends Component {
+
     static COMPONENTS type = COMPONENTS.VIDEO;
-    
-    
-    
+
     String fileURL;
     String file;
     String caption;
@@ -67,16 +68,19 @@ public class VideoComponent extends Component {
     public String getFile() {
         return file;
     }
-    
-    
-        
+
     @Override
-    public ArrayList<File> getMedia(){
+    public ArrayList<File> getMedia() {
         ArrayList<File> list = new ArrayList<File>();
-        list.add(new File(fileURL));
+        if (!fileURL.equals("")) {
+            list.add(new File(fileURL));
+        } else {
+            file = DEFAULT_IMG_NAME;
+            fileURL = DEFAULT_IMG;
+            list.add(new File(DEFAULT_IMG));
+        }
         return list;
     }
-    
 
     public void setFile(String video) {
         this.file = video;

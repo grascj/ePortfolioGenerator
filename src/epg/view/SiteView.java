@@ -6,10 +6,11 @@
 package epg.view;
 
 import static epg.ProgramConstants.CSS_SITEVIEW_WEBVIEW;
+import static epg.file.JsonCreator.SLASH;
+import epg.file.SiteBuilder;
 import java.io.File;
-import java.net.MalformedURLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.io.IOException;
+import javafx.concurrent.Worker.State;
 import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Priority;
@@ -20,12 +21,18 @@ import javafx.scene.web.WebView;
  *
  * @author cgmp
  */
-public class SiteView extends GridPane{
-    
+public class SiteView extends GridPane {
+
+    //need to do some BS to stop javafx webview caching, its really dumb
+    static public String CURRENTVIEW_FOLDER = "./currentview/";
+    static public String currentfolder;
+    static public String view_startpoint;
+
     WebView wv;
-    
-    public SiteView()
-    {
+    boolean flag;
+
+    public SiteView() {
+        currentfolder = CURRENTVIEW_FOLDER + "a";
         wv = new WebView();
         wv.getStyleClass().add(CSS_SITEVIEW_WEBVIEW);
         RowConstraints rows = new RowConstraints();
@@ -35,25 +42,34 @@ public class SiteView extends GridPane{
         this.getColumnConstraints().add(col);
         this.getRowConstraints().add(rows);
         this.getChildren().add(wv);
-        
 
-        try {
-            //System.out.println(getClass().getResource("/sites/site/homepage/index.html").toExternalForm());
+    }
 
-            wv.getEngine().load(new File("./sites/site/homepage/index.html").toURI().toURL().toExternalForm());
-        } catch (MalformedURLException ex) {
-            Logger.getLogger(SiteView.class.getName()).log(Level.SEVERE, null, ex);
-        }
+    public void loadURL(String folderURL, String firstpagetitle) throws IOException {
+        //url of the site folder is then placed into a newly generated folder so its not cached
+        updateFolder();
         
-        Throwable exception = wv.getEngine().getLoadWorker().getException();
+        SiteBuilder.recursiveCopy(new File(folderURL), new File(currentfolder));
+        
+        view_startpoint = currentfolder + SLASH + firstpagetitle + SLASH + "index.html";
+        
+        wv.getEngine().load("file://" + new File(view_startpoint).getAbsolutePath());
     }
-    
-    public void loadURL(String url)
-    {
-        wv.getEngine().load(url);
+
+    public void updateFolder() {
+        
+        
+        if(new File(currentfolder).exists())
+            SiteBuilder.destroy(new File(currentfolder));
+        
+        currentfolder += "a";
+        
+        File current = new File(currentfolder);
+        
+        if(current.exists())
+            SiteBuilder.destroy(current);
+        
+        current.getAbsoluteFile().mkdir();
     }
-   
-    
-    
-    
+
 }

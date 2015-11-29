@@ -21,6 +21,7 @@ public class ProgramConstants {
     
     //Defaults
     public static String DEFAULT_IMG = "./appdata/default_images/DefaultStartSlide.png";
+    public static String DEFAULT_IMG_NAME = "DefaultStartSlide.png";
     
     //UI text and such
     public static String OKAY = "OK";

@@ -39,16 +39,14 @@ public class VideoPrompt extends Stage {
 
     //component
     VideoComponent comp;
-    
+
     //data
     int width;
     int length;
     String fileName;
     String filePath;
     String caption;
-    
-    
-    
+
     //UI 
     Stage ui;
     Button okBtn;
@@ -56,102 +54,90 @@ public class VideoPrompt extends Stage {
     Label currentFileName;
     FileChooser fileChooser;
     //@video thumbnail?
-    
+
     TextField widthField;
     TextField lengthField;
     TextField captionField;
-    
-    
+
     //FLAG
     boolean ok;
-    
-    
-    public VideoPrompt(Stage primaryStage, VideoComponent comp)
-    {
-                
+
+    public VideoPrompt(Stage primaryStage, VideoComponent comp) {
+
         width = comp.getWidth();
         length = comp.getLength();
         caption = comp.getCaption();
         fileName = comp.getFile();
         filePath = comp.getFileURL();
-        
+
         this.setTitle("Add Video");
-        
+
         //SET THE FLAG TO FALSE, NEEDS TO BE TRUE TO COMMIT CHANGES
         ok = false;
         this.comp = comp;
         caption = comp.getCaption();
-        
+
         initModality(Modality.APPLICATION_MODAL);
         initOwner(primaryStage);
-        
-        
-        
+
         fileChooser = new FileChooser();
         fileChooser.getExtensionFilters().addAll(
-        new ExtensionFilter("MP4 Files", "*.mp4"));
-       
-        //init fields
+                new ExtensionFilter("MP4 Files", "*.mp4"));
 
-        
+        //init fields
         this.currentFileName = new Label(comp.getFile());
         okBtn = initChildButton(CSS_OK_BUTTON, ICON_CHECK, TT_OK);
         pickFile = initChildButton(CSS_CHOOSE_BUTTON, ICON_CHOOSE, TT_CHOOSE);
-        
-        
+
         widthField = new TextField(Integer.toString(comp.getWidth()));
         lengthField = new TextField(Integer.toString(comp.getLength()));
         captionField = new TextField(caption);
 
         initHandlers();
-        
-        
-        
+
         BorderPane uicontainer = new BorderPane();
         BorderPane center = new BorderPane();
         center.getStyleClass().add(CSS_CONTAINER);
-        
+
         VBox topBox = new VBox();
         topBox.setStyle("-fx-border-width: 0 0 10px 0; -fx-border-color:transparent;");
-        
+
         Label captionLabel = new Label("Caption: ");
         HBox captionBox = new HBox();
         captionBox.getChildren().addAll(captionLabel, captionField);
         captionBox.getStyleClass().add(CSS_CONTAINER);
-        
+
         topBox.getStyleClass().add(CSS_CONTAINER);
         topBox.getChildren().addAll(currentFileName, pickFile, captionBox);
         center.setTop(topBox);
-        
+
         VBox leftBox = new VBox();
         leftBox.getStyleClass().add("container_nospacing");
-        leftBox.getChildren().addAll(new Label("Set the width:"),widthField);
+        leftBox.getChildren().addAll(new Label("Set the width:"), widthField);
         center.setLeft(leftBox);
-        
+
         VBox rightBox = new VBox();
         rightBox.getStyleClass().add("container_nospacing");
-        rightBox.getChildren().addAll(new Label("Set the height:"),lengthField);
+        rightBox.getChildren().addAll(new Label("Set the height:"), lengthField);
         center.setRight(rightBox);
-        
+
         center.setStyle("-fx-border-width: 0 0 10px 0; -fx-border-color:transparent;");
-        
+
         uicontainer.setCenter(center);
         uicontainer.setBottom(okBtn);
-        
+
         uicontainer.getStyleClass().add(CSS_CONTAINER);
-        
+
         Scene promptScene = new Scene(uicontainer, 400, 300);
-        promptScene.getStylesheets().add(PATH_PROMPTSTYLESHEET);        
+        promptScene.getStylesheets().add(PATH_PROMPTSTYLESHEET);
         this.setScene(promptScene);
         this.show("hello");
         //@todo pick size
-        
+
     }
-    
-    
-    public void initHandlers()
-    {
-         okBtn.setOnAction(e->{
+
+    public void initHandlers() {
+        okBtn.setOnAction(e -> {
             //@todo idiot proof the number values
             ok = true;
             comp.setFile(fileName);
@@ -162,34 +148,31 @@ public class VideoPrompt extends Stage {
             comp.setCaption(caption);
             this.hide();
         });
-        pickFile.setOnAction(e->{try {
-            this.fileInput();
-             } catch (MalformedURLException ex) {
-                 Logger.getLogger(ImagePrompt.class.getName()).log(Level.SEVERE, null, ex);
-             }
-});
+        pickFile.setOnAction(e -> {
+            try {
+                this.fileInput();
+            } catch (MalformedURLException ex) {
+                Logger.getLogger(ImagePrompt.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        });
     }
-    
-    public void fileInput() throws MalformedURLException 
-    {
-                File selectedFile = fileChooser.showOpenDialog(this);
-                if(selectedFile != null)
-                {
-                    filePath = selectedFile.getPath();
-                    fileName = selectedFile.getName();
-                    currentFileName.setText(fileName);
-                }
+
+    public void fileInput() throws MalformedURLException {
+        File selectedFile = fileChooser.showOpenDialog(this);
+        if (selectedFile != null) {
+            filePath = selectedFile.getPath();
+            fileName = selectedFile.getName();
+            currentFileName.setText(fileName);
+        }
     }
-  
-    public void show(String message)
-    {
+
+    public void show(String message) {
         //@todo message for prompt
         this.showAndWait();
     }
-    
-    public boolean isOk()
-    {
+
+    public boolean isOk() {
         return ok;
     }
-    
+
 }

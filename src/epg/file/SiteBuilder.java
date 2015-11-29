@@ -35,17 +35,14 @@ public class SiteBuilder {
 
         //delete possible stuff
         destroy(new File(nameFolder));
-        
+
         //create folders
         //load folders with template files
         createDirectories(new File(nameFolder), portfolio);
 
         //use HTMLWorker to create the pagedata
-        
-        
-        
         //first page url
-        return "file:" + new File(nameFolder + SLASH + portfolio.getPages().get(0) + SLASH + "index.html").getAbsolutePath();
+        return  nameFolder;
     }
 
     public static void destroy(File fileToKill) {
@@ -60,9 +57,7 @@ public class SiteBuilder {
     public static boolean createDirectories(File nameFolder, Portfolio portfolio) throws IOException {
 
         //create the folder for the site
-        System.out.println(nameFolder);
         boolean wot = nameFolder.getAbsoluteFile().mkdir();
-        System.out.println(wot);
 
         //copy the data template
         new File(nameFolder + "/data/").getAbsoluteFile().mkdir();
@@ -75,29 +70,32 @@ public class SiteBuilder {
             pageFolder.mkdir();
 
             /*copy page goodies into folder*/
-            
-            //make pagedata
-            JsonCreator.makePageData(portfolio, page, nameFolder + SLASH + page.getTitle() + SLASH + "pagedata.json");
-
 
             //copy html and make media folder
             recursiveCopy(new File(TEMPLATE + "/page/").getAbsoluteFile(), pageFolder.getAbsoluteFile());
 
-            String mediaFolder =  pageFolder.toString() + SLASH + "media" + SLASH;
-            
-            
+            String mediaFolder = pageFolder.toString() + SLASH + "media" + SLASH;
+
             //copy images
-            if(page.getBannerURL() != "")
+            if (!page.getBannerURL().equals("")) {
                 Files.copy(new File(page.getBannerURL()).toPath(), new File(mediaFolder + page.getBanner()).toPath());
-            
+            }
+
             for (Component comp : page.getComponents()) {
                 if (comp.getMedia() != null) {
                     for (File media : comp.getMedia()) {
-                        if(!(new File(mediaFolder + media.getName()).isFile()))
-                        Files.copy(media.toPath(), new File(mediaFolder + media.getName()).toPath());
+                        if (!(new File(mediaFolder + media.getName()).exists())) {
+                            Files.copy(media.toPath(), new File(mediaFolder + media.getName()).toPath());
+                        }
                     }
                 }
             }
+            
+            
+            
+                        //make pagedata
+            JsonCreator.makePageData(portfolio, page, nameFolder + SLASH + page.getTitle() + SLASH + "pagedata.json");
+
         }
 
         return true;

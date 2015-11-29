@@ -17,6 +17,9 @@ import epg.model.Portfolio;
 import epg.view.ModeToolbar.MODE_STATE;
 import static epg.view.ModeToolbar.MODE_STATE.EDIT;
 import static epg.view.ModeToolbar.MODE_STATE.VIEW;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
@@ -160,7 +163,12 @@ public class PortfolioView {
     
     public void loadSiteView(String url)
     {
-        siteView.loadURL(url);
+        
+        try {
+            siteView.loadURL(url, workingPortfolio.getPages().get(0).getTitle());
+        } catch (IOException ex) {
+            Logger.getLogger(PortfolioView.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
 }

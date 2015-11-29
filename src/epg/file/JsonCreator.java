@@ -32,6 +32,7 @@ import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.io.PrintWriter;
 import java.io.StringWriter;
+import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.Map;
 import javax.json.JsonObjectBuilder;
@@ -291,6 +292,7 @@ public class JsonCreator {
                 .add(JSON_NAME, portfolio.getStudentName())
                 .add(JSON_TITLE, page.getTitle())
                 .add(JSON_LAYOUT, page.getLayout().ordinal())
+                .add(JSON_COLORS, page.getColors().ordinal())
                 .add(JSON_BANNER, page.getBanner())
                 .add(JSON_FOOTER, page.getFooter())
                 .add(JSON_NAVBAR, makeNavbarHTML(portfolio.getPages()))

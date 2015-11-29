@@ -1,0 +1,21 @@
+
+{
+    "name":"chris2",
+    "title":"test",
+    "layout":4,
+    "colors":4,
+    "banner":"",
+    "footer":"",
+    "navbar":[
+        "<a href=\"../test/index.html\" class=\"pagelink\">test</a>",
+        "<a href=\"../page2/index.html\" class=\"pagelink\">page2</a>"
+    ],
+    "components":[
+        "<div class=\"compdiv\"><img class=\"comp\" width=\"200\" height=\"200\" src=\"./media/DefaultStartSlide.png\"></img></div>",
+        "<div class=\"compdiv\">\n<ul class=\"comp Bree_Serif\" style=\"font-size:12;\">\n<li>text</li>\n<li>text</li>\n<li>text</li>\n</ul>\n</div>\n",
+        "<div class=\"compdiv\">\n<h1 class=\"comp Bree_Serif\" style=\"font-size:16;\">THIS IS A HADER LOL</h1>\n</div>\n",
+        "<div class=\"compdiv\">\n<ul class=\"comp Bree_Serif\" style=\"font-size:12;\">\n</ul>\n</div>\n"
+    ],
+    "slideshows":[
+    ]
+}
