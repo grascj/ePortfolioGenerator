@@ -12,6 +12,7 @@ import static epg.file.JsonCreator.JSON_FONT_SIZE;
 import static epg.file.JsonCreator.JSON_FONT_TYPE;
 import static epg.file.JsonCreator.JSON_TEXT;
 import static epg.file.JsonCreator.JSON_TYPE;
+import epg.prompts.HeaderPrompt;
 import javax.json.Json;
 import javax.json.JsonObject;
 import javax.json.JsonObjectBuilder;
@@ -45,7 +46,11 @@ public class HeaderComponent extends TextComponent {
     }
 
     
-    
+    @Override
+    public void editPrompt()
+    {
+        new HeaderPrompt(this);
+    }
     
     
     public HeaderComponent(JsonObject compJSON)

@@ -62,7 +62,7 @@ public class VideoPrompt extends Stage {
     //FLAG
     boolean ok;
 
-    public VideoPrompt(Stage primaryStage, VideoComponent comp) {
+    public VideoPrompt(VideoComponent comp) {
 
         width = comp.getWidth();
         length = comp.getLength();
@@ -78,7 +78,6 @@ public class VideoPrompt extends Stage {
         caption = comp.getCaption();
 
         initModality(Modality.APPLICATION_MODAL);
-        initOwner(primaryStage);
 
         fileChooser = new FileChooser();
         fileChooser.getExtensionFilters().addAll(
@@ -132,7 +131,6 @@ public class VideoPrompt extends Stage {
         promptScene.getStylesheets().add(PATH_PROMPTSTYLESHEET);
         this.setScene(promptScene);
         this.show("hello");
-        //@todo pick size
 
     }
 
@@ -167,7 +165,6 @@ public class VideoPrompt extends Stage {
     }
 
     public void show(String message) {
-        //@todo message for prompt
         this.showAndWait();
     }
 

@@ -10,6 +10,7 @@ import epg.ProgramConstants.FONT;
 import static epg.file.JsonCreator.JSON_FONT_SIZE;
 import static epg.file.JsonCreator.JSON_FONT_TYPE;
 import static epg.file.JsonCreator.JSON_TEXT;
+import epg.prompts.ParagraphPrompt;
 import java.util.ArrayList;
 import javax.json.Json;
 import javax.json.JsonObject;
@@ -61,7 +62,11 @@ public class ParagraphComponent extends TextComponent {
         this.text = compJSON.getString(JSON_TEXT);
     }
     
-    
+        @Override
+    public void editPrompt()
+    {
+        new ParagraphPrompt(this);
+    }
 
     @Override
     public JsonObject jsonify() {

@@ -17,7 +17,7 @@ public class EPortfolioGenerator extends Application {
     
     @Override
     public void start(Stage primaryStage) {
-       primaryStage.setTitle("ePortfolio Generator");//@todo cleanup
+       primaryStage.setTitle("ePortfolio Generator");
         PortfolioView pv = new PortfolioView(primaryStage);
        
     }

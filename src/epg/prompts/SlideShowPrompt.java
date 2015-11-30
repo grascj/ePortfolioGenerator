@@ -85,6 +85,8 @@ public class SlideShowPrompt extends Stage {
             this.ss = new SlideShow();
         }
 
+        update();
+
         this.showAndWait();
     }
 
@@ -93,6 +95,7 @@ public class SlideShowPrompt extends Stage {
         titleBox = new HBox();
         titleLabel = new Label("Title:");
         titleField = new TextField();
+        titleField.setText(comp.getslideshow().getTitle());
 
         slidePane = new VBox();
         slidePane.getStyleClass().add("container_nospacing");
@@ -112,18 +115,21 @@ public class SlideShowPrompt extends Stage {
     }
 
     private void initHandlers() {
-        //@todo flesh out handlers
         upBtn.setOnAction(e -> {
+            comp.getslideshow().moveDown();
+            update();
         });
         downBtn.setOnAction(e -> {
+            comp.getslideshow().moveUp();
+            update();
         });
         rmButton.setOnAction(e -> {
+            comp.getslideshow().removeSlide();
+            update();
         });
         addButton.setOnAction(e -> {
             ss.addSlide();
             update();
-        });
-        titleField.setOnKeyReleased(e -> {
         });
 
         okayBtn.setOnAction(e -> {
@@ -136,6 +142,26 @@ public class SlideShowPrompt extends Stage {
     }
 
     public void update() {
+        if (comp.getslideshow().selectedSlide == null) {
+            rmButton.setDisable(true);
+            downBtn.setDisable(true);
+            upBtn.setDisable(true);
+
+        } else {
+            rmButton.setDisable(false);
+
+            if (comp.getslideshow().indexSelection() == comp.getslideshow().getSlides().size() - 1) {
+                downBtn.setDisable(true);
+            } else {
+                downBtn.setDisable(false);
+            }
+
+            if (comp.getslideshow().indexSelection() == 0) {
+                upBtn.setDisable(true);
+            } else {
+                upBtn.setDisable(false);
+            }
+        }
         populatePane();
     }
 

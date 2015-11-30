@@ -1,0 +1,33 @@
+
+{
+    "name":"slideshow",
+    "title":"Untitled Page",
+    "font":1,
+    "layout":0,
+    "colors":3,
+    "banner":"",
+    "footer":"",
+    "navbar":[
+        "<a href=\"../Untitled Page/index.html\" class=\"pagelink\">Untitled Page</a>"
+    ],
+    "components":[
+        "<div class=\"compdiv\"><div class=\"slideshowcontainer\" style=\"width:200px;height:200px;\"><h1 class=\"slideshowtitle\">title</h1><img class=\"slideshowimage\" id=\"titleimg\"></img><p class=\"slideshowcaption\" id=\"titlecaption\"></p><div class=\"slideshowbuttoncontainer\"><img class=\"prevButton slideshowbutton\" src=\"../data/button_images/previous.png\" onclick=\"previousButton(pagedata.slideshows[0])\"></img><img class=\"playButton slideshowbutton\" id=\"titlebutton\" src=\"../data/button_images/play.png\" onclick=\"playSlideShow(pagedata.slideshows[0])\"></img><img class=\"nextButton slideshowbutton\" src=\"../data/button_images/next.png\" onclick=\"nextButton(pagedata.slideshows[0])\"></img></div></div>"
+    ],
+    "slideshows":[
+        {
+            "title":"title",
+            "index":0,
+            "images":[
+                "DefaultStartSlide.png",
+                "DefaultStartSlide.png",
+                "DefaultStartSlide.png"
+            ],
+            "captions":[
+                "test",
+                "test2",
+                ""
+            ],
+            "updater":"0"
+        }
+    ]
+}

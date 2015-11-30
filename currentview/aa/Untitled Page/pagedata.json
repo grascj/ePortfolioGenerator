@@ -1,0 +1,17 @@
+
+{
+    "name":"",
+    "title":"Untitled Page",
+    "font":1,
+    "layout":0,
+    "colors":3,
+    "banner":"",
+    "footer":"",
+    "navbar":[
+        "<a href=\"../Untitled Page/index.html\" class=\"pagelink\">Untitled Page</a>"
+    ],
+    "components":[
+    ],
+    "slideshows":[
+    ]
+}

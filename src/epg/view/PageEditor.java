@@ -54,7 +54,6 @@ public class PageEditor extends BorderPane {
     
     public void removeSelectedPage()
     {
-        //@todo error handling for out of bounds
         portfolio.getPages().remove(selectedPage);
         selectedPage = portfolio.getPages().get(0);
         updatePage();

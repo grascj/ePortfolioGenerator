@@ -15,6 +15,7 @@ import static epg.file.JsonCreator.JSON_FILE_URL;
 import static epg.file.JsonCreator.JSON_HEIGHT;
 import static epg.file.JsonCreator.JSON_TYPE;
 import static epg.file.JsonCreator.JSON_WIDTH;
+import epg.prompts.ImagePrompt;
 import java.io.File;
 import java.util.ArrayList;
 import javax.json.Json;
@@ -94,6 +95,13 @@ public class ImageComponent extends Component {
         fileURL = compJSON.getString(JSON_FILE_URL);
     }
 
+        @Override
+    public void editPrompt()
+    {
+        new ImagePrompt(this);
+    }
+    
+    
     @Override
     public JsonObject jsonify() {
         JsonObjectBuilder comp = Json.createObjectBuilder()

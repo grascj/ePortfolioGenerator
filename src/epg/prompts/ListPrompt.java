@@ -106,7 +106,6 @@ public class ListPrompt extends Stage {
         itemcontainer.getStyleClass().add("container_nospacing");
         itemScroll.getStyleClass().add(CSS_CONTAINER);
         listbuttoncontainer.getStyleClass().add(CSS_CONTAINER);
-        //@todo make beautiful
     }
 
     private void initHandlers() {

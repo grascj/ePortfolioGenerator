@@ -19,8 +19,6 @@ import javafx.scene.layout.VBox;
  * @author cgmp
  */
 class ComponentViewer extends ScrollPane {
-    //@todo
-    //has a list of components that it turns into component views
 
     VBox componentPane;
     ArrayList<Component> componentList;

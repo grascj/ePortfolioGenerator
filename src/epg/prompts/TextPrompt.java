@@ -120,7 +120,6 @@ public class TextPrompt extends Stage {
         return tt;
     }
 
-    //@todo prompts for a paragraph list or header
     public boolean isOk() {
         return ok;
     }

@@ -99,7 +99,6 @@ public class PortfolioView {
         this.primaryStage.show();
     }
 
-    //@todo idiot proof buttons
     public void viewMode() {
         modeTB.state = EDIT;
         modeTB.updateControls(workingPortfolio);

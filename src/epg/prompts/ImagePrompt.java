@@ -71,7 +71,7 @@ public class ImagePrompt extends Stage {
     //FLAG
     boolean ok;
 
-    public ImagePrompt(Stage primaryStage, ImageComponent comp) {
+    public ImagePrompt(ImageComponent comp) {
         
         width = comp.getWidth();
         length = comp.getLength();
@@ -86,7 +86,6 @@ public class ImagePrompt extends Stage {
         this.comp = comp;
         caption = comp.getCaption();
         initModality(Modality.APPLICATION_MODAL);
-        initOwner(primaryStage);
 
         fileChooser = new FileChooser();
         fileChooser.getExtensionFilters().addAll(
@@ -191,7 +190,6 @@ public class ImagePrompt extends Stage {
     }
 
     public void show(String message) {
-        //@todo message for prompt
         this.showAndWait();
     }
 

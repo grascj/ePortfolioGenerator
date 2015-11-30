@@ -35,11 +35,16 @@ public class ComponentView extends HBox{
     {
         editButton = new Button("edit");
         editButton.getStyleClass().add(CSS_COMPONENTVIEW_BUTTON);
-       // editButton.setOnAction(e->{comp.editPrompt();});//@todo my son
+        editButton.setOnAction(e->{comp.editPrompt();});
         displayLabel = new Label(comp.getDisplayText());
         displayLabel.getStyleClass().add(CSS_COMPONENTVIEW_LABEL);
         
         this.getChildren().addAll(editButton, displayLabel);
+    }
+    
+    public void updateView()
+    {
+      displayLabel.setText(comp.getDisplayText());
     }
     
     public Component getComponent()

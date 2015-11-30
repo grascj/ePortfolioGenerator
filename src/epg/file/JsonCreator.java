@@ -60,8 +60,8 @@ public class JsonCreator {
     public static String JSON_LAYOUT = "layout";
     public static String JSON_COLORS = "colors";
     public static String JSON_BANNERURL = "bannerurl";
-    public static String JSON_BANNER = "banner";//@todo change in js
-    public static String JSON_FOOTER = "footer";//@todo change in js
+    public static String JSON_BANNER = "banner";
+    public static String JSON_FOOTER = "footer";
     public static String JSON_TITLE = "title";
     public static String JSON_COMPONENTS = "components";
     public static String JSON_SLIDESHOWS = "slideshows";
@@ -359,7 +359,7 @@ public class JsonCreator {
                 //making the slideshow object itself
                 JsonObject ssobj = Json.createObjectBuilder()
                         .add(JSON_TITLE, ss.getTitle())
-                        .add(JSON_INDEX, "0")
+                        .add(JSON_INDEX, 0)
                         .add(JSON_IMAGES, images)
                         .add(JSON_CAPTIONS, captions)
                         .add(JSON_UPDATER, "0")

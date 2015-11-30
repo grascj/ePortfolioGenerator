@@ -25,7 +25,6 @@ import javafx.scene.layout.RowConstraints;
 class ModeToolbar extends GridPane{
     enum MODE_STATE {VIEW, EDIT};
     
-    //@TODO use an enum for state perhaps
     
     Button siteButton;
     Button editorButton;

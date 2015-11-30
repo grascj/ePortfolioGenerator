@@ -13,6 +13,7 @@ import static epg.file.JsonCreator.JSON_FONT_TYPE;
 import static epg.file.JsonCreator.JSON_ITEMS;
 import static epg.file.JsonCreator.JSON_TEXT;
 import static epg.file.JsonCreator.JSON_TYPE;
+import epg.prompts.ListPrompt;
 import java.util.ArrayList;
 import javax.json.Json;
 import javax.json.JsonArray;
@@ -61,8 +62,12 @@ public class ListComponent extends TextComponent {
         {
             listItems.add(new Item(itemsJSON.getString(i, JSON_TEXT)));
         }
-                    
-        
+    }
+    
+        @Override
+    public void editPrompt()
+    {
+        new ListPrompt(this);
     }
 
     @Override

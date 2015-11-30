@@ -5,6 +5,9 @@
  */
 package epg.model;
 
+import static epg.ProgramConstants.DEFAULT_IMG;
+import static epg.ProgramConstants.DEFAULT_IMG_NAME;
+
 /**
  *
  * @author cgmp
@@ -27,8 +30,8 @@ public class Slide {
     public Slide()
     {
         this.caption = "";
-        this.image = "";
-        this.imageURL = "";
+        this.image = DEFAULT_IMG_NAME;
+        this.imageURL = DEFAULT_IMG;
     }
             
     

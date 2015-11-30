@@ -107,9 +107,7 @@ public class HTMLWorker {
     }
 
 
-    
-    
-    //@todo perhapds specify size
+        
     public static String generateHeaderComponentHTML(HeaderComponent comp) {
         String html
                 = O_DIV + "\n"
@@ -139,6 +137,9 @@ public class HTMLWorker {
     //need to make a json to correspond to it
     public static String generateSlideShowComponentHTML(SlideShowComponent comp, int numSlideShow) {
         //60% of total height for the image 
+        
+        
+        
 
         String html = O_DIV
                 + "<div class=\"slideshowcontainer\" style=\"width:" + comp.getWidth() + "px;height:" + comp.getLength() + "px;\">"

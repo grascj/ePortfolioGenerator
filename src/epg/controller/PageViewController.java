@@ -76,7 +76,7 @@ public class PageViewController {
 
     public void handleImageComp() {
         ImageComponent comp = new ImageComponent();
-        ImagePrompt popup = new ImagePrompt(pe.getPrimaryStage(), comp);
+        ImagePrompt popup = new ImagePrompt(comp);
         if (popup.isOk()) {
             pe.getPage().getComponents().add(comp);
             pe.updatePage();
@@ -105,20 +105,18 @@ public class PageViewController {
     }
 
     public void handleSlideComp() {
-        SlideShowComponent comp = new SlideShowComponent();
+        SlideShowComponent comp = new SlideShowComponent(pe.getPage().getSlideshows().size());
         SlideShowPrompt popup = new SlideShowPrompt(comp);
         if (popup.isOk()) {
             pe.getPage().getComponents().add(comp);
             pe.getPage().getSlideshows().add(comp.getslideshow());
             pe.updatePage();
         }
-
-            //@todo add slideshow to the page list of slideshows 
     }
 
     public void handleVideoComp() {
         VideoComponent comp = new VideoComponent();
-        VideoPrompt popup = new VideoPrompt(pe.getPrimaryStage(), comp);
+        VideoPrompt popup = new VideoPrompt(comp);
         if (popup.isOk()) {
             pe.getPage().getComponents().add(comp);
             pe.updatePage();

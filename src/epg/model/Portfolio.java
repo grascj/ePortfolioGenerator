@@ -63,35 +63,6 @@ public class Portfolio {
 
     public String getFileName() {
         return fileName;
-    }
-    
-    
-    
-    
-    
-    //METHODS
-    
-    //@TODO implement Portfolio methods
-    public void deletePage(Page pageToDelete)
-    {
-        
-    }
-    
-    public void addPage(Page pageToAdd)
-    {
-        
-    }
-    
-    public void reset()
-    {
-        
-    }
-    
-    public Page findPageByTitle(String title)
-    {
-        return null;
-    }
-    
-    
+    }   
     
 }

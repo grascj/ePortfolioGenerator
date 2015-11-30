@@ -14,7 +14,9 @@ import static epg.file.JsonCreator.JSON_HEIGHT;
 import static epg.file.JsonCreator.JSON_SLIDESHOW;
 import static epg.file.JsonCreator.JSON_TYPE;
 import static epg.file.JsonCreator.JSON_WIDTH;
+import epg.prompts.SlideShowPrompt;
 import java.io.File;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import javax.json.Json;
 import javax.json.JsonObject;
@@ -28,15 +30,18 @@ public class SlideShowComponent extends Component {
 
     static COMPONENTS type = COMPONENTS.SLIDESHOW;
 
+    int numSlideShow;
     SlideShow slideshow;
 
-    public SlideShowComponent(int width, int length, SlideShow slideshow) {
+    public SlideShowComponent(int width, int length, SlideShow slideshow, int numSlideShow) {
         super(width, length);
         this.slideshow = slideshow;
+        this.numSlideShow = numSlideShow;
     }
 
-    public SlideShowComponent() {
+    public SlideShowComponent(int numSlideShow) {
         super(200, 200);
+        this.numSlideShow = numSlideShow;
         slideshow = new SlideShow();
         slideshow.title = "";
     }
@@ -74,7 +79,13 @@ public class SlideShowComponent extends Component {
     public SlideShowComponent(JsonObject compJSON) {
         super(compJSON.getInt(JSON_WIDTH), compJSON.getInt(JSON_HEIGHT));
         slideshow = JsonCreator.loadSlideShow(compJSON.getJsonObject(JSON_SLIDESHOW));
+        numSlideShow = compJSON.getInt("numSlideShow");
 
+    }
+
+    @Override
+    public void editPrompt() {
+        new SlideShowPrompt(this);
     }
 
     @Override
@@ -83,6 +94,7 @@ public class SlideShowComponent extends Component {
                 .add(JSON_TYPE, type.ordinal())
                 .add(JSON_WIDTH, width)
                 .add(JSON_HEIGHT, height)
+                .add("numSlideShow", numSlideShow)
                 .add(JSON_SLIDESHOW, JsonCreator.saveSlideShow(slideshow));
 
         return comp.build();
@@ -90,7 +102,7 @@ public class SlideShowComponent extends Component {
 
     @Override
     public String htmlify() {
-        return HTMLWorker.generateSlideShowComponentHTML(this, slideshow.getNumSlides());
+        return HTMLWorker.generateSlideShowComponentHTML(this, this.numSlideShow);
     }
 
     @Override

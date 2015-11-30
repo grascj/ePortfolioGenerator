@@ -12,7 +12,7 @@ import java.util.ArrayList;
  * @author cgmp
  */
 public class SlideShow {
-ArrayList<Slide> slides;
+    ArrayList<Slide> slides;
     int numSlides;
     public Slide selectedSlide;
     public String title;
@@ -52,7 +52,28 @@ ArrayList<Slide> slides;
     }
 
         
+    public int indexSelection()
+    {
+        if(selectedSlide == null)
+            return -1;
+        
+        return slides.indexOf(selectedSlide);
+    }
     
+    public void moveUp()
+    {
+        int loc = slides.indexOf(selectedSlide);
+        slides.set(loc, slides.get(loc+1));
+        slides.set(loc+1, selectedSlide);
+        
+    }
+    
+    public void moveDown()
+    {
+        int loc = slides.indexOf(selectedSlide);
+        slides.set(loc, slides.get(loc-1));
+        slides.set(loc-1, selectedSlide);
+    }
     
     public void addSlide()
     {
@@ -64,6 +85,7 @@ ArrayList<Slide> slides;
     {
         slides.remove(selectedSlide);
         numSlides--;
+        selectedSlide = null;
     }
     
     

@@ -45,6 +45,8 @@ public abstract class Component {
     //return all the files? add to media?
     public abstract ArrayList<File> getMedia();
     
+    
+    public abstract void editPrompt();
     public abstract String htmlify();
     public abstract JsonObject jsonify();
     public abstract String getDisplayText();
