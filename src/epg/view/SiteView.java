@@ -8,9 +8,9 @@ package epg.view;
 import static epg.ProgramConstants.CSS_SITEVIEW_WEBVIEW;
 import static epg.file.JsonCreator.SLASH;
 import epg.file.SiteBuilder;
+import epg.model.Portfolio;
 import java.io.File;
 import java.io.IOException;
-import javafx.concurrent.Worker.State;
 import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Priority;
@@ -45,13 +45,13 @@ public class SiteView extends GridPane {
 
     }
 
-    public void loadURL(String folderURL, String firstpagetitle) throws IOException {
+    public void load(Portfolio portfolio) throws IOException {
         //url of the site folder is then placed into a newly generated folder so its not cached
         updateFolder();
         
-        SiteBuilder.recursiveCopy(new File(folderURL), new File(currentfolder));
+        SiteBuilder.buildSite(portfolio, currentfolder);
         
-        view_startpoint = currentfolder + SLASH + firstpagetitle + SLASH + "index.html";
+        view_startpoint = currentfolder + SLASH + portfolio.getPages().get(0) + SLASH + "index.html";
         
         wv.getEngine().load("file://" + new File(view_startpoint).getAbsolutePath());
     }

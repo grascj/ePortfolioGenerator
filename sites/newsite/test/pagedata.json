@@ -1,28 +1,19 @@
 
 {
-    "name":"chris",
-    "title":"Untitled Page",
-    "font":2,
+    "name":"",
+    "title":"test",
+    "font":1,
     "layout":0,
-    "colors":3,
-    "banner":"",
-    "footer":"this is a footer",
+    "colors":0,
+    "banner":"glyphicons-37-file.png",
+    "footer":"test",
     "navbar":[
-        "<a href=\"../Untitled Page/index.html\" class=\"pagelink\">Untitled Page</a>"
+        "<a href=\"../test/index.html\" class=\"pagelink\">test</a>"
     ],
     "components":[
         "<div class=\"compdiv\"><img class=\"comp\" width=\"200\" height=\"200\" src=\"./media/DefaultStartSlide.png\"></img></div>",
         "<div class=\"compdiv\"><video class=\"comp\" type=\"video/mp4\" width=\"200\" height=\"200\" src=\"./media/DefaultStartSlide.png\" controls></video></div>"
     ],
     "slideshows":[
-        {
-            "title":"",
-            "index":"0",
-            "images":[
-            ],
-            "captions":[
-            ],
-            "updater":"0"
-        }
     ]
 }

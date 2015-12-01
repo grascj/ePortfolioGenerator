@@ -160,11 +160,11 @@ public class PortfolioView {
 
     
     
-    public void loadSiteView(String url)
+    public void loadSiteView()
     {
         
         try {
-            siteView.loadURL(url, workingPortfolio.getPages().get(0).getTitle());
+            siteView.load(workingPortfolio);
         } catch (IOException ex) {
             Logger.getLogger(PortfolioView.class.getName()).log(Level.SEVERE, null, ex);
         }

@@ -24,7 +24,9 @@ public class ModeController {
     }
 
     public void handleEditMode() {
+        pv.loadSiteView();
         pv.editMode();
+        
     }
     
     

@@ -6,6 +6,7 @@
 package epg.controller;
 
 import static epg.ProgramConstants.PATH_SAVES;
+import static epg.ProgramConstants.PATH_SITES;
 import epg.file.JsonCreator;
 import epg.file.SiteBuilder;
 import epg.model.Portfolio;
@@ -65,7 +66,11 @@ public class FileController {
 
     public void handleExport() {
         try {
-            pv.loadSiteView(SiteBuilder.buildSite(pv.getPortfolio()));
+            if(!pv.getPortfolio().getStudentName().equals(""))
+                SiteBuilder.buildSite(pv.getPortfolio(), PATH_SITES + pv.getPortfolio().getStudentName().replaceAll(" ", "_"));
+            else
+                SiteBuilder.buildSite(pv.getPortfolio(), PATH_SITES + "newsite");
+            
         } catch (IOException ex) {
             Logger.getLogger(FileController.class.getName()).log(Level.SEVERE, null, ex);
         }

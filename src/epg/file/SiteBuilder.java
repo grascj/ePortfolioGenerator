@@ -26,23 +26,19 @@ public class SiteBuilder {
     private SiteBuilder() {
     }
 
-    public static String buildSite(Portfolio portfolio) throws IOException {
-        String nameFolder = portfolio.getStudentName();
-        if ("".equals(nameFolder)) {
-            nameFolder += "newsite";
-        }
-        nameFolder = PATH_SITES + nameFolder.replaceAll(" ", "_");
+    public static String buildSite(Portfolio portfolio, String location) throws IOException {
+     
 
         //delete possible stuff
-        destroy(new File(nameFolder));
+        destroy(new File(location));
 
         //create folders
         //load folders with template files
-        createDirectories(new File(nameFolder), portfolio);
+        createDirectories(new File(location), portfolio);
 
         //use HTMLWorker to create the pagedata
         //first page url
-        return  nameFolder;
+        return  location;
     }
 
     public static void destroy(File fileToKill) {
