@@ -10,6 +10,7 @@ import static epg.ProgramConstants.CSS_MODETOOLBAR;
 import static epg.ProgramConstants.CSS_PAGEEDITOR;
 import static epg.ProgramConstants.CSS_SITEVIEW;
 import static epg.ProgramConstants.PATH_STYLESHEET;
+import epg.controller.ChangeController;
 import epg.controller.FileController;
 import epg.controller.ModeController;
 import epg.error.ErrorHandler;
@@ -52,10 +53,12 @@ public class PortfolioView {
     Portfolio workingPortfolio;
 
     //states
-    boolean canSave;
+    boolean saved;
     boolean exported;
+    boolean newportfolio;
 
     public PortfolioView(Stage primaryStage) {
+        ChangeController.initChangeController(this);
         this.primaryStage = primaryStage;
         workingPortfolio = new Portfolio();
         initUI();
@@ -72,6 +75,7 @@ public class PortfolioView {
         siteView = new SiteView();
         siteView.getStyleClass().add(CSS_SITEVIEW);
         pageEditor.update();
+        newportfolio();
     }
 
     private void initWindow() {
@@ -114,38 +118,16 @@ public class PortfolioView {
     public void updateUI() {
         fileTB.updateControls(workingPortfolio);
         modeTB.updateControls(workingPortfolio);
+        modeTB.refreshSite();
         pageEditor.portfolioChange(workingPortfolio, workingPortfolio.getPages().get(0));
-
     }
 
     public void updateToolbars() {
 
     }
 
-    public void changed() {
-        canSave = true;
-    }
-
-    public void saved() {
-        canSave = false;
-    }
-
-    public void exported() {
-        exported = true;
-    }
-
-    public boolean isChanged() {
-        return canSave;
-    }
-
-    public boolean isExported() {
-        return exported;
-    }
-
     public void changePortfolio(Portfolio portfolio) {
         this.workingPortfolio = portfolio;
-        canSave = true;
-        exported = false;
         updateUI();
 
     }
@@ -158,16 +140,60 @@ public class PortfolioView {
         return primaryStage;
     }
 
-    
-    
-    public void loadSiteView()
-    {
-        
+    public void loadSiteView() {
+
         try {
             siteView.load(workingPortfolio);
         } catch (IOException ex) {
             Logger.getLogger(PortfolioView.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+
+    public void wasChanged() {
+        newportfolio = false;
+        exported = false;
+        saved = false;
+        updateFileToolbar();
+    }
     
+    
+    public void loadstate()
+    {
+        saved = true;
+        newportfolio = false;
+        exported = false;
+        updateUI();
+        updateFileToolbar();
+    }
+    
+    public void saved()
+    {
+        saved = true;
+        newportfolio = false;
+        updateFileToolbar();
+    }
+    
+    public void exported()
+    {
+        exported = true;
+        newportfolio = false;
+        updateFileToolbar();
+    }
+    
+    public void newportfolio()
+    {
+        exported = true;
+        saved = true;
+        newportfolio = true;
+        updateFileToolbar();
+    }
+
+    public void updateFileToolbar() {
+
+        fileTB.exportButton.setDisable(exported);
+        fileTB.saveButton.setDisable(saved);
+        fileTB.newButton.setDisable(newportfolio);
+        fileTB.saveAsButton.setDisable(newportfolio);
+    }
+
 }

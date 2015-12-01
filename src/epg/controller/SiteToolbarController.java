@@ -23,6 +23,7 @@ public class SiteToolbarController {
     
     public void handleNameChange(String text) {
         pe.getPortfolio().setStudentName(text);
+        ChangeController.wasChanged();
     }
 
     public void handlePageChange(int index) {
@@ -33,11 +34,13 @@ public class SiteToolbarController {
         pe.getPortfolio().getPages().add(new Page());
         pe.setSelectedPage(pe.getPortfolio().getPages().size()-1);
         pe.update();
+        ChangeController.wasChanged();
     }
     
 
     public void handleRemovePage() {
         pe.removeSelectedPage();
         pe.update();
+        ChangeController.wasChanged();
     }
 }

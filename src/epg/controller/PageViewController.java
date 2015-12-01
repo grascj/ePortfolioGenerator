@@ -42,20 +42,24 @@ public class PageViewController {
 
     public void handleColorChange(int index) {
         pe.getPage().setColors(COLOR.values()[index]);
+        ChangeController.wasChanged();
     }
 
     public void handleLayoutChange(int index) {
         pe.getPage().setLayout(LAYOUT.values()[index]);
+        ChangeController.wasChanged();
     }
 
     public void handleFontChange(int index) {
         pe.getPage().setFont(FONT.values()[index]);
+        ChangeController.wasChanged();
     }
 
     public void handleFooterChange() {
         FooterPrompt prompt = new FooterPrompt(pe.getPage().getFooter());
         if (prompt.isOk()) {
             pe.getPage().setFooter(prompt.getData());
+            ChangeController.wasChanged();
         }
     }
 
@@ -66,12 +70,14 @@ public class PageViewController {
             Page current = pe.getPage();
             current.setBannerURL(data[0]);
             current.setBanner(data[1]);
-        }
+            ChangeController.wasChanged();
+        }    
     }
 
     public void handleTitleChange(String text) {
         pe.getPage().setTitle(text);
         pe.updateTitle();
+        ChangeController.wasChanged();
     }
 
     public void handleImageComp() {
@@ -80,6 +86,7 @@ public class PageViewController {
         if (popup.isOk()) {
             pe.getPage().getComponents().add(comp);
             pe.updatePage();
+            ChangeController.wasChanged();
         }
     }
 
@@ -100,6 +107,7 @@ public class PageViewController {
             if (flag) {
                 pe.getPage().getComponents().add(popup.getComp());
                 pe.updatePage();
+                ChangeController.wasChanged();
             }
         }
     }
@@ -111,6 +119,7 @@ public class PageViewController {
             pe.getPage().getComponents().add(comp);
             pe.getPage().getSlideshows().add(comp.getslideshow());
             pe.updatePage();
+            ChangeController.wasChanged();
         }
     }
 
@@ -120,6 +129,7 @@ public class PageViewController {
         if (popup.isOk()) {
             pe.getPage().getComponents().add(comp);
             pe.updatePage();
+            ChangeController.wasChanged();
         }
     }
 
@@ -127,6 +137,7 @@ public class PageViewController {
         pe.getPage().getComponents().remove(comp);
         pe.disarm();
         pe.updatePage();
+        ChangeController.wasChanged();
     }
 
 }

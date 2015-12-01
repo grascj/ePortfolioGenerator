@@ -1,14 +1,14 @@
 
 {
     "name":"chris",
-    "title":"Untitled Page",
+    "title":"test",
     "font":2,
     "layout":0,
     "colors":3,
     "banner":"",
     "footer":"this is a footer",
     "navbar":[
-        "<a href=\"../Untitled Page/index.html\" class=\"pagelink\">Untitled Page</a>"
+        "<a href=\"../test/index.html\" class=\"pagelink\">test</a>"
     ],
     "components":[
         "<div class=\"compdiv\"><img class=\"comp\" width=\"200\" height=\"200\" src=\"./media/DefaultStartSlide.png\"></img></div>",
@@ -17,7 +17,7 @@
     "slideshows":[
         {
             "title":"",
-            "index":"0",
+            "index":0,
             "images":[
             ],
             "captions":[

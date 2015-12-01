@@ -57,8 +57,7 @@ public class SiteView extends GridPane {
     }
 
     public void updateFolder() {
-        
-        
+             
         if(new File(currentfolder).exists())
             SiteBuilder.destroy(new File(currentfolder));
         
@@ -71,5 +70,4 @@ public class SiteView extends GridPane {
         
         current.getAbsoluteFile().mkdir();
     }
-
 }

@@ -1,0 +1,19 @@
+
+{
+    "name":"chris2",
+    "title":"page2",
+    "font":1,
+    "layout":0,
+    "colors":3,
+    "banner":"",
+    "footer":"",
+    "navbar":[
+        "<a href=\"../test/index.html\" class=\"pagelink\">test</a>",
+        "<a href=\"../page2/index.html\" class=\"pagelink\">page2</a>"
+    ],
+    "components":[
+        "<div class=\"compdiv\">\n<ul class=\"comp Bree_Serif\" style=\"font-size:12;\">\n<li>text</li>\n<li>text</li>\n<li>text</li>\n<li>text</li>\n</ul>\n</div>\n"
+    ],
+    "slideshows":[
+    ]
+}
