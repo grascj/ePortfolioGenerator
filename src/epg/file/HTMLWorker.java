@@ -153,12 +153,12 @@ public class HTMLWorker {
         String html = O_DIV
                 + "<div class=\"slideshowcontainer\" style=\"width:" + comp.getWidth() + "px;height:" + comp.getLength() + "px;\">"
                 + "<h1 class=\"slideshowtitle\">" + comp.getslideshow().getTitle() + "</h1>"
-                + "<img class=\"slideshowimage\" id=\"" + comp.getslideshow().getTitle() + "img\"></img>"
-                + "<p class=\"slideshowcaption\" id=\"" + comp.getslideshow().getTitle() + "caption\"></p>"
+                + "<img class=\"slideshowimage\" id=\"" + numSlideShow + "img\"></img>"
+                + "<p class=\"slideshowcaption\" id=\"" + numSlideShow + "caption\"></p>"
                 + "<div class=\"slideshowbuttoncontainer\">"
-                + "<img class=\"prevButton slideshowbutton\" src=\"../data/button_images/previous.png\" onclick=\"previousButton(pagedata.slideshows[" + numSlideShow + "])\"></img>"
-                + "<img class=\"playButton slideshowbutton\" id=\"" + comp.getslideshow().getTitle() + "button\" src=\"../data/button_images/play.png\" onclick=\"playSlideShow(pagedata.slideshows[" + numSlideShow + "])\"></img>"
-                + "<img class=\"nextButton slideshowbutton\" src=\"../data/button_images/next.png\" onclick=\"nextButton(pagedata.slideshows[" + numSlideShow + "])\"></img>"
+                + "<img class=\"prevButton slideshowbutton\" src=\"../data/button_images/previous.png\" onclick=\"previousButton(" + numSlideShow + ")\"></img>"
+                + "<img class=\"playButton slideshowbutton\" id=\"" + numSlideShow + "button\" src=\"../data/button_images/play.png\" onclick=\"playSlideShow(" + numSlideShow + ")\"></img>"
+                + "<img class=\"nextButton slideshowbutton\" src=\"../data/button_images/next.png\" onclick=\"nextButton(" + numSlideShow + ")\"></img>"
                 + E_DIV
                 + E_DIV;
 

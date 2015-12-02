@@ -1,6 +1,6 @@
 
 {
-    "name":"",
+    "name":"test2",
     "title":"Untitled Page",
     "font":1,
     "layout":0,
@@ -20,11 +20,13 @@
             "index":0,
             "images":[
                 "DefaultStartSlide.png",
+                "DefaultStartSlide.png",
                 "DefaultStartSlide.png"
             ],
             "captions":[
                 "1",
-                "2"
+                "2",
+                "3"
             ],
             "updater":"0"
         },
@@ -33,13 +35,11 @@
             "index":0,
             "images":[
                 "DefaultStartSlide.png",
-                "DefaultStartSlide.png",
                 "DefaultStartSlide.png"
             ],
             "captions":[
                 "1",
-                "2",
-                "3"
+                "2"
             ],
             "updater":"0"
         }

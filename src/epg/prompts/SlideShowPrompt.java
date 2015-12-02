@@ -148,7 +148,11 @@ public class SlideShowPrompt extends Stage {
             upBtn.setDisable(true);
 
         } else {
-            rmButton.setDisable(false);
+            if (comp.getslideshow().getSlides().size() == 1) {
+                rmButton.setDisable(true);
+            } else {
+                rmButton.setDisable(false);
+            }
 
             if (comp.getslideshow().indexSelection() == comp.getslideshow().getSlides().size() - 1) {
                 downBtn.setDisable(true);

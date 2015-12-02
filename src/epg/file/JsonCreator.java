@@ -87,7 +87,7 @@ public class JsonCreator {
     public static String JSON_IMAGES = "images";
     public static String JSON_CAPTIONS = "captions";
     public static String JSON_UPDATER = "updater";
-
+    
     public static String JSON_EXT = ".json";
     public static String SLASH = "/";
 

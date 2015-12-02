@@ -59,28 +59,28 @@ function staticPageSetup()
 function pagefontSetup()
 {
     var font = pagedata.font;
-    
-    if(font == 0)
+
+    if (font == 0)
     {
         $("body").addClass("Fjalla_One");
     }
-    if(font == 1)
+    if (font == 1)
     {
         $("body").addClass("Bree_Serif");
     }
-    if(font == 2)
+    if (font == 2)
     {
         $("body").addClass("Muli");
     }
-    if(font == 3)
+    if (font == 3)
     {
         $("body").addClass("Vollkorn");
     }
-    if(font == 4)
+    if (font == 4)
     {
         $("body").addClass("Inconsolata");
     }
-       
+
 }
 
 function layoutSetup()
@@ -164,13 +164,15 @@ function processComponents()
 function initSlideShows() {
     for (var i = 0; i < pagedata.slideshows.length; i++)
     {
-        update(pagedata.slideshows[i]);
+        update(i);
     }
 }
 
 //slideshowfunctionality
-function playSlideShow(slideshow) {
-    var mode = $("#" + slideshow.title + "button");
+function playSlideShow(index) {
+    alert(index);
+    var slideshow = pagedata.slideshows[index];
+    var mode = $("#" + index + "button");
     if (mode.attr("src").match("../data/button_images/play.png")) {
         mode.attr("src", "../data/button_images/pause.png");
         pagedata.updater = setInterval(nextButton, 3000, slideshow);
@@ -181,26 +183,32 @@ function playSlideShow(slideshow) {
     }
 }
 
-function nextButton(slideshow)
+function nextButton(index)
 {
+    var slideshow = pagedata.slideshows[index];
     slideshow.index = (slideshow.index + 1) % slideshow.images.length;
-    update(slideshow);
+    update(pagedata.slideshows[index]);
 }
 
-function previousButton(slideshow)
+function previousButton(index)
 {
+    var slideshow = pagedata.slideshows[index];
     slideshow.index--;
     if (slideshow.index < 0)
     {
-        slideshow.index = slideshow.images.length-1;
+        slideshow.index = slideshow.images.length - 1;
     }
     update(slideshow);
 }
 
-function update(slideshow)
+function update(hind)
 {
-    var img = $("#" + slideshow.title + "img");
-    var caption = $("#" + slideshow.title + "caption");
+    var indice = Number(hind);
+    alert(indice);
+    var slideshow = pagedata.slideshows[indice];
+    alert(slideshow);
+    var img = $("#" + indice + "img");
+    var caption = $("#" + indice + "caption");
     img.attr("src", "media/" + slideshow.images[slideshow.index]);
     caption.html(slideshow.captions[slideshow.index]);
 }

@@ -25,7 +25,8 @@ public class SlideShow {
 
     public SlideShow() {
         slides = new ArrayList<Slide>();
-        numSlides = 0;
+        slides.add(new Slide());
+        numSlides = 1;
         selectedSlide = null;
         title = "";
         
