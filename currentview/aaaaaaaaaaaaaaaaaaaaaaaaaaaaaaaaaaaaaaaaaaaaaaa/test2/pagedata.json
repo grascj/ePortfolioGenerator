@@ -1,0 +1,19 @@
+
+{
+    "name":"test12",
+    "title":"test2",
+    "font":2,
+    "layout":0,
+    "colors":4,
+    "banner":"",
+    "footer":"test",
+    "navbar":[
+        "<a href=\"../test2/index.html\" class=\"pagelink\">test2</a>"
+    ],
+    "components":[
+        "<div class=\"compdiv\"><img class=\"comp\" width=\"200\" height=\"200\" src=\"./media/glyphicons-37-file.png\"></img></div>",
+        "<div class=\"compdiv\"><img class=\"comp\" width=\"200\" height=\"200\" src=\"./media/DefaultStartSlide.png\"></img></div>"
+    ],
+    "slideshows":[
+    ]
+}

@@ -29,9 +29,14 @@ public class HTMLWorker {
     //DIVS
     public static final String O_DIV = "<div class=\"compdiv\">";
     public static final String E_DIV = "</div>";
+    
+
     //IMAGES
     public static final String O_IMAGE = "<img";
     public static final String E_IMAGE = "></img>";
+    public static final String O_FLOAT = " style=\"float:";
+    public static final String E_FLOAT = ";\"";
+    
     //VIDEOS
     public static final String O_VIDEO = "<video";
     public static final String E_VIDEO = " controls></video>";
@@ -60,6 +65,8 @@ public class HTMLWorker {
     public static final String O_FONT_TYPE = " class=\"comp ";
     public static final String E_FONT_TYPE = "\"";
 
+    
+    
     //useful stuff
     public static final String O_ID = " id=\"";
     public static final String C_ID = "\"";
@@ -97,10 +104,12 @@ public class HTMLWorker {
 
     /* METHODS FOR COMPONENTS */
     //@todo float left or right or none
+    
+    
     public static String generateImageComponentHTML(ImageComponent comp) {
         String html
                 = O_DIV
-                + O_IMAGE + CLASS_COMP + makeSize(comp) + makeSrc(comp) + E_IMAGE
+                + O_IMAGE + CLASS_COMP + makeSize(comp) + makeSrc(comp) + O_FLOAT + comp.getFloater().toString() + E_FLOAT + E_IMAGE
                 + E_DIV;
 
         return html;
@@ -111,14 +120,14 @@ public class HTMLWorker {
     public static String generateHeaderComponentHTML(HeaderComponent comp) {
         String html
                 = O_DIV + "\n"
-                + O_HEADER + O_FONT_TYPE + comp.getFont().toString() + E_FONT_TYPE + O_FONT_SIZE + comp.getFontSize() + E_FONT_SIZE + C_HEADER + comp.getText() + E_HEADER + "\n"
+                + O_HEADER + O_FONT_TYPE + comp.getFont().toString() + " header" + E_FONT_TYPE + O_FONT_SIZE + comp.getFontSize() + E_FONT_SIZE + C_HEADER + comp.getText() + E_HEADER + "\n"
                 + E_DIV + "\n";
         return html;
     }
 
     public static String generateListComponentHTML(ListComponent comp) {
         String html = O_DIV + "\n"
-                + O_LIST  + O_FONT_TYPE + comp.getFont().toString() + E_FONT_TYPE + O_FONT_SIZE + comp.getFontSize() + E_FONT_SIZE + C_LIST + "\n";
+                + O_LIST  + O_FONT_TYPE + comp.getFont().toString() + " list" + E_FONT_TYPE + O_FONT_SIZE + comp.getFontSize() + E_FONT_SIZE + C_LIST + "\n";
 
         for(Item item : comp.getListItems())
         {

@@ -10,8 +10,17 @@
             "bannerurl":"",
             "banner":"",
             "footer":"",
-            "title":"testtt",
+            "title":"Untitled Page",
             "components":[
+                {
+                    "type":1,
+                    "width":300,
+                    "height":300,
+                    "caption":"test",
+                    "file":"glyphicons-199-ok.png",
+                    "file_url":"/Users/cgmp/Desktop/glyphicons-199-ok.png",
+                    "floater":2
+                }
             ],
             "slideshows":[
             ]

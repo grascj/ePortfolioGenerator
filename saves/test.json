@@ -1,0 +1,29 @@
+
+{
+    "name":"test",
+    "filename":"test",
+    "pages":[
+        {
+            "font":1,
+            "layout":0,
+            "colors":3,
+            "bannerurl":"",
+            "banner":"",
+            "footer":"",
+            "title":"Untitled Page",
+            "components":[
+                {
+                    "type":1,
+                    "width":200,
+                    "height":200,
+                    "caption":"test",
+                    "file":"glyphicons-37-file.png",
+                    "file_url":"/Users/cgmp/Desktop/glyphicons-37-file.png",
+                    "floater":0
+                }
+            ],
+            "slideshows":[
+            ]
+        }
+    ]
+}

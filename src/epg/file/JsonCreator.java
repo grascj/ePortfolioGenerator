@@ -79,6 +79,7 @@ public class JsonCreator {
     public static String JSON_SLIDESHOW = "slideshow";
     public static String JSON_SLIDES = "slides";
     public static String JSON_ITEMS = "items";
+    public static String JSON_FLOATER = "floater";
 
     public static String JSON_NAVBAR = "navbar";
 

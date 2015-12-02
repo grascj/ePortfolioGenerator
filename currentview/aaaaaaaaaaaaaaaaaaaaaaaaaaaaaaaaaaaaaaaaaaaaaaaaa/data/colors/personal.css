@@ -1,0 +1,87 @@
+/*this css file is for the layout of the document*/
+/*
+//campfire:
+//#588C7E green
+//#F2E394 yellow
+//#F2AE72 orange
+//#D96459 red
+//#8C4646 rusty
+
+
+background-color: #588C7E;
+background-color: #F2E394;
+background-color: #F2AE72;
+background-color: #D96459;
+background-color: #8C4646;
+*/
+
+
+#namediv, #footer{
+background-color: #588C7E;
+}
+
+#components, html, body {
+background-color: #8C4646;
+}
+
+
+
+#navbar{
+background-color: #588C7E;
+}
+.compdiv {
+background-color: #F2E394;
+}
+
+
+
+#nametxt, #textcomp {
+color:black;
+}
+
+
+.pagelink{
+color:black;
+}
+
+
+
+
+/*
+#banner
+#bannerImage
+#footer
+#footerImage
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+/*slideshow stuff*/
+.slideshowcontainer {
+background-color: #F2AE72;
+}
+
+.slideshowtitle
+
+.slideshowimage
+
+.slideshowcaption
+
+.slideshowbuttoncontainer
+
+.slideshowbutton
+
+
+
+
+
+
