@@ -61,7 +61,7 @@ public class HTMLWorker {
 
     //fonts
     public static final String O_FONT_SIZE = " style=\"font-size:";
-    public static final String E_FONT_SIZE = ";\"";
+    public static final String E_FONT_SIZE = "px;\"";
     public static final String O_FONT_TYPE = " class=\"comp ";
     public static final String E_FONT_TYPE = "\"";
 
@@ -146,10 +146,6 @@ public class HTMLWorker {
     //need to make a json to correspond to it
     public static String generateSlideShowComponentHTML(SlideShowComponent comp, int numSlideShow) {
         //60% of total height for the image 
-        
-        
-        
-
         String html = O_DIV
                 + "<div class=\"slideshowcontainer\" style=\"width:" + comp.getWidth() + "px;height:" + comp.getLength() + "px;\">"
                 + "<h1 class=\"slideshowtitle\">" + comp.getslideshow().getTitle() + "</h1>"

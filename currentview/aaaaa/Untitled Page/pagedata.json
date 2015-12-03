@@ -1,16 +1,17 @@
 
 {
-    "name":"test6",
-    "title":"test",
+    "name":"test",
+    "title":"Untitled Page",
     "font":1,
     "layout":0,
     "colors":3,
     "banner":"",
     "footer":"",
     "navbar":[
-        "<a href=\"../test/index.html\" class=\"pagelink\">test</a>"
+        "<a href=\"../Untitled Page/index.html\" class=\"pagelink\">Untitled Page</a>"
     ],
     "components":[
+        "<div class=\"compdiv\"><img class=\"comp\" width=\"200\" height=\"200\" src=\"./media/DefaultStartSlide.png\" style=\"float:none;\"></img></div>",
         "<div class=\"compdiv\"><div class=\"slideshowcontainer\" style=\"width:200px;height:200px;\"><h1 class=\"slideshowtitle\"></h1><img class=\"slideshowimage\" id=\"0img\"></img><p class=\"slideshowcaption\" id=\"0caption\"></p><div class=\"slideshowbuttoncontainer\"><img class=\"prevButton slideshowbutton\" src=\"../data/button_images/previous.png\" onclick=\"previousButton(0)\"></img><img class=\"playButton slideshowbutton\" id=\"0button\" src=\"../data/button_images/play.png\" onclick=\"playSlideShow(0)\"></img><img class=\"nextButton slideshowbutton\" src=\"../data/button_images/next.png\" onclick=\"nextButton(0)\"></img></div></div>"
     ],
     "slideshows":[
@@ -18,12 +19,10 @@
             "title":"",
             "index":0,
             "images":[
-                "DefaultStartSlide.png",
                 "DefaultStartSlide.png"
             ],
             "captions":[
-                "1",
-                "2"
+                ""
             ],
             "updater":"0"
         }

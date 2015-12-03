@@ -170,12 +170,11 @@ function initSlideShows() {
 
 //slideshowfunctionality
 function playSlideShow(index) {
-    alert(index);
     var slideshow = pagedata.slideshows[index];
     var mode = $("#" + index + "button");
     if (mode.attr("src").match("../data/button_images/play.png")) {
         mode.attr("src", "../data/button_images/pause.png");
-        pagedata.slideshows[index] = setInterval(nextButton, 3000, index);
+        pagedata.slideshows[index].updater = setInterval(nextButton, 3000, index);
     }
     else {
         mode.attr("src", "../data/button_images/play.png");

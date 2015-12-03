@@ -18,6 +18,7 @@ import static epg.ProgramConstants.TT_OK;
 import epg.model.Item;
 import epg.model.ListComponent;
 import static epg.view.ViewHelper.initChildButton;
+import java.util.ArrayList;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
@@ -49,6 +50,7 @@ public class ListPrompt extends Stage {
 
     //data
     ListComponent comp;
+    ArrayList<Item> items;
     boolean ok;
 
     public class ItemBox extends HBox {
@@ -67,6 +69,7 @@ public class ListPrompt extends Stage {
             });
             this.getChildren().add(itemText);
         }
+        
     }
 
     public ListPrompt(ListComponent comp) {
@@ -74,6 +77,14 @@ public class ListPrompt extends Stage {
         initModality(Modality.APPLICATION_MODAL);
 
         this.comp = comp;
+
+        items = new ArrayList<Item>();
+        for(Item item : comp.getListItems())
+        {
+            items.add(item.copy());
+        }
+        
+        
         ok = false;
 
         initUI();
@@ -83,6 +94,7 @@ public class ListPrompt extends Stage {
         Scene promptBody = new Scene(uicontainer, 300, 300);
         promptBody.getStylesheets().add(PATH_PROMPTSTYLESHEET);
         this.setScene(promptBody);
+        populateItems();
         this.showAndWait();
 
     }
@@ -110,16 +122,19 @@ public class ListPrompt extends Stage {
 
     private void initHandlers() {
         okayBtn.setOnAction(e -> {
-            this.hide();
+            comp.setListItems(items);
             ok = true;
+            comp.setFont(fb.getFontType());
+            comp.setFontSize(fb.getFontSize());
+            this.hide();
         });
 
         addBtn.setOnAction(e -> {
-            comp.getListItems().add(new Item(""));
+            items.add(new Item(""));
             populateItems();
         });
         rmBtn.setOnAction(e -> {
-            comp.getListItems().remove(selection);
+            items.remove(selection);
             populateItems();
         });
 
@@ -140,7 +155,7 @@ public class ListPrompt extends Stage {
 
     public void populateItems() {
         itemcontainer.getChildren().clear();
-        for (Item item : comp.getListItems()) {
+        for (Item item : items) {
             ItemBox ibox = new ItemBox(item);
 
             if (item == selection)//selected

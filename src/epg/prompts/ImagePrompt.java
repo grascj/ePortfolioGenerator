@@ -100,22 +100,21 @@ public class ImagePrompt extends Stage {
             this.currentImage = new ImageView("file:" + DEFAULT_IMG);
             this.currentFileName = new Label("DefaultImage.png");
         }
-        
+
         currentImage.setPreserveRatio(true);
         currentImage.getStyleClass().add(CSS_PROMPT_IMAGE);
         currentImage.setFitHeight(150);
         currentImage.setFitWidth(150);
 
-        //@todo implement
         floatLabel = new Label("Floating: ");
         floatBox = new ComboBox();
         floatBox.getStyleClass().add(CSS_PROMPT_BUTTON);
 
         //0 1 2
         floatBox.getItems().addAll("Left", "Right", "None");
-        
+
         floatBox.getSelectionModel().select(comp.getFloater().ordinal());
-        
+
         okBtn = initChildButton(CSS_OK_BUTTON, ICON_CHECK, TT_OK);
         pickFile = initChildButton(CSS_CHOOSE_BUTTON, ICON_CHOOSE, TT_CHOOSE);
 
@@ -126,7 +125,7 @@ public class ImagePrompt extends Stage {
         initHandlers();
 
         placeChildren();
-        
+
         this.show("hello");
     }
 
@@ -136,14 +135,13 @@ public class ImagePrompt extends Stage {
             ok = true;
             comp.setFile(fileName);
             comp.setImageURL(filePath);
-            comp.setLength(Integer.parseInt(widthField.getText()));
+            comp.setLength(Integer.parseInt(lengthField.getText()));
             comp.setWidth(Integer.parseInt(widthField.getText()));
+            comp.setFloater(FLOAT.values()[floatBox.getSelectionModel().getSelectedIndex()]);
+
             caption = captionField.getText();
             comp.setCaption(caption);
             this.hide();
-        });
-        floatBox.setOnAction(e->{
-            comp.setFloater(FLOAT.values()[floatBox.getSelectionModel().getSelectedIndex()]);
         });
         pickFile.setOnAction(e -> {
             try {
@@ -166,11 +164,11 @@ public class ImagePrompt extends Stage {
     }
 
     private void placeChildren() {
-        
+
         HBox floatcontainer = new HBox();
         floatcontainer.getChildren().addAll(floatLabel, floatBox);
         floatcontainer.getStyleClass().add(CSS_CONTAINER);
-        
+
         BorderPane uicontainer = new BorderPane();
         BorderPane center = new BorderPane();
         VBox topBox = new VBox();

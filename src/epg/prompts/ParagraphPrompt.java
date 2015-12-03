@@ -137,6 +137,8 @@ public class ParagraphPrompt extends Stage {
     private void initHandlers() {
         okayBtn.setOnAction(e -> {
             ok = true;
+            comp.setFont(fb.getFontType());
+            comp.setFontSize(fb.getFontSize());
             comp.setText(paraText.getText());
             this.hide();
         });

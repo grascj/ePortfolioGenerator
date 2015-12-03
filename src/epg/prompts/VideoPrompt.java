@@ -140,7 +140,7 @@ public class VideoPrompt extends Stage {
             ok = true;
             comp.setFile(fileName);
             comp.setFileURL(filePath);
-            comp.setLength(Integer.parseInt(widthField.getText()));
+            comp.setLength(Integer.parseInt(lengthField.getText()));
             comp.setWidth(Integer.parseInt(widthField.getText()));
             caption = captionField.getText();
             comp.setCaption(caption);

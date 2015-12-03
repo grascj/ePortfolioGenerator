@@ -16,4 +16,10 @@ public class Item {
     public Item(String itemtext) {
         this.itemtext = itemtext;
     }
+    
+    
+    public Item copy()
+    {
+        return new Item(itemtext);
+    }
 }
