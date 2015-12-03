@@ -16,6 +16,7 @@ import static epg.ProgramConstants.ICON_CHOOSE;
 import static epg.ProgramConstants.PATH_PROMPTSTYLESHEET;
 import static epg.ProgramConstants.TT_CHOOSE;
 import static epg.ProgramConstants.TT_OK;
+import epg.error.ErrorHandler;
 import epg.model.ImageComponent;
 import epg.model.ImageComponent.FLOAT;
 import static epg.view.ViewHelper.initChildButton;
@@ -30,6 +31,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -130,13 +132,26 @@ public class ImagePrompt extends Stage {
     }
 
     private void initHandlers() {
+        widthField.addEventFilter(KeyEvent.KEY_TYPED, ErrorHandler.getNumberKeyEventHandler());
+        lengthField.addEventFilter(KeyEvent.KEY_TYPED, ErrorHandler.getNumberKeyEventHandler());
         okBtn.setOnAction(e -> {
             //@todo idiot proof the number values
             ok = true;
             comp.setFile(fileName);
             comp.setImageURL(filePath);
-            comp.setLength(Integer.parseInt(lengthField.getText()));
-            comp.setWidth(Integer.parseInt(widthField.getText()));
+
+            if (lengthField.getText().isEmpty()) {
+                comp.setLength(0);
+            } else {
+                comp.setLength(Integer.parseInt(lengthField.getText()));
+            }
+
+            if (widthField.getText().isEmpty()) {
+                comp.setWidth(0);
+            } else {
+                comp.setWidth(Integer.parseInt(widthField.getText()));
+            }
+
             comp.setFloater(FLOAT.values()[floatBox.getSelectionModel().getSelectedIndex()]);
 
             caption = captionField.getText();

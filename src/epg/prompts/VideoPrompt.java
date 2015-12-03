@@ -13,6 +13,7 @@ import static epg.ProgramConstants.ICON_CHOOSE;
 import static epg.ProgramConstants.PATH_PROMPTSTYLESHEET;
 import static epg.ProgramConstants.TT_CHOOSE;
 import static epg.ProgramConstants.TT_OK;
+import epg.error.ErrorHandler;
 import epg.model.VideoComponent;
 import static epg.view.ViewHelper.initChildButton;
 import java.io.File;
@@ -23,6 +24,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -90,6 +92,7 @@ public class VideoPrompt extends Stage {
 
         widthField = new TextField(Integer.toString(comp.getWidth()));
         lengthField = new TextField(Integer.toString(comp.getLength()));
+
         captionField = new TextField(caption);
 
         initHandlers();
@@ -135,13 +138,26 @@ public class VideoPrompt extends Stage {
     }
 
     public void initHandlers() {
+        widthField.addEventFilter(KeyEvent.KEY_TYPED, ErrorHandler.getNumberKeyEventHandler());
+        lengthField.addEventFilter(KeyEvent.KEY_TYPED, ErrorHandler.getNumberKeyEventHandler());
         okBtn.setOnAction(e -> {
             //@todo idiot proof the number values
             ok = true;
             comp.setFile(fileName);
             comp.setFileURL(filePath);
-            comp.setLength(Integer.parseInt(lengthField.getText()));
-            comp.setWidth(Integer.parseInt(widthField.getText()));
+
+            if (lengthField.getText().isEmpty()) {
+                comp.setLength(0);
+            } else {
+                comp.setLength(Integer.parseInt(lengthField.getText()));
+            }
+
+            if (widthField.getText().isEmpty()) {
+                comp.setWidth(0);
+            } else {
+                comp.setWidth(Integer.parseInt(widthField.getText()));
+            }
+
             caption = captionField.getText();
             comp.setCaption(caption);
             this.hide();
