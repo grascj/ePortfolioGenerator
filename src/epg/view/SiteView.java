@@ -58,8 +58,8 @@ public class SiteView extends GridPane {
 
     public void updateFolder() {
              
-        if(new File(currentfolder).exists())
-            SiteBuilder.destroy(new File(currentfolder));
+        for(File f : new File(CURRENTVIEW_FOLDER).listFiles())
+            SiteBuilder.destroy(f);
         
         currentfolder += "a";
         
