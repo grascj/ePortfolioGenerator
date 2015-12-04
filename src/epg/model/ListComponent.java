@@ -27,6 +27,7 @@ import javax.json.JsonObjectBuilder;
  */
 public class ListComponent extends TextComponent {
 
+    //@todo hyperlinks
     static COMPONENTS type = COMPONENTS.LIST;
 
     ArrayList<Item> listItems;
@@ -49,24 +50,20 @@ public class ListComponent extends TextComponent {
         this.listItems = listItems;
     }
 
-    
-    
     public ListComponent(JsonObject compJSON) {
         super(FONT.values()[compJSON.getInt(JSON_FONT_TYPE)], compJSON.getInt(JSON_FONT_SIZE));
-        
+
         listItems = new ArrayList<Item>();
-        
+
         JsonArray itemsJSON = compJSON.getJsonArray(JSON_ITEMS);
-        
-        for(int i = 0; i < itemsJSON.size(); i++)
-        {
+
+        for (int i = 0; i < itemsJSON.size(); i++) {
             listItems.add(new Item(itemsJSON.getString(i, JSON_TEXT)));
         }
     }
-    
-        @Override
-    public void editPrompt()
-    {
+
+    @Override
+    public void editPrompt() {
         new ListPrompt(this);
     }
 
@@ -76,16 +73,14 @@ public class ListComponent extends TextComponent {
                 .add(JSON_TYPE, type.ordinal())
                 .add(JSON_FONT_TYPE, this.font.ordinal())
                 .add(JSON_FONT_SIZE, this.fontSize);
-                
-        
+
         JsonArrayBuilder items = Json.createArrayBuilder();
-        for(Item item : listItems)
-        {
+        for (Item item : listItems) {
             JsonObject itemJSON = Json.createObjectBuilder()
                     .add(JSON_TEXT, item.itemtext).build();
             items.add(itemJSON);
         }
-        
+
         comp.add(JSON_ITEMS, items);
         return comp.build();
     }

@@ -1,0 +1,46 @@
+
+{
+    "name":"test",
+    "filename":"test",
+    "pages":[
+        {
+            "font":1,
+            "layout":0,
+            "colors":3,
+            "bannerurl":"",
+            "banner":"",
+            "footer":"",
+            "title":"test",
+            "components":[
+            ],
+            "slideshows":[
+            ]
+        },
+        {
+            "font":1,
+            "layout":0,
+            "colors":3,
+            "bannerurl":"",
+            "banner":"",
+            "footer":"",
+            "title":"",
+            "components":[
+            ],
+            "slideshows":[
+            ]
+        },
+        {
+            "font":1,
+            "layout":0,
+            "colors":3,
+            "bannerurl":"",
+            "banner":"",
+            "footer":"",
+            "title":"",
+            "components":[
+            ],
+            "slideshows":[
+            ]
+        }
+    ]
+}

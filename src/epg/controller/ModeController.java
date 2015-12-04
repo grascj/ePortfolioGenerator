@@ -5,6 +5,7 @@
  */
 package epg.controller;
 
+import epg.error.ErrorHandler;
 import epg.view.PortfolioView;
 
 /**
@@ -12,10 +13,10 @@ import epg.view.PortfolioView;
  * @author cgmp
  */
 public class ModeController {
+
     PortfolioView pv;
-    
-    public ModeController(PortfolioView pv)
-    {
+
+    public ModeController(PortfolioView pv) {
         this.pv = pv;
     }
 
@@ -24,13 +25,10 @@ public class ModeController {
     }
 
     public void handleEditMode() {
-        pv.loadSiteView();
-        pv.editMode();
-        
+        if (ErrorHandler.isValidPortfolio(pv.getPortfolio())) {
+            pv.loadSiteView();
+            pv.editMode();
+        }
     }
-    
-    
-    
-    
-    
+
 }

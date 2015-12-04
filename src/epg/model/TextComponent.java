@@ -18,7 +18,6 @@ public abstract class TextComponent extends Component{
     FONT font;    
     int fontSize;
     
-    //@TODO need clarifications
     public TextComponent(FONT font, int fontSize) {
         super(300, 300);
         this.font = font;

@@ -7,6 +7,7 @@ package epg.controller;
 
 import static epg.ProgramConstants.PATH_SAVES;
 import static epg.ProgramConstants.PATH_SITES;
+import epg.error.ErrorHandler;
 import epg.file.JsonCreator;
 import epg.file.SiteBuilder;
 import epg.model.Portfolio;
@@ -63,16 +64,17 @@ public class FileController {
     }
 
     public void handleExport() {
-        try {
-            if (!pv.getPortfolio().getStudentName().equals("")) {
-                SiteBuilder.buildSite(pv.getPortfolio(), PATH_SITES + pv.getPortfolio().getStudentName().replaceAll(" ", "_"));
-            } else {
-                SiteBuilder.buildSite(pv.getPortfolio(), PATH_SITES + "newsite");
+        if (ErrorHandler.isValidPortfolio(pv.getPortfolio())) {
+            try {
+                if (!pv.getPortfolio().getStudentName().equals("")) {
+                    SiteBuilder.buildSite(pv.getPortfolio(), PATH_SITES + pv.getPortfolio().getStudentName().replaceAll(" ", "_"));
+                } else {
+                    SiteBuilder.buildSite(pv.getPortfolio(), PATH_SITES + "newsite");
+                }
+                pv.exported();
+            } catch (IOException ex) {
+                Logger.getLogger(FileController.class.getName()).log(Level.SEVERE, null, ex);
             }
-            pv.exported();
-
-        } catch (IOException ex) {
-            Logger.getLogger(FileController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 

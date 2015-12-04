@@ -93,7 +93,6 @@ public class SiteBuilder {
     }
 
     
-    //@todo two pages with same name causes issues, fix it.
     public static void recursiveCopy(File source, File target) throws IOException {
         if (source.isDirectory() && source.list().length > 0) {
             for (File a : source.listFiles()) {

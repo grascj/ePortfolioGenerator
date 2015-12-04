@@ -1,0 +1,27 @@
+@import url(https://fonts.googleapis.com/css?family=Fjalla+One|Bree+Serif|Muli|Vollkorn|Inconsolata);
+
+.Fjalla_One {font-family:"Fjalla One"}
+
+
+.Bree_Serif {font-family:"Bree Serif"}
+
+
+.Muli {font-family:"Muli";}
+
+
+.Vollkorn {font-family:"Vollkorn";}
+
+
+.Inconsolata {font-family:"Inconsolata";}
+
+
+h1, .selectedpagelink 
+{
+    font-size:36px;
+}
+
+p, a 
+{
+    font-size:18px;
+}
+
