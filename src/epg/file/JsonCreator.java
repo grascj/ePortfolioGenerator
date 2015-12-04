@@ -6,7 +6,6 @@ import static epg.ProgramConstants.COMPONENTS.HEADER;
 import epg.ProgramConstants.FONT;
 import epg.ProgramConstants.LAYOUT;
 import static epg.ProgramConstants.PATH_SAVES;
-import static epg.ProgramConstants.PATH_SITES;
 import epg.model.Component;
 import epg.model.HeaderComponent;
 import epg.model.ImageComponent;
@@ -32,7 +31,6 @@ import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.io.PrintWriter;
 import java.io.StringWriter;
-import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.Map;
 import javax.json.JsonObjectBuilder;
@@ -87,7 +85,7 @@ public class JsonCreator {
     public static String JSON_IMAGES = "images";
     public static String JSON_CAPTIONS = "captions";
     public static String JSON_UPDATER = "updater";
-    
+
     public static String JSON_EXT = ".json";
     public static String SLASH = "/";
 
@@ -297,7 +295,7 @@ public class JsonCreator {
                 .add(JSON_COLORS, page.getColors().ordinal())
                 .add(JSON_BANNER, page.getBanner())
                 .add(JSON_FOOTER, page.getFooter())
-                .add(JSON_NAVBAR, makeNavbarHTML(portfolio.getPages()))
+                .add(JSON_NAVBAR, makeNavbarHTML(portfolio.getPages(), page))
                 .add(JSON_COMPONENTS, makeComponentHTML(page.getComponents()))
                 .add(JSON_SLIDESHOWS, makeSlideShowData(page.getSlideshows()))
                 .build();
@@ -305,12 +303,15 @@ public class JsonCreator {
         writeToFile(jsonFilePath, data);
     }
 
-    //@todo make current stick out
-    static private JsonArray makeNavbarHTML(ArrayList<Page> pages) {
+    static private JsonArray makeNavbarHTML(ArrayList<Page> pages, Page currentpage) {
         JsonArrayBuilder navbar = Json.createArrayBuilder();
         //make a link for each page to use in the navbar
         for (Page page : pages) {
-            navbar.add(HTMLWorker.navBarBuilderHTML(page));
+            if (page == currentpage) {
+                navbar.add(HTMLWorker.navBarBuilderHTML(page, true));
+            } else {
+                navbar.add(HTMLWorker.navBarBuilderHTML(page, false));
+            }
         }
         return navbar.build();
     }

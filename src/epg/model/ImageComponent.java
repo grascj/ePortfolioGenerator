@@ -39,7 +39,6 @@ public class ImageComponent extends Component {
     String file;
     String caption;
 
-    //@todo FLOAT LEFT OR RIGHT
     public ImageComponent(int width, int length, String imageURL, String file, String caption, FLOAT floater) {
         super(width, length);
         this.floater = floater;

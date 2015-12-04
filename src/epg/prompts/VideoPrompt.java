@@ -141,7 +141,6 @@ public class VideoPrompt extends Stage {
         widthField.addEventFilter(KeyEvent.KEY_TYPED, ErrorHandler.getNumberKeyEventHandler());
         lengthField.addEventFilter(KeyEvent.KEY_TYPED, ErrorHandler.getNumberKeyEventHandler());
         okBtn.setOnAction(e -> {
-            //@todo idiot proof the number values
             ok = true;
             comp.setFile(fileName);
             comp.setFileURL(filePath);

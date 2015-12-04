@@ -40,7 +40,7 @@ public class SlideShowComponent extends Component {
     }
 
     public SlideShowComponent(int numSlideShow) {
-        super(200, 200);
+        super(400, 400);
         this.numSlideShow = numSlideShow;
         slideshow = new SlideShow();
         slideshow.title = "";

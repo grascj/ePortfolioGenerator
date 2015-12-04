@@ -5,7 +5,6 @@
  */
 package epg.file;
 
-import static epg.ProgramConstants.PATH_SITES;
 import epg.model.Component;
 import epg.model.Page;
 import epg.model.Portfolio;
@@ -27,7 +26,6 @@ public class SiteBuilder {
     }
 
     public static String buildSite(Portfolio portfolio, String location) throws IOException {
-     
 
         //delete possible stuff
         destroy(new File(location));
@@ -38,7 +36,7 @@ public class SiteBuilder {
 
         //use HTMLWorker to create the pagedata
         //first page url
-        return  location;
+        return location;
     }
 
     public static void destroy(File fileToKill) {
@@ -66,7 +64,6 @@ public class SiteBuilder {
             pageFolder.mkdir();
 
             /*copy page goodies into folder*/
-
             //copy html and make media folder
             recursiveCopy(new File(TEMPLATE + "/page/").getAbsoluteFile(), pageFolder.getAbsoluteFile());
 
@@ -86,10 +83,8 @@ public class SiteBuilder {
                     }
                 }
             }
-            
-            
-            
-                        //make pagedata
+
+            //make pagedata
             JsonCreator.makePageData(portfolio, page, nameFolder + SLASH + page.getTitle() + SLASH + "pagedata.json");
 
         }
@@ -97,6 +92,8 @@ public class SiteBuilder {
         return true;
     }
 
+    
+    //@todo two pages with same name causes issues, fix it.
     public static void recursiveCopy(File source, File target) throws IOException {
         if (source.isDirectory() && source.list().length > 0) {
             for (File a : source.listFiles()) {

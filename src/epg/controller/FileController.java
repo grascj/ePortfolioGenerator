@@ -26,8 +26,6 @@ public class FileController {
 
     PortfolioView pv;
 
-    //@todo idiot proof and disable button sometimes
-    //I think enums are the way to go, use enums -> have an update function
     public FileController(PortfolioView pv) {
         this.pv = pv;
     }
