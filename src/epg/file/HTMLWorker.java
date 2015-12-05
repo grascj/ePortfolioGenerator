@@ -134,8 +134,18 @@ public class HTMLWorker {
         String html = O_DIV + "\n"
                 + O_LIST + O_FONT_TYPE + comp.getFont().toString() + " list" + E_FONT_TYPE + O_FONT_SIZE + comp.getFontSize() + E_FONT_SIZE + C_LIST + "\n";
 
+        String o_e = "</a>";
+
         for (Item item : comp.getListItems()) {
-            html += O_ITEM + item.itemtext + E_ITEM + "\n";
+            html += O_ITEM;
+
+            String text = item.itemtext;
+            for (Hyperlink link : item.links) {
+                String o_s = "<a href=\"" + link.url + "\" class=\"" + comp.getFont().toString() + ";\" style=\"font-size:" + comp.getFontSize() + "px;\" >";
+                text = text.substring(0, link.range.getStart()) + o_s + link.txt + o_e + text.substring(link.range.getEnd());
+            }
+
+            html += text + E_ITEM + "\n";
         }
         html += E_LIST + "\n"
                 + E_DIV + "\n";

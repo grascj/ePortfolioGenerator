@@ -11,7 +11,7 @@
         "<a href=\"../Untitled Page/index.html\" class=\"pagelink selectedpagelink\">Untitled Page</a>"
     ],
     "components":[
-        "<div class=\"compdiv\">\n<p class=\"comp Bree_Serif paragraph\" style=\"font-size:12px;\">test <a href=\"http://myleftear.com\" class=\"Bree_Serif;\" style=\"font-size:12px;\" >test</a></p>\n</div>"
+        "<div class=\"compdiv\">\n<ul class=\"comp Bree_Serif list\" style=\"font-size:18px;\">\n<li>test <a href=\"http://www.youtube.com\" class=\"Bree_Serif;\" style=\"font-size:18px;\" >test2</a></li>\n<li></li>\n</ul>\n</div>\n"
     ],
     "slideshows":[
     ]

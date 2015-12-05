@@ -1,6 +1,6 @@
 
 {
-    "name":"test",
+    "name":"chris",
     "filename":"test",
     "pages":[
         {
@@ -13,22 +13,25 @@
             "title":"Untitled Page",
             "components":[
                 {
-                    "type":3,
-                    "fpnt_type":2,
-                    "font_size":2,
-                    "text":"test 1 2 people",
-                    "links":[
+                    "type":2,
+                    "fpnt_type":1,
+                    "font_size":18,
+                    "items":[
                         {
-                            "txt":"people",
-                            "url":"",
-                            "start":9,
-                            "end":15
+                            "text":"test test2",
+                            "links":[
+                                {
+                                    "txt":"test2",
+                                    "url":"http://www.youtube.com",
+                                    "start":5,
+                                    "end":10
+                                }
+                            ]
                         },
                         {
-                            "txt":"test",
-                            "url":"",
-                            "start":0,
-                            "end":4
+                            "text":"",
+                            "links":[
+                            ]
                         }
                     ]
                 }

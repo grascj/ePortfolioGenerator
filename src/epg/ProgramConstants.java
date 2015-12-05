@@ -113,7 +113,8 @@ public class ProgramConstants {
     public static String ICON_CHOOSE = PATH_ICONS + "choose.png";
     public static String ICON_FOOTER = PATH_ICONS + "footer.png";
     public static String ICON_SAVEAS = PATH_ICONS + "save-as.png";
-
+    public static String ICON_PAPERCLIP = PATH_ICONS + "paperclip.png";
+    
     //TOOLTIPS
     public static String TT_FILE_NEW = "Open a new Portfolio.";
     public static String TT_FILE_LOAD = "Load a new Portfolio.";

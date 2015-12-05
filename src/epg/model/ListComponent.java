@@ -14,7 +14,9 @@ import static epg.file.JsonCreator.JSON_ITEMS;
 import static epg.file.JsonCreator.JSON_TEXT;
 import static epg.file.JsonCreator.JSON_TYPE;
 import epg.prompts.ListPrompt;
+import java.math.BigDecimal;
 import java.util.ArrayList;
+import javafx.scene.control.IndexRange;
 import javax.json.Json;
 import javax.json.JsonArray;
 import javax.json.JsonArrayBuilder;
@@ -27,7 +29,6 @@ import javax.json.JsonObjectBuilder;
  */
 public class ListComponent extends TextComponent {
 
-    //@todo hyperlinks
     static COMPONENTS type = COMPONENTS.LIST;
 
     ArrayList<Item> listItems;
@@ -38,7 +39,7 @@ public class ListComponent extends TextComponent {
     }
 
     public ListComponent() {
-        super(FONT.Bree_Serif, 12);
+        super(FONT.Bree_Serif, 18);
         listItems = new ArrayList<Item>();
     }
 
@@ -58,7 +59,18 @@ public class ListComponent extends TextComponent {
         JsonArray itemsJSON = compJSON.getJsonArray(JSON_ITEMS);
 
         for (int i = 0; i < itemsJSON.size(); i++) {
-            listItems.add(new Item(itemsJSON.getString(i, JSON_TEXT)));
+            JsonObject item = itemsJSON.getJsonObject(i);
+            JsonArray linksJSON = item.getJsonArray("links");
+            ArrayList<Hyperlink> links = new ArrayList<Hyperlink>();
+            for (int k = 0; k < linksJSON.size(); k++) {
+                JsonObject b = linksJSON.getJsonObject(k);
+                IndexRange c = new IndexRange(b.getInt("start"), b.getInt("end"));
+                String txt = b.getString("txt");
+                String url = b.getString("url");
+                links.add(new Hyperlink(c, txt, url));
+            }
+            
+            listItems.add(new Item(item.getString(JSON_TEXT), links));
         }
     }
 
@@ -76,8 +88,21 @@ public class ListComponent extends TextComponent {
 
         JsonArrayBuilder items = Json.createArrayBuilder();
         for (Item item : listItems) {
-            JsonObject itemJSON = Json.createObjectBuilder()
-                    .add(JSON_TEXT, item.itemtext).build();
+            JsonObjectBuilder itemJSON = Json.createObjectBuilder()
+                    .add(JSON_TEXT, item.itemtext);
+
+            JsonArrayBuilder linksJSON = Json.createArrayBuilder();
+            for (int i = 0; i < item.links.size(); i++) {
+                JsonObject a = Json.createObjectBuilder()
+                        .add("txt", item.links.get(i).txt)
+                        .add("url", item.links.get(i).url)
+                        .add("start", item.links.get(i).range.getStart())
+                        .add("end", item.links.get(i).range.getEnd())
+                        .build();
+                linksJSON.add(a);
+            }
+            itemJSON.add("links", linksJSON);
+
             items.add(itemJSON);
         }
 

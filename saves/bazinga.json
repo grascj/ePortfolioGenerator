@@ -1,0 +1,146 @@
+
+{
+    "name":"chris grasing",
+    "filename":"bazinga",
+    "pages":[
+        {
+            "font":1,
+            "layout":0,
+            "colors":3,
+            "bannerurl":"",
+            "banner":"",
+            "footer":"this is a dumb ebpage",
+            "title":"page1",
+            "components":[
+                {
+                    "type":1,
+                    "width":200,
+                    "height":200,
+                    "caption":"minus sign",
+                    "file":"minus.png",
+                    "file_url":"/Users/cgmp/Desktop/minus.png",
+                    "floater":2
+                }
+            ],
+            "slideshows":[
+            ]
+        },
+        {
+            "font":1,
+            "layout":0,
+            "colors":3,
+            "bannerurl":"",
+            "banner":"",
+            "footer":"I love random videos",
+            "title":"videos",
+            "components":[
+                {
+                    "type":1,
+                    "width":200,
+                    "height":200,
+                    "caption":"lol",
+                    "file":"glyphicons-199-ok.png",
+                    "file_url":"/Users/cgmp/Desktop/glyphicons-199-ok.png",
+                    "floater":1
+                },
+                {
+                    "type":0,
+                    "text":"BAZINGA",
+                    "fpnt_type":1,
+                    "font_size":36
+                },
+                {
+                    "type":5,
+                    "width":200,
+                    "height":200,
+                    "caption":"billy boy",
+                    "file":"bill_jumping.mp4",
+                    "file_url":"/Users/cgmp/Desktop/goodPortfolioStuff/bill_jumping.mp4"
+                },
+                {
+                    "type":5,
+                    "width":200,
+                    "height":200,
+                    "caption":"emperor cruise",
+                    "file":"emperor_cruise.mp4",
+                    "file_url":"/Users/cgmp/Desktop/goodPortfolioStuff/emperor_cruise.mp4"
+                }
+            ],
+            "slideshows":[
+            ]
+        },
+        {
+            "font":1,
+            "layout":0,
+            "colors":3,
+            "bannerurl":"",
+            "banner":"",
+            "footer":"bazinga",
+            "title":"work slideshow",
+            "components":[
+                {
+                    "type":4,
+                    "width":400,
+                    "height":400,
+                    "numSlideShow":0,
+                    "slideshow":{
+                        "title":"This is a slide show",
+                        "slides":[
+                            {
+                                "caption":"page",
+                                "file":"glyphicons-37-file.png",
+                                "file_url":"/Users/cgmp/Desktop/glyphicons-37-file.png"
+                            },
+                            {
+                                "caption":"check",
+                                "file":"glyphicons-199-ok.png",
+                                "file_url":"/Users/cgmp/Desktop/glyphicons-199-ok.png"
+                            },
+                            {
+                                "caption":"plus sign lol",
+                                "file":"plus.png",
+                                "file_url":"/Users/cgmp/Desktop/plus.png"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "type":3,
+                    "fpnt_type":1,
+                    "font_size":18,
+                    "text":"As you can see im a very busy man I have tons of work to do and i suck at making websites",
+                    "links":[
+                        {
+                            "txt":"websites",
+                            "url":"www.wikipedia.org",
+                            "start":81,
+                            "end":89
+                        }
+                    ]
+                }
+            ],
+            "slideshows":[
+                {
+                    "title":"This is a slide show",
+                    "slides":[
+                        {
+                            "caption":"page",
+                            "file":"glyphicons-37-file.png",
+                            "file_url":"/Users/cgmp/Desktop/glyphicons-37-file.png"
+                        },
+                        {
+                            "caption":"check",
+                            "file":"glyphicons-199-ok.png",
+                            "file_url":"/Users/cgmp/Desktop/glyphicons-199-ok.png"
+                        },
+                        {
+                            "caption":"plus sign lol",
+                            "file":"plus.png",
+                            "file_url":"/Users/cgmp/Desktop/plus.png"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

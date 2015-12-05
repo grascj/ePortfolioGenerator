@@ -156,7 +156,6 @@ public class ParagraphPrompt extends Stage {
             comp.setFontSize(fb.getFontSize());
             comp.setText(paraText.getText());
             comp.setLinks(links);
-            //@todo check if all links exist
             ChangeController.wasChanged();
             this.hide();
         });
@@ -191,7 +190,6 @@ public class ParagraphPrompt extends Stage {
     }
 
     public void makeHyperlink() {
-        //@todo stop empty links
         if (!paraText.getSelectedText().trim().equals("")) {
             Hyperlink newlink = new Hyperlink(paraText.getSelection(), paraText.getSelectedText(), "");
             if (!checkOverlap(newlink)) {

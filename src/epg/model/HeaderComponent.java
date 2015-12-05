@@ -33,7 +33,7 @@ public class HeaderComponent extends TextComponent {
     }
 
     public HeaderComponent() {
-        super(FONT.Bree_Serif, 16);
+        super(FONT.Bree_Serif, 36);
         this.text = "";
     }
 

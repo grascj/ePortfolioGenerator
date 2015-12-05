@@ -39,7 +39,7 @@ public class ParagraphComponent extends TextComponent {
     }
 
     public ParagraphComponent() {
-        super(FONT.Bree_Serif, 12);
+        super(FONT.Bree_Serif, 18);
         this.links = new ArrayList<Hyperlink>();
         this.text = "";
     }
