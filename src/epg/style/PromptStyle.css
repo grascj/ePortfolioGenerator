@@ -90,6 +90,15 @@ and open the template in the editor.
     -fx-fit-to-height: true;
 }
 
+.nucontainer
+{
+    -fx-max-height: Infinity;
+    -fx-max-width: Infinity;
+    -fx-fit-to-width: false;
+    -fx-fit-to-height: false;
+
+}
+
 .container_nospacing
 {
     -fx-max-height: Infinity;
@@ -97,7 +106,7 @@ and open the template in the editor.
     -fx-fit-to-width: true;
     -fx-fit-to-height: true;
     -fx-spacing: 2px;
-    
+
 }
 
 //SLIDESHOW

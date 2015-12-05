@@ -5,19 +5,26 @@
  */
 package epg.model;
 
+import javafx.scene.control.IndexRange;
+
 /**
  *
  * @author cgmp
  */
     public class Hyperlink
     {
-        public int start;
-        public int end;
-        public String link;
-        public Hyperlink(int start, int end, String link)
+        public IndexRange range;
+        public String txt;
+        public String url;
+        public Hyperlink(IndexRange range, String link, String url)
         {
-            this.start = start;
-            this.end = end;
-            this.link = link;
+            this.range = range;
+            this.txt = link;
+            this.url = url;
+        }
+        
+        public Hyperlink copy()
+        {
+            return new Hyperlink(range, txt, url);
         }
     }

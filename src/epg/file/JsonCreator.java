@@ -217,7 +217,6 @@ public class JsonCreator {
         if (compsJSON != null) {
             for (int i = 0; i < compsJSON.size(); i++) {
                 JsonObject cJSON = compsJSON.getJsonObject(i);
-
                 switch (COMPONENTS.values()[cJSON.getInt(JSON_TYPE)]) {
                     case HEADER:
                         comps.add(new HeaderComponent(cJSON));

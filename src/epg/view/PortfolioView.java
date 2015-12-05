@@ -98,7 +98,6 @@ public class PortfolioView {
 
         primaryScene = new Scene(uiPositioner);
         primaryScene.getStylesheets().add(PATH_STYLESHEET);
-        System.out.println(primaryScene.getStylesheets());
         this.primaryStage.setScene(primaryScene);
         this.primaryStage.show();
     }
@@ -189,7 +188,6 @@ public class PortfolioView {
     }
 
     public void updateFileToolbar() {
-
         fileTB.exportButton.setDisable(exported);
         fileTB.saveButton.setDisable(saved);
         fileTB.newButton.setDisable(newportfolio);
