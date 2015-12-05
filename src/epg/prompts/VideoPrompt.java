@@ -13,6 +13,7 @@ import static epg.ProgramConstants.ICON_CHOOSE;
 import static epg.ProgramConstants.PATH_PROMPTSTYLESHEET;
 import static epg.ProgramConstants.TT_CHOOSE;
 import static epg.ProgramConstants.TT_OK;
+import epg.controller.ChangeController;
 import epg.error.ErrorHandler;
 import epg.model.VideoComponent;
 import static epg.view.ViewHelper.initChildButton;
@@ -159,6 +160,7 @@ public class VideoPrompt extends Stage {
 
             caption = captionField.getText();
             comp.setCaption(caption);
+            ChangeController.wasChanged();
             this.hide();
         });
         pickFile.setOnAction(e -> {

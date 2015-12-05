@@ -196,4 +196,11 @@ public class PortfolioView {
         fileTB.saveAsButton.setDisable(newportfolio);
     }
 
+    public boolean isSaved() {
+        return saved;
+    }
+
+    
+    
+    
 }

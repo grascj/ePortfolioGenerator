@@ -89,15 +89,7 @@ public class JsonCreator {
     public static String JSON_EXT = ".json";
     public static String SLASH = "/";
 
-    /**
-     * This method saves all the data associated with a slide show to a JSON
-     * file.
-     *
-     * @param slideShowToSave The course whose data we are saving.
-     *
-     * @throws IOException Thrown when there are issues writing to the JSON
-     * file.
-     */
+
 /////////////////////SAVING///////////SAVING////////////////////////////////////////////////    
     static public void savePortfolio(Portfolio portfolioToSave) throws IOException {
         //going to need a jsonhelper method in each component to keep polymorphism going
@@ -105,10 +97,6 @@ public class JsonCreator {
         //portfolio data
         //component array -> data for each via polymorphism
         //write to file
-
-        if (portfolioToSave.getFileName().equals("")) {
-            portfolioToSave.setFileName(portfolioToSave.getStudentName().replaceAll(" ", "_"));
-        }
 
         JsonObject portfolioJSON = Json.createObjectBuilder()
                 .add(JSON_NAME, portfolioToSave.getStudentName())

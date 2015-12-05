@@ -15,6 +15,7 @@ import static epg.ProgramConstants.PATH_PROMPTSTYLESHEET;
 import static epg.ProgramConstants.TT_LIST_ADD;
 import static epg.ProgramConstants.TT_LIST_RM;
 import static epg.ProgramConstants.TT_OK;
+import epg.controller.ChangeController;
 import epg.model.Item;
 import epg.model.ListComponent;
 import static epg.view.ViewHelper.initChildButton;
@@ -126,6 +127,7 @@ public class ListPrompt extends Stage {
             ok = true;
             comp.setFont(fb.getFontType());
             comp.setFontSize(fb.getFontSize());
+            ChangeController.wasChanged();
             this.hide();
         });
 

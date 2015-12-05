@@ -1,0 +1,33 @@
+
+{
+    "name":"",
+    "filename":"buttslol",
+    "pages":[
+        {
+            "font":1,
+            "layout":0,
+            "colors":3,
+            "bannerurl":"",
+            "banner":"",
+            "footer":"",
+            "title":"Untitled Page",
+            "components":[
+            ],
+            "slideshows":[
+            ]
+        },
+        {
+            "font":1,
+            "layout":0,
+            "colors":3,
+            "bannerurl":"",
+            "banner":"",
+            "footer":"",
+            "title":"Untitled Page",
+            "components":[
+            ],
+            "slideshows":[
+            ]
+        }
+    ]
+}

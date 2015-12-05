@@ -36,8 +36,8 @@ public class SaveAsPrompt extends Stage {
 
     boolean ok;
 
-    public SaveAsPrompt(Portfolio portfolio) {
-        this.setTitle("Enter File Name");
+    public SaveAsPrompt(Portfolio portfolio, String title, String label) {
+        this.setTitle(title);
         initModality(Modality.APPLICATION_MODAL);
 
         ok = false;
@@ -45,7 +45,7 @@ public class SaveAsPrompt extends Stage {
 
         uicontainer = new BorderPane();
         container = new VBox();
-        fileLabel = new Label("Enter the new File Name:");
+        fileLabel = new Label(label);
         fileText = new TextField();
         okayBtn = initChildButton(CSS_OK_BUTTON, ICON_CHECK, TT_OK);
         okayBtn.setOnAction(e -> {

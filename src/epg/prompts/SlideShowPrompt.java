@@ -21,6 +21,7 @@ import static epg.ProgramConstants.TT_SS_ADD;
 import static epg.ProgramConstants.TT_SS_DOWN;
 import static epg.ProgramConstants.TT_SS_RM;
 import static epg.ProgramConstants.TT_SS_UP;
+import epg.controller.ChangeController;
 import epg.model.Slide;
 import epg.model.SlideShow;
 import epg.model.SlideShowComponent;
@@ -136,6 +137,7 @@ public class SlideShowPrompt extends Stage {
             ss.title = titleField.getText();
             ok = true;
             comp.setslideshow(ss);
+            ChangeController.wasChanged();
             this.hide();
         });
 

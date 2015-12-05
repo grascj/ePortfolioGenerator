@@ -10,6 +10,7 @@ import static epg.ProgramConstants.CSS_OK_BUTTON;
 import static epg.ProgramConstants.ICON_CHECK;
 import static epg.ProgramConstants.PATH_PROMPTSTYLESHEET;
 import static epg.ProgramConstants.TT_OK;
+import epg.controller.ChangeController;
 import epg.model.HeaderComponent;
 import static epg.view.ViewHelper.initChildButton;
 import javafx.scene.Scene;
@@ -57,6 +58,7 @@ public class HeaderPrompt extends Stage {
             this.comp.setText(headerText.getText());
             this.comp.setFont(fb.getFontType());
             this.comp.setFontSize(fb.getFontSize());
+            ChangeController.wasChanged();
             this.hide();
         });
         headercontainer.getChildren().addAll(headerLabel, headerText);

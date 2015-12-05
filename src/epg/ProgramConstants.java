@@ -156,7 +156,8 @@ public class ProgramConstants {
     public static String TT_LIST_RM = "Remove an item.";
     public static String TT_OK = "Done editing.";
     public static String TT_CHOOSE = "Choose File.";
-    
+    public static String TT_SAVE = "Save portfolio.";
+    public static String TT_DONT_SAVE = "Do not save portfolio.";
     
     
 }

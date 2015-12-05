@@ -15,8 +15,11 @@ import static epg.ProgramConstants.ICON_MINUS;
 import static epg.ProgramConstants.ICON_PLUS;
 import static epg.ProgramConstants.PATH_PROMPTSTYLESHEET;
 import static epg.ProgramConstants.TT_OK;
+import epg.controller.ChangeController;
+import epg.model.Hyperlink;
 import epg.model.ParagraphComponent;
 import static epg.view.ViewHelper.initChildButton;
+import java.util.ArrayList;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -48,41 +51,33 @@ public class ParagraphPrompt extends Stage {
     HBox linkbuttoncontainer;
     Button addLink;
     Button rmLink;
-    
+
     ScrollPane scrollLinks;
     VBox linkcontainer;
-    
-    
+
     //data
     ParagraphComponent comp;
+    String text;
+    ArrayList<Hyperlink> links;
     boolean ok;
 
-    
-    
-    public class LinkBox extends HBox
-    {
+    public class LinkBox extends HBox {
+
         Label text;
         Label url;
         TextField urlField;
-        public LinkBox(String text)
-        {
+
+        public LinkBox(String text) {
             this.text = new Label(text);
             url = new Label("     Enter URL: ");
             urlField = new TextField();
-            
-            this.getChildren().addAll(this.text,url,urlField);
+
+            this.getChildren().addAll(this.text, url, urlField);
             this.setStyle("-fx-padding: 10px; -fx-alignment: center;");
         }
-        
-        
+
     }
-    
-    
-    
-    
-    
-    
-    
+
     public ParagraphPrompt(ParagraphComponent comp) {
         this.setTitle("Add Paragraph");
         initModality(Modality.APPLICATION_MODAL);
@@ -97,7 +92,7 @@ public class ParagraphPrompt extends Stage {
         uipositioner.getStyleClass().add(CSS_CONTAINER);
         fb.getStyleClass().add(CSS_CONTAINER);
         paragraphcontainer.getStyleClass().add(CSS_CONTAINER);
-        Scene promptbody = new Scene(uipositioner, 400, 600);
+        Scene promptbody = new Scene(uipositioner, 550, 600);
         promptbody.getStylesheets().add(PATH_PROMPTSTYLESHEET);
         this.setScene(promptbody);
         this.showAndWait();
@@ -111,27 +106,25 @@ public class ParagraphPrompt extends Stage {
         paragraphcontainer = new VBox();
         paraLabel = new Label("Enter the text for the Paragraph:");
         paraText = new TextArea();
+        paraText.wrapTextProperty().set(true);
         paraText.setText(comp.getText());
         okayBtn = initChildButton(CSS_OK_BUTTON, ICON_CHECK, TT_OK);
-       
-        
-        
+
         addLink = initChildButton(CSS_PROMPT_BUTTON, ICON_PLUS, "Add Link.");
         rmLink = initChildButton(CSS_PROMPT_BUTTON, ICON_MINUS, "Remove Link.");
-        
+
         linkbuttoncontainer = new HBox();
         linkbuttoncontainer.getStyleClass().add(CSS_BUTTON_CONTAINER);
         linkbuttoncontainer.getChildren().addAll(addLink, rmLink);
-       
+
         linkcontainer = new VBox();
         scrollLinks = new ScrollPane(linkcontainer);
         linkcontainer.getStyleClass().add("container_nospacing");
-        
-        
+
         LinkBox test = new LinkBox("sample text");
         test.getStyleClass().add(CSS_SLIDE);
         linkcontainer.getChildren().add(test);
-        
+
     }
 
     private void initHandlers() {
@@ -140,6 +133,7 @@ public class ParagraphPrompt extends Stage {
             comp.setFont(fb.getFontType());
             comp.setFontSize(fb.getFontSize());
             comp.setText(paraText.getText());
+            ChangeController.wasChanged();
             this.hide();
         });
     }
@@ -150,7 +144,7 @@ public class ParagraphPrompt extends Stage {
 
         VBox center = new VBox();
         center.getChildren().addAll(paragraphcontainer, linkbuttoncontainer, linkcontainer);
-        
+
         uipositioner.setTop(fb);
         uipositioner.setCenter(center);
         uipositioner.setBottom(okayBtn);
@@ -164,8 +158,5 @@ public class ParagraphPrompt extends Stage {
     public String checkChanges() {
         return null;
     }
-    
-    
-     
 
 }

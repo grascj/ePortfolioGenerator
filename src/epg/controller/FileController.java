@@ -11,6 +11,7 @@ import epg.error.ErrorHandler;
 import epg.file.JsonCreator;
 import epg.file.SiteBuilder;
 import epg.model.Portfolio;
+import epg.prompts.PromptToSave;
 import epg.prompts.SaveAsPrompt;
 import epg.view.PortfolioView;
 import java.io.File;
@@ -31,13 +32,26 @@ public class FileController {
         this.pv = pv;
     }
 
+    
+    //@todo hide unless its being edited?
     public void handleNew() {
+        if (!pv.isSaved()) {
+            PromptToSave popup = new PromptToSave();
+            if (popup.isOk()) {
+                handleSave();
+            }
+        }
         pv.changePortfolio(new Portfolio());
         pv.newportfolio();
     }
 
     public void handleLoad() {
-
+        if (!pv.isSaved()) {
+            PromptToSave popup = new PromptToSave();
+            if (popup.isOk()) {
+                handleSave();
+            }
+        }
         FileChooser fileChooser = new FileChooser();
         fileChooser.getExtensionFilters().addAll(
                 new FileChooser.ExtensionFilter("JSON files", "*.json"));
@@ -55,11 +69,15 @@ public class FileController {
     }
 
     public void handleSave() {
-        try {
-            JsonCreator.savePortfolio(pv.getPortfolio());
-            pv.saved();
-        } catch (IOException ex) {
-            Logger.getLogger(FileController.class.getName()).log(Level.SEVERE, null, ex);
+        if (pv.getPortfolio().getFileName().equals("")) {
+            handleSaveAs();
+        } else {
+            try {
+                JsonCreator.savePortfolio(pv.getPortfolio());
+                pv.saved();
+            } catch (IOException ex) {
+                Logger.getLogger(FileController.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
     }
 
@@ -72,6 +90,8 @@ public class FileController {
                     SiteBuilder.buildSite(pv.getPortfolio(), PATH_SITES + "newsite");
                 }
                 pv.exported();
+                pv.loadSiteView();
+                pv.editMode();
             } catch (IOException ex) {
                 Logger.getLogger(FileController.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -79,11 +99,17 @@ public class FileController {
     }
 
     public void handleExit() {
+        if (!pv.isSaved()) {
+            PromptToSave popup = new PromptToSave();
+            if (popup.isOk()) {
+                handleSave();
+            }
+        }
         System.exit(0);
     }
 
     public void handleSaveAs() {
-        SaveAsPrompt a = new SaveAsPrompt(pv.getPortfolio());
+        SaveAsPrompt a = new SaveAsPrompt(pv.getPortfolio(), "Enter a File Name:", "Enter the new File Name:");
         if (a.isOk()) {
             handleSave();
         }

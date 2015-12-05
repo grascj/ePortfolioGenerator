@@ -86,7 +86,7 @@ public class PageViewController {
         if (popup.isOk()) {
             pe.getPage().getComponents().add(comp);
             pe.updatePage();
-            ChangeController.wasChanged();
+            //ChangeController.wasChanged();
         }
     }
 
@@ -107,7 +107,7 @@ public class PageViewController {
             if (flag) {
                 pe.getPage().getComponents().add(popup.getComp());
                 pe.updatePage();
-                ChangeController.wasChanged();
+                //ChangeController.wasChanged();
             }
         }
     }
@@ -119,7 +119,7 @@ public class PageViewController {
             pe.getPage().getComponents().add(comp);
             pe.getPage().getSlideshows().add(comp.getslideshow());
             pe.updatePage();
-            ChangeController.wasChanged();
+            //ChangeController.wasChanged();
         }
     }
 
@@ -129,7 +129,7 @@ public class PageViewController {
         if (popup.isOk()) {
             pe.getPage().getComponents().add(comp);
             pe.updatePage();
-            ChangeController.wasChanged();
+            //ChangeController.wasChanged();
         }
     }
 

@@ -1,7 +1,7 @@
 
 {
-    "name":"test",
-    "filename":"test",
+    "name":"wowwowowoowow",
+    "filename":"testpage",
     "pages":[
         {
             "font":1,
@@ -10,14 +10,8 @@
             "bannerurl":"",
             "banner":"",
             "footer":"",
-            "title":"test",
+            "title":"t",
             "components":[
-                {
-                    "type":0,
-                    "text":"test",
-                    "fpnt_type":1,
-                    "font_size":16
-                }
             ],
             "slideshows":[
             ]
