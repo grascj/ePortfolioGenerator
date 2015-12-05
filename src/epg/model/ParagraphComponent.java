@@ -106,4 +106,9 @@ public class ParagraphComponent extends TextComponent {
         return HTMLWorker.generateParagraphComponentHTML(this);
     }
 
+    @Override
+    public String getDisplayText() {
+        return "A Paragraph Component.";
+    }
+
 }

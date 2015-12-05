@@ -115,4 +115,9 @@ public class ListComponent extends TextComponent {
         return HTMLWorker.generateListComponentHTML(this);
     }
 
+    @Override
+    public String getDisplayText() {
+        return "A List Component.";
+    }
+
 }

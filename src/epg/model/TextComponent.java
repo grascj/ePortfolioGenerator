@@ -53,9 +53,4 @@ public abstract class TextComponent extends Component{
     public int getLength(){return -1;}
     
     
-    //@todo
-    @Override
-    public String getDisplayText() {
-        return "A Text Component which is: " + width + "px wide and " + height + "px tall. Font is " + font;
-    }    
 }

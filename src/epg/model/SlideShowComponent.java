@@ -107,7 +107,7 @@ public class SlideShowComponent extends Component {
 
     @Override
     public String getDisplayText() {
-        return "A Slide Show which is: " + width + "px wide and " + height + "px tall. The title is: " + slideshow.getTitle();
+        return "A Slideshow Component.";
     }
 
 }

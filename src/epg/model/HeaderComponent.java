@@ -78,4 +78,9 @@ public class HeaderComponent extends TextComponent {
         return HTMLWorker.generateHeaderComponentHTML(this);
     }
 
+    @Override
+    public String getDisplayText() {
+        return "A Header Component.";
+    }
+
 }

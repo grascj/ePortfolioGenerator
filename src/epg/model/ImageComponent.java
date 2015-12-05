@@ -143,7 +143,7 @@ public class ImageComponent extends Component {
 
     @Override
     public String getDisplayText() {
-        return "An Image which is: " + width + "px wide and " + height + "px tall. The image file is:" + file;
+        return "An Image Component.";
     }
 
 }

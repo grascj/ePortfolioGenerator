@@ -121,7 +121,7 @@ public class VideoComponent extends Component {
 
     @Override
     public String getDisplayText() {
-        return "A Video which is: " + width + "px wide and " + height + "px tall. The file name is: " + file;
+        return "A Video Component.";
     }
 
 }
