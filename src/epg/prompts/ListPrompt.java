@@ -55,7 +55,7 @@ public class ListPrompt extends Stage {
     boolean ok;
 
     public class ItemBox extends HBox {
-        
+
         TextField itemText;
         Item item;
 
@@ -70,7 +70,6 @@ public class ListPrompt extends Stage {
             });
             this.getChildren().add(itemText);
         }
-        
     }
 
     public ListPrompt(ListComponent comp) {
@@ -80,12 +79,10 @@ public class ListPrompt extends Stage {
         this.comp = comp;
 
         items = new ArrayList<Item>();
-        for(Item item : comp.getListItems())
-        {
+        for (Item item : comp.getListItems()) {
             items.add(item.copy());
         }
-        
-        
+
         ok = false;
 
         initUI();
@@ -111,10 +108,9 @@ public class ListPrompt extends Stage {
         listbuttoncontainer = new HBox();
         addBtn = initChildButton(CSS_PROMPT_BUTTON, ICON_PLUS, TT_LIST_ADD);
         rmBtn = initChildButton(CSS_PROMPT_BUTTON, ICON_MINUS, TT_LIST_RM);
-        
-        
+
         body = new VBox();
-        
+
         uicontainer.getStyleClass().add(CSS_CONTAINER);
         itemcontainer.getStyleClass().add("container_nospacing");
         itemScroll.getStyleClass().add(CSS_CONTAINER);

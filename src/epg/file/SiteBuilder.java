@@ -49,14 +49,11 @@ public class SiteBuilder {
     }
 
     public static boolean createDirectories(File nameFolder, Portfolio portfolio) throws IOException {
-
         //create the folder for the site
         boolean wot = nameFolder.getAbsoluteFile().mkdir();
-
         //copy the data template
         new File(nameFolder + "/data/").getAbsoluteFile().mkdir();
         recursiveCopy(new File(TEMPLATE + "/data/").getAbsoluteFile(), new File(nameFolder + "/data/").getAbsoluteFile());
-
         //make each page folder
         for (Page page : portfolio.getPages()) {
             //make page folder

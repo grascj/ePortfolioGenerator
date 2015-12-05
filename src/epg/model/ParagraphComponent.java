@@ -7,11 +7,11 @@ package epg.model;
 
 import epg.ProgramConstants.COMPONENTS;
 import epg.ProgramConstants.FONT;
+import epg.file.HTMLWorker;
 import static epg.file.JsonCreator.JSON_FONT_SIZE;
 import static epg.file.JsonCreator.JSON_FONT_TYPE;
 import static epg.file.JsonCreator.JSON_TEXT;
 import static epg.file.JsonCreator.JSON_TYPE;
-import static epg.model.ListComponent.type;
 import epg.prompts.ParagraphPrompt;
 import java.util.ArrayList;
 import javafx.scene.control.IndexRange;
@@ -71,7 +71,6 @@ public class ParagraphComponent extends TextComponent {
             IndexRange c = new IndexRange(b.getInt("start"), b.getInt("end"));
             String txt = b.getString("txt");
             String url = b.getString("url");
-
             links.add(new Hyperlink(c, txt, url));
         }
     }
@@ -87,9 +86,7 @@ public class ParagraphComponent extends TextComponent {
                 .add(JSON_TYPE, type.ordinal())
                 .add(JSON_FONT_TYPE, this.font.ordinal())
                 .add(JSON_FONT_SIZE, this.fontSize);
-
         comp.add("text", text);
-
         JsonArrayBuilder linkcollection = Json.createArrayBuilder();
         for (Hyperlink link : links) {
             JsonObject a = Json.createObjectBuilder()
@@ -101,13 +98,12 @@ public class ParagraphComponent extends TextComponent {
             linkcollection.add(a);
         }
         comp.add("links", linkcollection);
-
         return comp.build();
     }
 
     @Override
-    public String htmlify() {//@todo paragraph
-        return "A Paragraph";
+    public String htmlify() {
+        return HTMLWorker.generateParagraphComponentHTML(this);
     }
 
 }

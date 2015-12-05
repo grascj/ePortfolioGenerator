@@ -7,12 +7,15 @@ package epg.file;
 
 import epg.model.Component;
 import epg.model.HeaderComponent;
+import epg.model.Hyperlink;
 import epg.model.ImageComponent;
 import epg.model.Item;
 import epg.model.ListComponent;
 import epg.model.Page;
+import epg.model.ParagraphComponent;
 import epg.model.SlideShowComponent;
 import epg.model.VideoComponent;
+import static javafx.scene.input.KeyCode.E;
 
 /**
  *
@@ -39,6 +42,7 @@ public class HTMLWorker {
     public static final String O_VIDEO = "<video";
     public static final String E_VIDEO = " controls></video>";
     public static final String VIDEOTYPE = " type=\"video/mp4\"";
+
     //LINK
     public static final String O_LINK = "<a href=\"";
     public static final String C_LINK = ">";
@@ -55,6 +59,11 @@ public class HTMLWorker {
     public static final String E_LIST = "</ul>";
     public static final String O_ITEM = "<li>";
     public static final String E_ITEM = "</li>";
+
+    //PARAGRAPHS
+    public static final String O_PARA = "<p";
+    public static final String C_PARA = ">";
+    public static final String E_PARA = "</p>";
 
     //fonts
     public static final String O_FONT_SIZE = " style=\"font-size:";
@@ -110,7 +119,6 @@ public class HTMLWorker {
                 = O_DIV
                 + O_IMAGE + CLASS_COMP + makeSize(comp) + makeSrc(comp) + O_FLOAT + comp.getFloater().toString() + E_FLOAT + E_IMAGE
                 + E_DIV;
-
         return html;
     }
 
@@ -134,10 +142,22 @@ public class HTMLWorker {
         return html;
     }
 
-    //@todo paragraph BS
-    /*
-     public static String generateParagraphComponentHTML(ParagraphComponent comp) {
-     }*/
+    public static String generateParagraphComponentHTML(ParagraphComponent comp) {
+        String text = comp.getText();
+        String o_e = "</a>";
+
+        for (Hyperlink link : comp.getLinks()) {
+            String o_s = "<a href=\"" + link.url + "\" class=\"" + comp.getFont().toString() + ";\" style=\"font-size:" + comp.getFontSize() + "px;\" >";
+            text = text.substring(0, link.range.getStart()) + o_s + link.txt + o_e + text.substring(link.range.getEnd());
+        }
+
+        String html = O_DIV + "\n"
+                + O_PARA + O_FONT_TYPE + comp.getFont().toString() + " paragraph" + E_FONT_TYPE + O_FONT_SIZE + comp.getFontSize() + E_FONT_SIZE + C_PARA + text + E_PARA + "\n"
+                + E_DIV;
+
+        return html;
+    }
+
     //need to make a json to correspond to it
     public static String generateSlideShowComponentHTML(SlideShowComponent comp, int numSlideShow) {
         //60% of total height for the image 

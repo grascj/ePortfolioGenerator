@@ -71,26 +71,21 @@ public class ParagraphPrompt extends Stage {
     boolean ok;
 
     public class LinkBox extends HBox {
-
         Label text;
         Label urlLabel;
         TextField urlField;
         Hyperlink link;
-
         public LinkBox(Hyperlink link) {
             this.link = link;
-            this.text = new Label(link.txt);
+            this.text = new Label(this.link.txt);
             urlLabel = new Label("     Enter URL: ");
-            urlField = new TextField();
-
+            urlField = new TextField(link.url);
             urlField.setOnKeyReleased(e -> {
                 this.link.url = urlField.getText();
             });
-
             this.getChildren().addAll(this.text, urlLabel, urlField);
             this.setStyle("-fx-padding: 10px; -fx-alignment: center;");
         }
-
     }
 
     public ParagraphPrompt(ParagraphComponent comp) {
@@ -144,11 +139,9 @@ public class ParagraphPrompt extends Stage {
     }
 
     private void initHandlers() {
-
         paraText.textProperty().addListener(e -> {
             checkLinkValidity();
         });
-
         rmLink.setOnAction(e -> {
             links.remove(selection);
             selection = null;
@@ -156,7 +149,6 @@ public class ParagraphPrompt extends Stage {
         });
         addLink.setOnAction(e -> {
             makeHyperlink();
-
         });
         okayBtn.setOnAction(e -> {
             ok = true;
