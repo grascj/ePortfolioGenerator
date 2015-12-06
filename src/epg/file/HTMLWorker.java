@@ -191,6 +191,7 @@ public class HTMLWorker {
         String html
                 = O_DIV
                 + O_VIDEO + CLASS_COMP + VIDEOTYPE + makeSize(comp) + makeSrc(comp) + E_VIDEO
+                + O_PARA + CLASS_COMP + " style=\"text-align:center;\"" + C_PARA + comp.getCaption() + E_PARA
                 + E_DIV;
 
         return html;
