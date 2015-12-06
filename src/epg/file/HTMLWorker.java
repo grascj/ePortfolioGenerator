@@ -118,6 +118,7 @@ public class HTMLWorker {
         String html
                 = O_DIV
                 + O_IMAGE + CLASS_COMP + makeSize(comp) + makeSrc(comp) + O_FLOAT + comp.getFloater().toString() + E_FLOAT + E_IMAGE
+                + O_PARA + CLASS_COMP + " style=\"text-align:center;\"" + C_PARA + comp.getCaption() + E_PARA
                 + E_DIV;
         return html;
     }
@@ -162,7 +163,7 @@ public class HTMLWorker {
         }
 
         String html = O_DIV + "\n"
-                + O_PARA + O_FONT_TYPE + comp.getFont().toString() + " paragraph" + E_FONT_TYPE + O_FONT_SIZE + comp.getFontSize() + E_FONT_SIZE + C_PARA + text + E_PARA + "\n"
+                + O_PARA + " style=\"width:80%;\"" + O_FONT_TYPE + comp.getFont().toString() + " paragraph" + E_FONT_TYPE + O_FONT_SIZE + comp.getFontSize() + E_FONT_SIZE + C_PARA + text + E_PARA + "\n"
                 + E_DIV;
 
         return html;

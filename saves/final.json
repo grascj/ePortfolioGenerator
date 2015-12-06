@@ -1,0 +1,116 @@
+
+{
+    "name":"Chris Grasing",
+    "filename":"final",
+    "pages":[
+        {
+            "font":2,
+            "layout":2,
+            "colors":3,
+            "bannerurl":"/Users/cgmp/Desktop/goodPortfolioStuff/banner.jpg",
+            "banner":"banner.jpg",
+            "footer":"I love to program!",
+            "title":"Homepage",
+            "components":[
+                {
+                    "type":1,
+                    "width":500,
+                    "height":200,
+                    "caption":"",
+                    "file":"programming.png",
+                    "file_url":"/Users/cgmp/Desktop/goodPortfolioStuff/programming.png",
+                    "floater":2
+                },
+                {
+                    "type":0,
+                    "text":"This is my ePortfolio I hope you enjoy it!",
+                    "fpnt_type":2,
+                    "font_size":36
+                },
+                {
+                    "type":3,
+                    "fpnt_type":2,
+                    "font_size":18,
+                    "text":"I am current a student at Stony Brook University pursing a degree in Computer Science. I love all things UNIX.",
+                    "links":[
+                    ]
+                },
+                {
+                    "type":1,
+                    "width":200,
+                    "height":225,
+                    "caption":"Go Seawolves!",
+                    "file":"sbshield.jpg",
+                    "file_url":"/Users/cgmp/Desktop/goodPortfolioStuff/sbshield.jpg",
+                    "floater":2
+                }
+            ],
+            "slideshows":[
+            ]
+        },
+        {
+            "font":1,
+            "layout":3,
+            "colors":0,
+            "bannerurl":"/Users/cgmp/Desktop/goodPortfolioStuff/banner2.png",
+            "banner":"banner2.png",
+            "footer":"",
+            "title":"About Me",
+            "components":[
+                {
+                    "type":0,
+                    "text":"Nice to meet you!",
+                    "fpnt_type":1,
+                    "font_size":36
+                },
+                {
+                    "type":3,
+                    "fpnt_type":1,
+                    "font_size":18,
+                    "text":"\tMy name is Christopher Grasing. I'm current junior pursuing Computer Science here at Stony Brook University. My dad was the one who got me into programming from a young age. He is current a systems automator at Metlife.\n\tI enjoy the exact things you would expect from a CSE major; I like to play video games, board games and drink beer. Sometimes even doing all three at once. I also love to read.",
+                    "links":[
+                        {
+                            "txt":"Stony Brook University",
+                            "url":"http://www.stonybrook.edu",
+                            "start":86,
+                            "end":108
+                        }
+                    ]
+                },
+                {
+                    "type":1,
+                    "width":200,
+                    "height":300,
+                    "caption":"I have a German Shepherd named Henry.",
+                    "file":"gsd.jpg",
+                    "file_url":"/Users/cgmp/Desktop/goodPortfolioStuff/gsd.jpg",
+                    "floater":2
+                },
+                {
+                    "type":1,
+                    "width":300,
+                    "height":300,
+                    "caption":"I love anything Lord of the Rings related.",
+                    "file":"rivendell.jpg",
+                    "file_url":"/Users/cgmp/Desktop/goodPortfolioStuff/rivendell.jpg",
+                    "floater":2
+                }
+            ],
+            "slideshows":[
+            ]
+        },
+        {
+            "font":1,
+            "layout":0,
+            "colors":3,
+            "bannerurl":"",
+            "banner":"",
+            "footer":"",
+            "title":"Videos",
+            "components":[
+            ],
+            "slideshows":[
+            ]
+        }
+    ]
+}

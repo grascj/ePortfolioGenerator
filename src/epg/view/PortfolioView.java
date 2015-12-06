@@ -142,7 +142,7 @@ public class PortfolioView {
     public void loadSiteView() {
 
         try {
-            siteView.load(workingPortfolio);
+            siteView.load(workingPortfolio, pageEditor.selectedPage);
         } catch (IOException ex) {
             Logger.getLogger(PortfolioView.class.getName()).log(Level.SEVERE, null, ex);
         }

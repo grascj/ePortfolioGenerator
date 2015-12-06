@@ -1,0 +1,23 @@
+
+{
+    "name":"Chris Grasing",
+    "title":"Homepage",
+    "font":2,
+    "layout":2,
+    "colors":3,
+    "banner":"banner.jpg",
+    "footer":"I love to program!",
+    "navbar":[
+        "<a href=\"../Homepage/index.html\" class=\"pagelink selectedpagelink\">Homepage</a>",
+        "<a href=\"../About Me/index.html\" class=\"pagelink\">About Me</a>",
+        "<a href=\"../Videos/index.html\" class=\"pagelink\">Videos</a>"
+    ],
+    "components":[
+        "<div class=\"compdiv\"><img class=\"comp\" width=\"500\" height=\"200\" src=\"./media/programming.png\" style=\"float:none;\"></img><p class=\"comp\" style=\"text-align:center;\"></p></div>",
+        "<div class=\"compdiv\">\n<h1 class=\"comp Muli header\" style=\"font-size:36px;\">This is my ePortfolio I hope you enjoy it!</h1>\n</div>\n",
+        "<div class=\"compdiv\">\n<p style=\"width:80%;\" class=\"comp Muli paragraph\" style=\"font-size:18px;\">I am current a student at Stony Brook University pursing a degree in Computer Science. I love all things UNIX.</p>\n</div>",
+        "<div class=\"compdiv\"><img class=\"comp\" width=\"200\" height=\"225\" src=\"./media/sbshield.jpg\" style=\"float:none;\"></img><p class=\"comp\" style=\"text-align:center;\">Go Seawolves!</p></div>"
+    ],
+    "slideshows":[
+    ]
+}

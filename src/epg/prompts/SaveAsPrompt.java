@@ -26,23 +26,22 @@ import javafx.stage.Stage;
  * @author cgmp
  */
 public class SaveAsPrompt extends Stage {
-
+    
     BorderPane uicontainer;
-
+    
     VBox container;
     Label fileLabel;
     TextField fileText;
     Button okayBtn;
-
+    
     boolean ok;
-
+    
     public SaveAsPrompt(Portfolio portfolio, String title, String label) {
         this.setTitle(title);
         initModality(Modality.APPLICATION_MODAL);
-
+        
         ok = false;
-
-
+        
         uicontainer = new BorderPane();
         container = new VBox();
         fileLabel = new Label(label);
@@ -50,25 +49,29 @@ public class SaveAsPrompt extends Stage {
         okayBtn = initChildButton(CSS_OK_BUTTON, ICON_CHECK, TT_OK);
         okayBtn.setOnAction(e -> {
             ok = true;
-            portfolio.setFileName(fileText.getText());
+            if (fileText.getText().trim().equals("")) {
+                portfolio.setFileName("default_portfolio");
+            } else {
+                portfolio.setFileName(fileText.getText());
+            }
             this.hide();
         });
         container.getChildren().addAll(fileLabel, fileText);
         container.getStyleClass().add(CSS_CONTAINER);
-
+        
         uicontainer.setCenter(container);
         uicontainer.setBottom(okayBtn);
         uicontainer.getStyleClass().add(CSS_CONTAINER);
-
+        
         Scene promptbody = new Scene(uicontainer, 200, 200);
         promptbody.getStylesheets().add(PATH_PROMPTSTYLESHEET);
         this.setScene(promptbody);
         this.showAndWait();
-
+        
     }
-
+    
     public boolean isOk() {
         return ok;
     }
-
+    
 }

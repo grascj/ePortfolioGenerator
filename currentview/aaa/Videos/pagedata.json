@@ -1,0 +1,19 @@
+
+{
+    "name":"Chris Grasing",
+    "title":"Videos",
+    "font":1,
+    "layout":0,
+    "colors":3,
+    "banner":"",
+    "footer":"",
+    "navbar":[
+        "<a href=\"../Homepage/index.html\" class=\"pagelink\">Homepage</a>",
+        "<a href=\"../About Me/index.html\" class=\"pagelink\">About Me</a>",
+        "<a href=\"../Videos/index.html\" class=\"pagelink selectedpagelink\">Videos</a>"
+    ],
+    "components":[
+    ],
+    "slideshows":[
+    ]
+}

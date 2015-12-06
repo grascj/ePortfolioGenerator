@@ -32,8 +32,6 @@ public class FileController {
         this.pv = pv;
     }
 
-    
-    //@todo hide unless its being edited?
     public void handleNew() {
         if (!pv.isSaved()) {
             PromptToSave popup = new PromptToSave();
@@ -84,10 +82,13 @@ public class FileController {
     public void handleExport() {
         if (ErrorHandler.isValidPortfolio(pv.getPortfolio())) {
             try {
-                if (!pv.getPortfolio().getStudentName().equals("")) {
-                    SiteBuilder.buildSite(pv.getPortfolio(), PATH_SITES + pv.getPortfolio().getStudentName().replaceAll(" ", "_"));
+                if (!pv.getPortfolio().getFileName().trim().equals("")) {
+                    SiteBuilder.buildSite(pv.getPortfolio(), PATH_SITES + pv.getPortfolio().getFileName());
                 } else {
-                    SiteBuilder.buildSite(pv.getPortfolio(), PATH_SITES + "newsite");
+                    SaveAsPrompt popup = new SaveAsPrompt(pv.getPortfolio(), "Enter a File Name:", "Enter the new File Name:");
+                    if (popup.isOk()) {
+                        SiteBuilder.buildSite(pv.getPortfolio(), PATH_SITES + pv.getPortfolio().getFileName());
+                    }
                 }
                 pv.exported();
                 pv.loadSiteView();
