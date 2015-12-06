@@ -1,0 +1,43 @@
+
+{
+    "name":"Chris Grasing",
+    "title":"Work",
+    "font":1,
+    "layout":0,
+    "colors":3,
+    "banner":"",
+    "footer":"",
+    "navbar":[
+        "<a href=\"../Homepage/index.html\" class=\"pagelink\">Homepage</a>",
+        "<a href=\"../About Me/index.html\" class=\"pagelink\">About Me</a>",
+        "<a href=\"../Videos/index.html\" class=\"pagelink\">Videos</a>",
+        "<a href=\"../Work/index.html\" class=\"pagelink selectedpagelink\">Work</a>",
+        "<a href=\"../Links/index.html\" class=\"pagelink\">Links</a>"
+    ],
+    "components":[
+        "<div class=\"compdiv\">\n<h1 class=\"comp Bree_Serif header\" style=\"font-size:36px;\">Here are some links to my work:</h1>\n</div>\n",
+        "<div class=\"compdiv\">\n<ul class=\"comp Bree_Serif list\" style=\"font-size:18px;\">\n<li><a href=\"https://bitbucket.org/grascj/\" class=\"Bree_Serif;\" style=\"font-size:18px;\" >My BitBucket account.</a></li>\n<li><a href=\"https://github.com/grascj\" class=\"Bree_Serif;\" style=\"font-size:18px;\" >My Github account.</a></li>\n</ul>\n</div>\n",
+        "<div class=\"compdiv\">\n<p style=\"width:80%;\" class=\"comp Bree_Serif paragraph\" style=\"font-size:18px;\">In fact this very website was created by <a href=\"https://bitbucket.org/grascj/eportfoliogenerator/src\" class=\"Bree_Serif;\" style=\"font-size:18px;\" >one of my projects for CSE 219</a>.</p>\n</div>",
+        "<div class=\"compdiv\">\n<h1 class=\"comp Bree_Serif header\" style=\"font-size:36px;\">Here are some paintings because I dont have much work yet</h1>\n</div>\n",
+        "<div class=\"compdiv\"><div class=\"slideshowcontainer\" style=\"width:400px;\"><h1 class=\"slideshowtitle\">Monet Paintings</h1><img class=\"slideshowimage\" id=\"0img\"></img><p class=\"slideshowcaption\" id=\"0caption\"></p><div class=\"slideshowbuttoncontainer\"><img class=\"prevButton slideshowbutton\" src=\"../data/button_images/previous.png\" onclick=\"previousButton(0)\"></img><img class=\"playButton slideshowbutton\" id=\"0button\" src=\"../data/button_images/play.png\" onclick=\"playSlideShow(0)\"></img><img class=\"nextButton slideshowbutton\" src=\"../data/button_images/next.png\" onclick=\"nextButton(0)\"></img></div></div>"
+    ],
+    "slideshows":[
+        {
+            "title":"Monet Paintings",
+            "index":0,
+            "images":[
+                "sunrise.jpg",
+                "huts.jpg",
+                "lillies.jpg",
+                "rosewalk.jpg"
+            ],
+            "captions":[
+                "sunrise",
+                "huts",
+                "lillies",
+                "rose walk"
+            ],
+            "updater":"0"
+        }
+    ]
+}

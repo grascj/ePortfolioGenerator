@@ -5,7 +5,7 @@
     "pages":[
         {
             "font":2,
-            "layout":2,
+            "layout":1,
             "colors":3,
             "bannerurl":"/Users/cgmp/Desktop/goodPortfolioStuff/banner.jpg",
             "banner":"banner.jpg",
@@ -101,13 +101,249 @@
         },
         {
             "font":1,
+            "layout":4,
+            "colors":2,
+            "bannerurl":"",
+            "banner":"",
+            "footer":"pls don't sue me tom cruise i was only joking (not really tho)",
+            "title":"Videos",
+            "components":[
+                {
+                    "type":0,
+                    "text":"These are just some videos I find funny.",
+                    "fpnt_type":1,
+                    "font_size":36
+                },
+                {
+                    "type":5,
+                    "width":300,
+                    "height":300,
+                    "caption":"Bill gates can jump.",
+                    "file":"bill_jumping.mp4",
+                    "file_url":"/Users/cgmp/Desktop/goodPortfolioStuff/bill_jumping.mp4"
+                },
+                {
+                    "type":5,
+                    "width":300,
+                    "height":300,
+                    "caption":"Tom Cruise is insane",
+                    "file":"emperor_cruise.mp4",
+                    "file_url":"/Users/cgmp/Desktop/goodPortfolioStuff/emperor_cruise.mp4"
+                }
+            ],
+            "slideshows":[
+            ]
+        },
+        {
+            "font":1,
             "layout":0,
             "colors":3,
             "bannerurl":"",
             "banner":"",
             "footer":"",
-            "title":"Videos",
+            "title":"Work",
             "components":[
+                {
+                    "type":0,
+                    "text":"Here are some links to my work:",
+                    "fpnt_type":1,
+                    "font_size":36
+                },
+                {
+                    "type":2,
+                    "fpnt_type":1,
+                    "font_size":18,
+                    "items":[
+                        {
+                            "text":"My BitBucket account.",
+                            "links":[
+                                {
+                                    "txt":"My BitBucket account.",
+                                    "url":"https://bitbucket.org/grascj/",
+                                    "start":0,
+                                    "end":21
+                                }
+                            ]
+                        },
+                        {
+                            "text":"My Github account.",
+                            "links":[
+                                {
+                                    "txt":"My Github account.",
+                                    "url":"https://github.com/grascj",
+                                    "start":0,
+                                    "end":18
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type":3,
+                    "fpnt_type":1,
+                    "font_size":18,
+                    "text":"In fact this very website was created by one of my projects for CSE 219.",
+                    "links":[
+                        {
+                            "txt":"one of my projects for CSE 219",
+                            "url":"https://bitbucket.org/grascj/eportfoliogenerator/src",
+                            "start":41,
+                            "end":71
+                        }
+                    ]
+                },
+                {
+                    "type":0,
+                    "text":"Here are some paintings because I dont have much work yet",
+                    "fpnt_type":1,
+                    "font_size":36
+                },
+                {
+                    "type":4,
+                    "width":400,
+                    "height":400,
+                    "numSlideShow":0,
+                    "slideshow":{
+                        "title":"Monet Paintings",
+                        "slides":[
+                            {
+                                "caption":"sunrise",
+                                "file":"sunrise.jpg",
+                                "file_url":"/Users/cgmp/Desktop/goodPortfolioStuff/sunrise.jpg"
+                            },
+                            {
+                                "caption":"huts",
+                                "file":"huts.jpg",
+                                "file_url":"/Users/cgmp/Desktop/goodPortfolioStuff/huts.jpg"
+                            },
+                            {
+                                "caption":"lillies",
+                                "file":"lillies.jpg",
+                                "file_url":"/Users/cgmp/Desktop/goodPortfolioStuff/lillies.jpg"
+                            },
+                            {
+                                "caption":"rose walk",
+                                "file":"rosewalk.jpg",
+                                "file_url":"/Users/cgmp/Desktop/goodPortfolioStuff/rosewalk.jpg"
+                            }
+                        ]
+                    }
+                }
+            ],
+            "slideshows":[
+                {
+                    "title":"Monet Paintings",
+                    "slides":[
+                        {
+                            "caption":"sunrise",
+                            "file":"sunrise.jpg",
+                            "file_url":"/Users/cgmp/Desktop/goodPortfolioStuff/sunrise.jpg"
+                        },
+                        {
+                            "caption":"huts",
+                            "file":"huts.jpg",
+                            "file_url":"/Users/cgmp/Desktop/goodPortfolioStuff/huts.jpg"
+                        },
+                        {
+                            "caption":"lillies",
+                            "file":"lillies.jpg",
+                            "file_url":"/Users/cgmp/Desktop/goodPortfolioStuff/lillies.jpg"
+                        },
+                        {
+                            "caption":"rose walk",
+                            "file":"rosewalk.jpg",
+                            "file_url":"/Users/cgmp/Desktop/goodPortfolioStuff/rosewalk.jpg"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "font":1,
+            "layout":0,
+            "colors":3,
+            "bannerurl":"",
+            "banner":"",
+            "footer":"",
+            "title":"Links",
+            "components":[
+                {
+                    "type":0,
+                    "text":"Here are some links I find useful.",
+                    "fpnt_type":1,
+                    "font_size":36
+                },
+                {
+                    "type":2,
+                    "fpnt_type":1,
+                    "font_size":24,
+                    "items":[
+                        {
+                            "text":"/r/programming",
+                            "links":[
+                                {
+                                    "txt":"/r/programming",
+                                    "url":"https://www.reddit.com/r/programming",
+                                    "start":0,
+                                    "end":14
+                                }
+                            ]
+                        },
+                        {
+                            "text":"/r/linux",
+                            "links":[
+                                {
+                                    "txt":"/r/linux",
+                                    "url":"https://www.reddit.com/r/linux",
+                                    "start":0,
+                                    "end":8
+                                }
+                            ]
+                        },
+                        {
+                            "text":"CodeAcademy",
+                            "links":[
+                                {
+                                    "txt":"CodeAcademy",
+                                    "url":"https://www.codecademy.com",
+                                    "start":0,
+                                    "end":11
+                                }
+                            ]
+                        },
+                        {
+                            "text":"StackOverflow",
+                            "links":[
+                                {
+                                    "txt":"StackOverflow",
+                                    "url":"http://http://stackoverflow.com",
+                                    "start":0,
+                                    "end":13
+                                }
+                            ]
+                        },
+                        {
+                            "text":"nixers.net",
+                            "links":[
+                                {
+                                    "txt":"nixers.net",
+                                    "url":"https://nixers.net",
+                                    "start":0,
+                                    "end":10
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type":1,
+                    "width":300,
+                    "height":300,
+                    "caption":"I hope they help you code like this guy.",
+                    "file":"ritchie.jpg",
+                    "file_url":"/Users/cgmp/Desktop/goodPortfolioStuff/ritchie.jpg",
+                    "floater":2
+                }
             ],
             "slideshows":[
             ]

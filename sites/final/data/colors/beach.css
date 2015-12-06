@@ -1,0 +1,75 @@
+/*this css file is for the layout of the document*/
+/*
+beach
+-cloud
+-sand
+-shallow
+-deep
+
+
+background-color: #dddfd4;
+background-color: #fae596;
+background-color: #3fb0ac;
+background-color: #173e43;
+*/
+
+
+#namediv, #footer{
+background-color: #dddfd4;
+}
+
+#components, html, body {
+background-color: #173e43;
+}
+
+
+
+#navbar{
+background-color: #dddfd4;
+}
+.compdiv, #components {
+background-color: #3fb0ac;
+}
+
+
+
+#nametxt, #textcomp {
+color:black;
+}
+
+
+.pagelink{
+color:black;
+}
+
+
+
+
+/*
+#banner
+#bannerImage
+#footer
+#footerImage
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+/*slideshow stuff*/
+.slideshowcontainer {
+}
+
+
+
+
+
+
+

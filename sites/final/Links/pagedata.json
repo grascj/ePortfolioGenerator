@@ -1,0 +1,24 @@
+
+{
+    "name":"Chris Grasing",
+    "title":"Links",
+    "font":1,
+    "layout":0,
+    "colors":3,
+    "banner":"",
+    "footer":"",
+    "navbar":[
+        "<a href=\"../Homepage/index.html\" class=\"pagelink\">Homepage</a>",
+        "<a href=\"../About Me/index.html\" class=\"pagelink\">About Me</a>",
+        "<a href=\"../Videos/index.html\" class=\"pagelink\">Videos</a>",
+        "<a href=\"../Work/index.html\" class=\"pagelink\">Work</a>",
+        "<a href=\"../Links/index.html\" class=\"pagelink selectedpagelink\">Links</a>"
+    ],
+    "components":[
+        "<div class=\"compdiv\">\n<h1 class=\"comp Bree_Serif header\" style=\"font-size:36px;\">Here are some links I find useful.</h1>\n</div>\n",
+        "<div class=\"compdiv\">\n<ul class=\"comp Bree_Serif list\" style=\"font-size:24px;\">\n<li><a href=\"https://www.reddit.com/r/programming\" class=\"Bree_Serif;\" style=\"font-size:24px;\" >/r/programming</a></li>\n<li><a href=\"https://www.reddit.com/r/linux\" class=\"Bree_Serif;\" style=\"font-size:24px;\" >/r/linux</a></li>\n<li><a href=\"https://www.codecademy.com\" class=\"Bree_Serif;\" style=\"font-size:24px;\" >CodeAcademy</a></li>\n<li><a href=\"http://http://stackoverflow.com\" class=\"Bree_Serif;\" style=\"font-size:24px;\" >StackOverflow</a></li>\n<li><a href=\"https://nixers.net\" class=\"Bree_Serif;\" style=\"font-size:24px;\" >nixers.net</a></li>\n</ul>\n</div>\n",
+        "<div class=\"compdiv\"><img class=\"comp\" width=\"300\" height=\"300\" src=\"./media/ritchie.jpg\" style=\"float:none;\"></img><p class=\"comp\" style=\"text-align:center;\">I hope they help you code like this guy.</p></div>"
+    ],
+    "slideshows":[
+    ]
+}

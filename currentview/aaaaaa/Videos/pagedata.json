@@ -1,0 +1,24 @@
+
+{
+    "name":"Chris Grasing",
+    "title":"Videos",
+    "font":1,
+    "layout":4,
+    "colors":2,
+    "banner":"",
+    "footer":"pls don't sue me tom cruise i was only joking (not really tho)",
+    "navbar":[
+        "<a href=\"../Homepage/index.html\" class=\"pagelink\">Homepage</a>",
+        "<a href=\"../About Me/index.html\" class=\"pagelink\">About Me</a>",
+        "<a href=\"../Videos/index.html\" class=\"pagelink selectedpagelink\">Videos</a>",
+        "<a href=\"../Work/index.html\" class=\"pagelink\">Work</a>",
+        "<a href=\"../Links/index.html\" class=\"pagelink\">Links</a>"
+    ],
+    "components":[
+        "<div class=\"compdiv\">\n<h1 class=\"comp Bree_Serif header\" style=\"font-size:36px;\">These are just some videos I find funny.</h1>\n</div>\n",
+        "<div class=\"compdiv\"><video class=\"comp\" type=\"video/mp4\" width=\"300\" height=\"300\" src=\"./media/bill_jumping.mp4\" controls></video><p class=\"comp\" style=\"text-align:center;\">Bill gates can jump.</p></div>",
+        "<div class=\"compdiv\"><video class=\"comp\" type=\"video/mp4\" width=\"300\" height=\"300\" src=\"./media/emperor_cruise.mp4\" controls></video><p class=\"comp\" style=\"text-align:center;\">Tom Cruise is insane</p></div>"
+    ],
+    "slideshows":[
+    ]
+}
